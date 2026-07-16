@@ -8,6 +8,31 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
+    "name": "Momemade typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "The Momemade design uses Century Gothic. It has no free web version, so by default visitors with it installed see it and everyone else sees Poppins. If you own a Century Gothic webfont license, upload the files under Content → Files, paste their URLs here and enable."
+      },
+      {
+        "type": "checkbox",
+        "id": "momemade_custom_font_enable",
+        "label": "Use uploaded Century Gothic files",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "momemade_font_url_regular",
+        "label": "Font file URL — Regular (woff2/ttf)"
+      },
+      {
+        "type": "text",
+        "id": "momemade_font_url_bold",
+        "label": "Font file URL — Bold (woff2/ttf)"
+      }
+    ]
+  },
+  {
     "name": "t:names.logo_and_favicon",
     "settings": [
       {
@@ -378,18 +403,18 @@
       {
         "type": "header",
         "content": "Custom Font"
-      },      
-     {
+      },
+      {
         "type": "paragraph",
         "content": "Heading( H1 - H6)"
       },
-        {
+      {
         "type": "checkbox",
         "id": "enable_custom_font",
         "label": "Enable",
         "default": false
       },
-        {
+      {
         "type": "text",
         "id": "twocustom_font_name",
         "label": "Font name",
@@ -399,7 +424,7 @@
         "type": "url",
         "id": "twocustom_font_url",
         "label": "Font URL"
-      }, 
+      },
       {
         "type": "header",
         "content": "Body Text ( P )"
@@ -410,7 +435,7 @@
         "label": "Enable",
         "default": false
       },
-        {
+      {
         "type": "text",
         "id": "custom_font_name",
         "label": "Font name",
@@ -421,17 +446,17 @@
         "id": "custom_font_url",
         "label": "Font URL"
       },
-       {
+      {
         "type": "header",
         "content": "Accent"
       },
-       {
+      {
         "type": "checkbox",
         "id": "accent_custom_font",
         "label": "Enable",
         "default": false
       },
-        {
+      {
         "type": "text",
         "id": "accent_font_name",
         "label": "Font name",
@@ -441,7 +466,7 @@
         "type": "url",
         "id": "accent_font_url",
         "label": "Font URL"
-      }, 
+      },
       {
         "type": "header",
         "content": "t:content.text_presets"
@@ -1589,148 +1614,148 @@
           }
         ],
         "default": "none"
-   },
-         {
+      },
+      {
         "type": "header",
         "content": "Custom badge"
       },
       {
-  "type": "checkbox",
-  "id": "enable_new_badge",
-  "label": "New Arrival Badge",
- "info": "Use Metafield Key (custom.new-arrival)",
-  "default": true
-},
-        {
-    "type": "range",
-    "id": "new_badge_font_size",
-    "label": "Font Size",
-    "min": 10,
-    "max": 40,
-    "step": 1,
-    "unit": "px",
-    "default": 12
-  },
-  {
-    "type": "color",
-    "id": "new_badge_bg_color",
-    "label": "Background Color",
-    "default": "#000000"
-  },
-  {
-    "type": "color",
-    "id": "new_badge_text_color",
-    "label": "Text Color",
-    "default": "#ffffff"
-  },
+        "type": "checkbox",
+        "id": "enable_new_badge",
+        "label": "New Arrival Badge",
+        "info": "Use Metafield Key (custom.new-arrival)",
+        "default": true
+      },
       {
-  "type": "checkbox",
-  "id": "enable_best_badge",
-  "label": "Best Selling Badge",
- "info": "Use Metafield Key (custom.best-selling)",
-  "default": true
-},
-        {
-    "type": "range",
-    "id": "best_badge_font_size",
-    "label": "Font Size",
-    "min": 10,
-    "max": 40,
-    "step": 1,
-    "unit": "px",
-    "default": 12
-  },
-  {
-    "type": "color",
-    "id": "best_badge_bg_color",
-    "label": "Background Color",
-    "default": "#000000"
-  },
-  {
-    "type": "color",
-    "id": "best_badge_text_color",
-    "label": "Text Color",
-    "default": "#ffffff"
-  },
-   {
-    "type": "checkbox",
-    "id": "enable_custom_badge",
-    "label": "Custom Badge",
-   "info": "Use Metafield Key (custom.custom-badge)",
-    "default": true
-  },
-     {
-    "type": "range",
-    "id": "custom_badge_font_size",
-    "label": "Font Size",
-    "min": 10,
-    "max": 40,
-    "step": 1,
-    "unit": "px",
-    "default": 12
-  },
-  {
-    "type": "color",
-    "id": "custom_badge_bg_color",
-    "label": "Background Color",
-    "default": "#000000"
-  },
-  {
-    "type": "color",
-    "id": "custom_badge_text_color",
-    "label": "Text Color",
-    "default": "#ffffff"
-  },
-       {
+        "type": "range",
+        "id": "new_badge_font_size",
+        "label": "Font Size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "default": 12
+      },
+      {
+        "type": "color",
+        "id": "new_badge_bg_color",
+        "label": "Background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "new_badge_text_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_best_badge",
+        "label": "Best Selling Badge",
+        "info": "Use Metafield Key (custom.best-selling)",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "best_badge_font_size",
+        "label": "Font Size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "default": 12
+      },
+      {
+        "type": "color",
+        "id": "best_badge_bg_color",
+        "label": "Background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "best_badge_text_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_custom_badge",
+        "label": "Custom Badge",
+        "info": "Use Metafield Key (custom.custom-badge)",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "custom_badge_font_size",
+        "label": "Font Size",
+        "min": 10,
+        "max": 40,
+        "step": 1,
+        "unit": "px",
+        "default": 12
+      },
+      {
+        "type": "color",
+        "id": "custom_badge_bg_color",
+        "label": "Background Color",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "custom_badge_text_color",
+        "label": "Text Color",
+        "default": "#ffffff"
+      },
+      {
         "type": "header",
         "content": "Settings"
       },
       {
-    "type": "range",
-    "id": "new_badge_padding_top",
-    "label": "Padding Top",
-    "min": 0,
-    "max": 50,
-    "step": 1,
-    "unit": "px",
-    "default": 4
-  },
-  {
-    "type": "range",
-    "id": "new_badge_padding_right",
-    "label": "Padding Right",
-    "min": 0,
-    "max": 50,
-    "step": 1,
-    "unit": "px",
-    "default": 10
-  },
-  {
-    "type": "range",
-    "id": "new_badge_padding_bottom",
-    "label": "Padding Bottom",
-    "min": 0,
-    "max": 50,
-    "step": 1,
-    "unit": "px",
-    "default": 4
-  },
-  {
-    "type": "range",
-    "id": "new_badge_padding_left",
-    "label": "Padding Left",
-    "min": 0,
-    "max": 50,
-    "step": 1,
-    "unit": "px",
-    "default": 10
-  },
-        {
-  "type": "text",
-  "id": "custom_border_radius",
-  "label": "Border Radius (e.g. 4px or 10px 0 0 10px)",
-  "default": "0px"
-}
+        "type": "range",
+        "id": "new_badge_padding_top",
+        "label": "Padding Top",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "new_badge_padding_right",
+        "label": "Padding Right",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 10
+      },
+      {
+        "type": "range",
+        "id": "new_badge_padding_bottom",
+        "label": "Padding Bottom",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 4
+      },
+      {
+        "type": "range",
+        "id": "new_badge_padding_left",
+        "label": "Padding Left",
+        "min": 0,
+        "max": 50,
+        "step": 1,
+        "unit": "px",
+        "default": 10
+      },
+      {
+        "type": "text",
+        "id": "custom_border_radius",
+        "label": "Border Radius (e.g. 4px or 10px 0 0 10px)",
+        "default": "0px"
+      }
     ]
   },
   {

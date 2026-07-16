@@ -1,3 +1,4 @@
+{% render 'momemade-fonts' %}
 <header class="momemade-header">
   <details class="momemade-header__mobile-menu">
     <summary class="momemade-header__icon-link" aria-label="Menu">
@@ -79,7 +80,7 @@
   .momemade-logo__word {
     display: inline-flex;
     align-items: center;
-    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
     font-size: 28px;
     letter-spacing: 1px;
@@ -112,7 +113,7 @@
   }
 
   .momemade-header__nav-link {
-    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
     font-size: 14px;
     line-height: 1;
@@ -158,7 +159,7 @@
     border-radius: 8px;
     background: #d49ed7;
     color: #090b00;
-    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
     font-size: 10px;
     line-height: 16px;
@@ -209,7 +210,7 @@
   }
 
   .momemade-header__mobile-link {
-    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
     font-size: 16px;
     color: #a0dbb3;

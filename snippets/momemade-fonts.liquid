@@ -1,0 +1,37 @@
+{% comment %}
+  Momemade typography — the Figma design uses Century Gothic (Bold/Regular).
+  Century Gothic is a commercial font with no free web version, so:
+  1. If a licensed webfont file is provided in Theme settings → Momemade
+     typography, it is @font-face'd and used everywhere.
+  2. Otherwise the stack tries locally-installed Century Gothic first
+     (ships with MS Office, so most desktops have it) and falls back to
+     Poppins, the closest font in the Shopify library.
+  Rendered from momemade-header.liquid so it loads on every page.
+{% endcomment %}
+<style>
+  {%- if settings.momemade_custom_font_enable and settings.momemade_font_url_regular != blank -%}
+    @font-face {
+      font-family: 'Momemade Font';
+      src: url('{{ settings.momemade_font_url_regular }}');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    {%- if settings.momemade_font_url_bold != blank -%}
+      @font-face {
+        font-family: 'Momemade Font';
+        src: url('{{ settings.momemade_font_url_bold }}');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+    {%- endif -%}
+    :root {
+      --momemade-font-family: 'Momemade Font', 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'URW Gothic', 'Poppins', 'Futura', 'Trebuchet MS', sans-serif;
+    }
+  {%- else -%}
+    :root {
+      --momemade-font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'URW Gothic', 'Poppins', 'Futura', 'Trebuchet MS', sans-serif;
+    }
+  {%- endif -%}
+</style>
