@@ -1,0 +1,55 @@
+{% comment %}
+  Inline SVG icons recreated from the Figma design (proxy-safe, no external assets).
+  Usage: {% render 'momemade-icons', name: 'search' %}
+{% endcomment %}
+{%- case name -%}
+  {%- when 'search' -%}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M16.5 16.5L21 21" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  {%- when 'bag' -%}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M5 8h14l-1 12a1.5 1.5 0 0 1-1.5 1.3h-9A1.5 1.5 0 0 1 6 20L5 8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M9 10V6.5a3 3 0 0 1 6 0V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  {%- when 'user' -%}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M4.5 20.5c1.2-3.5 4-5 7.5-5s6.3 1.5 7.5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  {%- when 'hamburger' -%}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  {%- when 'close' -%}
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+  {%- when 'paw' -%}
+    <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true" focusable="false">
+      <ellipse cx="50" cy="63" rx="24" ry="20"/>
+      <ellipse cx="24" cy="38" rx="10" ry="13" transform="rotate(-20 24 38)"/>
+      <ellipse cx="42" cy="24" rx="10" ry="13" transform="rotate(-6 42 24)"/>
+      <ellipse cx="62" cy="25" rx="10" ry="13" transform="rotate(8 62 25)"/>
+      <ellipse cx="79" cy="41" rx="10" ry="13" transform="rotate(24 79 41)"/>
+    </svg>
+  {%- when 'sparkle' -%}
+    <svg viewBox="0 0 90 90" fill="none" aria-hidden="true" focusable="false">
+      <path d="M12 62C30 52 44 38 52 18" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M34 76C50 68 62 56 70 40" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M60 84C70 78 78 70 84 58" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+  {%- when 'badge-flower' -%}
+    <svg viewBox="0 0 154 154" fill="currentColor" aria-hidden="true" focusable="false">
+      <circle cx="77" cy="77" r="44"/>
+      <circle cx="77" cy="26" r="22"/>
+      <circle cx="77" cy="128" r="22"/>
+      <circle cx="26" cy="77" r="22"/>
+      <circle cx="128" cy="77" r="22"/>
+      <circle cx="41" cy="41" r="22"/>
+      <circle cx="113" cy="41" r="22"/>
+      <circle cx="41" cy="113" r="22"/>
+      <circle cx="113" cy="113" r="22"/>
+    </svg>
+{%- endcase -%}

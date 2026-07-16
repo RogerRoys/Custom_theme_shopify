@@ -9,882 +9,193 @@
  */
 {
   "sections": {
-    "momemade_hero": {
+    "hero": {
       "type": "momemade-hero",
       "blocks": {
-        "btn_biscuits": {
+        "btn-biscuits": {
           "type": "button",
           "settings": {
             "label": "SHOP BISCUITS",
-            "link": "",
             "style": "pink"
           }
         },
-        "btn_bandanas": {
+        "btn-bandanas": {
           "type": "button",
           "settings": {
             "label": "SHOP BANDANAS",
-            "link": "",
             "style": "mint"
           }
         },
-        "btn_find": {
+        "btn-find": {
           "type": "button",
           "settings": {
             "label": "FIND YOUR BISCUIT",
-            "link": "",
             "style": "outline"
           }
         }
       },
       "block_order": [
-        "btn_biscuits",
-        "btn_bandanas",
-        "btn_find"
+        "btn-biscuits",
+        "btn-bandanas",
+        "btn-find"
       ],
-      "name": "Momemade hero",
       "settings": {
-        "color_scheme": "scheme-3",
         "eyebrow": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY",
         "heading": "“If I wouldn't give it to my own dog, I don't make it”",
         "subheading": "Plant-based biscuits baked in our kitchen. Bandanas sewn one at a time from reclaimed fabrics. Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.",
+        "image": "shopify://shop_images/hero-dog.png",
         "show_sparkle": true,
         "show_paw": true,
         "show_badge": true,
-        "badge_text": "Approved by vet",
-        "image": "shopify://shop_images/hero-dog.png"
+        "badge_text": "Approved by vet"
       }
     },
-    "momemade_ticker": {
-      "type": "marquee",
+    "ticker": {
+      "type": "momemade-ticker",
       "blocks": {
-        "ticker_text_1": {
-          "type": "text",
+        "t1": {
+          "type": "item",
           "settings": {
-            "text": "<p>Small-batch baked in Hudson Valley, NY</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Small-batch baked in Hudson Valley, NY"
+          }
         },
-        "ticker_dot_1": {
-          "type": "text",
+        "t2": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "\"These are the only treats she will eat.\" — Kim F."
+          }
         },
-        "ticker_text_2": {
-          "type": "text",
+        "t3": {
+          "type": "item",
           "settings": {
-            "text": "<p>“These are the only treats she will eat.” — Kim F.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Reclaimed fabrics"
+          }
         },
-        "ticker_dot_2": {
-          "type": "text",
+        "t4": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "No waste"
+          }
         },
-        "ticker_text_3": {
-          "type": "text",
+        "t5": {
+          "type": "item",
           "settings": {
-            "text": "<p>Reclaimed fabrics</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Grain free"
+          }
         },
-        "ticker_dot_3": {
-          "type": "text",
+        "t6": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "\"Jax has his own stash.\" — Jennifer T."
+          }
         },
-        "ticker_text_4": {
-          "type": "text",
+        "t7": {
+          "type": "item",
           "settings": {
-            "text": "<p>No waste</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Hypoallergenic"
+          }
         },
-        "ticker_dot_4": {
-          "type": "text",
+        "t8": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Plant-based"
+          }
         },
-        "ticker_text_5": {
-          "type": "text",
+        "t9": {
+          "type": "item",
           "settings": {
-            "text": "<p>Grain free</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "\"Just ordered another 5 bags!\" — Eva H."
+          }
         },
-        "ticker_dot_5": {
-          "type": "text",
+        "t10": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "No preservatives"
+          }
         },
-        "ticker_text_6": {
-          "type": "text",
+        "t11": {
+          "type": "item",
           "settings": {
-            "text": "<p>“Jax has his own stash.” — Jennifer T.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "No fillers"
+          }
         },
-        "ticker_dot_6": {
-          "type": "text",
+        "t12": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "No additives"
+          }
         },
-        "ticker_text_7": {
-          "type": "text",
+        "t13": {
+          "type": "item",
           "settings": {
-            "text": "<p>Hypoallergenic</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "Sewn one at a time"
+          }
         },
-        "ticker_dot_7": {
-          "type": "text",
+        "t14": {
+          "type": "item",
           "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "One of a kind"
+          }
         },
-        "ticker_text_8": {
-          "type": "text",
+        "t15": {
+          "type": "item",
           "settings": {
-            "text": "<p>Plant-based</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_8": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_9": {
-          "type": "text",
-          "settings": {
-            "text": "<p>“Just ordered another 5 bags!” — Eva H.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_9": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_10": {
-          "type": "text",
-          "settings": {
-            "text": "<p>No preservatives</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_10": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_11": {
-          "type": "text",
-          "settings": {
-            "text": "<p>No fillers</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_11": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_12": {
-          "type": "text",
-          "settings": {
-            "text": "<p>No additives</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_12": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_13": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Sewn one at a time</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_13": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_14": {
-          "type": "text",
-          "settings": {
-            "text": "<p>One of a kind</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_14": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_text_15": {
-          "type": "text",
-          "settings": {
-            "text": "<p>“They’re worth the price because they make Charles happy.” — Anthony G.</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "ticker_dot_15": {
-          "type": "text",
-          "settings": {
-            "text": "<p>•</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "custom",
-            "font": "var(--font-primary--family)",
-            "font_size": "2rem",
-            "line_height": "tight",
-            "letter_spacing": "tight",
-            "case": "none",
-            "wrap": "nowrap",
-            "color": "var(--color-primary)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
+            "text": "\"They're worth the price because they make Charles happy.\" — Anthony G."
+          }
         }
       },
       "block_order": [
-        "ticker_text_1",
-        "ticker_dot_1",
-        "ticker_text_2",
-        "ticker_dot_2",
-        "ticker_text_3",
-        "ticker_dot_3",
-        "ticker_text_4",
-        "ticker_dot_4",
-        "ticker_text_5",
-        "ticker_dot_5",
-        "ticker_text_6",
-        "ticker_dot_6",
-        "ticker_text_7",
-        "ticker_dot_7",
-        "ticker_text_8",
-        "ticker_dot_8",
-        "ticker_text_9",
-        "ticker_dot_9",
-        "ticker_text_10",
-        "ticker_dot_10",
-        "ticker_text_11",
-        "ticker_dot_11",
-        "ticker_text_12",
-        "ticker_dot_12",
-        "ticker_text_13",
-        "ticker_dot_13",
-        "ticker_text_14",
-        "ticker_dot_14",
-        "ticker_text_15",
-        "ticker_dot_15"
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8",
+        "t9",
+        "t10",
+        "t11",
+        "t12",
+        "t13",
+        "t14",
+        "t15"
       ],
-      "name": "t:names.marquee_section",
       "settings": {
-        "movement_direction": "normal",
-        "color_scheme": "scheme-3",
-        "padding-block-start": 25,
-        "padding-block-end": 24,
-        "gap_between_elements": 16
+        "speed": 60
       }
     },
-    "momemade_showcase": {
+    "showcase": {
       "type": "momemade-showcase",
       "blocks": {
-        "card_biscuits": {
+        "card-biscuits": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/biscuits-dog.png",
             "eyebrow": "Kitchen-baked · Plant-based · 3–6 ingredients",
             "title": "Dog Biscuits",
             "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
             "button_label": "SHOP BISCUITS",
-            "button_link": "",
-            "accent": "#D4A0C0",
-            "image": "shopify://shop_images/biscuits-dog.png"
+            "accent": "#D4A0C0"
           }
         },
-        "card_bandanas": {
+        "card-bandanas": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/bandana-dog.png",
             "eyebrow": "Reclaimed fabrics · Sewn one at a time · No hardware",
             "title": "Dog Bandanas",
             "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
             "button_label": "SHOP BANDANAS",
-            "button_link": "",
-            "accent": "#84C99A",
-            "image": "shopify://shop_images/bandana-dog.png"
+            "accent": "#84C99A"
           }
         }
       },
       "block_order": [
-        "card_biscuits",
-        "card_bandanas"
+        "card-biscuits",
+        "card-bandanas"
       ],
-      "name": "Momemade showcase",
       "settings": {
-        "color_scheme": "scheme-2",
         "eyebrow": "What we make",
         "title": "Two products. One standard",
         "subtitle": "Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."
@@ -892,8 +203,8 @@
     }
   },
   "order": [
-    "momemade_hero",
-    "momemade_ticker",
-    "momemade_showcase"
+    "hero",
+    "ticker",
+    "showcase"
   ]
 }

@@ -1,0 +1,261 @@
+<header class="momemade-header">
+  <details class="momemade-header__mobile-menu">
+    <summary class="momemade-header__icon-link" aria-label="Menu">
+      <span class="momemade-header__mobile-menu-open">{% render 'momemade-icons', name: 'hamburger' %}</span>
+      <span class="momemade-header__mobile-menu-close">{% render 'momemade-icons', name: 'close' %}</span>
+    </summary>
+    <nav class="momemade-header__mobile-nav" aria-label="Mobile navigation">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" class="momemade-header__mobile-link{% if link.current %} is-active{% endif %}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+  </details>
+
+  <a href="{{ routes.root_url }}" class="momemade-header__logo-link" aria-label="{{ shop.name }} — home">
+    {%- if section.settings.logo != blank -%}
+      {{
+        section.settings.logo
+        | image_url: width: 400
+        | image_tag: class: 'momemade-header__logo-image', widths: '200, 400', alt: shop.name
+      }}
+    {%- else -%}
+      {% render 'momemade-logo' %}
+    {%- endif -%}
+  </a>
+
+  <nav class="momemade-header__nav" aria-label="Main navigation">
+    {%- for link in section.settings.menu.links -%}
+      <a href="{{ link.url }}" class="momemade-header__nav-link{% if link.current %} is-active{% endif %}">{{ link.title }}</a>
+    {%- endfor -%}
+  </nav>
+
+  <div class="momemade-header__icons">
+    <a href="{{ routes.search_url }}" class="momemade-header__icon-link" aria-label="Search">
+      {% render 'momemade-icons', name: 'search' %}
+    </a>
+    <a href="{{ routes.cart_url }}" class="momemade-header__icon-link momemade-header__cart" aria-label="Cart ({{ cart.item_count }} items)">
+      {% render 'momemade-icons', name: 'bag' %}
+      <span class="momemade-header__cart-count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
+    </a>
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="{{ routes.account_url }}" class="momemade-header__icon-link" aria-label="Account">
+        {% render 'momemade-icons', name: 'user' %}
+      </a>
+    {%- endif -%}
+  </div>
+</header>
+
+{% style %}
+  .momemade-header {
+    background: #090b00;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 80px;
+    position: relative;
+  }
+
+  .momemade-header__logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #a0dbb3;
+  }
+
+  .momemade-header__logo-image {
+    display: block;
+    width: auto;
+    max-height: 44px;
+  }
+
+  .momemade-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .momemade-logo__word {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .momemade-logo__paw {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    margin: 0 1px;
+  }
+
+  .momemade-logo__paw svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .momemade-logo__tagline {
+    font-size: 8px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  .momemade-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .momemade-header__nav-link {
+    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+    color: #a0dbb3;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .momemade-header__nav-link:hover,
+  .momemade-header__nav-link.is-active {
+    color: #d49ed7;
+  }
+
+  .momemade-header__icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .momemade-header__icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: #a0dbb3;
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .momemade-header__icon-link:hover {
+    color: #d49ed7;
+  }
+
+  .momemade-header__cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background: #d49ed7;
+    color: #090b00;
+    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .momemade-header__cart-count.is-empty {
+    display: none;
+  }
+
+  /* Mobile menu */
+  .momemade-header__mobile-menu {
+    display: none;
+  }
+
+  .momemade-header__mobile-menu summary {
+    list-style: none;
+  }
+
+  .momemade-header__mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .momemade-header__mobile-menu-close {
+    display: none;
+  }
+
+  .momemade-header__mobile-menu[open] .momemade-header__mobile-menu-open {
+    display: none;
+  }
+
+  .momemade-header__mobile-menu[open] .momemade-header__mobile-menu-close {
+    display: inline-flex;
+  }
+
+  .momemade-header__mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    background: #090b00;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 16px 20px 24px;
+    gap: 16px;
+  }
+
+  .momemade-header__mobile-link {
+    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #a0dbb3;
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 989px) {
+    .momemade-header {
+      padding: 16px 20px;
+    }
+
+    .momemade-header__nav {
+      display: none;
+    }
+
+    .momemade-header__mobile-menu {
+      display: block;
+    }
+
+    .momemade-header__icons {
+      gap: 16px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "Leave empty to use the built-in Momemade wordmark."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  }
+}
+{% endschema %}

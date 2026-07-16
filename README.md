@@ -10,21 +10,31 @@ Built on an optimized **Horizon 3.2.1** base, implementing Frame 1 of the Figma 
 | --- | --- |
 | `claude/epic-galileo-sgk6bo` | Working branch — Horizon base + Momemade design (connect this to Shopify) |
 | `Momemade-theme-base` | Pristine snapshot of the optimized Horizon base theme (reference/backup) |
+| `Momemade-v1-from-scratch` | The original from-scratch Momemade theme, preserved as-is |
 
 ## What was customized on top of Horizon
 
-- **Color schemes** (`config/settings_data.json`) — remapped to the Momemade palette:
-  - `scheme-1` Light (white) · `scheme-2` Blush `#F5DFE2` · `scheme-3` Dark `#090B00` · `scheme-4` Mint `#A0DBB3` · `scheme-5` Pink `#D49ED7` (announcement) · `scheme-6` Transparent header overlay
-- **Typography** — Poppins (closest Shopify-library match to the design's Century Gothic)
-- **Announcement bar** (`sections/header-group.json`) — free-shipping message on the pink scheme
-- **Header** — dark scheme top & bottom rows
-- **Homepage** (`templates/index.json`):
-  1. `sections/momemade-hero.liquid` — custom split hero: quote heading, 3 CTAs, sparkle doodle, paw print, rotating "Approved by vet" badge (all inline SVG)
-  2. Horizon's native `marquee` section — configured as the claims/testimonials ticker (32px, pink on dark)
-  3. `sections/momemade-showcase.liquid` — custom "Two products. One standard" cards
-- **Fixes** — removed trailing-comma JSON bug in `config/settings_schema.json`; theme rebranded to "Momemade" by Roys Studio
+**All Momemade-facing sections are fully custom, self-contained builds** (same design/code as the original from-scratch theme) — they do NOT depend on Horizon's native sections, color schemes, or fonts:
 
-Everything else (product pages, cart drawer, search, performance optimizations) is untouched Horizon.
+| Section | File |
+| --- | --- |
+| Announcement bar | `sections/momemade-announcement.liquid` |
+| Header (dark navbar + mobile menu) | `sections/momemade-header.liquid` |
+| Hero (quote, 3 CTAs, sparkle/paw/vet badge) | `sections/momemade-hero.liquid` |
+| Scrolling ticker (CSS marquee) | `sections/momemade-ticker.liquid` |
+| "Two products. One standard" showcase | `sections/momemade-showcase.liquid` |
+| Footer | `sections/momemade-footer.liquid` |
+
+Supporting snippets: `snippets/momemade-icons.liquid`, `snippets/momemade-logo.liquid` (all inline SVG).
+
+Wiring: `sections/header-group.json`, `sections/footer-group.json`, `templates/index.json` (photos already connected via `shopify://shop_images/`).
+
+Also changed on the base:
+- Color schemes in `config/settings_data.json` remapped to the Momemade palette (affects Horizon-rendered pages: product, collection, cart, search)
+- Typography set to Poppins; cart type set to page (drawer lives in the unused Horizon header)
+- Fixed a pre-existing trailing-comma JSON bug in `config/settings_schema.json`
+
+Everything else is untouched Horizon 3.2.1.
 
 ## After connecting to a store
 

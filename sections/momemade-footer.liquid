@@ -1,0 +1,109 @@
+<footer class="momemade-footer">
+  <div class="momemade-footer__inner">
+    <div class="momemade-footer__brand">
+      {% render 'momemade-logo' %}
+      {%- if section.settings.text != blank -%}
+        <p class="momemade-footer__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.menu != blank -%}
+      <nav class="momemade-footer__nav" aria-label="Footer navigation">
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}" class="momemade-footer__link">{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+  </div>
+
+  <div class="momemade-footer__bottom">
+    <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</small>
+  </div>
+</footer>
+
+{% style %}
+  .momemade-footer {
+    background: #090b00;
+    color: #f5dbdf;
+    padding: 64px 80px 32px;
+  }
+
+  .momemade-footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .momemade-footer__brand {
+    color: #a0dbb3;
+    max-width: 360px;
+  }
+
+  .momemade-footer__text {
+    color: rgba(245,219,223,0.8);
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 16px;
+  }
+
+  .momemade-footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .momemade-footer__link {
+    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #a0dbb3;
+    text-decoration: none;
+  }
+
+  .momemade-footer__link:hover {
+    color: #d49ed7;
+  }
+
+  .momemade-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 48px;
+    padding-top: 24px;
+    color: rgba(245,219,223,0.8);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-footer {
+      padding: 48px 20px 24px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Dog goods, mom approved — made in Hudson Valley, NY."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "footer"
+    ]
+  }
+}
+{% endschema %}

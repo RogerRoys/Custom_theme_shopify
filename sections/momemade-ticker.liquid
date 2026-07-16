@@ -1,0 +1,219 @@
+<section class="momemade-ticker" aria-label="Highlights">
+  <div class="momemade-ticker__viewport">
+    {%- capture ticker_items -%}
+      {%- for block in section.blocks -%}
+        <span class="momemade-ticker__item" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+        <span class="momemade-ticker__dot" aria-hidden="true"></span>
+      {%- endfor -%}
+    {%- endcapture -%}
+
+    <div class="momemade-ticker__track" style="--ticker-duration: {{ section.settings.speed }}s;">
+      <div class="momemade-ticker__group">{{ ticker_items }}</div>
+      <div class="momemade-ticker__group" aria-hidden="true">{{ ticker_items }}</div>
+    </div>
+  </div>
+</section>
+
+{% style %}
+  .momemade-ticker {
+    background: #090b00;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 25px 0 24px;
+    overflow: hidden;
+  }
+
+  .momemade-ticker__viewport {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .momemade-ticker__track {
+    display: inline-flex;
+    animation: momemade-ticker-scroll var(--ticker-duration, 60s) linear infinite;
+  }
+
+  .momemade-ticker:hover .momemade-ticker__track {
+    animation-play-state: paused;
+  }
+
+  .momemade-ticker__group {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding-right: 16px;
+  }
+
+  .momemade-ticker__item {
+    font-family: 'Poppins', 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #d49ed7;
+    white-space: nowrap;
+  }
+
+  .momemade-ticker__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d49ed7;
+    flex-shrink: 0;
+  }
+
+  @keyframes momemade-ticker-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .momemade-ticker__track {
+      animation: none;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-ticker__item {
+      font-size: 22px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade ticker",
+  "settings": [
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Scroll duration (seconds)",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "info": "Lower is faster."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ticker item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Small-batch baked in Hudson Valley, NY"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling ticker",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Small-batch baked in Hudson Valley, NY"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "\"These are the only treats she will eat.\" — Kim F."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Reclaimed fabrics"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "No waste"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Grain free"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "\"Jax has his own stash.\" — Jennifer T."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Hypoallergenic"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Plant-based"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "\"Just ordered another 5 bags!\" — Eva H."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "No preservatives"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "No fillers"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "No additives"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Sewn one at a time"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "One of a kind"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "\"They're worth the price because they make Charles happy.\" — Anthony G."
+          }
+        }
+      ]
+    }
+  ],
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer"
+    ]
+  }
+}
+{% endschema %}

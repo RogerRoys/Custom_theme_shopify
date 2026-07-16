@@ -1,0 +1,67 @@
+{%- if section.settings.text != blank -%}
+  <div class="momemade-announcement" role="region" aria-label="Announcement">
+    {%- if section.settings.link != blank -%}
+      <a href="{{ section.settings.link }}" class="momemade-announcement__text">{{ section.settings.text }}</a>
+    {%- else -%}
+      <p class="momemade-announcement__text">{{ section.settings.text }}</p>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% style %}
+  .momemade-announcement {
+    background: {{ section.settings.background }};
+    color: {{ section.settings.text_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+  }
+
+  .momemade-announcement__text {
+    margin: 0;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade announcement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "🔥 FREE SHIPPING ON ALL U.S. ORDERS OVER $50! 🔥"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link (optional)"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#D49ED7"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#090B00"
+    }
+  ],
+  "enabled_on": {
+    "groups": [
+      "header"
+    ]
+  }
+}
+{% endschema %}
