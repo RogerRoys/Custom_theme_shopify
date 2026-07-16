@@ -51,7 +51,8 @@
         "show_sparkle": true,
         "show_paw": true,
         "show_badge": true,
-        "badge_text": "Approved by vet"
+        "badge_text": "Approved by vet",
+        "image": "shopify://shop_images/hero-dog.png"
       }
     },
     "momemade_ticker": {
@@ -860,7 +861,8 @@
             "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
             "button_label": "SHOP BISCUITS",
             "button_link": "",
-            "accent": "#D4A0C0"
+            "accent": "#D4A0C0",
+            "image": "shopify://shop_images/biscuits-dog.png"
           }
         },
         "card_bandanas": {
@@ -871,7 +873,8 @@
             "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
             "button_label": "SHOP BANDANAS",
             "button_link": "",
-            "accent": "#84C99A"
+            "accent": "#84C99A",
+            "image": "shopify://shop_images/bandana-dog.png"
           }
         }
       },
