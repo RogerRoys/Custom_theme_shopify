@@ -15,13 +15,15 @@
       "type": "momemade-announcement",
       "settings": {
         "text": "🔥 FREE SHIPPING ON ALL U.S. ORDERS OVER $50! 🔥",
-        "background": "#D49ED7",
-        "text_color": "#090B00"
+        "link": "",
+        "background": "#d49ed7",
+        "text_color": "#090b00"
       }
     },
     "header": {
       "type": "momemade-header",
       "settings": {
+        "logo": "shopify://shop_images/image_9_Vectorized.svg",
         "menu": "main-menu"
       }
     }
