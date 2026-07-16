@@ -1,0 +1,53 @@
+<div class="page-section">
+  <div class="page-width--narrow" style="max-width: 480px;">
+    <div class="section-heading">
+      <h1 class="section-heading__title">Log in</h1>
+    </div>
+
+    {%- form 'customer_login', novalidate: 'novalidate' -%}
+      {%- if form.errors -%}
+        <div class="form-status form-status--error">{{ form.errors | default_errors }}</div>
+      {%- endif -%}
+
+      <div class="field">
+        <label for="customer-email">Email</label>
+        <input type="email" id="customer-email" name="customer[email]" autocomplete="email" required>
+      </div>
+      <div class="field">
+        <label for="customer-password">Password</label>
+        <input type="password" id="customer-password" name="customer[password]" autocomplete="current-password" required>
+      </div>
+
+      <button type="submit" class="btn btn--dark btn--full">Log in</button>
+
+      <p style="margin-top: 16px; text-align: center;">
+        <a href="#recover">Forgot your password?</a> ·
+        <a href="{{ routes.account_register_url }}">Create account</a>
+      </p>
+    {%- endform -%}
+
+    <div id="recover" style="margin-top: 48px;">
+      <h2 style="font-size: 24px;">Reset your password</h2>
+      {%- form 'recover_customer_password' -%}
+        {%- if form.posted_successfully? -%}
+          <div class="form-status">We've sent you an email with a link to update your password.</div>
+        {%- endif -%}
+        {%- if form.errors -%}
+          <div class="form-status form-status--error">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+        <div class="field">
+          <label for="recover-email">Email</label>
+          <input type="email" id="recover-email" name="email" autocomplete="email" required>
+        </div>
+        <button type="submit" class="btn btn--outline btn--full">Send reset link</button>
+      {%- endform -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Login",
+  "settings": []
+}
+{% endschema %}

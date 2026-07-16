@@ -1,0 +1,96 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-momemade",
+      "blocks": {
+        "btn-biscuits": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BISCUITS",
+            "style": "pink"
+          }
+        },
+        "btn-bandanas": {
+          "type": "button",
+          "settings": {
+            "label": "SHOP BANDANAS",
+            "style": "mint"
+          }
+        },
+        "btn-find": {
+          "type": "button",
+          "settings": {
+            "label": "FIND YOUR BISCUIT",
+            "style": "outline"
+          }
+        }
+      },
+      "block_order": ["btn-biscuits", "btn-bandanas", "btn-find"],
+      "settings": {
+        "eyebrow": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY",
+        "heading": "“If I wouldn't give it to my own dog, I don't make it”",
+        "subheading": "Plant-based biscuits baked in our kitchen. Bandanas sewn one at a time from reclaimed fabrics. Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.",
+        "show_sparkle": true,
+        "show_paw": true,
+        "show_badge": true,
+        "badge_text": "Approved by vet"
+      }
+    },
+    "ticker": {
+      "type": "ticker",
+      "blocks": {
+        "t1": { "type": "item", "settings": { "text": "Small-batch baked in Hudson Valley, NY" } },
+        "t2": { "type": "item", "settings": { "text": "\"These are the only treats she will eat.\" — Kim F." } },
+        "t3": { "type": "item", "settings": { "text": "Reclaimed fabrics" } },
+        "t4": { "type": "item", "settings": { "text": "No waste" } },
+        "t5": { "type": "item", "settings": { "text": "Grain free" } },
+        "t6": { "type": "item", "settings": { "text": "\"Jax has his own stash.\" — Jennifer T." } },
+        "t7": { "type": "item", "settings": { "text": "Hypoallergenic" } },
+        "t8": { "type": "item", "settings": { "text": "Plant-based" } },
+        "t9": { "type": "item", "settings": { "text": "\"Just ordered another 5 bags!\" — Eva H." } },
+        "t10": { "type": "item", "settings": { "text": "No preservatives" } },
+        "t11": { "type": "item", "settings": { "text": "No fillers" } },
+        "t12": { "type": "item", "settings": { "text": "No additives" } },
+        "t13": { "type": "item", "settings": { "text": "Sewn one at a time" } },
+        "t14": { "type": "item", "settings": { "text": "One of a kind" } },
+        "t15": { "type": "item", "settings": { "text": "\"They're worth the price because they make Charles happy.\" — Anthony G." } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9", "t10", "t11", "t12", "t13", "t14", "t15"],
+      "settings": {
+        "speed": 60
+      }
+    },
+    "showcase": {
+      "type": "product-showcase",
+      "blocks": {
+        "card-biscuits": {
+          "type": "card",
+          "settings": {
+            "eyebrow": "Kitchen-baked · Plant-based · 3–6 ingredients",
+            "title": "Dog Biscuits",
+            "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
+            "button_label": "SHOP BISCUITS",
+            "accent": "#D4A0C0"
+          }
+        },
+        "card-bandanas": {
+          "type": "card",
+          "settings": {
+            "eyebrow": "Reclaimed fabrics · Sewn one at a time · No hardware",
+            "title": "Dog Bandanas",
+            "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
+            "button_label": "SHOP BANDANAS",
+            "accent": "#84C99A"
+          }
+        }
+      },
+      "block_order": ["card-biscuits", "card-bandanas"],
+      "settings": {
+        "eyebrow": "What we make",
+        "title": "Two products. One standard",
+        "subtitle": "Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."
+      }
+    }
+  },
+  "order": ["hero", "ticker", "showcase"]
+}

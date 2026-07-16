@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{ settings.color_dark }}">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% endif %}
+
+    {{ content_for_header }}
+
+    {% style %}
+      {{ settings.type_body_font | font_face: font_display: 'swap' }}
+      {{ settings.type_header_font | font_face: font_display: 'swap' }}
+
+      :root {
+        --font-body: {{ settings.type_body_font.family }}, 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+        --font-body-weight: {{ settings.type_body_font.weight | default: 400 }};
+        --font-heading: {{ settings.type_header_font.family }}, 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
+        --font-heading-weight: {{ settings.type_header_font.weight | default: 700 }};
+
+        --color-dark: {{ settings.color_dark }};
+        --color-pink: {{ settings.color_pink }};
+        --color-mint: {{ settings.color_mint }};
+        --color-blush: {{ settings.color_blush }};
+        --color-blush-80: {{ settings.color_blush | color_modify: 'alpha', 0.8 }};
+        --color-section-pink: {{ settings.color_section_pink }};
+        --color-cream: {{ settings.color_cream }};
+        --color-cream-dark: {{ settings.color_cream_dark }};
+        --color-btn-pink: {{ settings.color_btn_pink }};
+        --color-btn-green: {{ settings.color_btn_green }};
+      }
+    {% endstyle %}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+  </head>
+
+  <body class="template-{{ template.name | handle }}">
+    <a class="skip-to-content-link visually-hidden" href="#MainContent">Skip to content</a>
+
+    {% sections 'header-group' %}
+
+    <main id="MainContent" class="main-content" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% sections 'footer-group' %}
+
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  </body>
+</html>

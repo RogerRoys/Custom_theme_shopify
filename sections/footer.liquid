@@ -1,0 +1,104 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      {% render 'momemade-logo' %}
+      {%- if section.settings.text != blank -%}
+        <p class="footer__text">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.menu != blank -%}
+      <nav class="footer__nav" aria-label="Footer navigation">
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}" class="footer__link">{{ link.title }}</a>
+        {%- endfor -%}
+      </nav>
+    {%- endif -%}
+  </div>
+
+  <div class="footer__bottom">
+    <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</small>
+  </div>
+</footer>
+
+{% style %}
+  .footer {
+    background: var(--color-dark);
+    color: var(--color-blush);
+    padding: 64px 80px 32px;
+  }
+
+  .footer__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer__brand {
+    color: var(--color-mint);
+    max-width: 360px;
+  }
+
+  .footer__text {
+    color: var(--color-blush-80);
+    font-size: 14px;
+    line-height: 24px;
+    margin-top: 16px;
+  }
+
+  .footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer__link {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 14px;
+    color: var(--color-mint);
+    text-decoration: none;
+  }
+
+  .footer__link:hover {
+    color: var(--color-pink);
+  }
+
+  .footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 48px;
+    padding-top: 24px;
+    color: var(--color-blush-80);
+    font-size: 12px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  @media screen and (max-width: 749px) {
+    .footer {
+      padding: 48px 20px 24px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Dog goods, mom approved — made in Hudson Valley, NY."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

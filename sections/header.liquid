@@ -1,0 +1,256 @@
+<header class="header">
+  <details class="header__mobile-menu">
+    <summary class="header__icon-link" aria-label="Menu">
+      <span class="header__mobile-menu-open">{% render 'icon', name: 'hamburger' %}</span>
+      <span class="header__mobile-menu-close">{% render 'icon', name: 'close' %}</span>
+    </summary>
+    <nav class="header__mobile-nav" aria-label="Mobile navigation">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}" class="header__mobile-link{% if link.current %} is-active{% endif %}">{{ link.title }}</a>
+      {%- endfor -%}
+    </nav>
+  </details>
+
+  <a href="{{ routes.root_url }}" class="header__logo-link" aria-label="{{ shop.name }} — home">
+    {%- if section.settings.logo != blank -%}
+      {{
+        section.settings.logo
+        | image_url: width: 400
+        | image_tag: class: 'header__logo-image', widths: '200, 400', alt: shop.name
+      }}
+    {%- else -%}
+      {% render 'momemade-logo' %}
+    {%- endif -%}
+  </a>
+
+  <nav class="header__nav" aria-label="Main navigation">
+    {%- for link in section.settings.menu.links -%}
+      <a href="{{ link.url }}" class="header__nav-link{% if link.current %} is-active{% endif %}">{{ link.title }}</a>
+    {%- endfor -%}
+  </nav>
+
+  <div class="header__icons">
+    <a href="{{ routes.search_url }}" class="header__icon-link" aria-label="Search">
+      {% render 'icon', name: 'search' %}
+    </a>
+    <a href="{{ routes.cart_url }}" class="header__icon-link header__cart" aria-label="Cart ({{ cart.item_count }} items)">
+      {% render 'icon', name: 'bag' %}
+      <span class="header__cart-count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
+    </a>
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="{{ routes.account_url }}" class="header__icon-link" aria-label="Account">
+        {% render 'icon', name: 'user' %}
+      </a>
+    {%- endif -%}
+  </div>
+</header>
+
+{% style %}
+  .header {
+    background: var(--color-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 80px;
+    position: relative;
+  }
+
+  .header__logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-mint);
+  }
+
+  .header__logo-image {
+    display: block;
+    width: auto;
+    max-height: 44px;
+  }
+
+  .momemade-logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .momemade-logo__word {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .momemade-logo__paw {
+    display: inline-flex;
+    width: 24px;
+    height: 24px;
+    margin: 0 1px;
+  }
+
+  .momemade-logo__paw svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .momemade-logo__tagline {
+    font-size: 8px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .header__nav-link {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 14px;
+    line-height: 1;
+    color: var(--color-mint);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .header__nav-link:hover,
+  .header__nav-link.is-active {
+    color: var(--color-pink);
+  }
+
+  .header__icons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .header__icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--color-mint);
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .header__icon-link:hover {
+    color: var(--color-pink);
+  }
+
+  .header__cart-count {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+    border-radius: 8px;
+    background: var(--color-pink);
+    color: var(--color-dark);
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+  }
+
+  .header__cart-count.is-empty {
+    display: none;
+  }
+
+  /* Mobile menu */
+  .header__mobile-menu {
+    display: none;
+  }
+
+  .header__mobile-menu summary {
+    list-style: none;
+  }
+
+  .header__mobile-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .header__mobile-menu-close {
+    display: none;
+  }
+
+  .header__mobile-menu[open] .header__mobile-menu-open {
+    display: none;
+  }
+
+  .header__mobile-menu[open] .header__mobile-menu-close {
+    display: inline-flex;
+  }
+
+  .header__mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 16px 20px 24px;
+    gap: 16px;
+  }
+
+  .header__mobile-link {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 16px;
+    color: var(--color-mint);
+    text-decoration: none;
+  }
+
+  @media screen and (max-width: 989px) {
+    .header {
+      padding: 16px 20px;
+    }
+
+    .header__nav {
+      display: none;
+    }
+
+    .header__mobile-menu {
+      display: block;
+    }
+
+    .header__icons {
+      gap: 16px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image",
+      "info": "Leave empty to use the built-in Momemade wordmark."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

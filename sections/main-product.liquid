@@ -1,0 +1,142 @@
+<div class="page-section">
+  <div class="page-width">
+    <div class="product">
+      <div class="product__media">
+        {%- if product.media.size > 0 -%}
+          {%- for media in product.media -%}
+            <div class="product__media-item{% if forloop.first %} is-featured{% endif %}">
+              {{
+                media
+                | image_url: width: 1200
+                | image_tag: widths: '600, 900, 1200', sizes: '(max-width: 749px) 100vw, 50vw', alt: media.alt
+              }}
+            </div>
+          {%- endfor -%}
+        {%- else -%}
+          <div class="product__media-item is-featured">
+            {{ 'product-1' | placeholder_svg_tag }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="product__details">
+        <h1 class="product__title">{{ product.title }}</h1>
+
+        <p class="product__price" id="price-{{ section.id }}">
+          {%- if product.compare_at_price > product.price -%}
+            <s>{{ product.compare_at_price | money }}</s>
+          {%- endif -%}
+          {{ product.price | money }}
+        </p>
+
+        {%- form 'product', product, id: 'product-form', novalidate: 'novalidate' -%}
+          {%- unless product.has_only_default_variant -%}
+            <div class="field">
+              <label for="variant-select-{{ section.id }}">Options</label>
+              <select
+                id="variant-select-{{ section.id }}"
+                name="id"
+              >
+                {%- for variant in product.variants -%}
+                  <option
+                    value="{{ variant.id }}"
+                    {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+                    {% unless variant.available %}disabled{% endunless %}
+                  >
+                    {{ variant.title }} — {{ variant.price | money }}{% unless variant.available %} (sold out){% endunless %}
+                  </option>
+                {%- endfor -%}
+              </select>
+            </div>
+          {%- else -%}
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          {%- endunless -%}
+
+          <div class="field">
+            <label for="quantity-{{ section.id }}">Quantity</label>
+            <input type="number" id="quantity-{{ section.id }}" name="quantity" value="1" min="1">
+          </div>
+
+          <button
+            type="submit"
+            name="add"
+            class="btn btn--pink btn--full"
+            {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}
+          >
+            {%- if product.selected_or_first_available_variant.available -%}
+              Add to bag
+            {%- else -%}
+              Sold out
+            {%- endif -%}
+          </button>
+        {%- endform -%}
+
+        {%- if product.description != blank -%}
+          <div class="product__description rte">
+            {{ product.description }}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .product__media {
+    display: grid;
+    gap: 16px;
+  }
+
+  .product__media-item {
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--color-cream-dark);
+  }
+
+  .product__media-item img,
+  .product__media-item svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .product__title {
+    font-size: clamp(32px, 3.5vw, 48px);
+  }
+
+  .product__price {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 22px;
+    margin: 0 0 24px;
+  }
+
+  .product__price s {
+    opacity: 0.5;
+    margin-right: 8px;
+  }
+
+  .product__description {
+    margin-top: 32px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .product {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Product page",
+  "settings": []
+}
+{% endschema %}

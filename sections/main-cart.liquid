@@ -1,0 +1,165 @@
+<div class="page-section">
+  <div class="page-width--narrow">
+    <div class="section-heading">
+      <h1 class="section-heading__title">Your bag</h1>
+    </div>
+
+    {%- if cart.item_count > 0 -%}
+      {%- form 'cart', cart -%}
+        <ul class="cart-items">
+          {%- for item in cart.items -%}
+            <li class="cart-item">
+              <div class="cart-item__media">
+                {%- if item.image -%}
+                  {{ item.image | image_url: width: 240 | image_tag: alt: item.title }}
+                {%- endif -%}
+              </div>
+              <div class="cart-item__details">
+                <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
+                {%- unless item.product.has_only_default_variant -%}
+                  <p class="cart-item__variant">{{ item.variant.title }}</p>
+                {%- endunless -%}
+                <p class="cart-item__price">{{ item.final_price | money }}</p>
+              </div>
+              <div class="cart-item__quantity">
+                <label class="visually-hidden" for="quantity-{{ item.index }}">Quantity</label>
+                <input
+                  type="number"
+                  id="quantity-{{ item.index }}"
+                  name="updates[]"
+                  value="{{ item.quantity }}"
+                  min="0"
+                >
+                <a href="{{ item.url_to_remove }}" class="cart-item__remove">Remove</a>
+              </div>
+              <div class="cart-item__total">
+                {{ item.final_line_price | money }}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+
+        <div class="cart-footer">
+          <button type="submit" name="update" class="btn btn--outline">Update bag</button>
+          <div class="cart-footer__summary">
+            <p class="cart-footer__subtotal">
+              Subtotal: <strong>{{ cart.total_price | money }}</strong>
+            </p>
+            <p class="cart-footer__note">Taxes and shipping calculated at checkout.</p>
+            <button type="submit" name="checkout" class="btn btn--dark btn--full">Check out</button>
+          </div>
+        </div>
+      {%- endform -%}
+    {%- else -%}
+      <div style="text-align:center;">
+        <p>Your bag is empty.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn btn--pink">Keep shopping</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% style %}
+  .cart-items {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+  }
+
+  .cart-item {
+    display: grid;
+    grid-template-columns: 96px 1fr auto auto;
+    gap: 20px;
+    align-items: center;
+    background: var(--color-cream);
+    border-radius: 24px;
+    padding: 16px;
+  }
+
+  .cart-item__media img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+    background: var(--color-cream-dark);
+  }
+
+  .cart-item__title {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    text-decoration: none;
+    font-size: 18px;
+  }
+
+  .cart-item__variant,
+  .cart-item__price {
+    margin: 4px 0 0;
+    font-size: 14px;
+    opacity: 0.75;
+  }
+
+  .cart-item__quantity input {
+    width: 72px;
+    padding: 10px;
+    border: 1px solid rgba(9, 11, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .cart-item__remove {
+    display: block;
+    font-size: 12px;
+    margin-top: 6px;
+    opacity: 0.7;
+  }
+
+  .cart-item__total {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+  }
+
+  .cart-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+
+  .cart-footer__summary {
+    max-width: 360px;
+    text-align: right;
+    margin-left: auto;
+  }
+
+  .cart-footer__subtotal {
+    font-size: 20px;
+  }
+
+  .cart-footer__note {
+    font-size: 13px;
+    opacity: 0.7;
+  }
+
+  @media screen and (max-width: 749px) {
+    .cart-item {
+      grid-template-columns: 72px 1fr;
+    }
+
+    .cart-item__quantity,
+    .cart-item__total {
+      grid-column: 2;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Cart page",
+  "settings": []
+}
+{% endschema %}

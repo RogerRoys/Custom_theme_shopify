@@ -1,0 +1,262 @@
+<section class="showcase">
+  <div class="section-heading">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="section-heading__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.title != blank -%}
+      <h2 class="section-heading__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subtitle != blank -%}
+      <p class="section-heading__subtitle">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="showcase__grid">
+    {%- for block in section.blocks -%}
+      <article class="showcase__card" style="--card-accent: {{ block.settings.accent }};" {{ block.shopify_attributes }}>
+        <div class="showcase__card-media">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 1150
+              | image_tag: class: 'showcase__card-image', widths: '575, 860, 1150', sizes: '(max-width: 749px) 100vw, 50vw', alt: block.settings.image.alt
+            }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'showcase__card-placeholder' }}
+          {%- endif -%}
+        </div>
+        <div class="showcase__card-body">
+          <div class="showcase__card-text">
+            {%- if block.settings.eyebrow != blank -%}
+              <p class="showcase__card-eyebrow">{{ block.settings.eyebrow }}</p>
+            {%- endif -%}
+            <h3 class="showcase__card-title">{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}
+              <p class="showcase__card-description">{{ block.settings.text }}</p>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.button_label != blank -%}
+            <a href="{{ block.settings.button_link | default: '#' }}" class="showcase__card-button">
+              {{ block.settings.button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% style %}
+  .showcase {
+    background: var(--color-section-pink);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding: 80px 40px;
+  }
+
+  .showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1174px;
+  }
+
+  .showcase__card {
+    background: var(--color-cream);
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .showcase__card-media {
+    background: var(--color-cream-dark);
+    aspect-ratio: 575 / 363;
+    overflow: hidden;
+  }
+
+  .showcase__card-image,
+  .showcase__card-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .showcase__card-body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px;
+    flex: 1;
+  }
+
+  .showcase__card-eyebrow {
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--card-accent);
+    margin: 0 0 8px;
+  }
+
+  .showcase__card-title {
+    font-size: clamp(32px, 3vw, 44px);
+    line-height: 48px;
+    letter-spacing: -1px;
+    margin: 0 0 16px;
+  }
+
+  .showcase__card-description {
+    font-size: 16px;
+    line-height: 28px;
+    max-width: 450px;
+    margin: 0;
+  }
+
+  .showcase__card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 32px;
+    border-radius: 16px;
+    background: var(--card-accent);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-weight: var(--font-heading-weight);
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .showcase__card-button:hover {
+    opacity: 0.85;
+  }
+
+  @media screen and (max-width: 749px) {
+    .showcase {
+      padding: 56px 20px;
+    }
+
+    .showcase__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .showcase__card-title {
+      line-height: 1.1;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Product showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What we make"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Two products. One standard"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "Kitchen-baked · Plant-based · 3–6 ingredients"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dog Biscuits"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SHOP BISCUITS"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "color",
+          "id": "accent",
+          "label": "Accent color",
+          "default": "#D4A0C0"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product showcase",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "eyebrow": "Kitchen-baked · Plant-based · 3–6 ingredients",
+            "title": "Dog Biscuits",
+            "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
+            "button_label": "SHOP BISCUITS",
+            "accent": "#D4A0C0"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "eyebrow": "Reclaimed fabrics · Sewn one at a time · No hardware",
+            "title": "Dog Bandanas",
+            "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
+            "button_label": "SHOP BANDANAS",
+            "accent": "#84C99A"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

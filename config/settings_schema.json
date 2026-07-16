@@ -1,0 +1,107 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Momemade",
+    "theme_version": "1.0.0",
+    "theme_author": "Roys Studio",
+    "theme_documentation_url": "https://github.com/rogerroys/custom_theme_shopify",
+    "theme_support_url": "https://github.com/rogerroys/custom_theme_shopify/issues"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_dark",
+        "label": "Dark background",
+        "default": "#090B00"
+      },
+      {
+        "type": "color",
+        "id": "color_pink",
+        "label": "Primary pink",
+        "default": "#D49ED7"
+      },
+      {
+        "type": "color",
+        "id": "color_mint",
+        "label": "Mint green",
+        "default": "#A0DBB3"
+      },
+      {
+        "type": "color",
+        "id": "color_blush",
+        "label": "Blush (text on dark)",
+        "default": "#F5DBDF"
+      },
+      {
+        "type": "color",
+        "id": "color_section_pink",
+        "label": "Section background pink",
+        "default": "#F5DFE2"
+      },
+      {
+        "type": "color",
+        "id": "color_cream",
+        "label": "Card cream",
+        "default": "#F4F0EA"
+      },
+      {
+        "type": "color",
+        "id": "color_cream_dark",
+        "label": "Card cream (dark)",
+        "default": "#EDE8DF"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_pink",
+        "label": "Card button pink",
+        "default": "#D4A0C0"
+      },
+      {
+        "type": "color",
+        "id": "color_btn_green",
+        "label": "Card button green",
+        "default": "#84C99A"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Heading font",
+        "default": "poppins_n7",
+        "info": "Closest match to the Century Gothic used in the design."
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body font",
+        "default": "poppins_n4"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok_link",
+        "label": "TikTok link"
+      }
+    ]
+  }
+]

@@ -1,0 +1,33 @@
+<div class="page-section">
+  <div class="page-width">
+    <div class="section-heading">
+      <h1 class="section-heading__title">Collections</h1>
+    </div>
+
+    <ul class="product-grid" style="margin-top: 40px;">
+      {%- for collection in collections -%}
+        <li>
+          <a href="{{ collection.url }}" class="product-card">
+            <div class="product-card__media">
+              {%- if collection.featured_image -%}
+                {{ collection.featured_image | image_url: width: 600 | image_tag: alt: collection.title }}
+              {%- else -%}
+                {{ 'collection-1' | placeholder_svg_tag }}
+              {%- endif -%}
+            </div>
+            <div class="product-card__info">
+              <h3 class="product-card__title">{{ collection.title }}</h3>
+            </div>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Collections list",
+  "settings": []
+}
+{% endschema %}

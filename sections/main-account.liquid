@@ -1,0 +1,38 @@
+<div class="page-section">
+  <div class="page-width--narrow">
+    <div class="section-heading">
+      <h1 class="section-heading__title">My account</h1>
+      <p class="section-heading__subtitle">
+        {{ customer.first_name }} {{ customer.last_name }} ·
+        <a href="{{ routes.account_logout_url }}">Log out</a>
+      </p>
+    </div>
+
+    <h2 style="margin-top: 40px; font-size: 24px;">Order history</h2>
+    {%- paginate customer.orders by 10 -%}
+      {%- if customer.orders.size > 0 -%}
+        <ul style="list-style: none; padding: 0; display: grid; gap: 12px;">
+          {%- for order in customer.orders -%}
+            <li style="background: var(--color-cream); border-radius: 16px; padding: 16px 20px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+              <span><a href="{{ order.customer_url }}">Order {{ order.name }}</a> — {{ order.created_at | date: '%B %d, %Y' }}</span>
+              <span>{{ order.financial_status_label }} · {{ order.total_price | money }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p>You haven't placed any orders yet.</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+
+    <p style="margin-top: 32px;">
+      <a href="{{ routes.account_addresses_url }}" class="btn btn--outline">Manage addresses ({{ customer.addresses_count }})</a>
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Account",
+  "settings": []
+}
+{% endschema %}

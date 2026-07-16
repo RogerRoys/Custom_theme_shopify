@@ -1,0 +1,55 @@
+{% layout none %}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ shop.name }} — Gift card</title>
+    {{ content_for_header }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    <style>
+      body { background: #F5DFE2; }
+      .gift-card {
+        max-width: 480px;
+        margin: 64px auto;
+        background: #fff;
+        border-radius: 24px;
+        padding: 40px;
+        text-align: center;
+      }
+      .gift-card__amount {
+        font-size: 48px;
+        font-weight: 700;
+        margin: 16px 0;
+      }
+      .gift-card__code {
+        display: inline-block;
+        background: #F4F0EA;
+        border-radius: 12px;
+        padding: 12px 24px;
+        font-size: 20px;
+        letter-spacing: 4px;
+        margin: 16px 0 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gift-card">
+      <h1>{{ shop.name }}</h1>
+      <p>Here's your gift card!</p>
+      <p class="gift-card__amount">{{ gift_card.initial_value | money }}</p>
+      {%- if gift_card.enabled -%}
+        <p class="gift-card__code">{{ gift_card.code | format_code }}</p>
+        {%- if gift_card.balance != gift_card.initial_value -%}
+          <p>Balance: {{ gift_card.balance | money }}</p>
+        {%- endif -%}
+        {%- if gift_card.expired -%}
+          <p>This gift card has expired.</p>
+        {%- endif -%}
+      {%- else -%}
+        <p>This gift card is no longer active.</p>
+      {%- endif -%}
+      <a href="{{ shop.url }}" class="btn btn--pink">Start shopping</a>
+    </div>
+  </body>
+</html>
