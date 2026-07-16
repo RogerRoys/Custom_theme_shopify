@@ -1,165 +1,202 @@
-<div class="page-section">
-  <div class="page-width--narrow">
-    <div class="section-heading">
-      <h1 class="section-heading__title">Your bag</h1>
-    </div>
 
-    {%- if cart.item_count > 0 -%}
-      {%- form 'cart', cart -%}
-        <ul class="cart-items">
-          {%- for item in cart.items -%}
-            <li class="cart-item">
-              <div class="cart-item__media">
-                {%- if item.image -%}
-                  {{ item.image | image_url: width: 240 | image_tag: alt: item.title }}
-                {%- endif -%}
-              </div>
-              <div class="cart-item__details">
-                <a href="{{ item.url }}" class="cart-item__title">{{ item.product.title }}</a>
-                {%- unless item.product.has_only_default_variant -%}
-                  <p class="cart-item__variant">{{ item.variant.title }}</p>
-                {%- endunless -%}
-                <p class="cart-item__price">{{ item.final_price | money }}</p>
-              </div>
-              <div class="cart-item__quantity">
-                <label class="visually-hidden" for="quantity-{{ item.index }}">Quantity</label>
-                <input
-                  type="number"
-                  id="quantity-{{ item.index }}"
-                  name="updates[]"
-                  value="{{ item.quantity }}"
-                  min="0"
-                >
-                <a href="{{ item.url_to_remove }}" class="cart-item__remove">Remove</a>
-              </div>
-              <div class="cart-item__total">
-                {{ item.final_line_price | money }}
-              </div>
-            </li>
-          {%- endfor -%}
-        </ul>
 
-        <div class="cart-footer">
-          <button type="submit" name="update" class="btn btn--outline">Update bag</button>
-          <div class="cart-footer__summary">
-            <p class="cart-footer__subtotal">
-              Subtotal: <strong>{{ cart.total_price | money }}</strong>
-            </p>
-            <p class="cart-footer__note">Taxes and shipping calculated at checkout.</p>
-            <button type="submit" name="checkout" class="btn btn--dark btn--full">Check out</button>
-          </div>
-        </div>
-      {%- endform -%}
-    {%- else -%}
-      <div style="text-align:center;">
-        <p>Your bag is empty.</p>
-        <a href="{{ routes.all_products_collection_url }}" class="btn btn--pink">Keep shopping</a>
+<cart-items-component
+  class="cart-items-component"
+  data-section-id="{{ section.id }}"
+>
+  <div class="section-background color-{{ section.settings.color_scheme }}"></div>
+  <div
+    class="section color-{{ section.settings.color_scheme }} section--{{ section.settings.section_width }}"
+  >
+    <div
+      class="cart-page spacing-style{% if cart.empty? %} cart-page--empty{% endif %}"
+      style="{% render 'spacing-style', settings: section.settings %}"
+    >
+      <div class="cart-page__title">
+        {%- content_for 'block', id: 'cart-page-title', type: '_cart-title' %}
       </div>
-    {%- endif -%}
+
+      <div class="cart-page__items">
+        {%- content_for 'block', id: 'cart-page-items', type: '_cart-products' %}
+      </div>
+
+      {%- unless cart.empty? -%}
+        <div class="cart-page__summary">
+          {%- content_for 'block', id: 'cart-page-summary', type: '_cart-summary' -%}
+        </div>
+      {%- endunless -%}
+
+      <div class="cart-page__more-blocks">
+        {%- content_for 'blocks' -%}
+      </div>
+    </div>
   </div>
-</div>
+</cart-items-component>
 
-{% style %}
-  .cart-items {
-    list-style: none;
-    margin: 40px 0 0;
-    padding: 0;
+{% stylesheet %}
+  .cart-page {
+    --cart-font-size--2xs: var(--font-size--2xs);
+    --cart-font-size--xs: var(--font-size--xs);
+    --cart-font-size--sm: var(--font-size--sm);
+    --cart-font-size--md: var(--font-size--md);
+    --cart-font-size--lg: var(--font-size--lg);
+    --cart-font-size--xl: var(--font-size--xl);
+    --cart-font-size--2xl: var(--font-size--2xl);
+
     display: grid;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    gap: 0 var(--padding-5xl);
   }
 
-  .cart-item {
-    display: grid;
-    grid-template-columns: 96px 1fr auto auto;
-    gap: 20px;
+  .cart-page--empty {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background: var(--color-cream);
-    border-radius: 24px;
-    padding: 16px;
+    justify-content: center;
   }
 
-  .cart-item__media img {
-    width: 96px;
-    height: 96px;
-    object-fit: cover;
-    border-radius: 16px;
-    display: block;
-    background: var(--color-cream-dark);
+  .cart-page--empty .cart-page__title,
+  .cart-page--empty .cart-page__more-blocks {
+    margin-top: var(--margin-6xl);
   }
 
-  .cart-item__title {
-    font-family: var(--font-heading);
-    font-weight: var(--font-heading-weight);
-    text-decoration: none;
-    font-size: 18px;
+  .cart-page__more-blocks {
+    width: 100%;
   }
 
-  .cart-item__variant,
-  .cart-item__price {
-    margin: 4px 0 0;
-    font-size: 14px;
-    opacity: 0.75;
-  }
-
-  .cart-item__quantity input {
-    width: 72px;
-    padding: 10px;
-    border: 1px solid rgba(9, 11, 0, 0.2);
-    border-radius: 12px;
+  .cart-page--empty .cart-title {
     text-align: center;
   }
 
-  .cart-item__remove {
-    display: block;
-    font-size: 12px;
-    margin-top: 6px;
-    opacity: 0.7;
+  .cart-page__main {
+    grid-column: 1;
   }
 
-  .cart-item__total {
-    font-family: var(--font-heading);
-    font-weight: var(--font-heading-weight);
+  .cart-page__summary {
+    padding-top: var(--padding-xl);
   }
 
-  .cart-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    margin-top: 32px;
-    flex-wrap: wrap;
-  }
-
-  .cart-footer__summary {
-    max-width: 360px;
-    text-align: right;
-    margin-left: auto;
-  }
-
-  .cart-footer__subtotal {
-    font-size: 20px;
-  }
-
-  .cart-footer__note {
-    font-size: 13px;
-    opacity: 0.7;
-  }
-
-  @media screen and (max-width: 749px) {
-    .cart-item {
-      grid-template-columns: 72px 1fr;
+  @media screen and (min-width: 750px) {
+    .cart-page {
+      grid-template-columns: 1fr min(50vw, var(--sidebar-width));
+      grid-template-rows: min-content min-content 1fr;
     }
 
-    .cart-item__quantity,
-    .cart-item__total {
+    .cart-page__summary {
+      display: grid;
+      height: 100%;
       grid-column: 2;
+      grid-row: 1 / -1;
+      align-self: stretch;
+      grid-template-rows: subgrid;
+      padding-top: 0;
+
+      /* needed to support blurred effect from hero section */
+      position: relative;
+    }
+
+    .section--page-width .cart-page:has(.cart__container--extend) {
+      grid-column: 2 / 4;
+      grid-template-columns: 1fr minmax(
+          var(--sidebar-width),
+          calc((100vw - var(--page-width)) / 2 + var(--sidebar-width))
+        );
+    }
+
+    .cart__container--extend {
+      height: 100%;
     }
   }
-{% endstyle %}
+
+  @media screen and (min-width: 1400px) {
+    .cart-page {
+      grid-template-columns: 1fr var(--sidebar-width);
+    }
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
-  "name": "Cart page",
-  "settings": []
+  "name": "t:names.cart",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "blocks": [
+    {
+      "type": "@theme"
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "text"
+    },
+    {
+      "type": "icon"
+    },
+    {
+      "type": "image"
+    },
+    {
+      "type": "button"
+    },
+    {
+      "type": "video"
+    },
+    {
+      "type": "group"
+    },
+    {
+      "type": "spacer"
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "t:settings.width",
+      "options": [
+        {
+          "value": "page-width",
+          "label": "t:options.page"
+        },
+        {
+          "value": "full-width",
+          "label": "t:options.full"
+        }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:settings.color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ]
 }
 {% endschema %}

@@ -1,62 +1,117 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+<html
+  {% if request.design_mode %}
+    class="shopify-design-mode"
+  {% endif %}
+  lang="{{ request.locale.iso_code }}"
+>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="{{ settings.color_dark }}">
-    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link
+        rel="icon"
+        type="image/png"
+        href="{{ settings.favicon | image_url: width: 32, height: 32 }}"
+      >
+    {%- endif -%}
 
-    <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
-    </title>
+    {% comment %} This a way to wait for main content to load when navigating to a new page so that the view transitions can work consistently {% endcomment %}
+    {% if settings.transition_to_main_product or settings.page_transition_enabled %}
+      <link
+        rel="expect"
+        href="#MainContent"
+        blocking="render"
+        id="view-transition-render-blocker"
+      >
+    {% endif %}
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    {%- render 'meta-tags' -%}
+    {%- render 'stylesheets' -%}
+    {%- render 'fonts' -%}
+    {%- render 'scripts' -%}
+    {%- render 'theme-styles-variables' -%}
+    {%- render 'color-schemes' -%}
+
+    {% if request.design_mode %}
+      {%- render 'theme-editor' -%}
     {% endif %}
 
     {{ content_for_header }}
-
-    {% style %}
-      {{ settings.type_body_font | font_face: font_display: 'swap' }}
-      {{ settings.type_header_font | font_face: font_display: 'swap' }}
-
-      :root {
-        --font-body: {{ settings.type_body_font.family }}, 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
-        --font-body-weight: {{ settings.type_body_font.weight | default: 400 }};
-        --font-heading: {{ settings.type_header_font.family }}, 'Century Gothic', 'Futura', 'Trebuchet MS', sans-serif;
-        --font-heading-weight: {{ settings.type_header_font.weight | default: 700 }};
-
-        --color-dark: {{ settings.color_dark }};
-        --color-pink: {{ settings.color_pink }};
-        --color-mint: {{ settings.color_mint }};
-        --color-blush: {{ settings.color_blush }};
-        --color-blush-80: {{ settings.color_blush | color_modify: 'alpha', 0.8 }};
-        --color-section-pink: {{ settings.color_section_pink }};
-        --color-cream: {{ settings.color_cream }};
-        --color-cream-dark: {{ settings.color_cream_dark }};
-        --color-btn-pink: {{ settings.color_btn_pink }};
-        --color-btn-green: {{ settings.color_btn_green }};
-      }
-    {% endstyle %}
-
-    {{ 'theme.css' | asset_url | stylesheet_tag }}
   </head>
 
-  <body class="template-{{ template.name | handle }}">
-    <a class="skip-to-content-link visually-hidden" href="#MainContent">Skip to content</a>
+  <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
+    {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
+    <div id="header-group">
+      {% sections 'header-group' %}
+    </div>
 
-    {% sections 'header-group' %}
+    <script>
+      // Inline header height calculation to prevent layout shift
+      // Note: Updates in calculateHeaderGroupHeight() and updateTransparentHeaderOffset()utilities.js should be kept in sync with this function
+      (function setHeaderHeighCustomProperties() {
+        /*
+         * Header calculation functions for maintaining CSS variables
+         * Mimic calculateHeaderGroupHeight() in utilities.js
+         */
+        const header = document.querySelector('header-component');
+        const headerGroup = document.querySelector('#header-group');
+        const hasHeaderSection = headerGroup?.querySelector('.header-section');
 
-    <main id="MainContent" class="main-content" role="main" tabindex="-1">
+        if (!header || !headerGroup) return;
+
+        const headerHeight = header.offsetHeight;
+
+        // Calculate the total height of the header group
+        let headerGroupHeight = 0;
+        const children = headerGroup.children;
+        for (let i = 0; i < children.length; i++) {
+          const element = children[i];
+          if (element === header || !(element instanceof HTMLElement)) continue;
+          headerGroupHeight += element.offsetHeight;
+        }
+
+        // Check for transparent header special case
+        if (header.hasAttribute('transparent') && header.parentElement?.nextElementSibling) {
+          headerGroupHeight += headerHeight;
+        }
+
+        // Set CSS variables
+        document.body.style.setProperty('--header-height', `${headerHeight}px`);
+        document.body.style.setProperty('--header-group-height', `${headerGroupHeight}px`);
+
+        /**
+         * Updates CSS custom properties for transparent header offset calculation
+         * Mimic updateTransparentHeaderOffset() in utilities.js
+         */
+
+        if (!hasHeaderSection || !header?.hasAttribute('transparent')) {
+          document.body.style.setProperty('--transparent-header-offset-boolean', '0');
+          return;
+        }
+
+        const hasImmediateSection = hasHeaderSection.nextElementSibling?.classList.contains('shopify-section');
+
+        const shouldApplyOffset = !hasImmediateSection ? '1' : '0';
+        document.body.style.setProperty('--transparent-header-offset-boolean', shouldApplyOffset);
+      })();
+    </script>
+
+    <main
+      id="MainContent"
+      class="content-for-layout"
+      role="main"
+      data-page-transition-enabled="{{ settings.page_transition_enabled }}"
+      data-product-transition="{{ settings.transition_to_main_product }}"
+      data-template="{{ template }}"
+    >
       {{ content_for_layout }}
     </main>
 
     {% sections 'footer-group' %}
 
-    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    {% render 'search-modal' %}
+
+    {% if settings.quick_add or settings.mobile_quick_add %}
+      {% render 'quick-add-modal' %}
+    {% endif %}
   </body>
 </html>
