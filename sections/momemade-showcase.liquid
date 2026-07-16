@@ -1,0 +1,318 @@
+{% comment %}
+  Momemade showcase — "Two products. One standard" section from Figma Frame 1.
+  Centered heading group + accent-colored product cards. Designed for the
+  blush color scheme (scheme-2).
+{% endcomment %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section class="momemade-showcase section color-{{ section.settings.color_scheme }}">
+  <div class="momemade-showcase__heading">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="momemade-showcase__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    {%- if section.settings.title != blank -%}
+      <h2 class="momemade-showcase__title">{{ section.settings.title }}</h2>
+    {%- endif -%}
+    {%- if section.settings.subtitle != blank -%}
+      <p class="momemade-showcase__subtitle">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="momemade-showcase__grid">
+    {%- for block in section.blocks -%}
+      <article class="momemade-showcase__card" style="--card-accent: {{ block.settings.accent }};" {{ block.shopify_attributes }}>
+        <div class="momemade-showcase__card-media">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 1150
+              | image_tag: class: 'momemade-showcase__card-image', widths: '575, 860, 1150', sizes: '(max-width: 749px) 100vw, 50vw', alt: block.settings.image.alt
+            }}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'momemade-showcase__card-placeholder' }}
+          {%- endif -%}
+        </div>
+        <div class="momemade-showcase__card-body">
+          <div>
+            {%- if block.settings.eyebrow != blank -%}
+              <p class="momemade-showcase__card-eyebrow">{{ block.settings.eyebrow }}</p>
+            {%- endif -%}
+            <h3 class="momemade-showcase__card-title">{{ block.settings.title }}</h3>
+            {%- if block.settings.text != blank -%}
+              <p class="momemade-showcase__card-description">{{ block.settings.text }}</p>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.button_label != blank -%}
+            <a href="{{ block.settings.button_link | default: '#' }}" class="momemade-showcase__card-button">
+              {{ block.settings.button_label }}
+            </a>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  .momemade-showcase {
+    background: var(--color-background);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding: 80px 40px;
+  }
+
+  .momemade-showcase__heading {
+    text-align: center;
+    max-width: 700px;
+  }
+
+  .momemade-showcase__eyebrow {
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-primary);
+    opacity: 0.8;
+    margin: 0 0 4px;
+  }
+
+  .momemade-showcase__title {
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--color-foreground-heading, var(--color-foreground));
+    margin: 0 0 12px;
+  }
+
+  .momemade-showcase__subtitle {
+    font-family: var(--font-body--family);
+    font-size: 18px;
+    line-height: 28px;
+    color: var(--color-foreground);
+    opacity: 0.8;
+    max-width: 558px;
+    margin: 0 auto;
+  }
+
+  .momemade-showcase__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1174px;
+  }
+
+  .momemade-showcase__card {
+    background: #f4f0ea;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .momemade-showcase__card-media {
+    background: #ede8df;
+    aspect-ratio: 575 / 363;
+    overflow: hidden;
+  }
+
+  .momemade-showcase__card-image,
+  .momemade-showcase__card-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-showcase__card-body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px;
+    flex: 1;
+  }
+
+  .momemade-showcase__card-eyebrow {
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--card-accent);
+    margin: 0 0 8px;
+  }
+
+  .momemade-showcase__card-title {
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: clamp(32px, 3vw, 44px);
+    line-height: 48px;
+    letter-spacing: -1px;
+    color: #090b00;
+    margin: 0 0 16px;
+  }
+
+  .momemade-showcase__card-description {
+    font-family: var(--font-body--family);
+    font-size: 16px;
+    line-height: 28px;
+    color: #090b00;
+    max-width: 450px;
+    margin: 0;
+  }
+
+  .momemade-showcase__card-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 16px 32px;
+    border-radius: 16px;
+    background: var(--card-accent);
+    color: #ffffff;
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-showcase__card-button:hover {
+    opacity: 0.85;
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-showcase {
+      padding: 56px 20px;
+    }
+
+    .momemade-showcase__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .momemade-showcase__card-title {
+      line-height: 1.1;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Momemade showcase",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-2"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What we make"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Two products. One standard"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "Kitchen-baked · Plant-based · 3–6 ingredients"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dog Biscuits"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "SHOP BISCUITS"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "color",
+          "id": "accent",
+          "label": "Accent color",
+          "default": "#D4A0C0"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Momemade showcase",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "eyebrow": "Kitchen-baked · Plant-based · 3–6 ingredients",
+            "title": "Dog Biscuits",
+            "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
+            "button_label": "SHOP BISCUITS",
+            "accent": "#D4A0C0"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "eyebrow": "Reclaimed fabrics · Sewn one at a time · No hardware",
+            "title": "Dog Bandanas",
+            "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
+            "button_label": "SHOP BANDANAS",
+            "accent": "#84C99A"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

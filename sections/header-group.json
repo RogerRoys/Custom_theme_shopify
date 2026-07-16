@@ -17,40 +17,26 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Launching soon on <a href=\"#\" title=\"#\">Shopify!</a>",
+            "text": "🔥 FREE SHIPPING ON ALL U.S. ORDERS OVER $50! 🔥",
             "link": "",
             "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
+            "font_size": "0.75rem",
             "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
-          },
-          "blocks": {}
-        },
-        "announcement_bFH7Eq": {
-          "type": "_announcement",
-          "settings": {
-            "text": "Free shipping on all orders",
-            "link": "",
-            "font": "var(--font-body--family)",
-            "font_size": "0.875rem",
-            "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
+            "letter_spacing": "loose",
+            "case": "uppercase"
           },
           "blocks": {}
         }
       },
       "block_order": [
-        "announcement_BxgCk9",
-        "announcement_bFH7Eq"
+        "announcement_BxgCk9"
       ],
       "disabled": true,
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 5,
         "section_width": "page-width",
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-5",
         "divider_width": 0,
         "padding-block-start": 16,
         "padding-block-end": 16
@@ -137,14 +123,14 @@
         "divider_width": 0.5,
         "divider_size": "full-width",
         "border_width": 0.5,
-        "homepage_border_color": "#fcf9f4",
+        "homepage_border_color": "rgba(255,255,255,0.3)",
         "homepage_border_opacity": 0.3,
         "color_scheme_top": "scheme-3",
-        "color_scheme_bottom": "scheme-2",
+        "color_scheme_bottom": "scheme-3",
         "color_scheme_transparent": "scheme-6",
-        "header_defaultcolor_transparent": "#fffaf7",
-        "header_color_transparent": "#fcf9f4",
-        "header_backgroundcolor_transparent": "#0d2547",
+        "header_defaultcolor_transparent": "#f5dbdf",
+        "header_color_transparent": "#f5dbdf",
+        "header_backgroundcolor_transparent": "#090b00",
         "enable_transparent_header_home": true,
         "home_color_scheme": "inverse",
         "enable_transparent_header_product": false,

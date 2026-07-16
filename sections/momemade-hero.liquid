@@ -1,0 +1,448 @@
+{% comment %}
+  Momemade hero — Figma "Momemade — Roys Studio" Frame 1.
+  Split hero: quote heading + 3 CTAs left, photo right, with sparkle doodle,
+  paw print and rotating "Approved by vet" badge. Colors come from the
+  section's color scheme (designed for scheme-3 / dark).
+{% endcomment %}
+
+<div class="section-background color-{{ section.settings.color_scheme }}"></div>
+<section class="momemade-hero section color-{{ section.settings.color_scheme }}">
+  <div class="momemade-hero__inner">
+    <div class="momemade-hero__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="momemade-hero__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <div class="momemade-hero__heading-wrap">
+        <h1 class="momemade-hero__heading">{{ section.settings.heading }}</h1>
+        {%- if section.settings.show_sparkle -%}
+          <span class="momemade-hero__sparkle" aria-hidden="true">
+            <svg viewBox="0 0 90 90" fill="none">
+              <path d="M12 62C30 52 44 38 52 18" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+              <path d="M34 76C50 68 62 56 70 40" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+              <path d="M60 84C70 78 78 70 84 58" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+          </span>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="momemade-hero__subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.blocks.size > 0 -%}
+        <div class="momemade-hero__buttons">
+          {%- for block in section.blocks -%}
+            <a
+              href="{{ block.settings.link | default: '#' }}"
+              class="momemade-hero__btn momemade-hero__btn--{{ block.settings.style }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.label }}
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="momemade-hero__media-wrap">
+      <div class="momemade-hero__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1600
+            | image_tag: class: 'momemade-hero__image', widths: '760, 1080, 1600', sizes: '(max-width: 749px) 100vw, 50vw', alt: section.settings.image.alt
+          }}
+        {%- else -%}
+          <div class="momemade-hero__image-placeholder">
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'momemade-hero__placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_badge -%}
+        <div class="momemade-hero__badge" aria-hidden="true">
+          <svg viewBox="0 0 154 154" fill="currentColor">
+            <circle cx="77" cy="77" r="44"/>
+            <circle cx="77" cy="26" r="22"/>
+            <circle cx="77" cy="128" r="22"/>
+            <circle cx="26" cy="77" r="22"/>
+            <circle cx="128" cy="77" r="22"/>
+            <circle cx="41" cy="41" r="22"/>
+            <circle cx="113" cy="41" r="22"/>
+            <circle cx="41" cy="113" r="22"/>
+            <circle cx="113" cy="113" r="22"/>
+          </svg>
+          <span class="momemade-hero__badge-text">{{ section.settings.badge_text }}</span>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.show_paw -%}
+        <span class="momemade-hero__paw" aria-hidden="true">
+          <svg viewBox="0 0 100 100" fill="currentColor">
+            <ellipse cx="50" cy="63" rx="24" ry="20"/>
+            <ellipse cx="24" cy="38" rx="10" ry="13" transform="rotate(-20 24 38)"/>
+            <ellipse cx="42" cy="24" rx="10" ry="13" transform="rotate(-6 42 24)"/>
+            <ellipse cx="62" cy="25" rx="10" ry="13" transform="rotate(8 62 25)"/>
+            <ellipse cx="79" cy="41" rx="10" ry="13" transform="rotate(24 79 41)"/>
+          </svg>
+        </span>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .momemade-hero {
+    background: var(--color-background);
+    padding: 24px;
+    overflow: hidden;
+  }
+
+  .momemade-hero__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .momemade-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 66px 56px;
+    position: relative;
+  }
+
+  .momemade-hero__eyebrow {
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--color-primary);
+    margin: 0 0 20px;
+  }
+
+  .momemade-hero__heading-wrap {
+    position: relative;
+    max-width: 560px;
+  }
+
+  .momemade-hero__heading {
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: clamp(40px, 4.2vw, 64px);
+    line-height: 1;
+    letter-spacing: -1px;
+    color: var(--color-foreground-heading, var(--color-foreground));
+    margin: 0 0 20px;
+  }
+
+  .momemade-hero__sparkle {
+    position: absolute;
+    top: -14px;
+    right: -6px;
+    width: 85px;
+    height: 84px;
+    color: #a0dbb3;
+  }
+
+  .momemade-hero__sparkle svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .momemade-hero__subheading {
+    font-family: var(--font-body--family);
+    font-size: 16px;
+    line-height: 28px;
+    color: var(--color-foreground);
+    opacity: 0.8;
+    max-width: 546px;
+    margin: 0 0 64px;
+  }
+
+  .momemade-hero__buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 580px;
+  }
+
+  .momemade-hero__btn {
+    flex: 1 0 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 10px;
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-hero__btn:hover {
+    opacity: 0.85;
+  }
+
+  .momemade-hero__btn--pink {
+    background: #d49ed7;
+    color: #090b00;
+  }
+
+  .momemade-hero__btn--mint {
+    background: #a0dbb3;
+    color: #090b00;
+  }
+
+  .momemade-hero__btn--outline {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+  }
+
+  .momemade-hero__media-wrap {
+    position: relative;
+  }
+
+  .momemade-hero__media {
+    border-radius: 24px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 560px;
+  }
+
+  .momemade-hero__image,
+  .momemade-hero__image-placeholder,
+  .momemade-hero__placeholder-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-hero__image-placeholder {
+    background: #ede8df;
+  }
+
+  .momemade-hero__badge {
+    position: absolute;
+    top: 28px;
+    left: 36px;
+    width: 154px;
+    height: 154px;
+    color: #d49ed7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .momemade-hero__badge svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.92;
+    animation: momemade-badge-spin 24s linear infinite;
+  }
+
+  .momemade-hero__badge-text {
+    position: relative;
+    font-family: var(--font-primary--family);
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: -1px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    max-width: 110px;
+  }
+
+  @keyframes momemade-badge-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .momemade-hero__paw {
+    position: absolute;
+    bottom: -46px;
+    left: -100px;
+    width: 198px;
+    height: 207px;
+    color: #a0dbb3;
+    transform: rotate(-12deg);
+    pointer-events: none;
+  }
+
+  .momemade-hero__paw svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .momemade-hero__badge svg {
+      animation: none;
+    }
+  }
+
+  @media screen and (max-width: 989px) {
+    .momemade-hero__inner {
+      grid-template-columns: 1fr;
+    }
+
+    .momemade-hero__content {
+      padding: 48px 16px 32px;
+      order: 1;
+    }
+
+    .momemade-hero__media-wrap {
+      order: 2;
+    }
+
+    .momemade-hero__media {
+      min-height: 420px;
+    }
+
+    .momemade-hero__buttons {
+      flex-direction: column;
+      max-width: none;
+    }
+
+    .momemade-hero__paw {
+      left: auto;
+      right: -40px;
+      bottom: -40px;
+      width: 140px;
+      height: 146px;
+    }
+
+    .momemade-hero__badge {
+      width: 110px;
+      height: 110px;
+      top: 16px;
+      left: 16px;
+    }
+
+    .momemade-hero__badge-text {
+      font-size: 14px;
+      line-height: 14px;
+      max-width: 80px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Momemade hero",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "“If I wouldn't give it to my own dog, I don't make it”"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Plant-based biscuits baked in our kitchen. Bandanas sewn one at a time from reclaimed fabrics. Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Hero image"
+    },
+    {
+      "type": "header",
+      "content": "Decorations"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sparkle",
+      "label": "Show sparkle doodle",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_paw",
+      "label": "Show paw print",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_badge",
+      "label": "Show badge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge text",
+      "default": "Approved by vet"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "SHOP BISCUITS"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            { "value": "pink", "label": "Pink" },
+            { "value": "mint", "label": "Mint" },
+            { "value": "outline", "label": "Outline" }
+          ],
+          "default": "pink"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Momemade hero",
+      "blocks": [
+        { "type": "button", "settings": { "label": "SHOP BISCUITS", "style": "pink" } },
+        { "type": "button", "settings": { "label": "SHOP BANDANAS", "style": "mint" } },
+        { "type": "button", "settings": { "label": "FIND YOUR BISCUIT", "style": "outline" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

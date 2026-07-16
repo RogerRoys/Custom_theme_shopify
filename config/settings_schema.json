@@ -1,9 +1,9 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Horizon",
+    "theme_name": "Momemade",
     "theme_version": "3.2.1",
-    "theme_author": "Shopify",
+    "theme_author": "Roys Studio",
     "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
     "theme_support_url": "https://support.shopify.com/"
   },
@@ -1730,7 +1730,7 @@
   "id": "custom_border_radius",
   "label": "Border Radius (e.g. 4px or 10px 0 0 10px)",
   "default": "0px"
-},
+}
     ]
   },
   {
