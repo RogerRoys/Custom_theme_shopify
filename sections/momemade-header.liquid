@@ -31,19 +31,10 @@
   </nav>
 
   <div class="momemade-header__icons">
-    <a href="{{ routes.search_url }}" class="momemade-header__icon-link" aria-label="Search">
-      {% render 'momemade-icons', name: 'search' %}
-    </a>
-    <a href="{{ routes.cart_url }}" class="momemade-header__icon-link momemade-header__cart" aria-label="Cart ({{ cart.item_count }} items)">
-      {% render 'momemade-icons', name: 'bag' %}
-      <span class="momemade-header__cart-count{% if cart.item_count == 0 %} is-empty{% endif %}" data-cart-count>{{ cart.item_count }}</span>
-    </a>
-    {%- if shop.customer_accounts_enabled -%}
-      <a href="{{ routes.account_url }}" class="momemade-header__icon-link" aria-label="Account">
-        {% render 'momemade-icons', name: 'user' %}
-      </a>
-    {%- endif -%}
+    {% render 'search', style: 'modal' %}
+    {% render 'header-actions' %}
   </div>
+  {% render 'search-modal' %}
 </header>
 
 {% style %}
@@ -149,26 +140,6 @@
     color: #d49ed7;
   }
 
-  .momemade-header__cart-count {
-    position: absolute;
-    top: -6px;
-    right: -8px;
-    min-width: 16px;
-    height: 16px;
-    padding: 0 4px;
-    border-radius: 8px;
-    background: #d49ed7;
-    color: #090b00;
-    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 16px;
-    text-align: center;
-  }
-
-  .momemade-header__cart-count.is-empty {
-    display: none;
-  }
 
   /* Mobile menu */
   .momemade-header__mobile-menu {
@@ -234,6 +205,44 @@
       gap: 16px;
     }
   }
+  /* Horizon action components, tinted for the dark Momemade header */
+  .momemade-header .search-action,
+  .momemade-header header-actions {
+    color: #a0dbb3;
+  }
+
+  .momemade-header .header-actions__action {
+    --button-color: #a0dbb3;
+    color: #a0dbb3;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .momemade-header .header-actions__action:hover,
+  .momemade-header .search-modal__button:hover {
+    --button-color: #d49ed7;
+    color: #d49ed7;
+  }
+
+  .momemade-header .header-actions__action svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .momemade-header .svg-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .momemade-header .cart-bubble__background {
+    background: #d49ed7;
+  }
+
+  .momemade-header .cart-bubble__text {
+    color: #090b00;
+  }
 {% endstyle %}
 
 {% schema %}
@@ -251,6 +260,46 @@
       "id": "menu",
       "label": "Menu",
       "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Icons (Horizon components)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_search_icon",
+      "label": "Use Momemade search icon",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "custom_search_icon_svg",
+      "label": "Search icon SVG",
+      "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M22 22L17 17M19 10.5C19 15.1944 15.1944 19 10.5 19C5.80558 19 2 15.1944 2 10.5C2 5.80558 5.80558 2 10.5 2C15.1944 2 19 5.80558 19 10.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"/></svg>"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_cart_icon",
+      "label": "Use Momemade cart icon",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "custom_cart_icon_svg",
+      "label": "Cart icon SVG",
+      "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M21.3111 17.4066L22.0528 17.2954V17.2954L21.3111 17.4066ZM19.5111 5.40664L18.7694 5.51789V5.51789L19.5111 5.40664ZM4.4891 5.40664L5.2308 5.51789L4.4891 5.40664ZM2.6891 17.4066L3.4308 17.5179L2.6891 17.4066ZM9.7501 6C9.7501 5.58579 9.41431 5.25 9.0001 5.25C8.58588 5.25 8.2501 5.58579 8.2501 6H9.0001H9.7501ZM15.7501 6C15.7501 5.58579 15.4143 5.25 15.0001 5.25C14.5859 5.25 14.2501 5.58579 14.2501 6H15.0001H15.7501ZM2.6891 17.4066L3.4308 17.5179L5.2308 5.51789L4.4891 5.40664L3.7474 5.29538L1.9474 17.2954L2.6891 17.4066ZM8.44485 2V2.75H15.5553V2V1.25H8.44485V2ZM19.5111 5.40664L18.7694 5.51789L20.5694 17.5179L21.3111 17.4066L22.0528 17.2954L20.2528 5.29538L19.5111 5.40664ZM17.3553 22V21.25H6.64485V22V22.75H17.3553V22ZM21.3111 17.4066L20.5694 17.5179C20.7329 18.6083 20.842 19.3472 20.8467 19.9026C20.8513 20.4368 20.7553 20.6642 20.6249 20.8157L21.1932 21.3051L21.7615 21.7945C22.2295 21.2511 22.3527 20.5971 22.3467 19.8898C22.3408 19.2036 22.2096 18.3407 22.0528 17.2954L21.3111 17.4066ZM17.3553 22V22.75C18.4124 22.75 19.2852 22.7518 19.9647 22.6558C20.6651 22.5568 21.2935 22.338 21.7615 21.7945L21.1932 21.3051L20.6249 20.8157C20.4945 20.9671 20.2838 21.0958 19.7548 21.1705C19.2048 21.2482 18.4579 21.25 17.3553 21.25V22ZM15.5553 2V2.75C16.3964 2.75 16.9572 2.75139 17.3807 2.80469C17.7832 2.85537 17.9663 2.94336 18.0934 3.05282L18.5828 2.48452L19.0723 1.91621C18.6367 1.54116 18.1277 1.38689 17.568 1.31644C17.0292 1.24861 16.3575 1.25 15.5553 1.25V2ZM19.5111 5.40664L20.2528 5.29538C20.1338 4.50209 20.0355 3.83764 19.8885 3.31486C19.7358 2.77179 19.5078 2.29127 19.0723 1.91621L18.5828 2.48452L18.0934 3.05282C18.2205 3.16229 18.3347 3.3303 18.4445 3.72089C18.5601 4.13177 18.6446 4.68612 18.7694 5.51789L19.5111 5.40664ZM4.4891 5.40664L5.2308 5.51789C5.35557 4.68612 5.44013 4.13177 5.55566 3.72089C5.66549 3.3303 5.77967 3.16229 5.90678 3.05282L5.41736 2.48452L4.92794 1.91621C4.49243 2.29127 4.26436 2.77179 4.11166 3.31486C3.96466 3.83764 3.86639 4.50209 3.7474 5.29538L4.4891 5.40664ZM8.44485 2V1.25C7.64268 1.25 6.97101 1.24861 6.4322 1.31644C5.87248 1.38689 5.36346 1.54116 4.92794 1.91621L5.41736 2.48452L5.90678 3.05282C6.03388 2.94336 6.21697 2.85537 6.61954 2.80469C7.04301 2.75139 7.60377 2.75 8.44485 2.75V2ZM2.6891 17.4066L1.9474 17.2954C1.7906 18.3407 1.65937 19.2036 1.65353 19.8898C1.64751 20.5971 1.77068 21.2511 2.23869 21.7945L2.80699 21.3051L3.3753 20.8157C3.24487 20.6642 3.14893 20.4368 3.15347 19.9026C3.1582 19.3472 3.26725 18.6083 3.4308 17.5179L2.6891 17.4066ZM6.64485 22V21.25C5.54228 21.25 4.79536 21.2482 4.24541 21.1705C3.71639 21.0958 3.50572 20.9671 3.3753 20.8157L2.80699 21.3051L2.23869 21.7945C2.70669 22.338 3.33514 22.5568 4.03554 22.6558C4.715 22.7518 5.5878 22.75 6.64485 22.75V22ZM9.0001 6H8.2501V7H9.0001H9.7501V6H9.0001ZM15.0001 7H15.7501V6H15.0001H14.2501V7H15.0001ZM12.0001 10V10.75C14.0712 10.75 15.7501 9.07107 15.7501 7H15.0001H14.2501C14.2501 8.24264 13.2427 9.25 12.0001 9.25V10ZM9.0001 7H8.2501C8.2501 9.07107 9.92903 10.75 12.0001 10.75V10V9.25C10.7575 9.25 9.7501 8.24264 9.7501 7H9.0001Z\" fill=\"currentColor\"/></svg>"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_custom_account_icon",
+      "label": "Use Momemade account icon",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "custom_account_svg",
+      "label": "Account icon SVG",
+      "default": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M16 6.5C16 8.98528 14.2091 11 12 11C9.79086 11 8 8.98528 8 6.5C8 4.01472 9.79086 2 12 2C14.2091 2 16 4.01472 16 6.5Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M2.5 18.3333C4.07379 16.235 6.54369 15 9.16667 15H14.8333C17.4563 15 19.9262 16.235 21.5 18.3333L21.55 18.4C21.8421 18.7895 22 19.2632 22 19.75C22 20.9926 20.9926 22 19.75 22H4.25C3.00736 22 2 20.9926 2 19.75C2 19.2632 2.1579 18.7895 2.45 18.4L2.5 18.3333Z\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>"
     }
   ],
   "enabled_on": {
