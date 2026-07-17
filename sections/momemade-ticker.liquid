@@ -1,4 +1,13 @@
-<section class="momemade-ticker" aria-label="Highlights">
+<section
+  class="momemade-ticker"
+  aria-label="Highlights"
+  style="
+    --mm-ticker-bg: {{ section.settings.background }};
+    --mm-ticker-text: {{ section.settings.text_color }};
+    --mm-ticker-dot: {{ section.settings.dot_color }};
+    {% if section.settings.show_border %}--mm-ticker-border: 1.5px solid {{ section.settings.border_color }};{% else %}--mm-ticker-border: 0;{% endif %}
+  "
+>
   <div class="momemade-ticker__viewport">
     {%- capture ticker_items -%}
       {%- for block in section.blocks -%}
@@ -16,8 +25,9 @@
 
 {% style %}
   .momemade-ticker {
-    background: #090b00;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--mm-ticker-bg, #a0dbb3);
+    border-top: var(--mm-ticker-border, 0);
+    border-bottom: var(--mm-ticker-border, 0);
     padding: 25px 0 24px;
     overflow: hidden;
   }
@@ -49,7 +59,7 @@
     font-size: 32px;
     line-height: 1;
     letter-spacing: -1px;
-    color: #d49ed7;
+    color: var(--mm-ticker-text, #090b00);
     white-space: nowrap;
   }
 
@@ -57,7 +67,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #d49ed7;
+    background: var(--mm-ticker-dot, #090b00);
     flex-shrink: 0;
   }
 
@@ -87,6 +97,42 @@
 {
   "name": "Momemade ticker",
   "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#A0DBB3",
+      "info": "Frame 2: #A0DBB3 · Frame 1: #090B00"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#090B00",
+      "info": "Frame 2: #090B00 · Frame 1: #D49ED7"
+    },
+    {
+      "type": "color",
+      "id": "dot_color",
+      "label": "Dots",
+      "default": "#090B00"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_border",
+      "label": "Show top/bottom border",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#090B00"
+    },
     {
       "type": "range",
       "id": "speed",

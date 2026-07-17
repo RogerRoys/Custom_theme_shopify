@@ -44,9 +44,9 @@
         "heading": "“If I wouldn't give it to my own dog, I don't make it”",
         "subheading": "Plant-based biscuits baked in our kitchen. Bandanas sewn one at a time from reclaimed fabrics. Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.",
         "image": "shopify://shop_images/hero-dog.png",
-        "show_sparkle": true,
-        "show_paw": true,
-        "show_badge": true,
+        "show_sparkle": false,
+        "show_paw": false,
+        "show_badge": false,
         "badge_text": "Approved by vet"
       }
     },
@@ -162,7 +162,12 @@
         "t15"
       ],
       "settings": {
-        "speed": 60
+        "speed": 60,
+        "background": "#A0DBB3",
+        "text_color": "#090B00",
+        "dot_color": "#090B00",
+        "show_border": true,
+        "border_color": "#090B00"
       }
     },
     "showcase": {
