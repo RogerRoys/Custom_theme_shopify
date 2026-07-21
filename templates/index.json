@@ -165,7 +165,7 @@
         "speed": 60,
         "background": "#A0DBB3",
         "text_color": "#090B00",
-        "dot_color": "#090B00",
+        "dot_color": "#FFFFFF",
         "show_border": true,
         "border_color": "#090B00"
       }
