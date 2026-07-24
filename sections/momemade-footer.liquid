@@ -107,9 +107,9 @@
   .momemade-footer__signup-heading {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 22px;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -1px;
     color: #ffffff;
     margin: 0 0 16px;
   }
@@ -162,7 +162,7 @@
   }
 
   .momemade-footer__bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 56px;
     padding-top: 24px;
     display: flex;
@@ -183,8 +183,8 @@
   .momemade-footer__link {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 1.2px;
+    font-size: 12px;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     color: #f5dbdf;
     text-decoration: none;
@@ -202,15 +202,67 @@
     color: rgba(245,219,223,0.6);
   }
 
+  @media screen and (max-width: 989px) {
+    .momemade-footer {
+      padding: 56px 40px 40px;
+    }
+
+    .momemade-footer__signup {
+      max-width: 383px;
+    }
+
+    .momemade-footer__menu {
+      justify-content: flex-start;
+      gap: 10px 24px;
+    }
+  }
+
   @media screen and (max-width: 749px) {
     .momemade-footer {
-      padding: 48px 20px 24px;
+      padding: 56px 20px;
+    }
+
+    .momemade-footer__inner {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .momemade-footer__brand {
+      text-align: center;
+    }
+
+    .momemade-footer__signup {
+      max-width: none;
+      width: 100%;
+    }
+
+    .momemade-footer__signup-heading {
+      font-size: 36px;
+      line-height: 40px;
+    }
+
+    .momemade-footer__eyebrow {
+      font-size: 14px;
     }
 
     .momemade-footer__field {
       flex-direction: column;
     }
+
+    .momemade-footer__button {
+      min-height: 56px;
+    }
+
+    .momemade-footer__menu {
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .momemade-footer__link {
+      font-size: 11px;
+    }
   }
+
 {% endstyle %}
 
 {% schema %}

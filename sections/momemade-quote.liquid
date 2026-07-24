@@ -15,7 +15,7 @@
 {% style %}
   .momemade-quote {
     background: #090b00;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -37,8 +37,8 @@
   .momemade-quote__quote {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: clamp(32px, 3.2vw, 48px);
-    line-height: 1.2;
+    font-size: clamp(40px, 3.7vw, 56px);
+    line-height: 1.1;
     letter-spacing: -1px;
     color: #f5dbdf;
     max-width: 900px;
@@ -56,11 +56,40 @@
     margin: 0;
   }
 
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 989px) {
     .momemade-quote {
-      padding: 64px 20px;
+      padding: 72px 40px;
+    }
+
+    .momemade-quote__quote {
+      font-size: 56px;
+      line-height: 60px;
+      max-width: 680px;
+    }
+
+    .momemade-quote__eyebrow,
+    .momemade-quote__attribution {
+      font-size: 13px;
     }
   }
+
+  @media screen and (max-width: 749px) {
+    .momemade-quote {
+      padding: 56px 20px;
+    }
+
+    .momemade-quote__quote {
+      font-size: 48px;
+      line-height: 56px;
+      letter-spacing: -0.5px;
+    }
+
+    .momemade-quote__eyebrow,
+    .momemade-quote__attribution {
+      font-size: 11px;
+    }
+  }
+
 {% endstyle %}
 
 {% schema %}

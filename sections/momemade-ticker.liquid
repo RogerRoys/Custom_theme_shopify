@@ -86,11 +86,36 @@
     }
   }
 
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 989px) {
+    .momemade-ticker {
+      padding: 18px 0;
+    }
+
     .momemade-ticker__item {
-      font-size: 22px;
+      font-size: 24px;
+    }
+
+    .momemade-ticker__dot {
+      width: 8px;
+      height: 8px;
     }
   }
+
+  @media screen and (max-width: 749px) {
+    .momemade-ticker {
+      padding: 14px 0;
+    }
+
+    .momemade-ticker__item {
+      font-size: 20px;
+    }
+
+    .momemade-ticker__dot {
+      width: 7px;
+      height: 7px;
+    }
+  }
+
 {% endstyle %}
 
 {% schema %}

@@ -280,21 +280,63 @@
     height: 100%;
   }
 
+  /* Tablet (834 spec): stacked & centered, fixed-width button row, image below */
   @media screen and (max-width: 989px) {
-    .momemade-hero__inner {
-      grid-template-columns: 1fr;
+    .momemade-hero {
+      padding: 0;
     }
 
-    .momemade-hero__sparkle {
-      top: -22px;
-      right: 0;
-      width: 64px;
-      height: 63px;
+    .momemade-hero__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
     }
 
     .momemade-hero__content {
-      padding: 48px 16px 32px;
       order: 1;
+      align-items: center;
+      text-align: center;
+      padding: 48px 40px 0;
+    }
+
+    .momemade-hero__heading-wrap {
+      max-width: 603px;
+    }
+
+    .momemade-hero__eyebrow {
+      font-size: 12px;
+    }
+
+    .momemade-hero__heading {
+      font-size: 56px;
+      line-height: 60px;
+    }
+
+    .momemade-hero__subheading {
+      margin-bottom: 32px;
+    }
+
+    .momemade-hero__buttons {
+      justify-content: center;
+      max-width: none;
+      width: auto;
+    }
+
+    .momemade-hero__btn {
+      flex: 0 0 auto;
+      width: 180px;
+      padding: 16px 10px;
+      font-size: 14px;
+    }
+
+    .momemade-hero__rating {
+      justify-content: center;
+      font-size: 11px;
+      gap: 6px;
+    }
+
+    .momemade-hero__rating-stars {
+      font-size: 12px;
+      letter-spacing: 1.5px;
     }
 
     .momemade-hero__media-wrap {
@@ -302,12 +344,14 @@
     }
 
     .momemade-hero__media {
-      min-height: 420px;
+      min-height: 480px;
     }
 
-    .momemade-hero__buttons {
-      flex-direction: column;
-      max-width: none;
+    .momemade-hero__sparkle {
+      top: -22px;
+      right: 0;
+      width: 64px;
+      height: 63px;
     }
 
     .momemade-hero__paw {
@@ -331,6 +375,48 @@
       max-width: 80px;
     }
   }
+
+  /* Mobile (402 spec): left-aligned, two solid buttons in a row + ghost full width */
+  @media screen and (max-width: 749px) {
+    .momemade-hero__content {
+      align-items: flex-start;
+      text-align: left;
+      padding: 56px 20px 0;
+    }
+
+    .momemade-hero__eyebrow {
+      font-size: 10px;
+    }
+
+    .momemade-hero__heading {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .momemade-hero__buttons {
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .momemade-hero__btn {
+      flex: 1 1 0;
+      width: auto;
+    }
+
+    .momemade-hero__btn--outline {
+      flex: 1 1 100%;
+    }
+
+    .momemade-hero__rating {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .momemade-hero__media {
+      min-height: 380px;
+    }
+  }
+
 {% endstyle %}
 
 {% schema %}

@@ -97,8 +97,10 @@
     top: 50%;
     transform: translate(-50%, -50%);
     background: #ffffff;
-    padding: 28px 24px;
-    width: min(60%, 240px);
+    padding: 24px;
+    width: min(85%, 319px);
+    min-height: 324px;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -109,7 +111,7 @@
   .momemade-mission__stat-number {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: clamp(40px, 3.5vw, 56px);
+    font-size: clamp(96px, 8.5vw, 128px);
     line-height: 1;
     letter-spacing: -1px;
     color: #84c99a;
@@ -118,8 +120,8 @@
   .momemade-mission__stat-label {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 10px;
-    line-height: 15px;
+    font-size: 12px;
+    line-height: 18px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: #090b00;
@@ -176,20 +178,69 @@
     opacity: 0.85;
   }
 
+  /* Tablet/mobile: text above image, single column */
   @media screen and (max-width: 989px) {
     .momemade-mission {
-      padding: 56px 20px;
+      padding: 72px 40px;
     }
 
     .momemade-mission__inner {
       grid-template-columns: 1fr;
-      gap: 48px;
+      gap: 40px;
+    }
+
+    .momemade-mission__content {
+      order: 1;
+    }
+
+    .momemade-mission__media {
+      order: 2;
+    }
+
+    .momemade-mission__heading {
+      font-size: 56px;
+      line-height: 60px;
+      max-width: none;
+    }
+
+    .momemade-mission__eyebrow {
+      font-size: 11px;
+    }
+
+    .momemade-mission__text {
+      max-width: none;
+    }
+
+    .momemade-mission__button {
+      padding: 24px 32px;
+      font-size: 16px;
     }
 
     .momemade-mission__image--secondary {
       right: 0;
     }
   }
+
+  @media screen and (max-width: 749px) {
+    .momemade-mission {
+      padding: 56px 20px;
+    }
+
+    .momemade-mission__inner {
+      gap: 20px;
+    }
+
+    .momemade-mission__heading {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .momemade-mission__image--main {
+      aspect-ratio: auto;
+      height: 445px;
+    }
+  }
+
 {% endstyle %}
 
 {% schema %}

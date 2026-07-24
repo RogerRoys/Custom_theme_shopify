@@ -42,6 +42,7 @@
 {% style %}
   .momemade-testimonials {
     background: #f5dfe2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -83,7 +84,9 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 16px;
+    min-height: 289px;
   }
 
   .momemade-testimonials__card-top {
@@ -93,24 +96,24 @@
   }
 
   .momemade-testimonials__stars {
-    font-size: 14px;
-    letter-spacing: 2.4px;
+    font-size: 16px;
+    letter-spacing: 2px;
     color: #d49ed7;
   }
 
   .momemade-testimonials__verified {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 10px;
-    letter-spacing: 1.2px;
+    font-size: 11px;
+    letter-spacing: 1px;
     color: #84c99a;
   }
 
   .momemade-testimonials__quote {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 16px;
-    line-height: 26px;
+    font-size: 20px;
+    line-height: 28px;
     color: #090b00;
     margin: 0;
     flex: 1;
@@ -133,6 +136,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 3px solid rgba(247, 249, 251, 0.6);
     object-fit: cover;
     display: block;
   }
@@ -141,8 +145,9 @@
     display: block;
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.6px;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
     color: #090b00;
   }
@@ -161,15 +166,61 @@
     color: #090b00;
   }
 
+  /* Tablet: fixed 400px cards in a horizontally scrollable row */
   @media screen and (max-width: 989px) {
     .momemade-testimonials {
-      padding: 56px 20px;
+      padding: 72px 40px;
+      gap: 36px;
+    }
+
+    .momemade-testimonials__title {
+      font-size: 56px;
+      line-height: 60px;
+    }
+
+    .momemade-testimonials__eyebrow {
+      font-size: 13px;
     }
 
     .momemade-testimonials__grid {
-      grid-template-columns: 1fr;
+      display: flex;
+      overflow-x: auto;
+      max-width: none;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .momemade-testimonials__card {
+      flex: 0 0 400px;
     }
   }
+
+  /* Mobile: stacked full-width cards */
+  @media screen and (max-width: 749px) {
+    .momemade-testimonials {
+      padding: 56px 20px;
+      gap: 28px;
+    }
+
+    .momemade-testimonials__title {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .momemade-testimonials__eyebrow {
+      font-size: 11px;
+    }
+
+    .momemade-testimonials__grid {
+      flex-direction: column;
+      overflow-x: visible;
+    }
+
+    .momemade-testimonials__card {
+      flex: 1 1 auto;
+    }
+  }
+
 {% endstyle %}
 
 {% schema %}
