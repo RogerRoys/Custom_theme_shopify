@@ -1,0 +1,158 @@
+{% comment %}
+  Momemade motion — brand-fitting micro-animations, rendered site-wide
+  from the header. Everything is gated behind prefers-reduced-motion and
+  falls back to fully static content when JS is unavailable (elements
+  are only hidden once the script tags them).
+
+  - Soft staggered fade-up reveals as sections scroll into view
+  - Count-up on the donation stat numbers (signup + mission)
+  - Gentle hover lifts on cards and buttons, image zoom on product cards
+{% endcomment %}
+
+<style>
+  @media (prefers-reduced-motion: no-preference) {
+    .mm-reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+      transition-delay: var(--mm-delay, 0s);
+      will-change: opacity, transform;
+    }
+
+    .mm-reveal.mm-in {
+      opacity: 1;
+      transform: none;
+    }
+
+    .momemade-showcase__card,
+    .momemade-testimonials__card {
+      transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .momemade-showcase__card:hover,
+    .momemade-testimonials__card:hover {
+      transform: translateY(-6px);
+    }
+
+    .momemade-showcase__card-media img {
+      transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .momemade-showcase__card:hover .momemade-showcase__card-media img {
+      transform: scale(1.04);
+    }
+
+    .momemade-hero__btn,
+    .momemade-mission__button,
+    .momemade-signup__button,
+    .momemade-footer__button,
+    .momemade-showcase__card-button {
+      transition: transform 0.25s ease, opacity 0.15s ease;
+    }
+
+    .momemade-hero__btn:hover,
+    .momemade-mission__button:hover,
+    .momemade-signup__button:hover,
+    .momemade-footer__button:hover,
+    .momemade-showcase__card-button:hover {
+      transform: translateY(-2px);
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var GROUPS = [
+      '.momemade-hero__eyebrow, .momemade-hero__heading-wrap, .momemade-hero__subheading, .momemade-hero__buttons, .momemade-hero__rating',
+      '.momemade-section-heading',
+      '.momemade-showcase__card',
+      '.momemade-signup__content, .momemade-signup__stats',
+      '.momemade-quote__eyebrow, .momemade-quote__quote, .momemade-quote__attribution',
+      '.momemade-testimonials__card',
+      '.momemade-mission__content, .momemade-mission__media'
+    ];
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('mm-in');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.1 }
+    );
+
+    function countUp(el) {
+      var target = parseInt(el.textContent.replace(/[^\d]/g, ''), 10);
+      if (isNaN(target) || el.dataset.mmCounted) return;
+      el.dataset.mmCounted = '1';
+      var duration = 1200;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased);
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(step);
+    }
+
+    var counterIo = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            countUp(entry.target);
+            counterIo.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    function init(root) {
+      root = root || document;
+      GROUPS.forEach(function (selector) {
+        var els = root.querySelectorAll(selector);
+        for (var i = 0; i < els.length; i++) {
+          var el = els[i];
+          if (el.classList.contains('mm-reveal')) continue;
+          var rect = el.getBoundingClientRect();
+          el.style.setProperty('--mm-delay', (Math.min(i, 5) * 0.1) + 's');
+          el.classList.add('mm-reveal');
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            // already on screen (e.g. above the fold): reveal on next frame
+            requestAnimationFrame(function (target) {
+              return function () { target.classList.add('mm-in'); };
+            }(el));
+          } else {
+            io.observe(el);
+          }
+        }
+      });
+
+      var counters = root.querySelectorAll('.momemade-signup__stat-number, .momemade-mission__stat-number');
+      for (var j = 0; j < counters.length; j++) {
+        counterIo.observe(counters[j]);
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function () { init(); });
+    } else {
+      init();
+    }
+
+    document.addEventListener('shopify:section:load', function (e) {
+      init(e.target);
+    });
+  })();
+</script>
