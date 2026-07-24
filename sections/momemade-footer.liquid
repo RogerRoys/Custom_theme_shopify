@@ -52,7 +52,6 @@
         {%- endfor -%}
       </nav>
     {%- endif -%}
-    <small class="momemade-footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</small>
   </div>
 </footer>
 
@@ -101,7 +100,7 @@
     font-size: 11px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #d49ed7;
+    color: #a0dbb3;
     margin: 0 0 8px;
   }
 
@@ -129,7 +128,7 @@
     color: #090b00;
     background: #ffffff;
     border: 0;
-    border-radius: 4px;
+    border-radius: 0;
   }
 
   .momemade-footer__field input:focus {
@@ -176,7 +175,9 @@
   .momemade-footer__menu {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 12px 32px;
+    width: 100%;
   }
 
   .momemade-footer__link {
@@ -185,7 +186,7 @@
     font-size: 11px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #a0dbb3;
+    color: #f5dbdf;
     text-decoration: none;
   }
 
