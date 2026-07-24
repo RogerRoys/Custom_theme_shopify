@@ -29,6 +29,13 @@
           {%- endfor -%}
         </div>
       {%- endif -%}
+
+      {%- if section.settings.rating_text != blank -%}
+        <p class="momemade-hero__rating">
+          <span class="momemade-hero__rating-stars" aria-hidden="true">{{ section.settings.rating_stars }}</span>
+          {{ section.settings.rating_text }}
+        </p>
+      {%- endif -%}
     </div>
 
     <div class="momemade-hero__media-wrap">
@@ -171,6 +178,22 @@
     background: transparent;
     border: 1px solid #ffffff;
     color: #ffffff;
+  }
+
+  .momemade-hero__rating {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(245,219,223,0.85);
+    margin: 24px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .momemade-hero__rating-stars {
+    color: #f5dbdf;
+    letter-spacing: 2px;
   }
 
   .momemade-hero__media-wrap {
@@ -363,6 +386,22 @@
       "id": "badge_text",
       "label": "Badge text",
       "default": "Approved by vet"
+    },
+    {
+      "type": "header",
+      "content": "Rating line"
+    },
+    {
+      "type": "text",
+      "id": "rating_stars",
+      "label": "Stars",
+      "default": "★★★★★"
+    },
+    {
+      "type": "text",
+      "id": "rating_text",
+      "label": "Text",
+      "default": "Carried in 20+ stores across the Hudson Valley"
     }
   ],
   "blocks": [

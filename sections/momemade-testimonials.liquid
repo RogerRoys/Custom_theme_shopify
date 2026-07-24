@@ -1,0 +1,272 @@
+{% comment %}
+  Momemade "Real dogs. Real results." — review cards on the blush background.
+{% endcomment %}
+
+<section class="momemade-testimonials">
+  <div class="momemade-section-heading">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="momemade-testimonials__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h2 class="momemade-testimonials__title">{{ section.settings.title }}</h2>
+  </div>
+
+  <div class="momemade-testimonials__grid">
+    {%- for block in section.blocks -%}
+      <article class="momemade-testimonials__card" {{ block.shopify_attributes }}>
+        <div class="momemade-testimonials__card-top">
+          <span class="momemade-testimonials__stars" aria-label="5 stars">{{ block.settings.stars }}</span>
+          {%- if block.settings.verified -%}
+            <span class="momemade-testimonials__verified">✓ VERIFIED</span>
+          {%- endif -%}
+        </div>
+        <p class="momemade-testimonials__quote">{{ block.settings.quote }}</p>
+        <div class="momemade-testimonials__card-bottom">
+          <div class="momemade-testimonials__author">
+            {%- if block.settings.avatar != blank -%}
+              {{ block.settings.avatar | image_url: width: 96 | image_tag: class: 'momemade-testimonials__avatar', alt: block.settings.name }}
+            {%- endif -%}
+            <div>
+              <span class="momemade-testimonials__name">{{ block.settings.name }}</span>
+              {%- if block.settings.subtext != blank -%}
+                <span class="momemade-testimonials__subtext">{{ block.settings.subtext }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+          <span class="momemade-testimonials__mark" aria-hidden="true">❞</span>
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% style %}
+  .momemade-testimonials {
+    background: #f5dfe2;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    padding: 80px 40px;
+  }
+
+  .momemade-testimonials__eyebrow {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.7;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #d49ed7;
+    margin: 0 0 4px;
+  }
+
+  .momemade-testimonials__title {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #090b00;
+    margin: 0;
+  }
+
+  .momemade-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+    max-width: 1174px;
+  }
+
+  .momemade-testimonials__card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .momemade-testimonials__card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .momemade-testimonials__stars {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #090b00;
+  }
+
+  .momemade-testimonials__verified {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    color: #84c99a;
+  }
+
+  .momemade-testimonials__quote {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    color: #090b00;
+    margin: 0;
+    flex: 1;
+  }
+
+  .momemade-testimonials__card-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .momemade-testimonials__author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .momemade-testimonials__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-testimonials__name {
+    display: block;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #090b00;
+  }
+
+  .momemade-testimonials__subtext {
+    display: block;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-size: 12px;
+    line-height: 18px;
+    color: rgba(9, 11, 0, 0.55);
+  }
+
+  .momemade-testimonials__mark {
+    font-size: 40px;
+    line-height: 1;
+    color: #090b00;
+  }
+
+  @media screen and (max-width: 989px) {
+    .momemade-testimonials {
+      padding: 56px 20px;
+    }
+
+    .momemade-testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade testimonials",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What dog parents say"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Real dogs. Real results."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "text",
+          "id": "stars",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show verified badge",
+          "default": true
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”"
+        },
+        {
+          "type": "image_picker",
+          "id": "avatar",
+          "label": "Avatar"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Kim F."
+        },
+        {
+          "type": "text",
+          "id": "subtext",
+          "label": "Subtext",
+          "default": "and Penelope · 113 bags since 2023"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Momemade testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”",
+            "name": "Kim F.",
+            "subtext": "and Penelope · 113 bags since 2023"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "“The other dogs in the building get the generic stuff. Jax has his own stash.”",
+            "name": "Jennifer T.",
+            "subtext": "and Jax"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "“He loved it from the first bite! Your treats did not upset his GI.”",
+            "name": "Yuri F.",
+            "subtext": "and Oliver the Cavapoo"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

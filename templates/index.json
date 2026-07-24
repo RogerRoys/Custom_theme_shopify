@@ -47,7 +47,9 @@
         "show_sparkle": false,
         "show_paw": false,
         "show_badge": false,
-        "badge_text": "Approved by vet"
+        "badge_text": "Approved by vet",
+        "rating_stars": "★★★★★",
+        "rating_text": "Carried in 20+ stores across the Hudson Valley"
       }
     },
     "ticker": {
@@ -205,11 +207,162 @@
         "title": "Two products. One standard",
         "subtitle": "Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."
       }
+    },
+    "signup": {
+      "type": "momemade-signup",
+      "blocks": {
+        "stat1": {
+          "type": "stat",
+          "settings": {
+            "number": "47",
+            "label": "Signups so far"
+          }
+        },
+        "stat2": {
+          "type": "stat",
+          "settings": {
+            "number": "2",
+            "label": "Bags donated"
+          }
+        },
+        "stat3": {
+          "type": "stat",
+          "settings": {
+            "number": "13",
+            "label": "Until next bag"
+          }
+        }
+      },
+      "block_order": [
+        "stat1",
+        "stat2",
+        "stat3"
+      ],
+      "settings": {}
+    },
+    "quote": {
+      "type": "momemade-quote",
+      "settings": {}
+    },
+    "ticker2": {
+      "type": "momemade-ticker",
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "text": "Mom-approved · The Mom Standard"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "text": "Carried in 20+ stores across the Hudson Valley, Greenpoint Brooklyn, and Ridgewood Queens"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "text": "\"I choose MOMEMADE for my dogs because they're made with quality ingredients.\" — Eva H."
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "text": "Handwritten note with every order"
+          }
+        },
+        "t5": {
+          "type": "item",
+          "settings": {
+            "text": "Women-owned · Made in NY · Compostable packaging"
+          }
+        },
+        "t6": {
+          "type": "item",
+          "settings": {
+            "text": "Rescue-focused · Proudly supporting Ulster County Canines"
+          }
+        },
+        "t7": {
+          "type": "item",
+          "settings": {
+            "text": "\"Whatever you are doing, it's magic.\" — Kim F."
+          }
+        },
+        "t8": {
+          "type": "item",
+          "settings": {
+            "text": "96 bags donated to shelter dogs · Delivered personally by Michele"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4",
+        "t5",
+        "t6",
+        "t7",
+        "t8"
+      ],
+      "settings": {
+        "speed": 60,
+        "background": "#A0DBB3",
+        "text_color": "#090B00",
+        "dot_color": "#FFFFFF",
+        "show_border": true,
+        "border_color": "#090B00"
+      }
+    },
+    "testimonials": {
+      "type": "momemade-testimonials",
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "quote": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”",
+            "name": "Kim F.",
+            "subtext": "and Penelope · 113 bags since 2023"
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "quote": "“The other dogs in the building get the generic stuff. Jax has his own stash.”",
+            "name": "Jennifer T.",
+            "subtext": "and Jax"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "“He loved it from the first bite! Your treats did not upset his GI.”",
+            "name": "Yuri F.",
+            "subtext": "and Oliver the Cavapoo"
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {}
+    },
+    "mission": {
+      "type": "momemade-mission",
+      "settings": {}
     }
   },
   "order": [
     "hero",
     "ticker",
-    "showcase"
+    "showcase",
+    "signup",
+    "quote",
+    "ticker2",
+    "testimonials",
+    "mission"
   ]
 }

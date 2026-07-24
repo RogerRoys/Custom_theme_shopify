@@ -1,23 +1,58 @@
+{% comment %}
+  Momemade footer — logo + tagline left, "Stay in touch" signup right,
+  uppercase utility menu row along the bottom. From the updated Figma
+  desktop frame.
+{% endcomment %}
+
 <footer class="momemade-footer">
   <div class="momemade-footer__inner">
     <div class="momemade-footer__brand">
-      {% render 'momemade-logo' %}
+      {%- if settings.logo != blank -%}
+        {{ settings.logo | image_url: width: 400 | image_tag: class: 'momemade-footer__logo-image', widths: '200, 400', alt: shop.name }}
+      {%- else -%}
+        {% render 'momemade-logo' %}
+      {%- endif -%}
       {%- if section.settings.text != blank -%}
         <p class="momemade-footer__text">{{ section.settings.text }}</p>
       {%- endif -%}
     </div>
 
+    <div class="momemade-footer__signup">
+      {%- if section.settings.signup_eyebrow != blank -%}
+        <p class="momemade-footer__eyebrow">{{ section.settings.signup_eyebrow }}</p>
+      {%- endif -%}
+      <p class="momemade-footer__signup-heading">{{ section.settings.signup_heading }}</p>
+      {%- form 'customer', id: 'momemade-footer-signup', class: 'momemade-footer__form' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        {%- if form.posted_successfully? -%}
+          <p class="momemade-footer__success">{{ section.settings.signup_success }}</p>
+        {%- else -%}
+          <div class="momemade-footer__field">
+            <label class="visually-hidden" for="momemade-footer-email">Email</label>
+            <input
+              type="email"
+              id="momemade-footer-email"
+              name="contact[email]"
+              placeholder="{{ section.settings.signup_placeholder }}"
+              autocomplete="email"
+              required
+            >
+            <button type="submit" class="momemade-footer__button">{{ section.settings.signup_button }}</button>
+          </div>
+        {%- endif -%}
+      {%- endform -%}
+    </div>
+  </div>
+
+  <div class="momemade-footer__bottom">
     {%- if section.settings.menu != blank -%}
-      <nav class="momemade-footer__nav" aria-label="Footer navigation">
+      <nav class="momemade-footer__menu" aria-label="Footer navigation">
         {%- for link in section.settings.menu.links -%}
           <a href="{{ link.url }}" class="momemade-footer__link">{{ link.title }}</a>
         {%- endfor -%}
       </nav>
     {%- endif -%}
-  </div>
-
-  <div class="momemade-footer__bottom">
-    <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</small>
+    <small class="momemade-footer__copyright">&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</small>
   </div>
 </footer>
 
@@ -25,14 +60,14 @@
   .momemade-footer {
     background: #090b00;
     color: #f5dbdf;
-    padding: 64px 80px 32px;
+    padding: 72px 80px 32px;
   }
 
   .momemade-footer__inner {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;
+    gap: 48px;
     flex-wrap: wrap;
   }
 
@@ -41,25 +76,115 @@
     max-width: 360px;
   }
 
+  .momemade-footer__logo-image {
+    display: block;
+    width: auto;
+    max-height: 44px;
+  }
+
   .momemade-footer__text {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 400;
     color: rgba(245,219,223,0.8);
     font-size: 14px;
     line-height: 24px;
-    margin-top: 16px;
+    margin: 16px 0 0;
   }
 
-  .momemade-footer__nav {
+  .momemade-footer__signup {
+    max-width: 420px;
+    width: 100%;
+  }
+
+  .momemade-footer__eyebrow {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #d49ed7;
+    margin: 0 0 8px;
+  }
+
+  .momemade-footer__signup-heading {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin: 0 0 16px;
+  }
+
+  .momemade-footer__field {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    gap: 8px;
+  }
+
+  .momemade-footer__field input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-size: 14px;
+    color: #090b00;
+    background: #ffffff;
+    border: 0;
+    border-radius: 4px;
+  }
+
+  .momemade-footer__field input:focus {
+    outline: 2px solid #d49ed7;
+  }
+
+  .momemade-footer__button {
+    padding: 12px 24px;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    color: #090b00;
+    background: #d49ed7;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-footer__button:hover {
+    opacity: 0.85;
+  }
+
+  .momemade-footer__success {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-size: 14px;
+    color: #a0dbb3;
+    margin: 0;
+  }
+
+  .momemade-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 56px;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .momemade-footer__menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 32px;
   }
 
   .momemade-footer__link {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
     color: #a0dbb3;
     text-decoration: none;
   }
@@ -68,21 +193,21 @@
     color: #d49ed7;
   }
 
-  .momemade-footer__bottom {
+  .momemade-footer__copyright {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 400;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    margin-top: 48px;
-    padding-top: 24px;
-    color: rgba(245,219,223,0.8);
-    font-size: 12px;
+    font-size: 11px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
+    color: rgba(245,219,223,0.6);
   }
 
   @media screen and (max-width: 749px) {
     .momemade-footer {
       padding: 48px 20px 24px;
+    }
+
+    .momemade-footer__field {
+      flex-direction: column;
     }
   }
 {% endstyle %}
@@ -90,6 +215,9 @@
 {% schema %}
 {
   "name": "Momemade footer",
+  "enabled_on": {
+    "groups": ["footer"]
+  },
   "settings": [
     {
       "type": "textarea",
@@ -98,16 +226,49 @@
       "default": "Dog goods, mom approved — made in Hudson Valley, NY."
     },
     {
+      "type": "header",
+      "content": "Signup"
+    },
+    {
+      "type": "text",
+      "id": "signup_eyebrow",
+      "label": "Eyebrow",
+      "default": "Stay in touch"
+    },
+    {
+      "type": "text",
+      "id": "signup_heading",
+      "label": "Heading",
+      "default": "Stay. Stay. Stay in touch."
+    },
+    {
+      "type": "text",
+      "id": "signup_placeholder",
+      "label": "Input placeholder",
+      "default": "your@email.com"
+    },
+    {
+      "type": "text",
+      "id": "signup_button",
+      "label": "Button label",
+      "default": "JOIN"
+    },
+    {
+      "type": "text",
+      "id": "signup_success",
+      "label": "Success message",
+      "default": "Thanks for joining! 🐾"
+    },
+    {
+      "type": "header",
+      "content": "Bottom row"
+    },
+    {
       "type": "link_list",
       "id": "menu",
       "label": "Menu",
       "default": "footer"
     }
-  ],
-  "enabled_on": {
-    "groups": [
-      "footer"
-    ]
-  }
+  ]
 }
 {% endschema %}

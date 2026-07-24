@@ -1,0 +1,97 @@
+{% comment %}
+  Momemade "The Mom Standard" — dark centered founder quote.
+{% endcomment %}
+
+<section class="momemade-quote">
+  {%- if section.settings.eyebrow != blank -%}
+    <p class="momemade-quote__eyebrow">{{ section.settings.eyebrow }}</p>
+  {%- endif -%}
+  <blockquote class="momemade-quote__quote">{{ section.settings.quote }}</blockquote>
+  {%- if section.settings.attribution != blank -%}
+    <p class="momemade-quote__attribution">{{ section.settings.attribution }}</p>
+  {%- endif -%}
+</section>
+
+{% style %}
+  .momemade-quote {
+    background: #090b00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 96px 40px;
+  }
+
+  .momemade-quote__eyebrow {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #d49ed7;
+    margin: 0 0 24px;
+  }
+
+  .momemade-quote__quote {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: clamp(32px, 3.2vw, 48px);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    color: #f5dbdf;
+    max-width: 900px;
+    margin: 0 0 24px;
+  }
+
+  .momemade-quote__attribution {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #d49ed7;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-quote {
+      padding: 64px 20px;
+    }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade quote",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Mom Standard"
+    },
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "Quote",
+      "default": "“If I wouldn’t give it to my own dog, I don’t make it.”"
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution",
+      "default": "— Michele, Founder · Momemade · Hudson Valley, NY"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Momemade quote"
+    }
+  ]
+}
+{% endschema %}
