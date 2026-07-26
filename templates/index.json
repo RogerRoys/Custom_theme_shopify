@@ -25,31 +25,23 @@
             "label": "SHOP BANDANAS",
             "style": "mint"
           }
-        },
-        "btn-find": {
-          "type": "button",
-          "settings": {
-            "label": "FIND YOUR BISCUIT",
-            "style": "outline"
-          }
         }
       },
       "block_order": [
         "btn-biscuits",
-        "btn-bandanas",
-        "btn-find"
+        "btn-bandanas"
       ],
       "settings": {
         "eyebrow": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY",
-        "heading": "“If I wouldn't give it to my own dog, I don't make it”",
-        "subheading": "Plant-based biscuits baked in our kitchen. Bandanas sewn one at a time from reclaimed fabrics. Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.",
+        "heading": "“It’s not just a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”",
+        "subheading": "Kitchen-baked, plant-based, limited ingredient biscuits — safe for dogs with allergies and sensitive stomachs. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.",
         "image": "shopify://shop_images/hero-dog.png",
         "show_sparkle": false,
         "show_paw": false,
         "show_badge": false,
         "badge_text": "Approved by vet",
         "rating_stars": "★★★★★",
-        "rating_text": "Carried in 20+ stores across the Hudson Valley"
+        "rating_text": "Carried in Hudson Valley · NYC · 20+ stores"
       }
     },
     "ticker": {
@@ -94,55 +86,61 @@
         "t7": {
           "type": "item",
           "settings": {
-            "text": "Hypoallergenic"
+            "text": "Grain free"
           }
         },
         "t8": {
           "type": "item",
           "settings": {
-            "text": "Plant-based"
+            "text": "Hypoallergenic"
           }
         },
         "t9": {
           "type": "item",
           "settings": {
-            "text": "\"Just ordered another 5 bags!\" — Eva H."
+            "text": "Plant-based"
           }
         },
         "t10": {
           "type": "item",
           "settings": {
-            "text": "No preservatives"
+            "text": "\"Just ordered another 5 bags!\" — Eva H."
           }
         },
         "t11": {
           "type": "item",
           "settings": {
-            "text": "No fillers"
+            "text": "No preservatives"
           }
         },
         "t12": {
           "type": "item",
           "settings": {
-            "text": "No additives"
+            "text": "No fillers"
           }
         },
         "t13": {
           "type": "item",
           "settings": {
-            "text": "Sewn one at a time"
+            "text": "No additives"
           }
         },
         "t14": {
           "type": "item",
           "settings": {
-            "text": "One of a kind"
+            "text": "Sewn one at a time"
           }
         },
         "t15": {
           "type": "item",
           "settings": {
-            "text": "\"They're worth the price because they make Charles happy.\" — Anthony G."
+            "text": "One of a kind"
+          }
+        },
+        "t16": {
+          "type": "item",
+          "settings": {
+            "text": "\"They're worth the price because they make Charles happy.\" — Anthony G"
           }
         }
       },
@@ -161,7 +159,8 @@
         "t12",
         "t13",
         "t14",
-        "t15"
+        "t15",
+        "t16"
       ],
       "settings": {
         "speed": 60,
@@ -179,9 +178,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/biscuits-dog.png",
-            "eyebrow": "Kitchen-baked · Plant-based · 3–6 ingredients",
+            "eyebrow": "Kitchen-baked · Plant-based · Limited ingredient",
             "title": "Dog Biscuits",
-            "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
+            "text": "You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.",
             "button_label": "SHOP BISCUITS",
             "accent": "#D4A0C0"
           }
@@ -190,9 +189,9 @@
           "type": "card",
           "settings": {
             "image": "shopify://shop_images/bandana-dog.png",
-            "eyebrow": "Reclaimed fabrics · Sewn one at a time · No hardware",
+            "eyebrow": "Low-impact fabrics · Reversible · No plastic",
             "title": "Dog Bandanas",
-            "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
+            "text": "Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.",
             "button_label": "SHOP BANDANAS",
             "accent": "#84C99A"
           }
@@ -323,7 +322,7 @@
           "settings": {
             "quote": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”",
             "name": "Kim F.",
-            "subtext": "and Penelope · 113 bags since 2023"
+            "subtext": "and Penelope"
           }
         },
         "r2": {
@@ -338,8 +337,8 @@
           "type": "review",
           "settings": {
             "quote": "“He loved it from the first bite! Your treats did not upset his GI.”",
-            "name": "Yuri F.",
-            "subtext": "and Oliver the Cavapoo"
+            "name": "Yuri F",
+            "subtext": "and Oliver"
           }
         }
       },
@@ -348,7 +347,9 @@
         "r2",
         "r3"
       ],
-      "settings": {}
+      "settings": {
+        "title": "When your dog is happy, so are you."
+      }
     },
     "mission": {
       "type": "momemade-mission",

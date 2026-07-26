@@ -38,6 +38,7 @@
           {%- if block.settings.button_label != blank -%}
             <a href="{{ block.settings.button_link | default: '#' }}" class="momemade-showcase__card-button">
               {{ block.settings.button_label }}
+              <span class="momemade-showcase__card-button-arrow" aria-hidden="true">→</span>
             </a>
           {%- endif -%}
         </div>
@@ -181,6 +182,10 @@
     opacity: 0.85;
   }
 
+  .momemade-showcase__card-button-arrow {
+    margin-left: 10px;
+  }
+
   @media screen and (max-width: 989px) {
     .momemade-showcase {
       padding: 72px 40px;
@@ -258,7 +263,7 @@
           "type": "text",
           "id": "eyebrow",
           "label": "Eyebrow",
-          "default": "Kitchen-baked · Plant-based · 3–6 ingredients"
+          "default": "Kitchen-baked · Plant-based · Limited ingredient"
         },
         {
           "type": "text",
@@ -270,7 +275,7 @@
           "type": "textarea",
           "id": "text",
           "label": "Description",
-          "default": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts."
+          "default": "You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you."
         },
         {
           "type": "text",
@@ -299,9 +304,9 @@
         {
           "type": "card",
           "settings": {
-            "eyebrow": "Kitchen-baked · Plant-based · 3–6 ingredients",
+            "eyebrow": "Kitchen-baked · Plant-based · Limited ingredient",
             "title": "Dog Biscuits",
-            "text": "Made for dogs with sensitivities and the parents who read every label. Short ingredient lists. No fillers. No shortcuts.",
+            "text": "You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.",
             "button_label": "SHOP BISCUITS",
             "accent": "#D4A0C0"
           }
@@ -309,9 +314,9 @@
         {
           "type": "card",
           "settings": {
-            "eyebrow": "Reclaimed fabrics · Sewn one at a time · No hardware",
+            "eyebrow": "Low-impact fabrics · Reversible · No plastic",
             "title": "Dog Bandanas",
-            "text": "Sewn from thrifted and surplus fabrics. No plastic, no metal. One of a kind — because the materials are.",
+            "text": "Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.",
             "button_label": "SHOP BANDANAS",
             "accent": "#84C99A"
           }
