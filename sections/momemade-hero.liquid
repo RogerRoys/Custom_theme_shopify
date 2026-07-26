@@ -13,7 +13,7 @@
       </div>
 
       {%- if section.settings.subheading != blank -%}
-        <p class="momemade-hero__subheading">{{ section.settings.subheading }}</p>
+        <div class="momemade-hero__subheading">{{ section.settings.subheading }}</div>
       {%- endif -%}
 
       {%- if section.blocks.size > 0 -%}
@@ -93,10 +93,6 @@
       padding-bottom: 24px;
     }
 
-    .momemade-hero__subheading {
-      margin-bottom: 40px;
-    }
-
     .momemade-hero__media-wrap {
       overflow: hidden;
     }
@@ -142,7 +138,7 @@
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
     font-size: clamp(40px, 4.2vw, 64px);
-    line-height: 1;
+    line-height: 1.125;
     letter-spacing: -1px;
     color: #f5dbdf;
     margin: 0 0 20px;
@@ -172,15 +168,22 @@
     margin: 0 0 64px;
   }
 
+  .momemade-hero__subheading p {
+    margin: 0;
+  }
+
+  .momemade-hero__subheading strong {
+    font-weight: 700;
+  }
+
   .momemade-hero__buttons {
     display: flex;
     gap: 10px;
-    width: 100%;
-    max-width: 580px;
   }
 
   .momemade-hero__btn {
-    flex: 1 0 0;
+    flex: 0 0 auto;
+    width: 220px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -472,10 +475,10 @@
       "default": "“It’s not just a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Kitchen-baked, plant-based, limited ingredient biscuits — safe for dogs with allergies and sensitive stomachs. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics."
+      "default": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>"
     },
     {
       "type": "image_picker",
