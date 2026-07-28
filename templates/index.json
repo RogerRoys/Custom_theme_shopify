@@ -377,6 +377,7 @@
     "mission": {
       "type": "momemade-mission",
       "settings": {
+        "image": "shopify://shop_images/Promotion_Banner_-_2026-07-28T092140.854.jpg",
         "stat_number": "96",
         "stat_label": "Bags donated · Every one personally delivered by Michele",
         "eyebrow": "Our Mission",
