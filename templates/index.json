@@ -16,6 +16,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP BISCUITS",
+            "link": "",
             "style": "pink"
           }
         },
@@ -23,6 +24,7 @@
           "type": "button",
           "settings": {
             "label": "SHOP BANDANAS",
+            "link": "",
             "style": "mint"
           }
         }
@@ -35,7 +37,7 @@
         "eyebrow": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY",
         "heading": "“It’s not just a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”",
         "subheading": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>",
-        "image": "shopify://shop_images/hero-dog.png",
+        "image": "shopify://shop_images/Promotion_Banner_-_2026-07-28T092140.854.jpg",
         "show_sparkle": false,
         "show_paw": false,
         "show_badge": false,
@@ -163,12 +165,12 @@
         "t16"
       ],
       "settings": {
-        "speed": 60,
-        "background": "#A0DBB3",
-        "text_color": "#090B00",
-        "dot_color": "#090B00",
+        "background": "#a0dbb3",
+        "text_color": "#090b00",
+        "dot_color": "#090b00",
         "show_border": true,
-        "border_color": "#090B00"
+        "border_color": "#090b00",
+        "speed": 60
       }
     },
     "showcase": {
@@ -182,7 +184,8 @@
             "title": "Dog Biscuits",
             "text": "You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.",
             "button_label": "SHOP BISCUITS",
-            "accent": "#D4A0C0"
+            "button_link": "",
+            "accent": "#d4a0c0"
           }
         },
         "card-bandanas": {
@@ -193,7 +196,8 @@
             "title": "Dog Bandanas",
             "text": "Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.",
             "button_label": "SHOP BANDANAS",
-            "accent": "#84C99A"
+            "button_link": "",
+            "accent": "#84c99a"
           }
         }
       },
@@ -237,11 +241,23 @@
         "stat2",
         "stat3"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": "Join the Momemade community",
+        "heading": "Stay. Stay. Stay in touch.",
+        "text": "Every 20 email signups, we donate a bag of biscuits to Ulster County Canines. Join and make every signup count.",
+        "placeholder": "your@email.com",
+        "button_label": "JOIN",
+        "note": "No spam. Just treats, bandanas, and the occasional shelter update.",
+        "success_text": "Thanks for joining! Every signup counts. 🐾"
+      }
     },
     "quote": {
       "type": "momemade-quote",
-      "settings": {}
+      "settings": {
+        "eyebrow": "The Mom Standard",
+        "quote": "“If I wouldn’t give it to my own dog, I don’t make it.”",
+        "attribution": "— Michele, Founder · Momemade · Hudson Valley, NY"
+      }
     },
     "ticker2": {
       "type": "momemade-ticker",
@@ -306,12 +322,12 @@
         "t8"
       ],
       "settings": {
-        "speed": 60,
-        "background": "#A0DBB3",
-        "text_color": "#090B00",
-        "dot_color": "#090B00",
+        "background": "#a0dbb3",
+        "text_color": "#090b00",
+        "dot_color": "#090b00",
         "show_border": true,
-        "border_color": "#090B00"
+        "border_color": "#090b00",
+        "speed": 60
       }
     },
     "testimonials": {
@@ -320,6 +336,8 @@
         "r1": {
           "type": "review",
           "settings": {
+            "stars": "★★★★★",
+            "verified": true,
             "quote": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”",
             "name": "Kim F.",
             "subtext": "and Penelope"
@@ -328,6 +346,8 @@
         "r2": {
           "type": "review",
           "settings": {
+            "stars": "★★★★★",
+            "verified": true,
             "quote": "“The other dogs in the building get the generic stuff. Jax has his own stash.”",
             "name": "Jennifer T.",
             "subtext": "and Jax"
@@ -336,6 +356,8 @@
         "r3": {
           "type": "review",
           "settings": {
+            "stars": "★★★★★",
+            "verified": true,
             "quote": "“He loved it from the first bite! Your treats did not upset his GI.”",
             "name": "Yuri F",
             "subtext": "and Oliver"
@@ -348,12 +370,21 @@
         "r3"
       ],
       "settings": {
+        "eyebrow": "What dog parents say",
         "title": "When your dog is happy, so are you."
       }
     },
     "mission": {
       "type": "momemade-mission",
-      "settings": {}
+      "settings": {
+        "stat_number": "96",
+        "stat_label": "Bags donated · Every one personally delivered by Michele",
+        "eyebrow": "Our Mission",
+        "heading": "Rescue is at the heart of MOMEMADE.",
+        "text": "Rescue isn’t a campaign for us — it’s who we are. We chose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.",
+        "button_label": "READ OUR STORY",
+        "button_link": ""
+      }
     }
   },
   "order": [
