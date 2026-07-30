@@ -1,0 +1,519 @@
+{% comment %}
+  Momemade "Stories from pups who eat it up" — video testimonial carousel
+  on the blush background, between Mission and the footer. Each card is a
+  poster image with a play button and a white caption plate. Videos can be
+  Shopify-hosted uploads or YouTube/Vimeo links; the play button only shows
+  when a video is attached. Arrows scroll the row when there are more
+  cards than fit.
+{% endcomment %}
+
+<section class="momemade-stories" id="momemade-stories-{{ section.id }}">
+  <div class="momemade-stories__head">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="momemade-stories__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
+    <h2 class="momemade-stories__title">{{ section.settings.title }}</h2>
+    {%- if section.settings.subtitle != blank -%}
+      <p class="momemade-stories__subtitle">{{ section.settings.subtitle }}</p>
+    {%- endif -%}
+  </div>
+
+  <div class="momemade-stories__carousel">
+    <button type="button" class="momemade-stories__arrow momemade-stories__arrow--prev" data-stories-prev aria-label="Previous videos">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="momemade-stories__track" data-stories-track>
+      {%- for block in section.blocks -%}
+        <article class="momemade-stories__card" {{ block.shopify_attributes }}>
+          <div class="momemade-stories__media" data-stories-media>
+            {%- if block.settings.poster != blank -%}
+              {{
+                block.settings.poster
+                | image_url: width: 900
+                | image_tag: class: 'momemade-stories__poster', widths: '450, 640, 900', sizes: '(max-width: 749px) 85vw, 33vw', alt: block.settings.poster.alt
+              }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'momemade-stories__poster momemade-stories__poster--placeholder' }}
+            {%- endif -%}
+
+            {%- if block.settings.video != blank -%}
+              <div class="momemade-stories__video-wrap" data-stories-video hidden>
+                {{ block.settings.video | video_tag: controls: true, preload: 'none', class: 'momemade-stories__video' }}
+              </div>
+            {%- endif -%}
+
+            {%- if block.settings.video != blank or block.settings.video_url != blank -%}
+              <button
+                type="button"
+                class="momemade-stories__play"
+                data-stories-play
+                {%- if block.settings.video == blank and block.settings.video_url != blank -%}
+                  {%- if block.settings.video_url.type == 'youtube' -%}
+                    data-embed="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&rel=0"
+                  {%- elsif block.settings.video_url.type == 'vimeo' -%}
+                    data-embed="https://player.vimeo.com/video/{{ block.settings.video_url.id }}?autoplay=1"
+                  {%- endif -%}
+                {%- endif -%}
+                aria-label="Play video"
+              >
+                <span class="momemade-stories__play-inner" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.5 5.5v13l11-6.5z" fill="#090b00"/>
+                  </svg>
+                </span>
+              </button>
+            {%- endif -%}
+          </div>
+          {%- if block.settings.caption != blank -%}
+            <p class="momemade-stories__caption">{{ block.settings.caption }}</p>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    <button type="button" class="momemade-stories__arrow momemade-stories__arrow--next" data-stories-next aria-label="Next videos">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  {%- if section.settings.button_label != blank -%}
+    <a href="{{ section.settings.button_link | default: '#' }}" class="momemade-stories__cta">
+      {{ section.settings.button_label }}
+    </a>
+  {%- endif -%}
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('momemade-stories-{{ section.id }}');
+    if (!root || root.dataset.storiesInit) return;
+    root.dataset.storiesInit = '1';
+
+    var track = root.querySelector('[data-stories-track]');
+    var prev = root.querySelector('[data-stories-prev]');
+    var next = root.querySelector('[data-stories-next]');
+
+    function cardStep() {
+      var card = track.querySelector('.momemade-stories__card');
+      return card ? card.getBoundingClientRect().width + 30 : 320;
+    }
+
+    function updateArrows() {
+      var max = track.scrollWidth - track.clientWidth - 1;
+      prev.disabled = track.scrollLeft <= 0;
+      next.disabled = track.scrollLeft >= max;
+    }
+
+    if (track && prev && next) {
+      prev.addEventListener('click', function () {
+        track.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+      });
+      next.addEventListener('click', function () {
+        track.scrollBy({ left: cardStep(), behavior: 'smooth' });
+      });
+      track.addEventListener('scroll', updateArrows, { passive: true });
+      window.addEventListener('resize', updateArrows);
+      updateArrows();
+    }
+
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-stories-play]');
+      if (!btn) return;
+      var media = btn.closest('[data-stories-media]');
+      var videoWrap = media.querySelector('[data-stories-video]');
+      var embed = btn.getAttribute('data-embed');
+      media.classList.add('momemade-stories__media--playing');
+      if (videoWrap) {
+        videoWrap.hidden = false;
+        var video = videoWrap.querySelector('video');
+        if (video) video.play();
+      } else if (embed) {
+        var frame = document.createElement('iframe');
+        frame.src = embed;
+        frame.className = 'momemade-stories__iframe';
+        frame.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
+        frame.setAttribute('allowfullscreen', '');
+        media.appendChild(frame);
+      }
+    });
+  })();
+</script>
+
+{% style %}
+  .momemade-stories {
+    background: #f5dfe2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 56px 80px;
+  }
+
+  .momemade-stories__head {
+    text-align: center;
+    max-width: 980px;
+  }
+
+  .momemade-stories__eyebrow {
+    font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #090b00;
+    margin: 0 0 4px;
+  }
+
+  .momemade-stories__title {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: clamp(36px, 4.2vw, 64px);
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #090b00;
+    margin: 0 0 12px;
+  }
+
+  .momemade-stories__subtitle {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #090b00;
+    opacity: 0.8;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .momemade-stories__carousel {
+    position: relative;
+    width: 100%;
+    max-width: 1352px;
+  }
+
+  .momemade-stories__track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .momemade-stories__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .momemade-stories__card {
+    flex: 0 0 calc((100% - 60px) / 3);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    height: 580px;
+    background: #ffffff;
+  }
+
+  .momemade-stories__media {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    background: #ede8df;
+    overflow: hidden;
+  }
+
+  .momemade-stories__poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-stories__video-wrap,
+  .momemade-stories__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #090b00;
+  }
+
+  .momemade-stories__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-stories__video-wrap[hidden] {
+    display: none;
+  }
+
+  .momemade-stories__media--playing .momemade-stories__poster,
+  .momemade-stories__media--playing .momemade-stories__play {
+    display: none;
+  }
+
+  .momemade-stories__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .momemade-stories__play:hover {
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+
+  .momemade-stories__play-inner {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .momemade-stories__play-inner svg {
+    margin-left: 3px;
+  }
+
+  .momemade-stories__caption {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #090b00;
+    background: #ffffff;
+    padding: 24px;
+    margin: 0;
+  }
+
+  .momemade-stories__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #090b00;
+    border: 0;
+    box-shadow: 0 2px 10px rgba(9, 11, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-stories__arrow--prev {
+    left: -24px;
+  }
+
+  .momemade-stories__arrow--next {
+    right: -24px;
+  }
+
+  .momemade-stories__arrow:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  .momemade-stories__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    padding: 24px 10px;
+    background: #d49ed7;
+    color: #090b00;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-stories__cta:hover {
+    opacity: 0.85;
+  }
+
+  @media screen and (max-width: 989px) {
+    .momemade-stories {
+      padding: 72px 40px;
+      gap: 36px;
+    }
+
+    .momemade-stories__title {
+      font-size: 56px;
+      line-height: 60px;
+    }
+
+    .momemade-stories__card {
+      flex: 0 0 400px;
+      height: 540px;
+    }
+
+    .momemade-stories__arrow--prev {
+      left: -16px;
+    }
+
+    .momemade-stories__arrow--next {
+      right: -16px;
+    }
+
+    .momemade-stories__caption {
+      font-size: 22px;
+      line-height: 30px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-stories {
+      padding: 56px 20px;
+      gap: 28px;
+    }
+
+    .momemade-stories__title {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .momemade-stories__card {
+      flex: 0 0 85%;
+      height: 500px;
+    }
+
+    .momemade-stories__arrow {
+      display: none;
+    }
+
+    .momemade-stories__caption {
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -0.5px;
+    }
+  }
+
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade stories",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Loved by dogs & their humans"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Stories from pups who eat it up"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subheading",
+      "default": "Real families, real pups, real reactions. Watch how our whole-food recipes turn ordinary mealtimes into healthy rituals they can't wait for."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SHOP BISCUITS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video (Shopify-hosted)"
+        },
+        {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Or video link",
+          "accept": ["youtube", "vimeo"],
+          "info": "Used when no Shopify-hosted video is set"
+        },
+        {
+          "type": "textarea",
+          "id": "caption",
+          "label": "Caption",
+          "default": "How one pieces became the highlight of their daily routine"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Momemade stories",
+      "blocks": [
+        {
+          "type": "video",
+          "settings": {
+            "caption": "How one pieces became the highlight of their daily routine"
+          }
+        },
+        {
+          "type": "video",
+          "settings": {
+            "caption": "From \"fussy eater\" to \"licking the bowl clean every single time\""
+          }
+        },
+        {
+          "type": "video",
+          "settings": {
+            "caption": "A simple dietary switch that brought back their puppy energy"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

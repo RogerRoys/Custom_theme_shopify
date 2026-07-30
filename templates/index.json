@@ -35,7 +35,7 @@
       ],
       "settings": {
         "eyebrow": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY",
-        "heading": "“It’s not just a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”",
+        "heading": "“It’s not <em>just</em> a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”",
         "subheading": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>",
         "image": "shopify://shop_images/Promotion_Banner_-_2026-07-28T092140.854.jpg",
         "show_sparkle": false,
@@ -389,6 +389,41 @@
         "button_label": "READ OUR STORY",
         "button_link": ""
       }
+    },
+    "stories": {
+      "type": "momemade-stories",
+      "blocks": {
+        "v1": {
+          "type": "video",
+          "settings": {
+            "caption": "How one pieces became the highlight of their daily routine"
+          }
+        },
+        "v2": {
+          "type": "video",
+          "settings": {
+            "caption": "From \"fussy eater\" to \"licking the bowl clean every single time\""
+          }
+        },
+        "v3": {
+          "type": "video",
+          "settings": {
+            "caption": "A simple dietary switch that brought back their puppy energy"
+          }
+        }
+      },
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "settings": {
+        "eyebrow": "Loved by dogs & their humans",
+        "title": "Stories from pups who eat it up",
+        "subtitle": "Real families, real pups, real reactions. Watch how our whole-food recipes turn ordinary mealtimes into healthy rituals they can't wait for.",
+        "button_label": "SHOP BISCUITS",
+        "button_link": ""
+      }
     }
   },
   "order": [
@@ -399,6 +434,7 @@
     "quote",
     "ticker2",
     "testimonials",
-    "mission"
+    "mission",
+    "stories"
   ]
 }

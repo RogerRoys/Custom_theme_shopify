@@ -7,7 +7,14 @@
      (ships with MS Office, so most desktops have it) and falls back to
      Poppins, the closest font in the Shopify library.
   Rendered from momemade-header.liquid so it loads on every page.
+
+  The updated design also uses Jost as a secondary typeface (eyebrows,
+  small labels, footer menu). Jost is a free Google Font, loaded from
+  Google Fonts and exposed as --momemade-font-secondary.
 {% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap">
 <style>
   {%- if settings.momemade_custom_font_enable and settings.momemade_font_url_regular != blank -%}
     @font-face {
@@ -28,10 +35,12 @@
     {%- endif -%}
     :root {
       --momemade-font-family: 'Momemade Font', 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'URW Gothic', 'Poppins', 'Futura', 'Trebuchet MS', sans-serif;
+      --momemade-font-secondary: 'Jost', 'Momemade Font', 'Century Gothic', 'Poppins', 'Trebuchet MS', sans-serif;
     }
   {%- else -%}
     :root {
       --momemade-font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', 'URW Gothic', 'Poppins', 'Futura', 'Trebuchet MS', sans-serif;
+      --momemade-font-secondary: 'Jost', 'Century Gothic', 'Poppins', 'Trebuchet MS', sans-serif;
     }
   {%- endif -%}
 </style>

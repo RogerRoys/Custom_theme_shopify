@@ -27,12 +27,14 @@
     }
 
     .momemade-showcase__card,
-    .momemade-testimonials__card {
+    .momemade-testimonials__card,
+    .momemade-stories__card {
       transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     .momemade-showcase__card:hover,
-    .momemade-testimonials__card:hover {
+    .momemade-testimonials__card:hover,
+    .momemade-stories__card:hover {
       transform: translateY(-6px);
     }
 
@@ -58,7 +60,10 @@
       '.momemade-signup__content, .momemade-signup__stats',
       '.momemade-quote__eyebrow, .momemade-quote__quote, .momemade-quote__attribution',
       '.momemade-testimonials__card',
-      '.momemade-mission__content, .momemade-mission__media'
+      '.momemade-mission__content, .momemade-mission__media',
+      '.momemade-stories__head',
+      '.momemade-stories__card',
+      '.momemade-stories__cta'
     ];
 
     var io = new IntersectionObserver(

@@ -38,7 +38,11 @@
           {%- if block.settings.button_label != blank -%}
             <a href="{{ block.settings.button_link | default: '#' }}" class="momemade-showcase__card-button">
               {{ block.settings.button_label }}
-              <span class="momemade-showcase__card-button-arrow" aria-hidden="true">→</span>
+              <span class="momemade-showcase__card-button-arrow" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
             </a>
           {%- endif -%}
         </div>
@@ -55,12 +59,13 @@
 }
 
 .momemade-section-heading__eyebrow {
-  font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+  font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
   font-weight: 700;
   font-size: 14px;
   line-height: 1.7;
-  color: #d49ed7;
-  opacity: 0.8;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #090b00;
   margin: 0 0 4px;
 }
 
@@ -76,7 +81,7 @@
 .momemade-section-heading__subtitle {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 28px;
   opacity: 0.8;
   margin: 0 auto;
@@ -89,7 +94,7 @@
     flex-direction: column;
     gap: 40px;
     align-items: center;
-    padding: 80px 40px;
+    padding: 56px 40px;
   }
 
   .momemade-showcase__grid {
@@ -145,8 +150,8 @@
   .momemade-showcase__card-title {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: clamp(32px, 3vw, 44px);
-    line-height: 48px;
+    font-size: 36px;
+    line-height: 40px;
     letter-spacing: -1px;
     margin: 0 0 16px;
   }
@@ -184,6 +189,8 @@
 
   .momemade-showcase__card-button-arrow {
     margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
   }
 
   @media screen and (max-width: 989px) {
