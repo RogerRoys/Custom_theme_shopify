@@ -144,16 +144,17 @@
     margin: 0 0 20px;
   }
 
-  /* Italicized word sits on a solid mint rectangle (Figma node 435:1074) */
+  /* Italicized word sits on a solid mint rectangle (Figma node 435:1074).
+     The side bleed comes from box-shadow instead of padding so the word
+     keeps its normal width and the heading wraps exactly as before —
+     padding here added a line and pushed the hero past screen height */
   .momemade-hero__heading em {
     font-style: italic;
     font-weight: 700;
     color: #090b00;
     background: #a0dbb3;
-    padding: 0.04em 0.14em;
+    box-shadow: 0.12em 0 0 #a0dbb3, -0.12em 0 0 #a0dbb3;
     white-space: nowrap;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
   }
 
   .momemade-hero__sparkle {
