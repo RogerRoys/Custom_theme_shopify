@@ -65,6 +65,16 @@
                   </svg>
                 </span>
               </button>
+            {%- else -%}
+              {%- comment -%} No video attached yet — keep the design's play
+                  visual as a decorative element until one is added {%- endcomment -%}
+              <span class="momemade-stories__play momemade-stories__play--static" aria-hidden="true">
+                <span class="momemade-stories__play-inner">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M8.5 5.5v13l11-6.5z" fill="#090b00"/>
+                  </svg>
+                </span>
+              </span>
             {%- endif -%}
           </div>
           {%- if block.settings.caption != blank -%}
@@ -279,6 +289,14 @@
 
   .momemade-stories__play:hover {
     transform: translate(-50%, -50%) scale(1.06);
+  }
+
+  .momemade-stories__play--static {
+    cursor: default;
+  }
+
+  .momemade-stories__play--static:hover {
+    transform: translate(-50%, -50%);
   }
 
   .momemade-stories__play-inner {
