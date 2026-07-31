@@ -396,6 +396,8 @@
         "v1": {
           "type": "video",
           "settings": {
+            "poster": "shopify://shop_images/Untitled_design_-_2026-07-28T093515.674.jpg",
+            "video": "shopify://files/videos/IMG_5335.mp4",
             "video_url": "",
             "caption": "How one pieces became the highlight of their daily routine"
           }
