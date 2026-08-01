@@ -9,8 +9,8 @@
  */
 {
   "current": {
-    "logo": "",
-    "logo_height": 69,
+    "logo": "shopify://shop_images/MM_Logo.svg",
+    "logo_height": 31,
     "logo_height_mobile": 80,
     "favicon": "shopify://shop_images/MM_FAV-01.svg",
     "type_body_font": "poppins_n4",
