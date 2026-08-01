@@ -15,7 +15,12 @@
       "type": "momemade-footer",
       "settings": {
         "text": "",
-        "menu": "footer"
+        "signup_eyebrow": "Stay in touch",
+        "signup_heading": "Stay. Stay. Stay in touch.",
+        "signup_placeholder": "your@email.com",
+        "signup_button": "JOIN",
+        "signup_success": "Thanks for joining! 🐾",
+        "menu": "footer-1"
       }
     }
   },
