@@ -46,17 +46,20 @@
             {%- endif -%}
 
             {%- if block.settings.video != blank or block.settings.video_url != blank -%}
+              {%- comment -%} No whitespace-stripping dashes between the
+                  attributes below — stripping fuses data-stories-play and
+                  aria-label into one broken attribute {%- endcomment -%}
               <button
                 type="button"
                 class="momemade-stories__play"
                 data-stories-play
-                {%- if block.settings.video == blank and block.settings.video_url != blank -%}
-                  {%- if block.settings.video_url.type == 'youtube' -%}
+                {% if block.settings.video == blank and block.settings.video_url != blank %}
+                  {%- if block.settings.video_url.type == 'youtube' %}
                     data-embed="https://www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&rel=0"
-                  {%- elsif block.settings.video_url.type == 'vimeo' -%}
+                  {%- elsif block.settings.video_url.type == 'vimeo' %}
                     data-embed="https://player.vimeo.com/video/{{ block.settings.video_url.id }}?autoplay=1"
-                  {%- endif -%}
-                {%- endif -%}
+                  {%- endif %}
+                {% endif %}
                 aria-label="Play video"
               >
                 <span class="momemade-stories__play-inner" aria-hidden="true">
