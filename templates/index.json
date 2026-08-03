@@ -405,6 +405,7 @@
         "v2": {
           "type": "video",
           "settings": {
+            "poster": "shopify://shop_images/Untitled_design_-_2026-07-28T093515.674.jpg",
             "video": "shopify://files/videos/IMG_5335.mp4",
             "video_url": "",
             "caption": "From \"fussy eater\" to \"licking the bowl clean every single time\""
@@ -413,6 +414,7 @@
         "v3": {
           "type": "video",
           "settings": {
+            "poster": "shopify://shop_images/Untitled_design_-_2026-07-28T092852.735.jpg",
             "video": "shopify://files/videos/IMG_5335.mp4",
             "video_url": "",
             "caption": "A simple dietary switch that brought back their puppy energy"
