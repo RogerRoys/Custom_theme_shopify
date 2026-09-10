@@ -1,6 +1,6 @@
 {% render 'momemade-fonts' %}
 {% render 'momemade-motion' %}
-<header class="momemade-header">
+<header class="momemade-header{% if template.name == 'index' %} momemade-header--overlay{% endif %}">
   <details class="momemade-header__mobile-menu">
     <summary class="momemade-header__icon-link" aria-label="Menu">
       <span class="momemade-header__mobile-menu-open">{% render 'momemade-icons', name: 'hamburger' %}</span>
@@ -57,6 +57,28 @@
     gap: 24px;
     padding: 16px 80px;
     position: relative;
+  }
+
+  /* Homepage: navbar floats transparently over the hero photo */
+  .momemade-header--overlay {
+    position: absolute;
+    top: 34px;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: transparent;
+  }
+
+  .momemade-header--overlay .momemade-header__nav-link,
+  .momemade-header--overlay .momemade-header__icon-link,
+  .momemade-header--overlay .momemade-header__logo-link {
+    color: #f5dbdf;
+  }
+
+  .momemade-header--overlay .momemade-header__nav-link:hover,
+  .momemade-header--overlay .momemade-header__nav-link.is-active,
+  .momemade-header--overlay .momemade-header__icon-link:hover {
+    color: #d49ed7;
   }
 
   .momemade-header__logo-link {
@@ -223,6 +245,10 @@
       padding: 16px 20px;
     }
 
+    .momemade-header--overlay {
+      top: 34px;
+    }
+
     .momemade-header__nav {
       display: none;
     }
@@ -233,6 +259,12 @@
 
     .momemade-header__icons {
       gap: 16px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-header--overlay {
+      top: 32px;
     }
   }
 {% endstyle %}

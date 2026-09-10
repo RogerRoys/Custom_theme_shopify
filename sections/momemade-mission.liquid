@@ -13,15 +13,15 @@
           {{ 'lifestyle-2' | placeholder_svg_tag: 'momemade-mission__placeholder' }}
         {%- endif -%}
       </div>
-      {%- if section.settings.image_2 != blank -%}
-        <div class="momemade-mission__image momemade-mission__image--secondary">
-          {{ section.settings.image_2 | image_url: width: 600 | image_tag: widths: '300, 450, 600', sizes: '20vw', alt: section.settings.image_2.alt }}
-        </div>
-      {%- endif -%}
       {%- if section.settings.stat_number != blank -%}
         <div class="momemade-mission__stat">
           <span class="momemade-mission__stat-number">{{ section.settings.stat_number }}</span>
           <span class="momemade-mission__stat-label">{{ section.settings.stat_label }}</span>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.credit_text != blank -%}
+        <div class="momemade-mission__credit">
+          <span>{{ section.settings.credit_text }}</span>
         </div>
       {%- endif -%}
     </div>
@@ -77,27 +77,12 @@
     display: block;
   }
 
-  .momemade-mission__image--secondary {
-    position: absolute;
-    right: -24px;
-    bottom: -24px;
-    width: 45%;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 6px solid #f5dfe2;
-  }
-
-  .momemade-mission__image--secondary img {
-    width: 100%;
-    display: block;
-  }
-
   .momemade-mission__stat {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background: #ffffff;
+    background: rgba(0, 0, 0, 0.4);
     padding: 24px;
     width: min(85%, 319px);
     min-height: 324px;
@@ -106,7 +91,28 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 10px;
+    gap: 32px;
+  }
+
+  .momemade-mission__credit {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 40px 24px 16px;
+    background: linear-gradient(0deg, rgba(9, 11, 0, 0.75) 0%, rgba(9, 11, 0, 0) 100%);
+    display: flex;
+    justify-content: center;
+  }
+
+  .momemade-mission__credit span {
+    font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #ffffff;
   }
 
   .momemade-mission__stat-number {
@@ -125,7 +131,7 @@
     line-height: 18px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #090b00;
+    color: #ffffff;
   }
 
   .momemade-mission__eyebrow {
@@ -258,15 +264,16 @@
       "label": "Main image"
     },
     {
-      "type": "image_picker",
-      "id": "image_2",
-      "label": "Secondary image (overlap)"
-    },
-    {
       "type": "text",
       "id": "stat_number",
       "label": "Stat number",
       "default": "96"
+    },
+    {
+      "type": "text",
+      "id": "credit_text",
+      "label": "Photo credit",
+      "default": "@ulstercountycanines · Saugerties, NY"
     },
     {
       "type": "text",
@@ -290,7 +297,7 @@
       "type": "textarea",
       "id": "text",
       "label": "Text",
-      "default": "Rescue isn’t a campaign for us — it’s who we are. We chose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats."
+      "default": "Rescue isn’t a campaign for us — it’s who we are. We choose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats."
     },
     {
       "type": "text",

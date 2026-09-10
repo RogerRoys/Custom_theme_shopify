@@ -1,152 +1,245 @@
-<section class="momemade-hero">
-  <div class="momemade-hero__inner">
-    <div class="momemade-hero__content">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="momemade-hero__eyebrow">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
+{% comment %}
+  Momemade hero — full-bleed photo slider (redesign, Figma 538:4010).
+  Each slide is a block: full-viewport photo (optionally split into a
+  left/right pair), dark top + bottom scrims, centered content. Fields
+  left blank are hidden, so slide 2 can be a single headline over the
+  photo. Pager (counter + progress + round arrows) shows when there is
+  more than one slide. The navbar overlays this section on the homepage
+  (see momemade-header.liquid).
+{% endcomment %}
 
-      <div class="momemade-hero__heading-wrap">
-        <h1 class="momemade-hero__heading">{{ section.settings.heading }}</h1>
-        {%- if section.settings.show_sparkle -%}
-          <span class="momemade-hero__sparkle">{% render 'momemade-icons', name: 'sparkle' %}</span>
-        {%- endif -%}
-      </div>
-
-      {%- if section.settings.subheading != blank -%}
-        <div class="momemade-hero__subheading">{{ section.settings.subheading }}</div>
-      {%- endif -%}
-
-      {%- if section.blocks.size > 0 -%}
-        <div class="momemade-hero__buttons">
-          {%- for block in section.blocks -%}
-            <a
-              href="{{ block.settings.link | default: '#' }}"
-              class="momemade-hero__btn momemade-hero__btn--{{ block.settings.style }}"
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.label }}
-            </a>
-          {%- endfor -%}
+<section class="momemade-hero" id="momemade-hero-{{ section.id }}">
+  <div class="momemade-hero__slides">
+    {%- for block in section.blocks -%}
+      <div
+        class="momemade-hero__slide{% if forloop.first %} is-active{% endif %} momemade-hero__slide--{{ block.settings.content_position }}"
+        data-hero-slide
+        {{ block.shopify_attributes }}
+      >
+        <div class="momemade-hero__bg" aria-hidden="true">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 2200
+              | image_tag: class: 'momemade-hero__bg-image', widths: '800, 1400, 2200', sizes: '100vw', alt: block.settings.image.alt, preload: forloop.first
+            }}
+          {%- else -%}
+            <div class="momemade-hero__bg-placeholder">
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'momemade-hero__placeholder-svg' }}
+            </div>
+          {%- endif -%}
+          {%- if block.settings.image_2 != blank -%}
+            {{
+              block.settings.image_2
+              | image_url: width: 1200
+              | image_tag: class: 'momemade-hero__bg-image momemade-hero__bg-image--right', widths: '600, 900, 1200', sizes: '50vw', alt: block.settings.image_2.alt
+            }}
+          {%- endif -%}
+          <div class="momemade-hero__scrim"></div>
         </div>
-      {%- endif -%}
 
-      {%- if section.settings.rating_text != blank -%}
-        <p class="momemade-hero__rating">
-          <span class="momemade-hero__rating-stars" aria-hidden="true">{{ section.settings.rating_stars }}</span>
-          {{ section.settings.rating_text }}
-        </p>
-      {%- endif -%}
-    </div>
-
-    <div class="momemade-hero__media-wrap">
-      <div class="momemade-hero__media">
-        {%- if section.settings.image != blank -%}
-          {{
-            section.settings.image
-            | image_url: width: 1600
-            | image_tag: class: 'momemade-hero__image', widths: '760, 1080, 1600', sizes: '(max-width: 749px) 100vw, 50vw', alt: section.settings.image.alt
-          }}
-        {%- else -%}
-          <div class="momemade-hero__image-placeholder">
-            {{ 'lifestyle-1' | placeholder_svg_tag: 'momemade-hero__placeholder-svg' }}
-          </div>
-        {%- endif -%}
-      </div>
-
-      {%- if section.settings.show_badge -%}
-        <div class="momemade-hero__badge" aria-hidden="true">
-          {% render 'momemade-icons', name: 'badge-flower' %}
-          <span class="momemade-hero__badge-text">{{ section.settings.badge_text }}</span>
+        <div class="momemade-hero__content">
+          {%- if block.settings.eyebrow != blank -%}
+            <p class="momemade-hero__eyebrow">{{ block.settings.eyebrow }}</p>
+          {%- endif -%}
+          {%- if block.settings.heading != blank -%}
+            <h2 class="momemade-hero__heading">{{ block.settings.heading }}</h2>
+          {%- endif -%}
+          {%- if block.settings.subheading != blank -%}
+            <div class="momemade-hero__subheading">{{ block.settings.subheading }}</div>
+          {%- endif -%}
+          {%- if block.settings.button1_label != blank or block.settings.button2_label != blank -%}
+            <div class="momemade-hero__buttons">
+              {%- if block.settings.button1_label != blank -%}
+                <a href="{{ block.settings.button1_link | default: '#' }}" class="momemade-hero__btn momemade-hero__btn--pink">{{ block.settings.button1_label }}</a>
+              {%- endif -%}
+              {%- if block.settings.button2_label != blank -%}
+                <a href="{{ block.settings.button2_link | default: '#' }}" class="momemade-hero__btn momemade-hero__btn--mint">{{ block.settings.button2_label }}</a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+          {%- if block.settings.rating_text != blank -%}
+            <p class="momemade-hero__rating">
+              <span class="momemade-hero__rating-stars" aria-hidden="true">{{ block.settings.rating_stars }}</span>
+              {{ block.settings.rating_text }}
+            </p>
+          {%- endif -%}
         </div>
-      {%- endif -%}
-
-      {%- if section.settings.show_paw -%}
-        <span class="momemade-hero__paw" aria-hidden="true">{% render 'momemade-icons', name: 'paw' %}</span>
-      {%- endif -%}
-    </div>
+      </div>
+    {%- endfor -%}
   </div>
+
+  {%- if section.blocks.size > 1 -%}
+    <div class="momemade-hero__pager">
+      <div class="momemade-hero__pager-info">
+        <span class="momemade-hero__pager-counter" data-hero-counter>1/{{ section.blocks.size }}</span>
+        <span class="momemade-hero__progress"><span class="momemade-hero__progress-fill" data-hero-progress></span></span>
+      </div>
+      <button type="button" class="momemade-hero__arrow" data-hero-prev aria-label="Previous slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button type="button" class="momemade-hero__arrow" data-hero-next aria-label="Next slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  {%- endif -%}
 </section>
+
+<script>
+  (function () {
+    var root = document.getElementById('momemade-hero-{{ section.id }}');
+    if (!root || root.dataset.heroInit) return;
+    root.dataset.heroInit = '1';
+
+    var slides = root.querySelectorAll('[data-hero-slide]');
+    var counter = root.querySelector('[data-hero-counter]');
+    var progress = root.querySelector('[data-hero-progress]');
+    var prev = root.querySelector('[data-hero-prev]');
+    var next = root.querySelector('[data-hero-next]');
+    if (slides.length < 2 || !prev || !next) {
+      if (progress) progress.style.width = '100%';
+      return;
+    }
+
+    var current = 0;
+
+    function show(index) {
+      current = (index + slides.length) % slides.length;
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].classList.toggle('is-active', i === current);
+      }
+      if (counter) counter.textContent = (current + 1) + '/' + slides.length;
+      if (progress) progress.style.width = (((current + 1) / slides.length) * 100) + '%';
+    }
+
+    prev.addEventListener('click', function () { show(current - 1); });
+    next.addEventListener('click', function () { show(current + 1); });
+    show(0);
+  })();
+</script>
 
 {% style %}
   .momemade-hero {
+    position: relative;
     background: #090b00;
-    padding: 24px;
+    min-height: calc(100vh - 34px);
+    min-height: calc(100svh - 34px);
+    overflow: hidden;
   }
 
-  .momemade-hero__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: stretch;
+  .momemade-hero__slides {
+    position: absolute;
+    inset: 0;
   }
 
-  .momemade-hero__content {
+  .momemade-hero__slide {
+    position: absolute;
+    inset: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 66px 56px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  .momemade-hero__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .momemade-hero__slide--bottom {
+    justify-content: flex-end;
+  }
+
+  .momemade-hero__bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+  }
+
+  .momemade-hero__bg-image,
+  .momemade-hero__bg-placeholder,
+  .momemade-hero__placeholder-svg {
+    flex: 1 1 0;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-hero__bg-placeholder {
+    background: #1a1d10;
+  }
+
+  /* Dark gradients: header legibility up top, text legibility below */
+  .momemade-hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(9, 11, 0, 0.75) 0%, rgba(9, 11, 0, 0) 164px),
+      linear-gradient(0deg, rgba(9, 11, 0, 0.82) 0%, rgba(9, 11, 0, 0.35) 45%, rgba(9, 11, 0, 0) 75%);
+  }
+
+  .momemade-hero__content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+    padding: 172px 80px 80px;
+    max-width: 1340px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .momemade-hero__eyebrow {
-    font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 20px;
-    color: #d49ed7;
-    margin: 0 0 20px;
-  }
-
-  .momemade-hero__heading-wrap {
-    position: relative;
-    max-width: 560px;
+    text-transform: uppercase;
+    color: #f5dbdf;
+    margin: 0;
   }
 
   .momemade-hero__heading {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: clamp(40px, 4.2vw, 64px);
-    line-height: 1.125;
+    font-size: clamp(40px, 8.6vw, 80px);
+    line-height: 1;
     letter-spacing: -1px;
     color: #f5dbdf;
-    margin: 0 0 20px;
+    max-width: 1150px;
+    margin: 0;
   }
 
-  /* Italicized word sits on a solid mint rectangle (Figma node 435:1074).
-     The side bleed comes from box-shadow instead of padding so the word
-     keeps its normal width and the heading wraps exactly as before —
-     padding here added a line and pushed the hero past screen height */
+  /* Highlighted word: dark on a pink chip (Figma "just" treatment).
+     Side bleed via box-shadow so the heading wraps as if unhighlighted */
   .momemade-hero__heading em {
     font-style: italic;
     font-weight: 700;
     color: #090b00;
-    background: #a0dbb3;
-    box-shadow: 0.12em 0 0 #a0dbb3, -0.12em 0 0 #a0dbb3;
+    background: #d49ed7;
+    box-shadow: 0.12em 0 0 #d49ed7, -0.12em 0 0 #d49ed7;
     white-space: nowrap;
-  }
-
-  .momemade-hero__sparkle {
-    position: absolute;
-    top: -25px;
-    right: -35px;
-    width: 85px;
-    height: 84px;
-    color: #a0dbb3;
-  }
-
-  .momemade-hero__sparkle svg {
-    width: 100%;
-    height: 100%;
   }
 
   .momemade-hero__subheading {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    color: rgba(245,219,223,0.8);
-    max-width: 546px;
-    margin: 0 0 64px;
+    font-size: clamp(16px, 1.9vw, 28px);
+    line-height: 1.25;
+    letter-spacing: -0.5px;
+    color: rgba(245, 219, 223, 0.85);
+    max-width: 1340px;
+    margin: 0;
   }
 
   .momemade-hero__subheading p {
@@ -160,6 +253,7 @@
   .momemade-hero__buttons {
     display: flex;
     gap: 10px;
+    justify-content: center;
   }
 
   .momemade-hero__btn {
@@ -177,6 +271,7 @@
     text-decoration: none;
     text-transform: uppercase;
     white-space: nowrap;
+    color: #090b00;
     transition: opacity 0.15s ease;
   }
 
@@ -186,173 +281,180 @@
 
   .momemade-hero__btn--pink {
     background: #d49ed7;
-    color: #090b00;
   }
 
   .momemade-hero__btn--mint {
     background: #a0dbb3;
-    color: #090b00;
-  }
-
-  .momemade-hero__btn--outline {
-    background: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
   }
 
   .momemade-hero__rating {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 18px;
+    font-size: 24px;
     line-height: 28px;
     color: #d49ed7;
-    margin: 16px 0 0;
+    margin: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 16px;
   }
 
   .momemade-hero__rating-stars {
+    font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
     font-weight: 700;
-    font-size: 16.8px;
-    color: #d49ed7;
+    font-size: 20px;
     letter-spacing: 2.4px;
   }
 
-  .momemade-hero__media-wrap {
-    position: relative;
-  }
-
-  .momemade-hero__media {
-    overflow: hidden;
-    height: 100%;
-    min-height: 560px;
-  }
-
-  .momemade-hero__image,
-  .momemade-hero__image-placeholder,
-  .momemade-hero__placeholder-svg {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .momemade-hero__image-placeholder {
-    background: #ede8df;
-  }
-
-  .momemade-hero__badge {
+  .momemade-hero__pager {
     position: absolute;
-    top: 28px;
-    left: 36px;
-    width: 154px;
-    height: 154px;
-    color: #d49ed7;
+    right: 53px;
+    bottom: 70px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .momemade-hero__pager-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-right: 44px;
+  }
+
+  .momemade-hero__pager-counter {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-size: 14px;
+    line-height: 14px;
+    color: rgba(245, 219, 223, 0.8);
+  }
+
+  .momemade-hero__progress {
+    display: block;
+    width: 65px;
+    height: 4px;
+    background: rgba(212, 158, 215, 0.2);
+  }
+
+  .momemade-hero__progress-fill {
+    display: block;
+    width: 50%;
+    height: 100%;
+    background: #d49ed7;
+    transition: width 0.3s ease;
+  }
+
+  .momemade-hero__arrow {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #090b00;
+    border: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: momemade-badge-spin 24s linear infinite;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
   }
 
-  .momemade-hero__badge svg {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.92;
+  .momemade-hero__arrow:hover {
+    opacity: 0.85;
   }
 
-  .momemade-hero__badge-text {
-    position: relative;
-    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 20px;
-    letter-spacing: -1px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #ffffff;
-    max-width: 110px;
-  }
-
-  @keyframes momemade-badge-spin {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  .momemade-hero__badge-text {
-    animation: momemade-badge-spin 24s linear infinite reverse;
-  }
-
-  .momemade-hero__paw {
-    position: absolute;
-    bottom: -46px;
-    left: -100px;
-    width: 198px;
-    height: 207px;
-    color: #a0dbb3;
-    pointer-events: none;
-  }
-
-  .momemade-hero__paw svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  /* Tablet (834 spec): stacked & centered, fixed-width button row, image below */
+  /* Tablet: content sits lower, smaller buttons */
   @media screen and (max-width: 989px) {
     .momemade-hero {
-      padding: 0;
+      min-height: calc(100vh - 34px);
+      min-height: calc(100svh - 34px);
     }
 
-    .momemade-hero__inner {
-      grid-template-columns: 1fr;
-      gap: 32px;
+    .momemade-hero__slide {
+      justify-content: flex-end;
     }
 
     .momemade-hero__content {
-      order: 1;
-      align-items: center;
-      text-align: center;
-      padding: 48px 40px 0;
-    }
-
-    .momemade-hero__heading-wrap {
-      max-width: 603px;
+      padding: 140px 40px 110px;
+      gap: 20px;
     }
 
     .momemade-hero__eyebrow {
-      font-size: 12px;
-    }
-
-    .momemade-hero__heading {
-      font-size: 56px;
-      line-height: 60px;
+      font-size: 14px;
     }
 
     .momemade-hero__subheading {
-      margin-bottom: 32px;
-    }
-
-    .momemade-hero__buttons {
-      justify-content: center;
-      max-width: none;
-      width: auto;
+      line-height: 1.4;
     }
 
     .momemade-hero__btn {
-      flex: 0 0 auto;
       width: 180px;
       padding: 16px 10px;
       font-size: 14px;
     }
 
     .momemade-hero__rating {
-      justify-content: center;
-      font-size: 11px;
-      gap: 6px;
+      font-size: 16px;
+      line-height: 24px;
+      gap: 10px;
+    }
+
+    .momemade-hero__rating-stars {
+      font-size: 15px;
+      letter-spacing: 1.8px;
+    }
+
+    .momemade-hero__pager {
+      right: 24px;
+      bottom: 32px;
+    }
+
+    .momemade-hero__pager-info {
+      margin-right: 16px;
+    }
+  }
+
+  /* Mobile: left-aligned text, buttons split the row */
+  @media screen and (max-width: 749px) {
+    .momemade-hero {
+      min-height: calc(100vh - 32px);
+      min-height: calc(100svh - 32px);
+    }
+
+    .momemade-hero__content {
+      align-items: flex-start;
+      text-align: left;
+      padding: 120px 20px 96px;
+      gap: 16px;
+    }
+
+    .momemade-hero__eyebrow {
+      font-size: 12px;
+    }
+
+    .momemade-hero__subheading {
+      max-width: 362px;
+    }
+
+    .momemade-hero__buttons {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    .momemade-hero__btn {
+      flex: 1 1 0;
+      width: auto;
+      max-width: 220px;
+      padding: 16px 8px;
+    }
+
+    .momemade-hero__rating {
+      font-size: 13px;
+      line-height: 20px;
+      justify-content: flex-start;
+      gap: 8px;
     }
 
     .momemade-hero__rating-stars {
@@ -360,135 +462,20 @@
       letter-spacing: 1.5px;
     }
 
-    .momemade-hero__media-wrap {
-      order: 2;
+    .momemade-hero__pager {
+      right: 16px;
+      bottom: 20px;
+      gap: 8px;
     }
 
-    .momemade-hero__media {
-      min-height: 480px;
+    .momemade-hero__arrow {
+      width: 32px;
+      height: 32px;
     }
 
-    .momemade-hero__sparkle {
-      top: -22px;
-      right: 0;
-      width: 64px;
-      height: 63px;
-    }
-
-    .momemade-hero__paw {
-      left: auto;
-      right: -40px;
-      bottom: -40px;
-      width: 140px;
-      height: 146px;
-    }
-
-    .momemade-hero__badge {
-      width: 110px;
-      height: 110px;
-      top: 16px;
-      left: 16px;
-    }
-
-    .momemade-hero__badge-text {
-      font-size: 14px;
-      line-height: 14px;
-      max-width: 80px;
-    }
-  }
-
-  /* Mobile (402 spec): left-aligned, two solid buttons in a row + ghost full width */
-  @media screen and (max-width: 749px) {
-    .momemade-hero__content {
-      align-items: flex-start;
-      text-align: left;
-      padding: 56px 20px 0;
-    }
-
-    .momemade-hero__eyebrow {
-      font-size: 10px;
-    }
-
-    .momemade-hero__heading {
-      font-size: 48px;
-      line-height: 56px;
-    }
-
-    .momemade-hero__buttons {
-      flex-wrap: wrap;
-      width: 100%;
-    }
-
-    .momemade-hero__btn {
-      flex: 1 1 0;
-      width: auto;
-    }
-
-    .momemade-hero__btn--outline {
-      flex: 1 1 100%;
-    }
-
-    .momemade-hero__rating {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .momemade-hero__media {
-      min-height: 380px;
-    }
-  }
-
-  /* Desktop: banner + navbar + hero span one screen; the photo is
-     absolutely positioned so it crops instead of dictating height.
-     This block must stay LAST in the stylesheet — its rules share
-     specificity with the base rules above and must win the cascade. */
-  @media screen and (min-width: 990px) {
-    .momemade-hero {
-      display: flex;
-      flex-direction: column;
-      min-height: calc(100vh - 110px);
-      min-height: calc(100svh - 110px);
-    }
-
-    .momemade-hero__inner {
-      flex: 1;
-      min-height: 0;
-    }
-
-    .momemade-hero__content {
-      padding-top: 24px;
-      padding-bottom: 24px;
-    }
-
-    /* Compress the body→buttons gap on shorter screens so the whole
-       hero fits in one screen; grows back to the design's 64px on
-       tall viewports */
-    .momemade-hero__subheading {
-      margin-bottom: clamp(32px, 5vh, 64px);
-    }
-
-    .momemade-hero__media-wrap {
-      overflow: hidden;
-    }
-
-    .momemade-hero__media {
-      position: absolute;
-      inset: 0;
-      height: 100%;
-      min-height: 0;
-    }
-  }
-
-  /* Shorter laptop screens: scale the type down a notch so the hero
-     still fits in one screen */
-  @media screen and (min-width: 990px) and (max-height: 840px) {
-    .momemade-hero__heading {
-      font-size: clamp(40px, 3.9vw, 56px);
-      line-height: 1.1;
-    }
-
-    .momemade-hero__subheading {
-      margin-bottom: 32px;
+    .momemade-hero__arrow svg {
+      width: 16px;
+      height: 16px;
     }
   }
 
@@ -497,112 +484,89 @@
 {% schema %}
 {
   "name": "Momemade hero",
-  "settings": [
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY"
-    },
-    {
-      "type": "inline_richtext",
-      "id": "heading",
-      "label": "Heading",
-      "info": "Italic text gets the mint highlight block",
-      "default": "“It’s not <em>just</em> a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”"
-    },
-    {
-      "type": "richtext",
-      "id": "subheading",
-      "label": "Subheading",
-      "default": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Hero image"
-    },
-    {
-      "type": "header",
-      "content": "Decorations"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_sparkle",
-      "label": "Show sparkle doodle",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_paw",
-      "label": "Show paw print",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_badge",
-      "label": "Show badge",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "badge_text",
-      "label": "Badge text",
-      "default": "Approved by vet"
-    },
-    {
-      "type": "header",
-      "content": "Rating line"
-    },
-    {
-      "type": "text",
-      "id": "rating_stars",
-      "label": "Stars",
-      "default": "★★★★★"
-    },
-    {
-      "type": "text",
-      "id": "rating_text",
-      "label": "Text",
-      "default": "Carried in Hudson Valley · NYC · 20+ stores"
-    }
-  ],
+  "max_blocks": 4,
+  "settings": [],
   "blocks": [
     {
-      "type": "button",
-      "name": "Button",
-      "limit": 3,
+      "type": "slide",
+      "name": "Slide",
       "settings": [
         {
-          "type": "text",
-          "id": "label",
-          "label": "Label",
-          "default": "SHOP BISCUITS"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
         },
         {
-          "type": "url",
-          "id": "link",
-          "label": "Link"
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Right-half photo (optional)",
+          "info": "For a split background of two photos side by side"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "Heading",
+          "info": "Italic text gets the pink highlight chip",
+          "default": "You can make these yourself. We just did it for you."
+        },
+        {
+          "type": "richtext",
+          "id": "subheading",
+          "label": "Subheading"
         },
         {
           "type": "select",
-          "id": "style",
-          "label": "Style",
+          "id": "content_position",
+          "label": "Content position (desktop)",
           "options": [
-            {
-              "value": "pink",
-              "label": "Pink"
-            },
-            {
-              "value": "mint",
-              "label": "Mint"
-            },
-            {
-              "value": "outline",
-              "label": "Outline"
-            }
+            { "value": "center", "label": "Center" },
+            { "value": "bottom", "label": "Bottom" }
           ],
-          "default": "pink"
+          "default": "center"
+        },
+        {
+          "type": "header",
+          "content": "Buttons"
+        },
+        {
+          "type": "text",
+          "id": "button1_label",
+          "label": "Pink button label"
+        },
+        {
+          "type": "url",
+          "id": "button1_link",
+          "label": "Pink button link"
+        },
+        {
+          "type": "text",
+          "id": "button2_label",
+          "label": "Mint button label"
+        },
+        {
+          "type": "url",
+          "id": "button2_link",
+          "label": "Mint button link"
+        },
+        {
+          "type": "header",
+          "content": "Trust line"
+        },
+        {
+          "type": "text",
+          "id": "rating_stars",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "text",
+          "id": "rating_text",
+          "label": "Text"
         }
       ]
     }
@@ -612,27 +576,28 @@
       "name": "Momemade hero",
       "blocks": [
         {
-          "type": "button",
+          "type": "slide",
           "settings": {
-            "label": "SHOP BISCUITS",
-            "style": "pink"
+            "eyebrow": "Homemade Biscuits & Hand-Sewn Bandanas",
+            "heading": "You can make these yourself. We just did it for you.",
+            "subheading": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>",
+            "button1_label": "SHOP BISCUITS",
+            "button2_label": "SHOP BANDANAS",
+            "rating_text": "Carried in Hudson Valley ·  NYC ·  20+ stores"
           }
         },
         {
-          "type": "button",
+          "type": "slide",
           "settings": {
-            "label": "SHOP BANDANAS",
-            "style": "mint"
+            "heading": "“It’s not <em>just</em> a dog. They’re family.”",
+            "content_position": "bottom"
           }
         }
       ]
     }
   ],
   "disabled_on": {
-    "groups": [
-      "header",
-      "footer"
-    ]
+    "groups": ["header", "footer"]
   }
 }
 {% endschema %}

@@ -1,0 +1,448 @@
+{% comment %}
+  Momemade "Meet Joni" — founder story (redesign, Figma 687:1643).
+  Long story text + CTA on the left, hero photo of Joni on the right,
+  then a 3-photo caption strip below. The strip becomes a one-tile
+  carousel with arrows on tablet/mobile.
+{% endcomment %}
+
+<section class="momemade-story" id="momemade-story-{{ section.id }}">
+  <div class="momemade-story__top">
+    <div class="momemade-story__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="momemade-story__eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2 class="momemade-story__heading">{{ section.settings.heading }}</h2>
+      {%- if section.settings.text != blank -%}
+        <div class="momemade-story__text">{{ section.settings.text }}</div>
+      {%- endif -%}
+      {%- if section.settings.button_label != blank -%}
+        <a href="{{ section.settings.button_link | default: '#' }}" class="momemade-story__button">
+          {{ section.settings.button_label }}
+          <span class="momemade-story__button-arrow" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M4 12h15m0 0-5.5-5.5M19 12l-5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="momemade-story__media">
+      {%- if section.settings.image != blank -%}
+        {{
+          section.settings.image
+          | image_url: width: 1400
+          | image_tag: class: 'momemade-story__image', widths: '700, 1000, 1400', sizes: '(max-width: 989px) 100vw, 48vw', alt: section.settings.image.alt
+        }}
+      {%- else -%}
+        {{ 'lifestyle-2' | placeholder_svg_tag: 'momemade-story__image momemade-story__image--placeholder' }}
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="momemade-story__strip">
+      <button type="button" class="momemade-story__arrow momemade-story__arrow--prev" data-story-prev aria-label="Previous photos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="momemade-story__tiles" data-story-track>
+        {%- for block in section.blocks -%}
+          <figure class="momemade-story__tile" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 900
+                | image_tag: class: 'momemade-story__tile-image', widths: '450, 640, 900', sizes: '(max-width: 749px) 90vw, 33vw', alt: block.settings.image.alt
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'momemade-story__tile-image momemade-story__tile-image--placeholder' }}
+            {%- endif -%}
+            {%- if block.settings.caption != blank -%}
+              <figcaption class="momemade-story__tile-caption">{{ block.settings.caption }}</figcaption>
+            {%- endif -%}
+          </figure>
+        {%- endfor -%}
+      </div>
+      <button type="button" class="momemade-story__arrow momemade-story__arrow--next" data-story-next aria-label="Next photos">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  {%- endif -%}
+</section>
+
+<script>
+  (function () {
+    var root = document.getElementById('momemade-story-{{ section.id }}');
+    if (!root || root.dataset.storyInit) return;
+    root.dataset.storyInit = '1';
+
+    var track = root.querySelector('[data-story-track]');
+    var prev = root.querySelector('[data-story-prev]');
+    var next = root.querySelector('[data-story-next]');
+    if (!track || !prev || !next) return;
+
+    function step() {
+      var tile = track.querySelector('.momemade-story__tile');
+      return tile ? tile.getBoundingClientRect().width + 30 : 400;
+    }
+
+    function update() {
+      var max = track.scrollWidth - track.clientWidth - 1;
+      prev.disabled = track.scrollLeft <= 0;
+      next.disabled = track.scrollLeft >= max;
+    }
+
+    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+</script>
+
+{% style %}
+  .momemade-story {
+    background: #f5dfe2;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+  }
+
+  .momemade-story__top {
+    max-width: 1352px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .momemade-story__eyebrow {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #090b00;
+    margin: 0 0 8px;
+  }
+
+  .momemade-story__heading {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: clamp(36px, 4.2vw, 64px);
+    line-height: 1;
+    letter-spacing: -1px;
+    color: #090b00;
+    max-width: 420px;
+    margin: 0 0 24px;
+  }
+
+  .momemade-story__text {
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #090b00;
+    max-width: 589px;
+    margin: 0 0 32px;
+  }
+
+  .momemade-story__text p {
+    margin: 0 0 16px;
+  }
+
+  .momemade-story__text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .momemade-story__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    padding: 24px 10px;
+    background: #d49ed7;
+    color: #090b00;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-story__button:hover {
+    opacity: 0.85;
+  }
+
+  .momemade-story__button-arrow {
+    margin-left: 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .momemade-story__media {
+    overflow: hidden;
+  }
+
+  .momemade-story__image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 968 / 712;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-story__image--placeholder {
+    background: #ede8df;
+  }
+
+  .momemade-story__strip {
+    position: relative;
+    max-width: 1352px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .momemade-story__tiles {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .momemade-story__tiles::-webkit-scrollbar {
+    display: none;
+  }
+
+  .momemade-story__tile {
+    position: relative;
+    flex: 0 0 calc((100% - 60px) / 3);
+    scroll-snap-align: start;
+    aspect-ratio: 431 / 680;
+    margin: 0;
+    overflow: hidden;
+    background: #ede8df;
+  }
+
+  .momemade-story__tile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .momemade-story__tile-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    padding: 24px;
+    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -1px;
+    text-align: center;
+    color: #090b00;
+  }
+
+  .momemade-story__tile-caption strong {
+    font-weight: 700;
+  }
+
+  .momemade-story__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #090b00;
+    border: 0;
+    box-shadow: 0 2px 10px rgba(9, 11, 0, 0.12);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+
+  .momemade-story__arrow--prev {
+    left: -16px;
+  }
+
+  .momemade-story__arrow--next {
+    right: -16px;
+  }
+
+  .momemade-story__arrow:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+
+  /* Tablet: stack text over photo, strip becomes a carousel */
+  @media screen and (max-width: 989px) {
+    .momemade-story {
+      padding: 72px 40px;
+      gap: 56px;
+    }
+
+    .momemade-story__top {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .momemade-story__heading {
+      font-size: 56px;
+      line-height: 60px;
+      max-width: none;
+    }
+
+    .momemade-story__text {
+      max-width: 645px;
+    }
+
+    .momemade-story__tile {
+      flex: 0 0 min(431px, 85%);
+    }
+
+    .momemade-story__arrow {
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .momemade-story {
+      padding: 56px 24px;
+      gap: 40px;
+    }
+
+    .momemade-story__heading {
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .momemade-story__button {
+      width: 211px;
+      padding: 16px 10px;
+      font-size: 14px;
+    }
+
+    .momemade-story__tile {
+      flex: 0 0 90%;
+      aspect-ratio: 356 / 528;
+    }
+
+    .momemade-story__tile-caption {
+      font-size: 20px;
+      line-height: 28px;
+      letter-spacing: -0.5px;
+      padding: 16px 20px;
+    }
+
+    .momemade-story__arrow {
+      width: 36px;
+      height: 36px;
+    }
+
+    .momemade-story__arrow--prev {
+      left: -8px;
+    }
+
+    .momemade-story__arrow--next {
+      right: -8px;
+    }
+  }
+
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Momemade story",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Meet Joni"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The dog who started it all."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Story",
+      "default": "<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni’s incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p>Alana called me sobbing as she sensed that Joni’s needs were beyond her scope.</p><p>So I made her a promise: “I’ll help you figure it out.”</p><p>While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p>Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Photo"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "SHOP BISCUITS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Photo tile",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Photo"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "caption",
+          "label": "Caption",
+          "default": "And this isn’t <strong>JUST</strong> a treat."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Momemade story",
+      "blocks": [
+        { "type": "tile", "settings": { "caption": "And this isn’t <strong>JUST</strong> a treat." } },
+        { "type": "tile", "settings": { "caption": "At MOMEMADE, we know it’s not <strong>JUST</strong> a dog." } },
+        { "type": "tile", "settings": { "caption": "<strong>It’s love</strong>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

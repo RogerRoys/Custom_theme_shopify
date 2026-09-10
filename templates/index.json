@@ -12,39 +12,36 @@
     "hero": {
       "type": "momemade-hero",
       "blocks": {
-        "btn-biscuits": {
-          "type": "button",
+        "slide1": {
+          "type": "slide",
           "settings": {
-            "label": "SHOP BISCUITS",
-            "link": "",
-            "style": "pink"
+            "image": "shopify://shop_images/Promotion_Banner_-_2026-07-28T092140.854.jpg",
+            "eyebrow": "Homemade Biscuits & Hand-Sewn Bandanas",
+            "heading": "You can make these yourself. We just did it for you.",
+            "subheading": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>",
+            "content_position": "center",
+            "button1_label": "SHOP BISCUITS",
+            "button1_link": "",
+            "button2_label": "SHOP BANDANAS",
+            "button2_link": "",
+            "rating_stars": "★★★★★",
+            "rating_text": "Carried in Hudson Valley · NYC · 20+ stores"
           }
         },
-        "btn-bandanas": {
-          "type": "button",
+        "slide2": {
+          "type": "slide",
           "settings": {
-            "label": "SHOP BANDANAS",
-            "link": "",
-            "style": "mint"
+            "image": "shopify://shop_images/hero-dog.png",
+            "heading": "“It’s not <em>just</em> a dog. They’re family.”",
+            "content_position": "bottom"
           }
         }
       },
       "block_order": [
-        "btn-biscuits",
-        "btn-bandanas"
+        "slide1",
+        "slide2"
       ],
-      "settings": {
-        "eyebrow": "DOG GOODS. MOM APPROVED. · HUDSON VALLEY, NY",
-        "heading": "“It’s not <em>just</em> a dog. They’re family. If I wouldn't give it to my own dog, I don't make it”",
-        "subheading": "<p>Kitchen-baked, plant-based, limited ingredient biscuits — <strong>safe for dogs with allergies and sensitive stomachs</strong>. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>",
-        "image": "shopify://shop_images/Promotion_Banner_-_2026-07-28T092140.854.jpg",
-        "show_sparkle": false,
-        "show_paw": false,
-        "show_badge": false,
-        "badge_text": "Approved by vet",
-        "rating_stars": "★★★★★",
-        "rating_text": "Carried in Hudson Valley · NYC · 20+ stores"
-      }
+      "settings": {}
     },
     "ticker": {
       "type": "momemade-ticker",
@@ -52,97 +49,49 @@
         "t1": {
           "type": "item",
           "settings": {
-            "text": "Small-batch baked in Hudson Valley, NY"
+            "text": "Grain Free."
           }
         },
         "t2": {
           "type": "item",
           "settings": {
-            "text": "\"These are the only treats she will eat.\" — Kim F."
+            "text": "Plant-Based."
           }
         },
         "t3": {
           "type": "item",
           "settings": {
-            "text": "Reclaimed fabrics"
+            "text": "Limited Ingredients."
           }
         },
         "t4": {
           "type": "item",
           "settings": {
-            "text": "No waste"
+            "text": "No Preservatives."
           }
         },
         "t5": {
           "type": "item",
           "settings": {
-            "text": "Grain free"
+            "text": "Allergy & Sensitive Belly Friendly."
           }
         },
         "t6": {
           "type": "item",
           "settings": {
-            "text": "\"Jax has his own stash.\" — Jennifer T."
+            "text": "Handmade In Small Batches."
           }
         },
         "t7": {
           "type": "item",
           "settings": {
-            "text": "Grain free"
+            "text": "Kitchen-Baked In The Hudson Valley."
           }
         },
         "t8": {
           "type": "item",
           "settings": {
-            "text": "Hypoallergenic"
-          }
-        },
-        "t9": {
-          "type": "item",
-          "settings": {
-            "text": "Plant-based"
-          }
-        },
-        "t10": {
-          "type": "item",
-          "settings": {
-            "text": "\"Just ordered another 5 bags!\" — Eva H."
-          }
-        },
-        "t11": {
-          "type": "item",
-          "settings": {
-            "text": "No preservatives"
-          }
-        },
-        "t12": {
-          "type": "item",
-          "settings": {
-            "text": "No fillers"
-          }
-        },
-        "t13": {
-          "type": "item",
-          "settings": {
-            "text": "No additives"
-          }
-        },
-        "t14": {
-          "type": "item",
-          "settings": {
-            "text": "Sewn one at a time"
-          }
-        },
-        "t15": {
-          "type": "item",
-          "settings": {
-            "text": "One of a kind"
-          }
-        },
-        "t16": {
-          "type": "item",
-          "settings": {
-            "text": "\"They're worth the price because they make Charles happy.\" — Anthony G"
+            "text": "Compostable Packaging."
           }
         }
       },
@@ -154,15 +103,7 @@
         "t5",
         "t6",
         "t7",
-        "t8",
-        "t9",
-        "t10",
-        "t11",
-        "t12",
-        "t13",
-        "t14",
-        "t15",
-        "t16"
+        "t8"
       ],
       "settings": {
         "background": "#a0dbb3",
@@ -265,49 +206,43 @@
         "t1": {
           "type": "item",
           "settings": {
-            "text": "Mom-approved · The Mom Standard"
+            "text": "“Whatever you are doing, it’s magic. These are the only treats she will eat.” — Kim F., Pekingese mom"
           }
         },
         "t2": {
           "type": "item",
           "settings": {
-            "text": "Carried in 20+ stores across the Hudson Valley, Greenpoint Brooklyn, and Ridgewood Queens"
+            "text": "“I feel 100% confidence because I know they’re made with care, in small batches.” — Becky C., multi-dog household"
           }
         },
         "t3": {
           "type": "item",
           "settings": {
-            "text": "\"I choose MOMEMADE for my dogs because they're made with quality ingredients.\" — Eva H."
+            "text": "“The other dogs in the building get the generic stuff. Jax has his own stash.” — Jennifer T., NYC / Woodstock"
           }
         },
         "t4": {
           "type": "item",
           "settings": {
-            "text": "Handwritten note with every order"
+            "text": "“Made with ingredients I recognize — not full of fillers or preservatives.” — Ruth Anne W., dog mom"
           }
         },
         "t5": {
           "type": "item",
           "settings": {
-            "text": "Women-owned · Made in NY · Compostable packaging"
+            "text": "“They’re worth the price because they’re healthy and make Charles happy.” — Anthony G., Charles’s dad"
           }
         },
         "t6": {
           "type": "item",
           "settings": {
-            "text": "Rescue-focused · Proudly supporting Ulster County Canines"
+            "text": "“Sampson is a senior golden with colitis and many allergies — on a vet prescription diet almost his whole life. We could never find treats that worked. Now we finally can.” — Jordan S., Sampson’s mom"
           }
         },
         "t7": {
           "type": "item",
           "settings": {
-            "text": "\"Whatever you are doing, it's magic.\" — Kim F."
-          }
-        },
-        "t8": {
-          "type": "item",
-          "settings": {
-            "text": "96 bags donated to shelter dogs · Delivered personally by Michele"
+            "text": "“I choose MOMEMADE because they’re made with quality ingredients, are a healthy treat, and they absolutely love them.” — Eva H., dog mom"
           }
         }
       },
@@ -318,8 +253,7 @@
         "t4",
         "t5",
         "t6",
-        "t7",
-        "t8"
+        "t7"
       ],
       "settings": {
         "background": "#a0dbb3",
@@ -336,45 +270,101 @@
         "r1": {
           "type": "review",
           "settings": {
-            "stars": "★★★★★",
-            "verified": true,
-            "quote": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”",
-            "avatar": "shopify://shop_images/Untitled_design_-_2026-07-28T092852.735.jpg",
-            "name": "Kim F.",
-            "subtext": "and Penelope"
+            "title": "Finally, a treat for a dog with severe allergies!",
+            "quote": "My senior golden loved the treats we got from the fair!! He had colitis and MANY allergies. He’s been on a vet prescription diet for almost his whole life. And we could never find any treats that worked for him and his allergies. I just want to say thank you for what you do!! Because now we can give our special boy some treats!",
+            "name": "Jordan S.",
+            "subtext": "Mom of Sampson, Senior Golden Retriever"
           }
         },
         "r2": {
           "type": "review",
           "settings": {
-            "stars": "★★★★★",
-            "verified": true,
-            "quote": "“The other dogs in the building get the generic stuff. Jax has his own stash.”",
-            "avatar": "shopify://shop_images/Untitled_design_-_2026-07-28T093251.622.jpg",
-            "name": "Jennifer T.",
-            "subtext": "and Jax"
+            "title": "Did not upset his sensitive stomach!",
+            "quote": "First, I would like to thank you for making these treats available! I was introduced to the Momemade cookies by a friend of mine who purchased a bag for my 23 month old pup. He has a very sensitive stomach, so it has been tricky for me to find healthy treats with limited ingredients that did not upset his GI. I made him homemade treats, but with a busy schedule it was a challenge. I was a bit apprehensive about trying another new treat, but he loves peanut butter and pumpkin, so I gave it a try. He loved it from the first bite! Also, your treats did not upset his GI.",
+            "name": "Yuri F.",
+            "subtext": "Mom of Oliver, Cavapoo",
+            "avatar": "shopify://shop_images/Untitled_design_-_2026-07-28T093515.674.jpg"
           }
         },
         "r3": {
           "type": "review",
           "settings": {
-            "stars": "★★★★★",
-            "verified": true,
-            "quote": "“He loved it from the first bite! Your treats did not upset his GI.”",
-            "avatar": "shopify://shop_images/Untitled_design_-_2026-07-28T093515.674.jpg",
-            "name": "Yuri F",
-            "subtext": "and Oliver"
+            "title": "My senior dog just loves them.",
+            "quote": "I cannot say enough great things about these treats. They are truly healthy and my senior dog just loves them. I also appreciate all of the support Michele gives to the local shelters so those pups feel special and loved, that what happens when you support local.",
+            "name": "Debbie B.",
+            "subtext": "Mom of Roxy"
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "title": "The ONLY treat my demanding Princess will eat!",
+            "quote": "My Penelope (a very pretty but persnickety Pekingese) puts her nose up in the air with any food I give her. She refuses to eat anything canned or boxed including the normal dog treats... Hence, my surprise that she absolutely LOVES your treats. Whatever you are doing, it's magic",
+            "name": "Kim F.",
+            "subtext": "Mom of Penelope, Pekingese",
+            "avatar": "shopify://shop_images/Untitled_design_-_2026-07-28T092852.735.jpg"
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "title": "Worth every penny! He sits by the drawer begging",
+            "quote": "We discovered Momemade during a trip to Accord over Thanksgiving. Charles is pretty finicky, but he absolutely loves these treats! I know he loves them because he sits by the kitchen drawer where we store them until we give in. They're made with healthy ingredients, they make Charles happy, and they are worth the price!",
+            "name": "Anthony G.",
+            "subtext": "Dad of Charles"
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "title": "Quality ingredients! Just ordered another 5 bags!",
+            "quote": "I choose Momemade for my dogs because they are made with quality ingredients and are a healthy treat. My dogs absolutely love them! Just ordered another 5 bags—these will always be on my shelf!",
+            "name": "Eva",
+            "subtext": "Mom of Tede & Baxter"
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "title": "Ingredients I recognize—not full of fillers.",
+            "quote": "I purchased these dog treats on vacation and my Muffy, loves them! I love that they are made of ingredients I recognize and not full of filters or preservatives. Thank you!",
+            "name": "Ruth Anne W.",
+            "subtext": "Mom of Muffy"
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "title": "I appreciate the handwritten note that is always included.",
+            "quote": "My rescue baby love these treats which are all natural and vegan. I appreciate the handwritten note that is always included with the order. Delivery was quick and I appreciate the personalized service.",
+            "name": "Kathy M."
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "title": "He has his own stash with the NYC doorman!",
+            "quote": "We live in Woodstock and NYC… he loves these treats. We leave them with the doorman and when he gets back from his walk he stops and has to eat one before he goes upstairs. It’s the cutest ever! We all laugh because the other dogs in the building get the generic stuff—Jax has his own stash of your treats haha.",
+            "name": "Jennifer T.",
+            "subtext": "Mom of Jax",
+            "avatar": "shopify://shop_images/Untitled_design_-_2026-07-28T093251.622.jpg"
           }
         }
       },
       "block_order": [
         "r1",
         "r2",
-        "r3"
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9"
       ],
       "settings": {
-        "eyebrow": "What dog parents say",
-        "title": "When your dog is happy, so are you."
+        "eyebrow": "Loved by pups. Trusted by parents.",
+        "title": "When your dog is happy, you’re happy."
       }
     },
     "mission": {
@@ -385,51 +375,43 @@
         "stat_label": "Bags donated · Every one personally delivered by Michele",
         "eyebrow": "Our Mission",
         "heading": "Rescue is at the heart of MOMEMADE.",
-        "text": "Rescue isn’t a campaign for us — it’s who we are. We chose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.",
+        "text": "Rescue isn’t a campaign for us — it’s who we are. We choose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.",
         "button_label": "READ OUR STORY",
-        "button_link": ""
+        "button_link": "",
+        "credit_text": "@ulstercountycanines · Saugerties, NY"
       }
     },
-    "stories": {
-      "type": "momemade-stories",
+    "story": {
+      "type": "momemade-story",
       "blocks": {
-        "v1": {
-          "type": "video",
+        "tile1": {
+          "type": "tile",
           "settings": {
-            "poster": "shopify://shop_images/Untitled_design_-_2026-07-28T093251.622.jpg",
-            "video": "shopify://files/videos/IMG_5335.mp4",
-            "video_url": "",
-            "caption": "How one pieces became the highlight of their daily routine"
+            "caption": "And this isn’t <strong>JUST</strong> a treat."
           }
         },
-        "v2": {
-          "type": "video",
+        "tile2": {
+          "type": "tile",
           "settings": {
-            "poster": "shopify://shop_images/Untitled_design_-_2026-07-28T093515.674.jpg",
-            "video": "shopify://files/videos/IMG_5335.mp4",
-            "video_url": "",
-            "caption": "From \"fussy eater\" to \"licking the bowl clean every single time\""
+            "caption": "At MOMEMADE, we know it’s not <strong>JUST</strong> a dog."
           }
         },
-        "v3": {
-          "type": "video",
+        "tile3": {
+          "type": "tile",
           "settings": {
-            "poster": "shopify://shop_images/Untitled_design_-_2026-07-28T092852.735.jpg",
-            "video": "shopify://files/videos/IMG_5335.mp4",
-            "video_url": "",
-            "caption": "A simple dietary switch that brought back their puppy energy"
+            "caption": "<strong>It’s love</strong>"
           }
         }
       },
       "block_order": [
-        "v1",
-        "v2",
-        "v3"
+        "tile1",
+        "tile2",
+        "tile3"
       ],
       "settings": {
-        "eyebrow": "Loved by dogs & their humans",
-        "title": "Stories from pups who eat it up",
-        "subtitle": "Real families, real pups, real reactions. Watch how our whole-food recipes turn ordinary mealtimes into healthy rituals they can't wait for.",
+        "eyebrow": "Meet Joni",
+        "heading": "The dog who started it all.",
+        "text": "<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni’s incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p>Alana called me sobbing as she sensed that Joni’s needs were beyond her scope.</p><p>So I made her a promise: “I’ll help you figure it out.”</p><p>While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p>Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>",
         "button_label": "SHOP BISCUITS",
         "button_link": ""
       }
@@ -439,11 +421,11 @@
     "hero",
     "ticker",
     "showcase",
-    "signup",
     "quote",
+    "signup",
     "ticker2",
     "testimonials",
     "mission",
-    "stories"
+    "story"
   ]
 }
