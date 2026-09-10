@@ -1,114 +1,43 @@
 {% comment %}
-  Momemade testimonials — horizontal carousel of landscape review cards
-  (redesign, Figma 937:3622). Each card: orange stars + review title +
-  body + reviewer profile on the left, a portrait "reel" photo on the
-  right. White round arrows below scroll the track. Mobile stacks the
-  photo on top of the text inside each card.
+  Momemade "Real dogs. Real results." — review cards on the blush background.
 {% endcomment %}
 
-{%- capture star_svg -%}
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.95 6.36 6.97.86-5.14 4.78 1.35 6.88L12 17.4l-6.13 3.48 1.35-6.88L2.08 9.22l6.97-.86z"/></svg>
-{%- endcapture -%}
-
-<section class="momemade-testimonials" id="momemade-testimonials-{{ section.id }}">
-  <div class="momemade-testimonials__head">
-    <div class="momemade-testimonials__head-badge">
-      <span class="momemade-testimonials__head-stars" aria-hidden="true">
-        {% for i in (1..5) %}{{ star_svg }}{% endfor %}
-      </span>
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="momemade-testimonials__eyebrow">{{ section.settings.eyebrow }}</p>
-      {%- endif -%}
-    </div>
+<section class="momemade-testimonials">
+  <div class="momemade-section-heading">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="momemade-testimonials__eyebrow">{{ section.settings.eyebrow }}</p>
+    {%- endif -%}
     <h2 class="momemade-testimonials__title">{{ section.settings.title }}</h2>
   </div>
 
-  <div class="momemade-testimonials__carousel">
-    <div class="momemade-testimonials__track" data-testimonials-track>
-      {%- for block in section.blocks -%}
-        <article class="momemade-testimonials__card" {{ block.shopify_attributes }}>
-          <div class="momemade-testimonials__card-body">
-            <div class="momemade-testimonials__card-main">
-              <div class="momemade-testimonials__card-rating">
-                <span class="momemade-testimonials__card-stars" aria-hidden="true">
-                  {% for i in (1..5) %}{{ star_svg }}{% endfor %}
-                </span>
-                <span class="momemade-testimonials__card-rating-text">5 Star Ratings</span>
-              </div>
-              {%- if block.settings.title != blank -%}
-                <h3 class="momemade-testimonials__card-title">{{ block.settings.title }}</h3>
-              {%- endif -%}
-              {%- if block.settings.quote != blank -%}
-                <p class="momemade-testimonials__card-text">{{ block.settings.quote }}</p>
-              {%- endif -%}
-            </div>
-            <div class="momemade-testimonials__profile">
-              {%- if block.settings.avatar != blank -%}
-                {{ block.settings.avatar | image_url: width: 96 | image_tag: class: 'momemade-testimonials__avatar', alt: block.settings.name }}
-              {%- else -%}
-                <span class="momemade-testimonials__avatar momemade-testimonials__avatar--initial" aria-hidden="true">{{ block.settings.name | slice: 0 }}</span>
-              {%- endif -%}
-              <span class="momemade-testimonials__profile-text">
-                <span class="momemade-testimonials__name">{{ block.settings.name }}</span>
-                {%- if block.settings.subtext != blank -%}
-                  <span class="momemade-testimonials__subtext">{{ block.settings.subtext }}</span>
-                {%- endif -%}
-              </span>
-            </div>
-          </div>
-          <div class="momemade-testimonials__photo">
-            {%- if block.settings.photo != blank -%}
-              {{ block.settings.photo | image_url: width: 640 | image_tag: class: 'momemade-testimonials__photo-image', widths: '320, 480, 640', sizes: '(max-width: 749px) 90vw, 240px', alt: block.settings.name }}
+  <div class="momemade-testimonials__grid">
+    {%- for block in section.blocks -%}
+      <article class="momemade-testimonials__card" {{ block.shopify_attributes }}>
+        <div class="momemade-testimonials__card-top">
+          <span class="momemade-testimonials__stars" aria-label="5 stars">{{ block.settings.stars }}</span>
+          {%- if block.settings.verified -%}
+            <span class="momemade-testimonials__verified">✓ VERIFIED</span>
+          {%- endif -%}
+        </div>
+        <p class="momemade-testimonials__quote">{{ block.settings.quote }}</p>
+        <div class="momemade-testimonials__card-bottom">
+          <div class="momemade-testimonials__author">
+            {%- if block.settings.avatar != blank -%}
+              {{ block.settings.avatar | image_url: width: 96 | image_tag: class: 'momemade-testimonials__avatar', alt: block.settings.name }}
             {%- endif -%}
+            <div>
+              <span class="momemade-testimonials__name">{{ block.settings.name }}</span>
+              {%- if block.settings.subtext != blank -%}
+                <span class="momemade-testimonials__subtext">{{ block.settings.subtext }}</span>
+              {%- endif -%}
+            </div>
           </div>
-        </article>
-      {%- endfor -%}
-    </div>
-  </div>
-
-  <div class="momemade-testimonials__nav">
-    <button type="button" class="momemade-testimonials__arrow" data-testimonials-prev aria-label="Previous reviews">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M14.5 5.5 8 12l6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    <button type="button" class="momemade-testimonials__arrow" data-testimonials-next aria-label="Next reviews">
-      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M9.5 5.5 16 12l-6.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
+          <span class="momemade-testimonials__mark" aria-hidden="true">❞</span>
+        </div>
+      </article>
+    {%- endfor -%}
   </div>
 </section>
-
-<script>
-  (function () {
-    var root = document.getElementById('momemade-testimonials-{{ section.id }}');
-    if (!root || root.dataset.reviewsInit) return;
-    root.dataset.reviewsInit = '1';
-
-    var track = root.querySelector('[data-testimonials-track]');
-    var prev = root.querySelector('[data-testimonials-prev]');
-    var next = root.querySelector('[data-testimonials-next]');
-    if (!track || !prev || !next) return;
-
-    function step() {
-      var card = track.querySelector('.momemade-testimonials__card');
-      return card ? card.getBoundingClientRect().width + 11 : 400;
-    }
-
-    function update() {
-      var max = track.scrollWidth - track.clientWidth - 1;
-      prev.disabled = track.scrollLeft <= 0;
-      next.disabled = track.scrollLeft >= max;
-    }
-
-    prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
-    next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
-    track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  })();
-</script>
 
 {% style %}
   .momemade-testimonials {
@@ -116,45 +45,20 @@
     border-bottom: 1.5px solid rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
+    gap: 40px;
     align-items: center;
-    gap: 56px;
     padding: 80px;
-  }
-
-  .momemade-testimonials__head {
-    text-align: center;
-    max-width: 980px;
-  }
-
-  .momemade-testimonials__head-badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-
-  .momemade-testimonials__head-stars,
-  .momemade-testimonials__card-stars {
-    display: inline-flex;
-    gap: 4px;
-    color: #fb7813;
-  }
-
-  .momemade-testimonials__head-stars svg {
-    width: 18px;
-    height: 18px;
   }
 
   .momemade-testimonials__eyebrow {
     font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
     font-weight: 700;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 1.7;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     color: #090b00;
-    margin: 0;
+    margin: 0 0 4px;
   }
 
   .momemade-testimonials__title {
@@ -167,114 +71,84 @@
     margin: 0;
   }
 
-  .momemade-testimonials__carousel {
+  .momemade-testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
     width: 100%;
     max-width: 1352px;
   }
 
-  .momemade-testimonials__track {
-    display: flex;
-    gap: 11px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .momemade-testimonials__track::-webkit-scrollbar {
-    display: none;
-  }
-
   .momemade-testimonials__card {
-    flex: 0 0 784px;
-    scroll-snap-align: start;
-    display: flex;
-    gap: 36px;
     background: #ffffff;
-    padding: 30px 30px 30px 40px;
-    min-height: 430px;
-  }
-
-  .momemade-testimonials__card-body {
-    flex: 1;
-    min-width: 0;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
-    padding: 12px 0;
+    gap: 16px;
+    min-height: 289px;
   }
 
-  .momemade-testimonials__card-rating {
+  .momemade-testimonials__card-top {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
+    justify-content: space-between;
   }
 
-  .momemade-testimonials__card-stars svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .momemade-testimonials__card-rating-text {
-    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 700;
+  .momemade-testimonials__stars {
     font-size: 16px;
-    line-height: 24px;
-    color: #fb7813;
+    letter-spacing: 2px;
+    color: #d49ed7;
   }
 
-  .momemade-testimonials__card-title {
+  .momemade-testimonials__verified {
+    font-family: var(--momemade-font-secondary, 'Jost', 'Century Gothic', sans-serif);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #84c99a;
+  }
+
+  .momemade-testimonials__quote {
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
     font-size: 20px;
-    line-height: 24px;
-    color: #161616;
-    margin: 0 0 12px;
-  }
-
-  .momemade-testimonials__card-text {
-    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    line-height: 28px;
     color: #161616;
     margin: 0;
+    flex: 1;
   }
 
-  .momemade-testimonials__profile {
+  .momemade-testimonials__card-bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .momemade-testimonials__author {
     display: flex;
     align-items: center;
     gap: 12px;
   }
 
   .momemade-testimonials__avatar {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    border: 3px solid rgba(247, 249, 251, 0.6);
     object-fit: cover;
     display: block;
-    flex: 0 0 auto;
-  }
-
-  .momemade-testimonials__avatar--initial {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #f5dfe2;
-    font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
-    font-weight: 700;
-    font-size: 18px;
-    color: #090b00;
   }
 
   .momemade-testimonials__name {
     display: block;
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
     color: #161616;
   }
 
@@ -282,55 +156,17 @@
     display: block;
     font-family: var(--momemade-font-family, 'Century Gothic', 'Poppins', sans-serif);
     font-size: 12px;
-    line-height: 20px;
-    color: rgba(22, 22, 22, 0.6);
+    line-height: 18px;
+    color: rgba(9, 11, 0, 0.55);
   }
 
-  .momemade-testimonials__photo {
-    flex: 0 0 240px;
-    height: 370px;
-    align-self: center;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #f5f4f1;
-  }
-
-  .momemade-testimonials__photo-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  .momemade-testimonials__nav {
-    display: flex;
-    gap: 12px;
-  }
-
-  .momemade-testimonials__arrow {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: #ffffff;
+  .momemade-testimonials__mark {
+    font-size: 40px;
+    line-height: 1;
     color: #090b00;
-    border: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: opacity 0.15s ease;
   }
 
-  .momemade-testimonials__arrow:hover {
-    opacity: 0.8;
-  }
-
-  .momemade-testimonials__arrow:disabled {
-    opacity: 0.4;
-    cursor: default;
-  }
-
-  /* Tablet: one narrower card per view */
+  /* Tablet: fixed 400px cards in a horizontally scrollable row */
   @media screen and (max-width: 989px) {
     .momemade-testimonials {
       padding: 72px 40px;
@@ -342,17 +178,24 @@
       line-height: 60px;
     }
 
-    .momemade-testimonials__card {
-      flex: 0 0 680px;
-      max-width: calc(100vw - 80px);
+    .momemade-testimonials__eyebrow {
+      font-size: 13px;
     }
 
-    .momemade-testimonials__photo {
-      flex: 0 0 220px;
+    .momemade-testimonials__grid {
+      display: flex;
+      overflow-x: auto;
+      max-width: none;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .momemade-testimonials__card {
+      flex: 0 0 400px;
     }
   }
 
-  /* Mobile: vertical cards, photo on top */
+  /* Mobile: stacked full-width cards */
   @media screen and (max-width: 749px) {
     .momemade-testimonials {
       padding: 56px 20px;
@@ -360,37 +203,21 @@
     }
 
     .momemade-testimonials__title {
-      font-size: 40px;
-      line-height: 44px;
+      font-size: 48px;
+      line-height: 56px;
+    }
+
+    .momemade-testimonials__eyebrow {
+      font-size: 11px;
+    }
+
+    .momemade-testimonials__grid {
+      flex-direction: column;
+      overflow-x: visible;
     }
 
     .momemade-testimonials__card {
-      flex: 0 0 85%;
-      max-width: none;
-      flex-direction: column-reverse;
-      gap: 20px;
-      padding: 20px;
-      min-height: 0;
-    }
-
-    .momemade-testimonials__card-body {
-      padding: 0;
-    }
-
-    .momemade-testimonials__photo {
-      flex: 0 0 auto;
-      width: 100%;
-      height: 240px;
-      align-self: stretch;
-    }
-
-    .momemade-testimonials__card-stars svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .momemade-testimonials__card-rating-text {
-      font-size: 14px;
+      flex: 1 1 auto;
     }
   }
 
@@ -410,36 +237,38 @@
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
-      "default": "Loved by pups. Trusted by parents."
+      "default": "What dog parents say"
     },
     {
       "type": "text",
       "id": "title",
       "label": "Heading",
-      "default": "When your dog is happy, you’re happy."
+      "default": "When your dog is happy, so are you."
     }
   ],
   "blocks": [
     {
       "type": "review",
       "name": "Review",
-      "limit": 12,
+      "limit": 6,
       "settings": [
         {
           "type": "text",
-          "id": "title",
-          "label": "Review title",
-          "default": "My senior dog just loves them."
+          "id": "stars",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "checkbox",
+          "id": "verified",
+          "label": "Show verified badge",
+          "default": true
         },
         {
           "type": "textarea",
           "id": "quote",
-          "label": "Review text"
-        },
-        {
-          "type": "image_picker",
-          "id": "photo",
-          "label": "Photo"
+          "label": "Quote",
+          "default": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”"
         },
         {
           "type": "image_picker",
@@ -450,13 +279,13 @@
           "type": "text",
           "id": "name",
           "label": "Name",
-          "default": "Debbie B."
+          "default": "Kim F."
         },
         {
           "type": "text",
           "id": "subtext",
-          "label": "Descriptor",
-          "default": "Mom of Roxy"
+          "label": "Subtext",
+          "default": "and Penelope · 113 bags since 2023"
         }
       ]
     }
@@ -465,9 +294,30 @@
     {
       "name": "Momemade testimonials",
       "blocks": [
-        { "type": "review" },
-        { "type": "review" },
-        { "type": "review" }
+        {
+          "type": "review",
+          "settings": {
+            "quote": "“These are the only treats she will eat. Whatever you are doing, it’s magic.”",
+            "name": "Kim F.",
+            "subtext": "and Penelope"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "“The other dogs in the building get the generic stuff. Jax has his own stash.”",
+            "name": "Jennifer T.",
+            "subtext": "and Jax"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "“He loved it from the first bite! Your treats did not upset his GI.”",
+            "name": "Yuri F",
+            "subtext": "and Oliver"
+          }
+        }
       ]
     }
   ]
