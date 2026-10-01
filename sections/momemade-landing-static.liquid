@@ -1,0 +1,1352 @@
+{% comment %} MOMEMADE landing page — images live in the theme assets folder. {% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Inter:wght@400&display=swap" rel="stylesheet">
+<style>
+.mm-root,.mm-root *{box-sizing:border-box}
+.mm-root h1,.mm-root h2,.mm-root h3,.mm-root p,.mm-root blockquote,.mm-root span,.mm-root a,.mm-root button,.mm-root input,.mm-root strong{font-family:inherit;letter-spacing:inherit}
+.mm-root a{color:inherit;text-decoration:none}
+.mm-root a:hover{color:rgb(212,158,215)}
+.mm-root button,.mm-root input{font:inherit;box-shadow:none}
+.mm-root [data-mm-ref="setReviews"],.mm-root [data-mm-ref="setTiles"]{scrollbar-width:none}
+.mm-root [data-mm-ref="setReviews"]::-webkit-scrollbar,.mm-root [data-mm-ref="setTiles"]::-webkit-scrollbar{display:none}
+.mm-root .mm-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.mm-root .mm-d,.mm-root .mm-t,.mm-root .mm-m,.mm-root .mm-nd,.mm-root .mm-menu{display:none}
+@media (min-width:1100px){.mm-root .mm-d{display:contents}}
+@media (min-width:640px) and (max-width:1099.98px){.mm-root .mm-t,.mm-root .mm-nd{display:contents}}
+@media (max-width:639.98px){.mm-root .mm-m,.mm-root .mm-nd{display:contents}}
+@media (max-width:1099.98px){.mm-root .mm-menu.is-open{display:contents}}
+.mm-root .mmh0:hover{color:rgb(212,158,215) !important}
+.mm-root .mmh1:hover{background-color:rgb(224,182,226) !important;color:rgb(9,11,0) !important}
+.mm-root .mmh2:hover{background-color:rgb(184,229,198) !important;color:rgb(9,11,0) !important}
+.mm-root .mmh3:hover{background:rgb(245,219,223) !important}
+.mm-root .mmh4:hover{background:rgb(224,182,226) !important;color:rgb(9,11,0) !important}
+.mm-root .mmh5:hover{background:rgb(184,229,198) !important;color:rgb(9,11,0) !important}
+.mm-root .mmh6:hover{background:rgb(222,180,206) !important;color:rgb(9,11,0) !important}
+.mm-root .mmh7:hover{background:rgb(160,219,179) !important;color:rgb(9,11,0) !important}
+.mm-root .mmh8:hover{background:rgb(224,182,226) !important}
+.mm-root .mmh9:hover{background:rgb(9,11,0) !important;color:rgb(245,219,223) !important}
+.mm-root .mmh10:hover{color:rgb(160,219,179) !important}
+</style>
+<div id="mm-{{ section.id }}" class="mm-root" style="width:100%; overflow-x:hidden; background:rgb(245,223,226); color:rgb(9,11,0); font-family:'Century Gothic', CenturyGothic, Jost, sans-serif; -webkit-font-smoothing:antialiased;">
+
+  <div class="mm-d">
+  <div data-screen-label="Top Banner" style="background:rgb(212,158,215); padding:8px 12px; display:flex; justify-content:center; align-items:center;">
+    <span style="font-family:Inter, sans-serif; font-weight:400; font-size:12px; line-height:18px; letter-spacing:1.2px; text-transform:uppercase; color:rgb(9,11,0); text-align:center;">🔥 FREE SHIPPING ON ALL U.S. ORDERS OVER $50! 🔥</span>
+  </div>
+  </div>
+  <div class="mm-t">
+  <div data-screen-label="Top Banner" style="background:rgb(212,158,215); height:34px; padding:8px 12px; display:flex; justify-content:center; align-items:center;"><span style="font-family:Jost, sans-serif; font-weight:400; font-size:12px; line-height:18px; letter-spacing:1.2px; text-transform:uppercase; color:rgb(9,11,0); white-space:nowrap;">🔥 FREE SHIPPING ON ALL U.S. ORDERS OVER $50! 🔥</span></div>
+  </div>
+  <div class="mm-m">
+  <div data-screen-label="Top Banner" style="background:rgb(212,158,215); height:32px; padding:7px 12px; display:flex; justify-content:center; align-items:center;"><span style="font-family:Jost, sans-serif; font-weight:400; font-size:10px; line-height:18px; letter-spacing:1.2px; text-transform:uppercase; color:rgb(9,11,0); white-space:nowrap;">🔥 FREE SHIPPING ON ORDERS OVER $50! 🔥</span></div>
+  </div>
+
+
+  <section data-screen-label="Hero" style="position:relative; background:rgb(9,11,0); overflow:hidden; isolation:isolate; display:flex; flex-direction:column;">
+
+    <div class="mm-d">
+      <div aria-hidden="true" style="position:absolute; inset:0; z-index:0;">
+        <div data-mm-slide="0" style="position:absolute; inset:0; opacity:1; transition:opacity 900ms ease;">
+          <div style="position:absolute; inset:0; background:url({{ '7f52551987a6553b.jpg' | asset_url }}) center / cover no-repeat; overflow:hidden;">{% if section.settings.hero_video != blank %}{{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'auto', class: 'mm-vid', image_size: '1600x' }}{% endif %}</div>
+          <div style="position:absolute; inset:0; background:linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.3) 100%);"></div>
+        </div>
+        <div data-mm-slide="1" style="position:absolute; inset:0; opacity:0; transition:opacity 900ms ease;">
+          <div style="position:absolute; inset:0; background:url({{ 'a7a58b371870a7a1.jpg' | asset_url }}) center 30% / cover no-repeat;"></div>
+          <div style="position:absolute; left:0; right:0; bottom:0; height:86%; background:linear-gradient(0deg, rgba(0,0,0,0.8) 12.68%, rgba(0,0,0,0) 103.69%);"></div>
+        </div>
+        <div style="position:absolute; left:0; right:0; top:0; height:114px; background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+      </div>
+    </div>
+  <div class="mm-t">
+      <div aria-hidden="true" style="position:absolute; inset:0; z-index:0;">
+        <div data-mm-slide="0" style="position:absolute; inset:0; opacity:1; transition:opacity 900ms ease;">
+          <div style="position:absolute; left:0; right:0; top:0; height:682.69px; background:url({{ '7f52551987a6553b.jpg' | asset_url }}) center / cover no-repeat; overflow:hidden;">{% if section.settings.hero_video != blank %}{{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'auto', class: 'mm-vid', image_size: '1600x' }}{% endif %}</div>
+          <div style="position:absolute; left:0; right:0; top:0; height:163.159px; background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+          <div style="position:absolute; left:0; right:0; top:270.5px; height:412.19px; background:linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+          <div style="position:absolute; left:0; right:0; top:270.5px; height:412.19px; background:linear-gradient(0deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);"></div>
+        </div>
+        <div data-mm-slide="1" style="position:absolute; inset:0; opacity:0; transition:opacity 900ms ease;">
+          <div style="position:absolute; inset:0; background:url({{ 'a7a58b371870a7a1.jpg' | asset_url }}) center / cover no-repeat;"></div>
+          <div style="position:absolute; left:0; right:0; top:0; height:81.579px; background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+          <div style="position:absolute; left:0; right:0; bottom:0; height:95%; background:linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+        </div>
+      </div>
+  </div>
+  <div class="mm-m">
+      <div aria-hidden="true" style="position:absolute; inset:0; z-index:0;">
+        <div data-mm-slide="0" style="position:absolute; inset:0; opacity:1; transition:opacity 900ms ease;">
+          <div style="position:absolute; inset:0; background:url({{ '7f52551987a6553b.jpg' | asset_url }}) center / cover no-repeat; overflow:hidden;">{% if section.settings.hero_video != blank %}{{ section.settings.hero_video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, preload: 'auto', class: 'mm-vid', image_size: '1600x' }}{% endif %}</div>
+          <div style="position:absolute; left:0; right:0; top:0; height:82px; background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+          <div style="position:absolute; left:0; right:0; bottom:0; height:339.043px; background:linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+        </div>
+        <div data-mm-slide="1" style="position:absolute; inset:0; opacity:0; transition:opacity 900ms ease;">
+          <div style="position:absolute; inset:0; background:url({{ 'a7a58b371870a7a1.jpg' | asset_url }}) center / cover no-repeat;"></div>
+          <div style="position:absolute; left:0; right:0; top:0; height:82px; background:linear-gradient(180deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);"></div>
+          <div style="position:absolute; left:0; right:0; bottom:0; height:96.4%; background:linear-gradient(0deg, rgba(0,0,0,0.8) 28.13%, rgba(0,0,0,0) 100%);"></div>
+        </div>
+      </div>
+  </div>
+
+    <nav style="position:relative; z-index:3; min-height:clamp(64px, 6.1vw, 92px); border:1px solid rgba(255,255,255,0.3); display:flex; justify-content:space-between; align-items:center; gap:24px; padding:16px clamp(20px, 5.3vw, 80px);">
+      <a href="#" aria-label="MOMEMADE home" style="display:block; flex-shrink:0;">
+        <img src="{{ 'momemade-logo-blush.svg' | asset_url }}" alt="MOMEMADE — Dog Goods, Mom Approved" style="display:block; width:clamp(140px, 13.64vw, 206.25px); height:auto; aspect-ratio:257.813 / 55;">
+      </a>
+      <div class="mm-d">
+        <div style="display:flex; align-items:center; gap:24px;">
+          
+            <a class="mmh0" href="#" style="font-weight:700; font-size:14px; line-height:14px; color:rgb(245,219,223); white-space:nowrap; transition:color 160ms;">Shop Biscuits</a>
+          
+            <a class="mmh0" href="#" style="font-weight:700; font-size:14px; line-height:14px; color:rgb(245,219,223); white-space:nowrap; transition:color 160ms;">Shop Bandanas</a>
+          
+            <a class="mmh0" href="#" style="font-weight:700; font-size:14px; line-height:14px; color:rgb(245,219,223); white-space:nowrap; transition:color 160ms;">Find Your Biscuit</a>
+          
+            <a class="mmh0" href="#" style="font-weight:700; font-size:14px; line-height:14px; color:rgb(245,219,223); white-space:nowrap; transition:color 160ms;">Our Story</a>
+          
+            <a class="mmh0" href="#" style="font-weight:700; font-size:14px; line-height:14px; color:rgb(245,219,223); white-space:nowrap; transition:color 160ms;">Stockists</a>
+          
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:24px; color:rgb(245,219,223);">
+        <button type="button" aria-label="Search" style="background:none; border:0; padding:0; color:inherit; cursor:pointer; display:flex; width:24px; height:24px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="7"></circle><line x1="15.8" y1="15.8" x2="21" y2="21"></line></svg>
+        </button>
+        <button type="button" aria-label="Cart" style="background:none; border:0; padding:0; color:inherit; cursor:pointer; display:flex; width:24px; height:24px;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 7.5h14l-1.2 14H6.2L5 7.5z"></path><path d="M9 10V6.5a3 3 0 0 1 6 0V10"></path></svg>
+        </button>
+        <div class="mm-d">
+          <button type="button" aria-label="Account" style="background:none; border:0; padding:0; color:inherit; cursor:pointer; display:flex; width:24px; height:24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"></path></svg>
+          </button>
+        </div>
+        <div class="mm-nd">
+          <button type="button" aria-label="Menu" aria-expanded="false" data-mm-click="toggleMenu" style="background:none; border:0; padding:0; color:inherit; cursor:pointer; display:flex; width:24px; height:24px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="mm-menu">
+      <div style="position:relative; z-index:3; background:rgb(9,11,0); border-bottom:1px solid rgba(255,255,255,0.3); padding:12px clamp(20px, 5.3vw, 80px) 24px; display:flex; flex-direction:column;">
+        
+          <a href="{{ section.settings.biscuits_url | default: '#' }}" data-mm-click="closeMenu" style="font-weight:700; font-size:20px; line-height:24px; color:rgb(245,219,223); padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.12);">Shop Biscuits</a>
+        
+          <a href="{{ section.settings.bandanas_url | default: '#' }}" data-mm-click="closeMenu" style="font-weight:700; font-size:20px; line-height:24px; color:rgb(245,219,223); padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.12);">Shop Bandanas</a>
+        
+          <a href="#" data-mm-click="closeMenu" style="font-weight:700; font-size:20px; line-height:24px; color:rgb(245,219,223); padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.12);">Find Your Biscuit</a>
+        
+          <a href="#" data-mm-click="closeMenu" style="font-weight:700; font-size:20px; line-height:24px; color:rgb(245,219,223); padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.12);">Our Story</a>
+        
+          <a href="#" data-mm-click="closeMenu" style="font-weight:700; font-size:20px; line-height:24px; color:rgb(245,219,223); padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.12);">Stockists</a>
+        
+        <a href="#" data-mm-click="closeMenu" style="font-weight:700; font-size:20px; line-height:24px; color:rgb(245,219,223); padding:14px 0;">Account</a>
+      </div>
+    </div>
+
+    <div class="mm-d">
+      <div style="position:relative; z-index:1; min-height:clamp(520px, calc(100vh - 126px), 856px); display:grid; align-items:end; padding:0 clamp(20px, 5.3vw, 80px);">
+        <div data-mm-slide="0" aria-hidden="false" style="grid-area:1 / 1; display:flex; flex-direction:column; align-items:center; gap:20px; padding:112px 0 clamp(96px, 7.4vw, 112px); text-align:center; opacity:1; pointer-events:auto; transition:opacity 700ms ease;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:8px; max-width:1014px;">
+            <span style="font-weight:700; font-size:clamp(13px, 1.32vw, 20px); line-height:1; text-transform:uppercase; color:rgb(245,219,223); text-wrap:balance;">Finally. A treat your sensitive pup can actually enjoy.</span>
+            <h1 style="margin:0; font-weight:700; font-size:clamp(44px, 5.3vw, 80px); line-height:1.35; letter-spacing:-1px; color:rgb(245,219,223); text-wrap:balance;">It’s not <span style="display:inline-block; background:rgb(212,158,215); padding:0 0.14em; line-height:1.26;">just</span> a dog. They’re family.</h1>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+            <a class="mmh1" href="#" style="width:220px; padding:24px 0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; text-align:center; transition:background-color 160ms;">SHOP BISCUITS</a>
+            <a class="mmh2" href="#" style="width:220px; padding:24px 0; background:rgb(160,219,179); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; text-align:center; transition:background-color 160ms;">SHOP BANDANAS</a>
+          </div>
+        </div>
+        <div data-mm-slide="1" aria-hidden="true" style="grid-area:1 / 1; display:flex; flex-direction:column; align-items:center; gap:24px; padding:80px 0 clamp(96px, 7.4vw, 112px); text-align:center; opacity:0; pointer-events:none; transition:opacity 700ms ease;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:20px; max-width:1150px;">
+            <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+              <span style="font-weight:700; font-size:clamp(13px, 1.32vw, 20px); line-height:1; text-transform:uppercase; color:rgb(245,219,223); text-wrap:balance;">You've tried everything. MOMEMADE is different</span>
+              <p style="margin:0; font-weight:700; font-size:clamp(44px, 5.3vw, 80px); line-height:1; color:rgb(245,219,223); text-wrap:balance;">If I wouldn't give it to my own dog, I don't make it.</p>
+            </div>
+            <p style="margin:0; max-width:1134px; font-weight:400; font-size:clamp(17px, 1.85vw, 28px); line-height:1.215; color:rgba(245,219,223,0.8); text-wrap:pretty;">Kitchen-baked, plant-based, limited ingredient biscuits. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+            <a class="mmh1" href="#" style="width:220px; padding:24px 0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; text-align:center; transition:background-color 160ms;">SHOP BISCUITS</a>
+            <a class="mmh2" href="#" style="width:220px; padding:24px 0; background:rgb(160,219,179); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; text-align:center; transition:background-color 160ms;">SHOP BANDANAS</a>
+          </div>
+        </div>
+        <div style="position:absolute; right:clamp(20px, 3.5vw, 53px); bottom:36px; display:flex; align-items:center; gap:12px; z-index:2;">
+          <div style="width:65px; display:flex; flex-direction:column; gap:4px;">
+            <span data-mm-label style="font-size:14px; line-height:14px; color:rgba(245,219,223,0.8);">1/2</span>
+            <div style="position:relative; height:4px; margin-top:1px; background:rgba(212,158,215,0.2);">
+              <div data-mm-bar style="position:absolute; left:0; top:0; bottom:0; width:29px; background:rgb(212,158,215); transition:width 500ms ease;"></div>
+            </div>
+          </div>
+          <button class="mmh3" type="button" aria-label="Previous slide" data-mm-click="prevSlide" style="width:44px; height:44px; border-radius:100px; border:0; background:rgb(255,255,255); color:rgb(0,0,0); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg>
+          </button>
+          <button class="mmh3" type="button" aria-label="Next slide" data-mm-click="nextSlide" style="width:44px; height:44px; border-radius:100px; border:0; background:rgb(255,255,255); color:rgb(0,0,0); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,4 17,12 9,20"></polyline></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  <div class="mm-t">
+    <div style="position:relative; z-index:1; min-height:clamp(640px, calc(100vh - 102px), 1092px); display:flex; flex-direction:column; justify-content:flex-end; gap:32px; padding:48px 40px;">
+      <div style="display:grid; align-items:end;">
+        <div data-mm-slide="0" aria-hidden="false" style="grid-area:1 / 1; display:flex; flex-direction:column; align-items:center; gap:32px; padding:32px 0 44px; text-align:center; opacity:1; pointer-events:auto; transition:opacity 700ms ease;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <span style="font-weight:700; font-size:20px; line-height:20px; text-transform:uppercase; color:rgb(245,219,223); text-wrap:balance;">Finally. A treat your sensitive pup can actually enjoy.</span>
+            <h1 style="margin:0; font-weight:700; font-size:72px; line-height:88px; letter-spacing:1px; color:rgb(245,219,223); text-wrap:balance;">It’s not <span style="display:inline-block; background:rgb(212,158,215); line-height:82px; padding:0 10px;">just</span> a dog. They’re family.</h1>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+            <a class="mmh4" href="#" style="width:180px; font-size:16px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BISCUITS</a>
+            <a class="mmh5" href="#" style="width:180px; font-size:16px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(160,219,179); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BANDANAS</a>
+          </div>
+        </div>
+        <div data-mm-slide="1" aria-hidden="true" style="grid-area:1 / 1; display:flex; flex-direction:column; align-items:center; gap:32px; padding:32px 0 44px; text-align:center; opacity:0; pointer-events:none; transition:opacity 700ms ease;">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+            <span style="font-weight:700; font-size:20px; line-height:20px; text-transform:uppercase; color:rgb(245,219,223); text-wrap:balance;">You've tried everything. MOMEMADE is different</span>
+            <p style="margin:0; font-weight:700; font-size:64px; line-height:1; letter-spacing:-1px; color:rgb(245,219,223); text-wrap:balance;">If I wouldn't give it to my own dog, I don't make it.</p>
+            <p style="margin:0; font-size:20px; line-height:28px; color:rgba(245,219,223,0.8); text-wrap:pretty;">Kitchen-baked, plant-based, limited ingredient biscuits. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+            <a class="mmh4" href="#" style="width:180px; font-size:16px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BISCUITS</a>
+            <a class="mmh5" href="#" style="width:180px; font-size:16px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(160,219,179); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BANDANAS</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:flex-end;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:65px; display:flex; flex-direction:column; gap:4px;">
+            <span data-mm-label style="font-size:14px; line-height:14px; color:rgba(245,219,223,0.8);">1/2</span>
+            <div style="position:relative; height:4px; margin-top:1px; background:rgba(212,158,215,0.2);"><div data-mm-bar style="position:absolute; left:0; top:0; bottom:0; width:29px; background:rgb(212,158,215); transition:width 500ms ease;"></div></div>
+          </div>
+          <button class="mmh3" type="button" aria-label="Previous slide" data-mm-click="prevSlide" style="width:44px; height:44px; border-radius:100px; border:0; padding:0; background:rgb(255,255,255); color:rgb(0,0,0); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg></button>
+          <button class="mmh3" type="button" aria-label="Next slide" data-mm-click="nextSlide" style="width:44px; height:44px; border-radius:100px; border:0; padding:0; background:rgb(255,255,255); color:rgb(0,0,0); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,4 17,12 9,20"></polyline></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mm-m">
+    <div style="position:relative; z-index:1; min-height:clamp(560px, calc(100vh - 96px), 778px); display:flex; flex-direction:column; justify-content:flex-end; gap:32px; padding:16px 20px;">
+      <div style="display:grid; align-items:end;">
+        <div data-mm-slide="0" aria-hidden="false" style="grid-area:1 / 1; display:flex; flex-direction:column; align-items:flex-start; gap:24px; opacity:1; pointer-events:auto; transition:opacity 700ms ease;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <span style="font-weight:700; font-size:12px; line-height:18px; letter-spacing:-0.5px; text-transform:uppercase; color:rgb(245,219,223);">Finally. A treat your sensitive pup can actually enjoy.</span>
+            <h1 style="margin:0; font-weight:700; font-size:48px; line-height:56px; letter-spacing:-1px; color:rgb(245,219,223);">It’s not <span style="display:inline-block; background:rgb(212,158,215); line-height:55px; padding:0 6px;">just</span> a dog. They’re family.</h1>
+          </div>
+          <div style="width:100%; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+            <a class="mmh4" href="#" style="padding:0 8px; font-size:14px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BISCUITS</a>
+            <a class="mmh5" href="#" style="padding:0 8px; font-size:14px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(160,219,179); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BANDANAS</a>
+          </div>
+        </div>
+        <div data-mm-slide="1" aria-hidden="true" style="grid-area:1 / 1; display:flex; flex-direction:column; align-items:flex-start; gap:24px; opacity:0; pointer-events:none; transition:opacity 700ms ease;">
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <span style="font-weight:700; font-size:12px; line-height:18px; text-transform:uppercase; color:rgb(245,219,223);">You've tried everything. MOMEMADE is different</span>
+            <p style="margin:0; font-weight:700; font-size:40px; line-height:44px; letter-spacing:-1px; color:rgb(245,219,223);">If I wouldn't give it to my own dog, I don't make it.</p>
+            <p style="margin:0; font-size:16px; line-height:24px; color:rgba(245,219,223,0.8);">Kitchen-baked, plant-based, limited ingredient biscuits. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.</p>
+          </div>
+          <div style="width:100%; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px;">
+            <a class="mmh4" href="#" style="padding:0 8px; font-size:14px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BISCUITS</a>
+            <a class="mmh5" href="#" style="padding:0 8px; font-size:14px; height:52px; display:flex; align-items:center; justify-content:center; background:rgb(160,219,179); color:rgb(9,11,0); font-weight:700; line-height:20px; text-align:center;">SHOP BANDANAS</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; justify-content:flex-end;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div style="width:65px; display:flex; flex-direction:column; gap:4px;">
+            <span data-mm-label style="font-size:14px; line-height:14px; color:rgba(245,219,223,0.8);">1/2</span>
+            <div style="position:relative; height:4px; margin-top:1px; background:rgba(212,158,215,0.2);"><div data-mm-bar style="position:absolute; left:0; top:0; bottom:0; width:29px; background:rgb(212,158,215); transition:width 500ms ease;"></div></div>
+          </div>
+          <button class="mmh3" type="button" aria-label="Previous slide" data-mm-click="prevSlide" style="width:32px; height:32px; border-radius:100px; border:0; padding:0; background:rgb(255,255,255); color:rgb(0,0,0); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="17.455" height="17.455" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="15,4 7,12 15,20"></polyline></svg></button>
+          <button class="mmh3" type="button" aria-label="Next slide" data-mm-click="nextSlide" style="width:32px; height:32px; border-radius:100px; border:0; padding:0; background:rgb(255,255,255); color:rgb(0,0,0); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="17.455" height="17.455" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,4 17,12 9,20"></polyline></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <div data-screen-label="Ticker" aria-label="Grain free, plant-based, limited ingredients, no preservatives" style="background:rgb(160,219,179); border-top:1px solid rgb(0,0,0); border-bottom:1.5px solid rgb(0,0,0); padding:clamp(20px, calc(16.28px + 0.926vw), 24px) 0; overflow:hidden;">
+    <div data-mm-ref="setTicker" style="display:flex; width:max-content; will-change:transform;">
+      <div style="display:flex; align-items:center; gap:16px; padding-right:16px;">
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Grain Free</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Plant-Based</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Limited Ingredients</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">No Preservative</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Allergy &amp; Sensitive Belly Friendly</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Handmade In Small Batches</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Kitchen-Baked In The Hudson Valley</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Compostable Packaging</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+      </div>
+      <div aria-hidden="true" style="display:flex; align-items:center; gap:16px; padding-right:16px;">
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Grain Free</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Plant-Based</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Limited Ingredients</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">No Preservative</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Allergy &amp; Sensitive Belly Friendly</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Handmade In Small Batches</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Kitchen-Baked In The Hudson Valley</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+          <div style="display:flex; align-items:center; gap:16px;">
+            <span style="font-weight:700; font-size:clamp(24px, calc(20.28px + 0.926vw), 32px); line-height:1; letter-spacing:-1px; color:rgb(9,11,0); white-space:nowrap;">Compostable Packaging</span>
+            <span style="width:8px; height:8px; border-radius:50%; background:rgb(9,11,0); flex-shrink:0;"></span>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="mm-d">
+<section data-screen-label="Our Product" style="background:rgb(245,223,226); padding:56px clamp(20px, 2.65vw, 40px); display:flex; flex-direction:column; align-items:center; gap:40px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center; max-width:911px;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; text-transform:uppercase;">WHAT WE MAKE</span>
+        <h2 style="margin:0; font-weight:700; font-size:clamp(36px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; color:rgb(0,0,0); text-wrap:balance;">Two products. One standard</h2>
+      </div>
+      <p style="margin:0; max-width:752px; opacity:0.8; font-size:16px; line-height:28px; color:rgb(0,0,0); text-wrap:pretty;">Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.</p>
+    </div>
+    <div style="width:100%; max-width:1174px; display:flex; flex-wrap:wrap; gap:24px;">
+      <article style="flex:1 1 340px; display:flex; flex-direction:column; background:rgb(255,255,255); overflow:hidden;">
+        <div style="height:clamp(240px, 24vw, 363.429px); background:rgb(237,232,223) url({{ 'c7f12d8f07021502.jpg' | asset_url }}) center / cover no-repeat;"></div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:24px; padding:24px;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(212,160,192); text-transform:uppercase;">KITCHEN-BAKED · PLANT-BASED · LIMITED INGREDIENT</span>
+            <h3 style="margin:0; font-weight:700; font-size:clamp(28px, 2.4vw, 36px); line-height:40px; letter-spacing:-1px; color:rgb(0,0,0);">Dog Biscuits</h3>
+            <p style="margin:0; font-size:16px; line-height:28px; color:rgb(0,0,0);">You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.</p>
+          </div>
+          <a class="mmh6" href="#" style="margin-top:auto; display:flex; justify-content:center; align-items:center; gap:8px; padding:16px 32px; background:rgb(212,160,192); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; letter-spacing:0.6px; text-transform:uppercase;">SHOP BISCUITS
+            <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg>
+          </a>
+        </div>
+      </article>
+      <article style="flex:1 1 340px; display:flex; flex-direction:column; background:rgb(255,255,255); overflow:hidden;">
+        <div style="height:clamp(240px, 24vw, 363.429px); background:rgb(244,240,234) url({{ '27a71e7055f56921.jpg' | asset_url }}) center / cover no-repeat;"></div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:24px; padding:24px;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(132,201,154); text-transform:uppercase;">LOW-IMPACT FABRICS · REVERSIBLE · NO PLASTIC</span>
+            <h3 style="margin:0; font-weight:700; font-size:clamp(28px, 2.4vw, 36px); line-height:40px; letter-spacing:-1px; color:rgb(0,0,0);">Dog Bandanas</h3>
+            <p style="margin:0; font-size:16px; line-height:28px; color:rgb(0,0,0);">Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.</p>
+          </div>
+          <a class="mmh7" href="#" style="margin-top:auto; display:flex; justify-content:center; align-items:center; gap:8px; padding:16px 32px; background:rgb(132,201,154); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; letter-spacing:0.6px; text-transform:uppercase;">SHOP Bandanas
+            <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+  </div>
+  <div class="mm-t">
+  <section data-screen-label="Our Product" style="background:rgb(245,223,226); padding:72px 40px; display:flex; flex-direction:column; align-items:center; gap:48px;">
+    <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:12px; text-align:center;">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(9,11,0); text-transform:uppercase;">WHAT WE MAKE</span>
+        <h2 style="margin:0; font-weight:700; font-size:56px; line-height:60px; letter-spacing:-1px; color:rgb(0,0,0); text-wrap:balance;">Two products. One standard</h2>
+      </div>
+      <p style="margin:0; max-width:738px; opacity:0.8; font-size:16px; line-height:28px; color:rgb(0,0,0);">Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.</p>
+    </div>
+    <div style="width:100%; display:flex; gap:24px; align-items:stretch;">
+      <article style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; background:rgb(255,255,255); overflow:hidden;">
+        <div style="height:363.429px; background:rgb(237,232,223) url({{ 'dd32c3737caecf43.jpg' | asset_url }}) 50% 34.86% / cover no-repeat;"></div>
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:24px;">
+          <div style="display:flex; flex-direction:column; gap:16px;"><span style="font-weight:700; font-size:12px; line-height:20px; color:rgb(212,160,192); text-transform:uppercase;">KITCHEN-BAKED · PLANT-BASED · LIMITED INGREDIENT</span><h3 style="margin:0; font-weight:700; font-size:32px; line-height:40px; letter-spacing:-1px; color:rgb(0,0,0);">Dog Biscuits</h3><p style="margin:0; font-size:16px; line-height:28px; color:rgb(0,0,0);">You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.</p></div>
+          <a class="mmh6" href="#" style="display:flex; justify-content:center; align-items:center; gap:8px; height:52.504px; padding:16px 32px; background:rgb(212,160,192); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; letter-spacing:0.6px; text-transform:uppercase;">SHOP BISCUITS <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg></a>
+        </div>
+      </article>
+      <article style="flex:1 1 0; min-width:0; display:flex; flex-direction:column; background:rgb(255,255,255); overflow:hidden;">
+        <div style="height:363.429px; background:rgb(244,240,234) url({{ '27a71e7055f56921.jpg' | asset_url }}) center / cover no-repeat;"></div>
+        <div style="flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:24px;">
+          <div style="display:flex; flex-direction:column; gap:16px;"><span style="font-weight:700; font-size:12px; line-height:20px; color:rgb(132,201,154); text-transform:uppercase;">LOW-IMPACT FABRICS · REVERSIBLE · NO PLASTIC</span><h3 style="margin:0; font-weight:700; font-size:32px; line-height:40px; letter-spacing:-1px; color:rgb(0,0,0);">Dog Bandanas</h3><p style="margin:0; font-size:16px; line-height:28px; color:rgb(0,0,0);">Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.</p></div>
+          <a class="mmh7" href="#" style="display:flex; justify-content:center; align-items:center; gap:8px; height:52.504px; padding:16px 32px; background:rgb(132,201,154); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; letter-spacing:0.6px; text-transform:uppercase;">SHOP Bandanas <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+  </div>
+  <div class="mm-m">
+  <section data-screen-label="Our Product" style="background:rgb(245,223,226); padding:56px 20px; display:flex; flex-direction:column; align-items:center; gap:24px;">
+    <div style="width:100%; display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center;">
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:1.2px; color:rgb(9,11,0);">WHAT WE MAKE</span>
+      <h2 style="margin:0; font-weight:700; font-size:36px; line-height:1; letter-spacing:-1px; color:rgb(0,0,0); text-wrap:balance;">Two products. One standard.</h2>
+      <p style="margin:0; opacity:0.8; font-size:16px; line-height:28px; color:rgb(0,0,0);">Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog.</p>
+    </div>
+    <div style="width:100%; display:flex; flex-direction:column; gap:24px;">
+      <article style="display:flex; flex-direction:column; background:rgb(255,255,255); overflow:hidden;">
+        <div style="height:363.429px; background:rgb(237,232,223) url({{ 'dd32c3737caecf43.jpg' | asset_url }}) 50% 34.86% / cover no-repeat;"></div>
+        <div style="display:flex; flex-direction:column; gap:16px; padding:24px;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="display:flex; flex-direction:column; gap:8px;"><span style="font-weight:700; font-size:12px; line-height:20px; color:rgb(212,160,192); text-transform:uppercase;">Kitchen-baked · Plant-based · limited ingredients</span><h3 style="margin:0; font-weight:700; font-size:32px; line-height:40px; letter-spacing:-1px; color:rgb(0,0,0);">Dog Biscuits</h3></div>
+            <p style="margin:0; font-size:16px; line-height:28px; color:rgb(0,0,0);">You’ve tried everything. MOMEMADE is different. Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.</p>
+          </div>
+          <a class="mmh6" href="#" style="display:flex; justify-content:center; align-items:center; gap:8px; height:52.504px; padding:16px 32px; background:rgb(212,160,192); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; letter-spacing:0.6px; text-transform:uppercase;">SHOP BISCUITS <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg></a>
+        </div>
+      </article>
+      <article style="display:flex; flex-direction:column; background:rgb(255,255,255); overflow:hidden;">
+        <div style="height:363.429px; background:rgb(244,240,234) url({{ '27a71e7055f56921.jpg' | asset_url }}) center / cover no-repeat;"></div>
+        <div style="display:flex; flex-direction:column; gap:16px; padding:24px;">
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            <div style="display:flex; flex-direction:column; gap:8px;"><span style="font-weight:700; font-size:12px; line-height:20px; color:rgb(132,201,154); text-transform:uppercase;">Reclaimed fabrics · Sewn one at a time · No hardware</span><h3 style="margin:0; font-weight:700; font-size:32px; line-height:40px; letter-spacing:-1px; color:rgb(0,0,0);">Dog Bandanas</h3></div>
+            <p style="margin:0; font-size:16px; line-height:28px; color:rgb(0,0,0);">Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.</p>
+          </div>
+          <a class="mmh7" href="#" style="display:flex; justify-content:center; align-items:center; gap:8px; height:52.504px; padding:16px 32px; background:rgb(132,201,154); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; letter-spacing:0.6px; text-transform:uppercase;">SHOP Bandanas <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg></a>
+        </div>
+      </article>
+    </div>
+  </section>
+  </div>
+
+  <div class="mm-d">
+<section data-screen-label="Community &amp; Quote" style="background:rgb(9,11,0); color:rgb(245,219,223);">
+    <div style="border:1px solid rgba(255,255,255,0.3); padding:clamp(64px, 6.6vw, 100px) clamp(20px, 2.65vw, 40px); display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center;">
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">THE MOM STANDARD</span>
+      <blockquote style="margin:0; max-width:1080px; font-weight:700; font-size:clamp(34px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; color:rgb(245,219,223); text-wrap:balance;">“If I wouldn’t give it to my own dog, I don’t make it.”</blockquote>
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">— MICHELE, FOUNDER · MOMEMADE · HUDSON VALLEY, NY</span>
+    </div>
+    <div style="padding:clamp(56px, 5.3vw, 80px) clamp(20px, 5.3vw, 80px); display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:28px 28px;">
+      <div style="flex:1 1 420px; display:flex; flex-direction:column; gap:32px;">
+        <div style="display:flex; flex-direction:column; gap:16px; max-width:486px;">
+          <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">JOIN THE MOMEMADE COMMUNITY</span>
+          <h2 style="margin:0; font-weight:700; font-size:clamp(36px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; color:rgb(245,219,223);">Stay. Stay. Stay in touch.</h2>
+          <p style="margin:0; font-size:16px; line-height:28px; color:rgba(245,219,223,0.8);">Every 20 email signups, we donate a bag of biscuits to Ulster County Canines. Join and make every signup count.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <form method="post" action="/contact#mm-join" accept-charset="UTF-8" style="width:100%; max-width:535px; height:56px; display:flex; gap:12px;"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" required="required" placeholder="your@email.com" aria-label="Email address" style="flex:1; min-width:0; height:56px; border:0; outline:none; padding:14px 24px; background:rgb(255,255,255); color:rgb(9,11,0); font-size:16px; line-height:28px;">
+            <button class="mmh8" data-mm-text="joinLabelA" type="submit" style="width:102px; flex-shrink:0; border:0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; cursor:pointer;">JOIN</button>
+          </form>
+          <span data-mm-text="noteA" style="font-family:Jost, sans-serif; font-size:14px; line-height:28px; color:rgba(245,219,223,0.8);">No spam. Just treats, bandanas, and the occasional shelter update.</span>
+        </div>
+      </div>
+      <div aria-label="Doggie bag counter" style="flex:0 1 662px; min-height:168px; background:rgba(255,255,255,0.05); box-shadow:inset 0 0 0 1px rgba(255,255,255,0.3); display:flex; align-items:stretch; padding:40px 16px;">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;">
+          <span data-mm-text="signups" style="font-weight:700; font-size:clamp(44px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">47</span>
+          <span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgba(245,219,223,0.8); text-transform:uppercase;">SIGNUPS SO FAR</span>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.3); flex-shrink:0;"></div>
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;">
+          <span data-mm-text="bags" style="font-weight:700; font-size:clamp(44px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">2</span>
+          <span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgba(245,219,223,0.8); text-transform:uppercase;">BAGS DONATED</span>
+        </div>
+        <div style="width:1px; background:rgba(255,255,255,0.3); flex-shrink:0;"></div>
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;">
+          <span data-mm-text="untilNext" style="font-weight:700; font-size:clamp(44px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">13</span>
+          <span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgba(245,219,223,0.8); text-transform:uppercase;">UNTIL NEXT BAG</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <div class="mm-t">
+  <section data-screen-label="Community &amp; Quote" style="background:rgb(9,11,0); color:rgb(245,219,223);">
+    <div style="min-height:466px; border:1px solid rgba(255,255,255,0.3); padding:72px 40px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:18px; text-align:center;">
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:13px; line-height:1; letter-spacing:1.2px; color:rgb(160,219,179);">THE MOM STANDARD</span>
+      <blockquote style="margin:0; font-weight:700; font-size:56px; line-height:1; letter-spacing:-1px; color:rgb(245,219,223); text-wrap:balance;">“If I wouldn’t give it to my own dog, I don’t make it.”</blockquote>
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:13px; line-height:1; letter-spacing:1.2px; color:rgb(160,219,179);">— MICHELE, FOUNDER · MOMEMADE · HUDSON VALLEY, NY</span>
+    </div>
+    <div style="padding:72px 40px; display:flex; flex-direction:column; gap:24px;">
+      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:32px;">
+        <div style="max-width:486px; display:flex; flex-direction:column; gap:16px;">
+          <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">JOIN THE MOMEMADE COMMUNITY</span>
+          <h2 style="margin:0; font-weight:700; font-size:56px; line-height:60px; letter-spacing:-1px; color:rgb(245,219,223);">Stay. Stay. Stay in touch.</h2>
+          <p style="margin:0; font-size:16px; line-height:28px; color:rgba(245,219,223,0.8);">Every 20 email signups, we donate a bag of biscuits to Ulster County Canines. Join and make every signup count.</p>
+        </div>
+        <div style="width:100%; max-width:465px; display:flex; flex-direction:column; gap:4px;">
+          <form method="post" action="/contact#mm-join" accept-charset="UTF-8" style="height:56px; display:flex; gap:12px;"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" required="required" placeholder="your@email.com" aria-label="Email address" style="flex:1; min-width:0; height:56px; border:0; outline:none; padding:14px 24px; background:rgb(255,255,255); color:rgb(9,11,0); font-size:16px; line-height:28px;">
+            <button class="mmh8" data-mm-text="joinLabelA" type="submit" style="width:102px; flex-shrink:0; border:0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; cursor:pointer;">JOIN</button>
+          </form>
+          <span data-mm-text="noteA" style="font-family:Jost, sans-serif; font-size:14px; line-height:28px; color:rgba(245,219,223,0.8);">No spam. Just treats, bandanas, and the occasional shelter update.</span>
+        </div>
+      </div>
+      <div aria-label="Doggie bag counter" style="min-height:168px; background:rgba(255,255,255,0.05); box-shadow:inset 0 0 0 1px rgba(255,255,255,0.3); display:flex; align-items:stretch; padding:40px 16px;">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;"><span data-mm-text="signups" style=" font-weight:700; font-size:64px; line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">47</span><span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgba(245,219,223,0.8); text-transform:uppercase;">SIGNUPS SO FAR</span></div><div style="width:1px;  background:rgba(255,255,255,0.3); flex-shrink:0;"></div><div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;"><span data-mm-text="bags" style=" font-weight:700; font-size:64px; line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">2</span><span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgba(245,219,223,0.8); text-transform:uppercase;">BAGS DONATED</span></div><div style="width:1px;  background:rgba(255,255,255,0.3); flex-shrink:0;"></div><div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; text-align:center;"><span data-mm-text="untilNext" style=" font-weight:700; font-size:64px; line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">13</span><span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgba(245,219,223,0.8); text-transform:uppercase;">UNTIL NEXT BAG</span></div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <div class="mm-m">
+  <section data-screen-label="Community &amp; Quote" style="background:rgb(9,11,0); color:rgb(245,219,223);">
+    <div style="min-height:540px; border:1px solid rgba(255,255,255,0.3); padding:56px 20px; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:16px; text-align:center;">
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:1.2px; color:rgb(160,219,179);">THE MOM STANDARD</span>
+      <blockquote style="margin:0; font-weight:700; font-size:40px; line-height:44px; letter-spacing:-1px; color:rgb(245,219,223);">“If I wouldn’t give it to my own dog, I don’t make it.”</blockquote>
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:1.2px; color:rgb(160,219,179);">— MICHELE, FOUNDER · MOMEMADE</span>
+    </div>
+    <div style="padding:56px 20px; display:flex; flex-direction:column; align-items:center; gap:20px; text-align:center;">
+      <span style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:1.2px; color:rgb(160,219,179);">JOIN THE MOMEMADE COMMUNITY</span>
+      <h2 style="margin:0; font-weight:700; font-size:48px; line-height:56px; letter-spacing:-1px; color:rgb(245,219,223);">Stay. Stay. Stay in touch.</h2>
+      <p style="margin:0; font-size:16px; line-height:24px; color:rgba(245,219,223,0.8);">Every 20 signups, we donate a bag of biscuits to Ulster County Canines.</p>
+      <div aria-label="Doggie bag counter" style="width:100%; height:105px; background:rgba(255,255,255,0.05); box-shadow:inset 0 0 0 1px rgba(255,255,255,0.3); display:flex; align-items:stretch; padding:20px 8px;">
+        <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; text-align:center;"><span data-mm-text="signups" style="font-family:Jost, sans-serif; font-weight:700; font-size:34px; line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">47</span><span style="font-family:Jost, sans-serif; font-weight:700; font-size:10px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8);">SIGNUPS</span></div><div style="width:1px; height:40px; align-self:center; background:rgba(255,255,255,0.3); flex-shrink:0;"></div><div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; text-align:center;"><span data-mm-text="bags" style="font-family:Jost, sans-serif; font-weight:700; font-size:34px; line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">2</span><span style="font-family:Jost, sans-serif; font-weight:700; font-size:10px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8);">DONATED</span></div><div style="width:1px; height:40px; align-self:center; background:rgba(255,255,255,0.3); flex-shrink:0;"></div><div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; text-align:center;"><span data-mm-text="untilNext" style="font-family:Jost, sans-serif; font-weight:700; font-size:34px; line-height:1; letter-spacing:-1px; color:rgb(160,219,179);">13</span><span style="font-family:Jost, sans-serif; font-weight:700; font-size:10px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8);">TO NEXT</span></div>
+      </div>
+      <form method="post" action="/contact#mm-join" accept-charset="UTF-8" style="width:100%; display:flex; flex-direction:column; gap:10px;"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" required="required" placeholder="your@email.com" aria-label="Email address" style="flex:1; min-width:0; height:59px; border:0; outline:none; padding:18px; background:rgb(255,255,255); color:rgb(9,11,0); font-family:Jost, sans-serif; font-size:16px; line-height:1;">
+        <button class="mmh8" data-mm-text="joinLabelA" type="submit" style="height:52px; border:0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; cursor:pointer;">JOIN</button>
+      </form>
+      <span data-mm-text="noteA" style="font-family:Jost, sans-serif; font-size:12px; line-height:16px; color:rgba(245,219,223,0.8);">No spam. Just treats, bandanas, and the occasional shelter update.</span>
+    </div>
+  </section>
+  </div>
+
+  <div class="mm-d">
+<section data-screen-label="Testimonials" style="background:rgb(245,223,226); border-top:1px solid rgba(0,0,0,0.2); border-bottom:1.5px solid rgba(0,0,0,0.2); padding:clamp(56px, 5.3vw, 80px) 0; display:flex; flex-direction:column; align-items:center; gap:56px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:24px; padding:0 clamp(20px, 5.3vw, 80px); text-align:center;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px;">
+        <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+          
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+          
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+          
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+          
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+          
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+          
+        </div>
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; text-transform:uppercase;">Loved by pups. Trusted by parents.</span>
+      </div>
+      <h2 style="margin:0; font-weight:700; font-size:clamp(34px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; text-wrap:balance;">When your dog is happy, you're happy.</h2>
+    </div>
+    <div data-mm-ref="setReviews" style="width:100%; display:flex; gap:24px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:0 clamp(20px, 5.3vw, 80px); padding:0 clamp(20px, 5.3vw, 80px); scrollbar-width:none;">
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Finally, a treat for a dog with severe allergies!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">My senior golden loved the treats we got from the fair!! He had colitis and MANY allergies. He’s been on a vet prescription diet for almost his whole life. And we could never find any treats that worked for him and his allergies. I just want to say thank you for what you do!! Because now we can give our special boy some treats!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Jordan S. - Mom of Sampson, Senior Golden Retriever</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+              <img src="{{ 'a5ce53f98674ccc7.jpg' | asset_url }}" alt="Golden retriever taking a biscuit" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:0% 50%; display:block;">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">My senior dog just loves them.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">I cannot say enough great things about these treats. They are truly healthy and my senior dog just loves them. I also appreciate all of the support Michele gives to the local shelters so those pups feel special and loved, that what happens when you support local.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Debbie B. - Mom of Roxy</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Worth every penny! He sits by the drawer begging</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">We discovered Momemade during a trip to Accord over Thanksgiving. Charles is pretty finicky, but he absolutely loves these treats! I know he loves them because he sits by the kitchen drawer where we store them until we give in. They’re worth the price, because they’re made with quality ingredients and they made Charles happy.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Anthony G. - Dad of Charles</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+              <img src="{{ 'eb1d4555eb6195bf.jpg' | asset_url }}" alt="Dog sniffing MOMEMADE bags" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Did not upset his sensitive stomach!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">First, I would like to thank you for making these treats available! I was introduced to the Momemade cookies by a friend of mine who purchased a bag for my 23 month old pup. He has a very sensitive stomach, so it has been tricky for me to find healthy treats with limited ingredients that did not upset his GI. I made him homemade treats, but with a busy schedule it was a challenge. I was a bit apprehensive about trying another new treat, but he loves peanut butter and pumpkin, so I gave it a try. He loved it from the first bite! Also, your treats did not upset his GI.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Yuri F. - Mom of Oliver, Cavapoo</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+              <img src="{{ 'ca31e379d45323eb.jpg' | asset_url }}" alt="Black cavapoo lying on the grass" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">The ONLY treat my demanding Princess will eat!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">My Penelope (a very pretty but persnickety Pekingese) puts her nose up in the air with any food I give her. She refuses to eat anything canned or boxed including the normal dog treats... Hence, my surprise that she absolutely LOVES your treats. Whatever you are doing, it’s magic</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Kim F. - Mom of Penelope, Pekingese</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+              <img src="{{ '57161627fa7a7c42.jpg' | asset_url }}" alt="Pekingese eating a biscuit" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 90%; display:block;">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Quality ingredients! Just ordered another 5 bags!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">I choose Momemade for my dogs because they are made with quality ingredients and are a healthy treat. My dogs absolutely love them! Just ordered another 5 bags—these will always be on my shelf!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Eva - Mom of Tede &amp; Baxter</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+              <img src="{{ '2c36c5bf91b62338.jpg' | asset_url }}" alt="Two small dogs on a blue blanket" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:0% 50%; display:block;">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Ingredients I recognize—not full of fillers.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">I purchased these dog treats on vacation and my Muffy, loves them! I love that they are made of ingredients I recognize and not full of filters or preservatives. Thank you!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Ruth Anne W. - Mom of Muffy</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">I appreciate the handwritten note that is always included.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">My rescue baby love these treats which are all natural and vegan. I appreciate the handwritten note that is always included with the order. Delivery was quick and I appreciate the personalized service.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Kathy M.</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+          </div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(800px, 86vw); scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 32px; display:flex; flex-wrap:wrap; gap:28px;">
+          <div style="flex:1 1 260px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; gap:24px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;">
+              <div style="display:flex; gap:3px; color:rgb(251,120,19);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg>
+              </div>
+              <span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">He has his own stash with the NYC doorman!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22); white-space:pre-line;">We live in Woodstock and NYC… he loves these treats. We leave them with the doorman and when he gets back from his walk he stops and has to eat one before he goes upstairs. It’s the cutest ever! We all laugh because the other dogs in the building get the generic stuff—Jax has his own stash of your treats haha.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Jennifer T. - Mom of Jax</span>
+          </div>
+          <div style="flex:1 0 220px; max-width:100%; height:370px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);">
+            
+              <img src="{{ 'faeca223d427b192.jpg' | asset_url }}" alt="Jax the dog" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;">
+            
+          </div>
+        </article>
+      
+    </div>
+    <div style="display:flex; gap:12px;">
+      <button class="mmh9" type="button" aria-label="Previous reviews" data-mm-click="reviewsPrev" style="width:50px; height:50px; border-radius:25px; border:0; background:rgb(255,255,255); color:rgb(34,34,34); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="12" x2="3" y2="12"></line><polyline points="9,6 3,12 9,18"></polyline></svg>
+      </button>
+      <button class="mmh9" type="button" aria-label="Next reviews" data-mm-click="reviewsNext" style="width:50px; height:50px; border-radius:25px; border:0; background:rgb(255,255,255); color:rgb(34,34,34); display:flex; align-items:center; justify-content:center; cursor:pointer;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><polyline points="15,6 21,12 15,18"></polyline></svg>
+      </button>
+    </div>
+  </section>
+  </div>
+  <div class="mm-t">
+  <section data-screen-label="Testimonials" style="background:rgb(245,223,226); border-top:1px solid rgba(0,0,0,0.2); border-bottom:1.5px solid rgba(0,0,0,0.2); padding:72px 0; display:flex; flex-direction:column; align-items:center; gap:40px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:24px; padding:0 40px; text-align:center;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px;">
+        <div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div>
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(9,11,0); text-transform:uppercase;">Loved by pups. Trusted by parents.</span>
+      </div>
+      <h2 style="margin:0; font-weight:700; font-size:56px; line-height:1; letter-spacing:-0.875px; color:rgb(9,11,0); text-wrap:balance;">When your dog is happy, you're happy.</h2>
+    </div>
+    <div data-mm-ref="setReviews" style="width:100%; display:flex; gap:11px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:0 40px; padding:0 40px; scrollbar-width:none;">
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Finally, a treat for a dog with severe allergies!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">My senior golden loved the treats we got from the fair!! He had colitis and MANY allergies. He’s been on a vet prescription diet for almost his whole life. And we could never find any treats that worked for him and his allergies. I just want to say thank you for what you do!! Because now we can give our special boy some treats!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Jordan S. - Mom of Sampson, Senior Golden Retriever</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'a5ce53f98674ccc7.jpg' | asset_url }}" alt="Golden retriever taking a biscuit" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:0% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">My senior dog just loves them.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">I cannot say enough great things about these treats. They are truly healthy and my senior dog just loves them. I also appreciate all of the support Michele gives to the local shelters so those pups feel special and loved, that what happens when you support local.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Debbie B. - Mom of Roxy</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Worth every penny! He sits by the drawer begging</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">We discovered Momemade during a trip to Accord over Thanksgiving. Charles is pretty finicky, but he absolutely loves these treats! I know he loves them because he sits by the kitchen drawer where we store them until we give in. They’re worth the price, because they’re made with quality ingredients and they made Charles happy.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Anthony G. - Dad of Charles</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'eb1d4555eb6195bf.jpg' | asset_url }}" alt="Dog sniffing MOMEMADE bags" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Did not upset his sensitive stomach!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">First, I would like to thank you for making these treats available! I was introduced to the Momemade cookies by a friend of mine who purchased a bag for my 23 month old pup. He has a very sensitive stomach, so it has been tricky for me to find healthy treats with limited ingredients that did not upset his GI. I made him homemade treats, but with a busy schedule it was a challenge. I was a bit apprehensive about trying another new treat, but he loves peanut butter and pumpkin, so I gave it a try. He loved it from the first bite! Also, your treats did not upset his GI.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Yuri F. - Mom of Oliver, Cavapoo</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'ca31e379d45323eb.jpg' | asset_url }}" alt="Black cavapoo lying on the grass" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">The ONLY treat my demanding Princess will eat!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">My Penelope (a very pretty but persnickety Pekingese) puts her nose up in the air with any food I give her. She refuses to eat anything canned or boxed including the normal dog treats... Hence, my surprise that she absolutely LOVES your treats. Whatever you are doing, it’s magic</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Kim F. - Mom of Penelope, Pekingese</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ '57161627fa7a7c42.jpg' | asset_url }}" alt="Pekingese eating a biscuit" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 90%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Quality ingredients! Just ordered another 5 bags!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">I choose Momemade for my dogs because they are made with quality ingredients and are a healthy treat. My dogs absolutely love them! Just ordered another 5 bags—these will always be on my shelf!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Eva - Mom of Tede &amp; Baxter</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ '2c36c5bf91b62338.jpg' | asset_url }}" alt="Two small dogs on a blue blanket" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:0% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">Ingredients I recognize—not full of fillers.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">I purchased these dog treats on vacation and my Muffy, loves them! I love that they are made of ingredients I recognize and not full of filters or preservatives. Thank you!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Ruth Anne W. - Mom of Muffy</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">I appreciate the handwritten note that is always included.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">My rescue baby love these treats which are all natural and vegan. I appreciate the handwritten note that is always included with the order. Delivery was quick and I appreciate the personalized service.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Kathy M.</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(784px, calc(100vw - 80px)); min-height:430px; scroll-snap-align:start; background:rgb(255,255,255); padding:30px 30px 30px 40px; display:flex; align-items:center; gap:36px;">
+          <div style="flex:1 1 0; min-width:0; align-self:stretch; display:flex; flex-direction:column; justify-content:space-between; gap:20px; padding:12px 0;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:20px; line-height:24px; color:rgb(22,22,22);">He has his own stash with the NYC doorman!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; color:rgb(22,22,22);">We live in Woodstock and NYC… he loves these treats. We leave them with the doorman and when he gets back from his walk he stops and has to eat one before he goes upstairs. It’s the cutest ever! We all laugh because the other dogs in the building get the generic stuff—Jax has his own stash of your treats haha.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Jennifer T. - Mom of Jax</span>
+          </div>
+          <div style="width:240px; height:370px; flex-shrink:0; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'faeca223d427b192.jpg' | asset_url }}" alt="Jax the dog" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;"></div>
+        </article>
+      
+    </div>
+    <div style="display:flex; justify-content:center; gap:12px;">
+      <button class="mmh9" type="button" aria-label="Previous reviews" data-mm-click="reviewsPrev" style="width:50px; height:50px; border-radius:25px; border:0; background:rgb(255,255,255); color:rgb(34,34,34); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="12" x2="3" y2="12"></line><polyline points="9,6 3,12 9,18"></polyline></svg></button>
+      <button class="mmh9" type="button" aria-label="Next reviews" data-mm-click="reviewsNext" style="width:50px; height:50px; border-radius:25px; border:0; background:rgb(255,255,255); color:rgb(34,34,34); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><polyline points="15,6 21,12 15,18"></polyline></svg></button>
+    </div>
+  </section>
+  </div>
+  <div class="mm-m">
+  <section data-screen-label="Testimonials" style="background:rgb(245,223,226); border-top:1px solid rgba(0,0,0,0.2); border-bottom:1.5px solid rgba(0,0,0,0.2); padding:56px 0; display:flex; flex-direction:column; align-items:center; gap:32px;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:16px; padding:0 20px; text-align:center;">
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:10px;">
+        <div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div>
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:20px; color:rgb(9,11,0); text-transform:uppercase;">Loved by pups. Trusted by parents.</span>
+      </div>
+      <h2 style="margin:0; font-weight:700; font-size:48px; line-height:56px; letter-spacing:-1px; color:rgb(9,11,0); text-wrap:balance;">When your dog is happy, you're happy.</h2>
+    </div>
+    <div data-mm-ref="setReviews" style="width:100%; display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:0 20px; padding:0 20px; scrollbar-width:none;">
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">Finally, a treat for a dog with severe allergies!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">My senior golden loved the treats we got from the fair!! He had colitis and MANY allergies. He’s been on a vet prescription diet for almost his whole life. And we could never find any treats that worked for him and his allergies. I just want to say thank you for what you do!! Because now we can give our special boy some treats!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Jordan S. - Mom of Sampson, Senior Golden Retriever</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'a5ce53f98674ccc7.jpg' | asset_url }}" alt="Golden retriever taking a biscuit" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:0% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">My senior dog just loves them.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">I cannot say enough great things about these treats. They are truly healthy and my senior dog just loves them. I also appreciate all of the support Michele gives to the local shelters so those pups feel special and loved, that what happens when you support local.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Debbie B. - Mom of Roxy</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">Worth every penny! He sits by the drawer begging</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">We discovered Momemade during a trip to Accord over Thanksgiving. Charles is pretty finicky, but he absolutely loves these treats! I know he loves them because he sits by the kitchen drawer where we store them until we give in. They’re worth the price, because they’re made with quality ingredients and they made Charles happy.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Anthony G. - Dad of Charles</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'eb1d4555eb6195bf.jpg' | asset_url }}" alt="Dog sniffing MOMEMADE bags" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">Did not upset his sensitive stomach!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">First, I would like to thank you for making these treats available! I was introduced to the Momemade cookies by a friend of mine who purchased a bag for my 23 month old pup. He has a very sensitive stomach, so it has been tricky for me to find healthy treats with limited ingredients that did not upset his GI. I made him homemade treats, but with a busy schedule it was a challenge. I was a bit apprehensive about trying another new treat, but he loves peanut butter and pumpkin, so I gave it a try. He loved it from the first bite! Also, your treats did not upset his GI.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Yuri F. - Mom of Oliver, Cavapoo</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'ca31e379d45323eb.jpg' | asset_url }}" alt="Black cavapoo lying on the grass" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">The ONLY treat my demanding Princess will eat!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">My Penelope (a very pretty but persnickety Pekingese) puts her nose up in the air with any food I give her. She refuses to eat anything canned or boxed including the normal dog treats... Hence, my surprise that she absolutely LOVES your treats. Whatever you are doing, it’s magic</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Kim F. - Mom of Penelope, Pekingese</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ '57161627fa7a7c42.jpg' | asset_url }}" alt="Pekingese eating a biscuit" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 90%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">Quality ingredients! Just ordered another 5 bags!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">I choose Momemade for my dogs because they are made with quality ingredients and are a healthy treat. My dogs absolutely love them! Just ordered another 5 bags—these will always be on my shelf!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Eva - Mom of Tede &amp; Baxter</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ '2c36c5bf91b62338.jpg' | asset_url }}" alt="Two small dogs on a blue blanket" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:0% 50%; display:block;"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">Ingredients I recognize—not full of fillers.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">I purchased these dog treats on vacation and my Muffy, loves them! I love that they are made of ingredients I recognize and not full of filters or preservatives. Thank you!</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Ruth Anne W. - Mom of Muffy</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">I appreciate the handwritten note that is always included.</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">My rescue baby love these treats which are all natural and vegan. I appreciate the handwritten note that is always included with the order. Delivery was quick and I appreciate the personalized service.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Kathy M.</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"></div>
+        </article>
+      
+        <article data-card="1" style="flex:0 0 min(322px, calc(100vw - 40px)); height:700px; scroll-snap-align:start; background:rgb(255,255,255); padding:20px; display:flex; flex-direction:column; gap:20px; overflow:hidden;">
+          <div style="display:flex; flex-direction:column; gap:24px;">
+            <div style="display:flex; align-items:center; gap:8px;"><div style="display:flex; gap:3px; color:rgb(251,120,19);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 14.9,8.6 22,9.3 16.6,14 18.2,21 12,17.3 5.8,21 7.4,14 2,9.3 9.1,8.6"></polygon></svg></div><span style="font-weight:700; font-size:14px; line-height:24px; color:rgb(251,120,19); white-space:nowrap;">5 Star Ratings</span></div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <h3 style="margin:0; font-weight:700; font-size:18px; line-height:21.6px; color:rgb(22,22,22);">He has his own stash with the NYC doorman!</h3>
+              <p style="margin:0; font-size:14px; line-height:20px; letter-spacing:-0.5px; color:rgb(22,22,22);">We live in Woodstock and NYC… he loves these treats. We leave them with the doorman and when he gets back from his walk he stops and has to eat one before he goes upstairs. It’s the cutest ever! We all laugh because the other dogs in the building get the generic stuff—Jax has his own stash of your treats haha.</p>
+            </div>
+            <span style="font-weight:700; font-size:14px; line-height:20px; color:rgb(22,22,22);">Jennifer T. - Mom of Jax</span>
+          </div>
+          <div style="flex:1 1 0; min-height:160px; border-radius:10px; overflow:hidden; background:rgb(245,244,241);"><img src="{{ 'faeca223d427b192.jpg' | asset_url }}" alt="Jax the dog" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:50% 50%; display:block;"></div>
+        </article>
+      
+    </div>
+    <div style="display:flex; justify-content:center; gap:12px;">
+      <button class="mmh9" type="button" aria-label="Previous reviews" data-mm-click="reviewsPrev" style="width:50px; height:50px; border-radius:25px; border:0; background:rgb(255,255,255); color:rgb(34,34,34); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="21" y1="12" x2="3" y2="12"></line><polyline points="9,6 3,12 9,18"></polyline></svg></button>
+      <button class="mmh9" type="button" aria-label="Next reviews" data-mm-click="reviewsNext" style="width:50px; height:50px; border-radius:25px; border:0; background:rgb(255,255,255); color:rgb(34,34,34); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><polyline points="15,6 21,12 15,18"></polyline></svg></button>
+    </div>
+  </section>
+  </div>
+
+  <div class="mm-d">
+<section data-screen-label="Our Mission" style="background:rgb(245,223,226); border:1px solid rgba(0,0,0,0.1); padding:clamp(48px, 5.3vw, 80px) clamp(20px, 5.3vw, 80px); display:flex; flex-wrap:wrap; align-items:center; gap:24px;">
+    <div style="flex:1 1 420px; position:relative; min-height:clamp(380px, 42.3vw, 640px); overflow:hidden; background:rgb(68,68,68) url({{ 'b10b7098a4d4c2bf.jpg' | asset_url }}) center 74% / cover no-repeat; display:flex; align-items:center; justify-content:center;">
+      <div style="width:min(319px, 80%); min-height:324px; background:rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:32px; padding:24px; text-align:center;">
+        <span style="font-weight:700; font-size:clamp(88px, 8.47vw, 128px); line-height:1; letter-spacing:-1px; color:rgb(132,201,154);">96</span>
+        <span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgb(255,255,255); text-transform:uppercase;">BAGS DONATED · EVERY ONE PERSONALLY DELIVERED BY MICHELE</span>
+      </div>
+      <div style="position:absolute; left:0; right:0; bottom:0; height:89px; background:linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute; right:18px; bottom:18px; display:flex; align-items:center; gap:12px; font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgb(255,255,255); text-transform:uppercase;">
+        <span>@ulstercountycanines</span>
+        <span style="width:4px; height:4px; border-radius:50%; background:rgb(217,217,217);"></span>
+        <span>Saugerties, NY</span>
+      </div>
+    </div>
+    <div style="flex:1 1 420px; display:flex; flex-direction:column; align-items:flex-start; gap:24px; padding:0 clamp(0px, 2.1vw, 32px);">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; text-transform:uppercase;">OUR MISSION</span>
+        <h2 style="margin:0; font-weight:700; font-size:clamp(36px, 4.23vw, 64px); line-height:1; letter-spacing:-1px; text-wrap:balance;">Rescue is at the heart of MOMEMADE.</h2>
+        <p style="margin:0; max-width:553px; font-size:16px; line-height:28px;">Rescue isn’t a campaign for us — it’s who we are. We choose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.</p>
+      </div>
+      <a class="mmh4" href="#" style="width:189px; padding:24px 0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; text-align:center;">READ OUR STORY</a>
+    </div>
+  </section>
+  </div>
+  <div class="mm-t">
+  <section data-screen-label="Our Mission" style="background:rgb(245,223,226); padding:72px 40px; display:flex; flex-direction:column; gap:40px;">
+    <div style="display:flex; flex-direction:column; align-items:flex-start; gap:24px; padding:0;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:1.2px; color:rgb(9,11,0);">OUR MISSION</span>
+        <h2 style="margin:0; font-weight:700; font-size:56px; line-height:60px; letter-spacing:-1px; color:rgb(9,11,0); text-wrap:balance;">Rescue is at the heart of MOMEMADE.</h2>
+        <p style="margin:0; font-size:16px; line-height:28px; color:rgb(9,11,0);">Rescue isn’t a campaign for us — it’s who we are. We choose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.</p>
+      </div>
+      <a class="mmh4" href="#" style="width:189px; height:68px; display:flex; align-items:center; justify-content:center; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px;">READ OUR STORY</a>
+    </div>
+    <div style="position:relative; height:616px; overflow:hidden; background:rgb(68,68,68) url({{ '3a97b005deb3d1e4.jpg' | asset_url }}) center 2.559% / cover no-repeat; display:flex; align-items:center; justify-content:center;">
+      <div style="width:min(319px, 82%); min-height:324px; background:rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:32px; padding:24px; text-align:center;">
+        <span style="font-weight:700; font-size:128px; line-height:1; letter-spacing:-1px; color:rgb(132,201,154);">96</span>
+        <span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgb(255,255,255); text-transform:uppercase;">BAGS DONATED · EVERY ONE PERSONALLY DELIVERED BY MICHELE</span>
+      </div>
+      <div style="position:absolute; left:0; right:0; bottom:0; height:89px; background:linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute; right:18px; bottom:18px; display:flex; align-items:center; gap:12px; font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgb(255,255,255); text-transform:uppercase; white-space:nowrap;"><span>@ulstercountycanines</span><span style="width:4px; height:4px; border-radius:50%; background:rgb(217,217,217);"></span><span>Saugerties, NY</span></div>
+    </div>
+  </section>
+  </div>
+  <div class="mm-m">
+  <section data-screen-label="Our Mission" style="background:rgb(245,223,226); padding:56px 20px; display:flex; flex-direction:column; gap:20px;">
+    <div style="display:flex; flex-direction:column; align-items:flex-start; gap:24px; padding:10px 0;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:1.2px; color:rgb(9,11,0);">OUR MISSION</span>
+        <h2 style="margin:0; font-weight:700; font-size:48px; line-height:1; letter-spacing:-1px; color:rgb(9,11,0); text-wrap:balance;">Rescue is at the heart of MOMEMADE.</h2>
+        <p style="margin:0; font-size:16px; line-height:28px; color:rgb(9,11,0);">Rescue isn’t a campaign for us — it’s who we are. We choose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.</p>
+      </div>
+      <a class="mmh4" href="#" style="width:189px; height:68px; display:flex; align-items:center; justify-content:center; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px;">READ OUR STORY</a>
+    </div>
+    <div style="position:relative; height:385px; overflow:hidden; background:rgb(68,68,68) url({{ '3a97b005deb3d1e4.jpg' | asset_url }}) center 2.559% / cover no-repeat; display:flex; align-items:center; justify-content:center;">
+      <div style="width:min(298px, 82%); min-height:244px; background:rgba(0,0,0,0.4); display:flex; flex-direction:column; justify-content:center; align-items:center; gap:32px; padding:24px; text-align:center;">
+        <span style="font-weight:700; font-size:128px; line-height:1; letter-spacing:-1px; color:rgb(132,201,154);">96</span>
+        <span style="font-family:Jost, sans-serif; font-size:12px; line-height:18px; letter-spacing:1.2px; color:rgb(255,255,255); text-transform:uppercase;">BAGS DONATED · EVERY ONE PERSONALLY DELIVERED BY MICHELE</span>
+      </div>
+      <div style="position:absolute; left:0; right:0; bottom:0; height:60px; background:linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);"></div>
+      <div style="position:absolute; right:8px; bottom:8px; display:flex; align-items:center; gap:12px; font-family:Jost, sans-serif; font-size:10px; line-height:18px; letter-spacing:1.2px; color:rgb(255,255,255); text-transform:uppercase; white-space:nowrap;"><span>@ulstercountycanines</span><span style="width:4px; height:4px; border-radius:50%; background:rgb(217,217,217);"></span><span>Saugerties, NY</span></div>
+    </div>
+  </section>
+  </div>
+
+  <div class="mm-d">
+<section data-screen-label="Meet Joni" style="background:rgb(245,223,226); border:1px solid rgba(0,0,0,0.1); padding:clamp(48px, 5.3vw, 80px) clamp(20px, 5.3vw, 80px); display:flex; flex-direction:column; gap:clamp(48px, 5.3vw, 80px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:stretch; gap:56px;">
+      <div style="flex:1 1 420px; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:24px;">
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <span style="font-weight:700; font-size:16px; line-height:24px;">MEET JONI</span>
+            <h2 style="margin:0; font-weight:700; font-size:clamp(36px, 4.23vw, 64px); line-height:1; letter-spacing:-1px;">The dog who<br>started it all.</h2>
+          </div>
+          <div style="max-width:589px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:28px;">
+            <p style="margin:0; line-height:24px;">When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p>
+            <p style="margin:0;">Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p>
+            <p style="margin:0;">So I made her a promise: "I'll help you figure it out."</p>
+            <p style="margin:0;">While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p>
+            <p style="margin:0;">Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>
+          </div>
+        </div>
+        <a class="mmh4" href="#" style="width:220px; display:flex; justify-content:center; align-items:center; gap:10px; padding:24px 0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px;">SHOP BISCUITS
+          <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg>
+        </a>
+      </div>
+      <div role="img" aria-label="Joni with MOMEMADE biscuits" style="flex:1 1 420px; min-height:clamp(380px, 44.5vw, 672px); background:rgb(237,232,223) url({{ '688448a8b7b7b60b.jpg' | asset_url }}) center top / cover no-repeat;"></div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:30px;">
+      <div style="flex:1 1 280px; position:relative; height:clamp(440px, 45vw, 680px); overflow:hidden; background:rgb(237,232,223) url({{ 'ef143c84a8e92d9b.jpg' | asset_url }}) center / cover no-repeat;">
+        <div style="position:absolute; left:0; right:0; bottom:0; min-height:98px; background:rgb(255,255,255); display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; font-size:clamp(20px, 1.6vw, 24px); line-height:32px; letter-spacing:-1px;"><span>At MOMEMADE, we know it's not <strong>JUST</strong> a dog</span></div>
+      </div>
+      <div style="flex:1 1 280px; position:relative; height:clamp(440px, 45vw, 680px); overflow:hidden; background:rgb(237,232,223) url({{ 'f6fccadc7c22097d.jpg' | asset_url }}) 40% top / cover no-repeat;">
+        <div style="position:absolute; left:0; right:0; bottom:0; min-height:98px; background:rgb(255,255,255); display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; font-size:clamp(20px, 1.6vw, 24px); line-height:32px; letter-spacing:-1px;"><span>And this isn't <strong>JUST</strong> a treat.</span></div>
+      </div>
+      <div style="flex:1 1 280px; position:relative; height:clamp(440px, 45vw, 680px); overflow:hidden; background:rgb(237,232,223) url({{ '0e1ac433c2a44349.jpg' | asset_url }}) center / cover no-repeat;">
+        <div style="position:absolute; left:0; right:0; bottom:0; min-height:98px; background:rgb(255,255,255); display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; font-weight:700; font-size:clamp(20px, 1.6vw, 24px); line-height:32px; letter-spacing:-1px;"><span>It's love</span></div>
+      </div>
+    </div>
+  </section>
+  </div>
+  <div class="mm-t">
+  <section data-screen-label="Meet Joni" style="background:rgb(245,223,226); padding:72px 40px; display:flex; flex-direction:column; gap:56px;">
+    <div style="display:flex; flex-direction:column; align-items:flex-start; gap:24px;">
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="max-width:412px; display:flex; flex-direction:column; gap:8px;">
+          <span style="font-weight:700; font-size:16px; line-height:24px; color:rgb(9,11,0);">MEET JONI</span>
+          <h2 style="margin:0; font-weight:700; font-size:64px; line-height:1; letter-spacing:-1px; color:rgb(0,0,0);">The dog who started it all.</h2>
+        </div>
+        <div style="max-width:645px; display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:24px; color:rgb(9,11,0);"><p style="margin:0;">When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p style="margin:0;">Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p><p style="margin:0;">So I made her a promise: "I'll help you figure it out."</p><p style="margin:0;">While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p style="margin:0;">Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p></div>
+      </div>
+      <a class="mmh4" href="#" style="width:220px; height:68.504px; display:flex; justify-content:center; align-items:center; gap:10px; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px;">SHOP BISCUITS <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg></a>
+    </div>
+    <div role="img" aria-label="Joni with MOMEMADE biscuits" style="height:650px; background:rgb(237,232,223) url({{ '688448a8b7b7b60b.jpg' | asset_url }}) center top / cover no-repeat;"></div>
+    <div style="position:relative; margin:0 -40px;">
+      <div data-mm-ref="setTiles" style="display:flex; gap:30px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding:0 40px; padding:0 40px; scrollbar-width:none;">
+        <div style="flex:0 0 min(431px, calc(100vw - 80px)); height:680px; scroll-snap-align:start; position:relative; overflow:hidden; background:rgb(237,232,223) url({{ 'ef143c84a8e92d9b.jpg' | asset_url }}) center / cover no-repeat;">
+          <div style="position:absolute; left:0; right:0; bottom:0; min-height:98px; background:rgb(255,255,255); display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; font-weight:700; font-size:24px; line-height:32px; letter-spacing:-1px; color:rgb(9,11,0);"><span>At MOMEMADE, we know it's not JUST a dog and this isn't just a treat</span></div>
+        </div>
+        <div style="flex:0 0 min(431px, calc(100vw - 80px)); height:680px; scroll-snap-align:start; position:relative; overflow:hidden; background:rgb(237,232,223) url({{ 'f6fccadc7c22097d.jpg' | asset_url }}) 40% top / cover no-repeat;">
+          <div style="position:absolute; left:0; right:0; bottom:0; min-height:98px; background:rgb(255,255,255); display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; font-weight:400; font-size:24px; line-height:32px; letter-spacing:-1px; color:rgb(9,11,0);"><span>And this isn't JUST a treat.</span></div>
+        </div>
+        <div style="flex:0 0 min(431px, calc(100vw - 80px)); height:680px; scroll-snap-align:start; position:relative; overflow:hidden; background:rgb(237,232,223) url({{ '0e1ac433c2a44349.jpg' | asset_url }}) center / cover no-repeat;">
+          <div style="position:absolute; left:0; right:0; bottom:0; min-height:98px; background:rgb(255,255,255); display:flex; align-items:center; justify-content:center; padding:24px; text-align:center; font-weight:400; font-size:24px; line-height:32px; letter-spacing:-1px; color:rgb(9,11,0);"><span>It's love</span></div>
+        </div>
+      </div>
+      <div style="position:absolute; left:52px; right:52px; top:268.496px; display:flex; justify-content:space-between; pointer-events:none;">
+        <button class="mmh3" type="button" aria-label="Previous photo" data-mm-click="tilesPrev" style="pointer-events:auto; width:44px; height:44px; border-radius:1000px; border:0; background:rgb(255,255,255); box-shadow:inset 0 0 0 2px rgb(255,255,255); color:rgb(9,11,0); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="20" y1="12" x2="4" y2="12"></line><polyline points="10,6 4,12 10,18"></polyline></svg></button>
+        <button class="mmh3" type="button" aria-label="Next photo" data-mm-click="tilesNext" style="pointer-events:auto; width:44px; height:44px; border-radius:1000px; border:0; background:rgb(255,255,255); box-shadow:inset 0 0 0 2px rgb(255,255,255); color:rgb(9,11,0); display:flex; align-items:center; justify-content:center; cursor:pointer;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"></line><polyline points="14,6 20,12 14,18"></polyline></svg></button>
+      </div>
+    </div>
+  </section>
+  </div>
+  <div class="mm-m">
+  <section data-screen-label="Meet Joni" style="background:rgb(245,223,226); padding:72px 24px; display:flex; flex-direction:column; align-items:flex-start; gap:24px;">
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <span style="font-weight:700; font-size:16px; line-height:24px; color:rgb(9,11,0);">MEET JONI</span>
+        <h2 style="margin:0; font-weight:700; font-size:48px; line-height:56px; letter-spacing:-1px; color:rgb(9,11,0);">The dog who started it all.</h2>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; font-size:16px; line-height:24px; color:rgb(9,11,0);"><p style="margin:0;">When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p style="margin:0;">Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p><p style="margin:0;">So I made her a promise: "I'll help you figure it out."</p><p style="margin:0;">While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p style="margin:0;">Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p></div>
+    </div>
+    <a class="mmh4" href="#" style="width:211.378px; height:52.504px; display:flex; justify-content:center; align-items:center; gap:16px; padding:16px 32px; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; white-space:nowrap;">SHOP BISCUITS <svg width="15" height="13" viewBox="0 0 15 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="6.5" x2="13.5" y2="6.5"></line><polyline points="8,1 13.5,6.5 8,12"></polyline></svg></a>
+    <div role="img" aria-label="Joni with MOMEMADE biscuits" style="align-self:stretch; height:381px; background:rgb(237,232,223) url({{ '688448a8b7b7b60b.jpg' | asset_url }}) center top / cover no-repeat;"></div>
+  </section>
+  </div>
+
+  <div class="mm-d">
+<footer data-screen-label="Footer" style="background:rgb(9,11,0); padding:clamp(56px, 5.3vw, 80px) clamp(20px, 5.3vw, 80px); display:flex; flex-direction:column; gap:clamp(48px, 5.3vw, 80px);">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:40px;">
+      <img src="{{ 'momemade-logo-mint.svg' | asset_url }}" alt="MOMEMADE — Dog Goods, Mom Approved" style="display:block; width:clamp(220px, 23.56vw, 356.25px); height:auto; aspect-ratio:257.813 / 55;">
+      <div style="flex:0 1 535px; display:flex; flex-direction:column; gap:24px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">STAY IN TOUCH</span>
+          <h2 style="margin:0; font-weight:700; font-size:clamp(28px, 2.4vw, 36px); line-height:40px; letter-spacing:-1px; color:rgb(245,219,223);">Stay. Stay. Stay in touch.</h2>
+        </div>
+        <form method="post" action="/contact#mm-join" accept-charset="UTF-8" style="width:100%; height:56px; display:flex; gap:12px;"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" required="required" placeholder="your@email.com" aria-label="Email address" style="flex:1; min-width:0; height:56px; border:0; outline:none; padding:14px 24px; background:rgb(255,255,255); color:rgb(9,11,0); font-size:16px; line-height:28px;">
+          <button class="mmh8" data-mm-text="joinLabelB" type="submit" style="width:102px; flex-shrink:0; border:0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; cursor:pointer;">JOIN</button>
+        </form>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:24px;">
+      <div style="height:1px; background:rgba(255,255,255,0.3);"></div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px 32px;">
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">LOYALTY PROGRAM</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">CUSTOMER CARE</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">wholesale</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">CONTACT</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">PRIVACY POLICY</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">TERMS</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">ACCESSIBILITY</a>
+        
+          <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgba(245,219,223,0.8); text-transform:uppercase; white-space:nowrap;">INSTAGRAM</a>
+        
+      </div>
+    </div>
+  </footer>
+  </div>
+  <div class="mm-t">
+  <footer data-screen-label="Footer" style="background:rgb(9,11,0); padding:56px 40px 40px; display:flex; flex-direction:column; gap:28px;">
+    <div style="min-height:134px; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:24px;">
+      <img src="{{ 'momemade-logo-mint.svg' | asset_url }}" alt="MOMEMADE — Dog Goods, Mom Approved" style="display:block; width:257.813px; max-width:100%; height:auto; aspect-ratio:257.813 / 55;">
+      <div style="flex:0 1 383px; min-width:0; display:flex; flex-direction:column; gap:24px;">
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <span style="font-weight:700; font-size:12px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">STAY IN TOUCH</span>
+          <h2 style="margin:0; font-weight:700; font-size:32px; line-height:40px; letter-spacing:-1px; color:rgb(245,219,223);">Stay. Stay. Stay in touch.</h2>
+        </div>
+        <form method="post" action="/contact#mm-join" accept-charset="UTF-8" style="height:42px; display:flex; gap:12px;"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" required="required" placeholder="your@email.com" aria-label="Email address" style="flex:1; min-width:0; height:42px; border:0; outline:none; padding:7px 24px; background:rgb(255,255,255); color:rgb(9,11,0); font-size:16px; line-height:28px;">
+          <button class="mmh8" data-mm-text="joinLabelB" type="submit" style="width:102px; flex-shrink:0; border:0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; cursor:pointer;">JOIN</button>
+        </form>
+      </div>
+    </div>
+    <div style="height:1px; background:rgba(255,255,255,0.3);"></div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:16px 48px;">
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">LOYALTY PROGRAM</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">CUSTOMER CARE</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">WHOLESALE</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">CONTACT</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">PRIVACY POLICY</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">TERMS</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">ACCESSIBILITY</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:12px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">INSTAGRAM</a>
+      
+    </div>
+  </footer>
+  </div>
+  <div class="mm-m">
+  <footer data-screen-label="Footer" style="background:rgb(9,11,0); padding:56px 20px; display:flex; flex-direction:column; align-items:center; gap:40px;">
+    <img src="{{ 'momemade-logo-mint.svg' | asset_url }}" alt="MOMEMADE — Dog Goods, Mom Approved" style="display:block; width:234.375px; height:auto; aspect-ratio:257.813 / 55;">
+    <div style="align-self:stretch; display:flex; flex-direction:column; gap:24px;">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <span style="font-family:Jost, sans-serif; font-weight:700; font-size:14px; line-height:20px; color:rgb(160,219,179); text-transform:uppercase;">STAY IN TOUCH</span>
+        <h2 style="margin:0; font-weight:700; font-size:36px; line-height:40px; letter-spacing:-1px; color:rgb(245,219,223);">Stay. Stay. Stay in touch.</h2>
+      </div>
+      <form method="post" action="/contact#mm-join" accept-charset="UTF-8" style="display:flex; flex-direction:column; gap:12px;"><input type="hidden" name="form_type" value="customer"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="contact[tags]" value="newsletter">
+        <input type="email" name="contact[email]" required="required" placeholder="your@email.com" aria-label="Email address" style="flex:1; min-width:0; height:56px; border:0; outline:none; padding:14px 24px; background:rgb(255,255,255); color:rgb(9,11,0); font-size:16px; line-height:28px;">
+        <button class="mmh8" data-mm-text="joinLabelB" type="submit" style="height:56px; border:0; background:rgb(212,158,215); color:rgb(9,11,0); font-weight:700; font-size:16px; line-height:20px; cursor:pointer;">JOIN</button>
+      </form>
+    </div>
+    <div style="align-self:stretch; height:1px; background:rgba(255,255,255,0.3);"></div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:16px 24px;">
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">LOYALTY</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">CUSTOMER CARE</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">WHOLESALE</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">CONTACT</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">PRIVACY</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">TERMS</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">ACCESSIBILITY</a>
+      
+        <a class="mmh10" href="#" style="font-family:Jost, sans-serif; font-weight:700; font-size:11px; line-height:1; letter-spacing:0.8px; color:rgba(245,219,223,0.8); white-space:nowrap;">INSTAGRAM</a>
+      
+    </div>
+  </footer>
+  </div>
+
+</div>
+<script>
+(function(){
+var root=document.getElementById('mm-{{ section.id }}'); if(!root||root.dataset.mmInit) return; root.dataset.mmInit='1';
+var autoplay={{ section.settings.autoplay | json }}, speed={{ section.settings.ticker_speed | default: 40 }}/1000, slide=0, timer;
+function render(){
+  root.querySelectorAll('[data-mm-slide]').forEach(function(el){var on=+el.getAttribute('data-mm-slide')===slide; el.style.opacity=on?'1':'0'; if(el.style.pointerEvents){el.style.pointerEvents=on?'auto':'none'; el.setAttribute('aria-hidden',on?'false':'true');}});
+  root.querySelectorAll('[data-mm-label]').forEach(function(e){e.textContent=(slide+1)+'/2';});
+  root.querySelectorAll('[data-mm-bar]').forEach(function(e){e.style.width=slide?'65px':'29px';});
+}
+function start(){clearInterval(timer); if(autoplay) timer=setInterval(function(){slide=(slide+1)%2; render();},7000);}
+function go(d){slide=(slide+d+2)%2; render(); start();}
+function menu(open){root.querySelectorAll('.mm-menu').forEach(function(m){m.classList.toggle('is-open',open);}); root.querySelectorAll('[data-mm-click="toggleMenu"]').forEach(function(b){b.setAttribute('aria-expanded',open?'true':'false');});}
+root.addEventListener('click',function(e){
+  var b=e.target.closest('[data-mm-click]'); if(!b) return;
+  var a=b.getAttribute('data-mm-click'), scope=b.closest('.mm-d,.mm-t,.mm-m')||root, el, step;
+  if(a==='prevSlide') go(-1); else if(a==='nextSlide') go(1);
+  else if(a==='toggleMenu') menu(!root.querySelector('.mm-menu.is-open'));
+  else if(a==='closeMenu') menu(false);
+  else if(a==='reviewsPrev'||a==='reviewsNext'){el=scope.querySelector('[data-mm-ref="setReviews"]'); if(!el) return; var c=el.querySelector('[data-card]'); step=c?c.getBoundingClientRect().width+24:600; el.scrollBy({left:(a==='reviewsNext'?1:-1)*step,behavior:'smooth'});}
+  else if(a==='tilesPrev'||a==='tilesNext'){el=scope.querySelector('[data-mm-ref="setTiles"]'); if(!el||!el.firstElementChild) return; el.scrollBy({left:(a==='tilesNext'?1:-1)*(el.firstElementChild.getBoundingClientRect().width+30),behavior:'smooth'});}
+});
+if(/customer_posted=true/.test(location.search)){root.querySelectorAll('[data-mm-text="joinLabelA"],[data-mm-text="joinLabelB"]').forEach(function(e){e.textContent='JOINED';}); root.querySelectorAll('[data-mm-text="noteA"]').forEach(function(e){e.textContent='You\u2019re in \u2014 thanks for making your signup count.';});}
+var tickers=[].slice.call(root.querySelectorAll('[data-mm-ref="setTicker"]')).map(function(el){return {el:el,x:0};}), last=performance.now();
+function tick(t){var dt=Math.min(64,t-last); last=t; if(speed>0) tickers.forEach(function(k){var half=k.el.scrollWidth/2; if(!half) return; k.x-=dt*speed; if(-k.x>=half) k.x+=half; k.el.style.transform='translate3d('+k.x.toFixed(2)+'px,0,0)';}); requestAnimationFrame(tick);}
+root.querySelectorAll('video.mm-vid').forEach(function(v){v.muted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');var p=v.play();if(p&&p.catch)p.catch(function(){});});
+render(); start(); requestAnimationFrame(tick);
+})();
+</script>
+{% schema %}
+{
+  "name": "Momemade Landing — Static",
+  "tag": "section",
+  "class": "momemade-landing",
+  "settings": [
+    { "type": "video", "id": "hero_video", "label": "Hero slide 1 background video" },
+    { "type": "url", "id": "biscuits_url", "label": "Shop Biscuits link" },
+    { "type": "url", "id": "bandanas_url", "label": "Shop Bandanas link" },
+    { "type": "checkbox", "id": "autoplay", "label": "Hero autoplay", "default": true },
+    { "type": "range", "id": "ticker_speed", "label": "Ticker speed", "min": 0, "max": 120, "step": 5, "unit": "px", "default": 40 }
+  ],
+  "presets": [{ "name": "Momemade Landing" }]
+}
+{% endschema %}

@@ -41,7 +41,11 @@
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
     <div id="header-group">
-      {% sections 'header-group' %}
+      {%- comment -%} The Momemade landing section carries its own banner,
+          navbar and footer, so the groups are skipped on the homepage {%- endcomment -%}
+      {% unless template.name == 'index' %}
+        {% sections 'header-group' %}
+      {% endunless %}
     </div>
 
     <script>
@@ -106,7 +110,9 @@
       {{ content_for_layout }}
     </main>
 
-    {% sections 'footer-group' %}
+    {% unless template.name == 'index' %}
+      {% sections 'footer-group' %}
+    {% endunless %}
 
     {% render 'search-modal' %}
 
