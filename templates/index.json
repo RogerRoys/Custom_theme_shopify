@@ -8,16 +8,16 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "landing": {
-      "type": "momemade-home-animation",
-      "settings": {
-        "autoplay": true,
-        "ticker_speed": 40
-      }
-    }
-  },
-  "order": [
-    "landing"
-  ]
+    "sections": {
+        "landing": {
+            "type": "momemade-home-animation",
+            "settings": {
+                "autoplay": true,
+                "ticker_speed": 40
+            }
+        }
+    },
+    "order": [
+        "landing"
+    ]
 }
