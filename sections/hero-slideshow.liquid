@@ -18,18 +18,51 @@
       endif
     -%}
     <div class="hero__slide{% if forloop.first %} is-active{% endif %}" aria-roledescription="slide" {{ block.shopify_attributes }}>
-      <div class="hero__media">
-        {%- if block.settings.image != blank -%}
+      {%- liquid
+        assign d_type = block.settings.desktop_type
+        assign m_type = block.settings.mobile_type
+        assign has_mobile = true
+        if m_type == 'same'
+          assign has_mobile = false
+        endif
+        if forloop.first
+          assign fb1 = 'hero-1a.jpg'
+          assign fb2 = 'hero-1b.jpg'
+        else
+          assign fb1 = 'hero-2.jpg'
+          assign fb2 = ''
+        endif
+      -%}
+      <div class="hero__media{% if has_mobile %} hero__media--desktop{% endif %}">
+        {%- if d_type == 'video' and block.settings.video != blank -%}
+          {{ block.settings.video | video_tag: image_size: '1920x', loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', class: 'hero__video' }}
+        {%- elsif d_type == 'video' and block.settings.video_url != blank -%}
+          <video class="hero__video" src="{{ block.settings.video_url }}" loop muted playsinline preload="metadata"{% if block.settings.image != blank %} poster="{{ block.settings.image | image_url: width: 1920 }}"{% endif %}></video>
+        {%- elsif block.settings.image != blank -%}
           {{ block.settings.image | image_url: width: 2400 | image_tag: loading: lz, widths: '750,1100,1500,1900,2400', sizes: '100vw', alt: block.settings.image.alt }}
           {%- if block.settings.image_2 != blank -%}
             {{ block.settings.image_2 | image_url: width: 1600 | image_tag: loading: lz, widths: '750,1100,1600', sizes: '50vw', alt: block.settings.image_2.alt }}
           {%- endif -%}
-        {%- elsif forloop.first -%}
-          <img src="{{ 'hero-1a.jpg' | asset_url }}" alt="" width="1435" height="1800"><img src="{{ 'hero-1b.jpg' | asset_url }}" alt="" width="1435" height="1800">
         {%- else -%}
-          <img src="{{ 'hero-2.jpg' | asset_url }}" alt="" width="1800" height="1200" loading="lazy">
+          <img src="{{ fb1 | asset_url }}" alt="" width="1435" height="1800" loading="{{ lz }}">
+          {%- if fb2 != '' -%}<img src="{{ fb2 | asset_url }}" alt="" width="1435" height="1800" loading="{{ lz }}">{%- endif -%}
         {%- endif -%}
       </div>
+      {%- if has_mobile -%}
+        <div class="hero__media hero__media--mobile">
+          {%- if m_type == 'video' and block.settings.mobile_video != blank -%}
+            {{ block.settings.mobile_video | video_tag: image_size: '900x', loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', class: 'hero__video' }}
+          {%- elsif m_type == 'video' and block.settings.mobile_video_url != blank -%}
+            <video class="hero__video" src="{{ block.settings.mobile_video_url }}" loop muted playsinline preload="metadata"{% if block.settings.mobile_image != blank %} poster="{{ block.settings.mobile_image | image_url: width: 900 }}"{% endif %}></video>
+          {%- elsif block.settings.mobile_image != blank -%}
+            {{ block.settings.mobile_image | image_url: width: 1200 | image_tag: loading: lz, widths: '450,750,1000,1200', sizes: '100vw', alt: block.settings.mobile_image.alt }}
+          {%- elsif block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1200 | image_tag: loading: lz, widths: '450,750,1000,1200', sizes: '100vw', alt: block.settings.image.alt }}
+          {%- else -%}
+            <img src="{{ fb1 | asset_url }}" alt="" width="1435" height="1800" loading="{{ lz }}">
+          {%- endif -%}
+        </div>
+      {%- endif -%}
       <div class="hero__shade"></div>
       <div class="hero__content">
         {%- if block.settings.eyebrow != blank -%}<p class="hero__eyebrow">{{ block.settings.eyebrow | escape }}</p>{%- endif -%}
@@ -47,8 +80,8 @@
   {%- if section.blocks.size > 1 -%}
     <div class="hero__ctl">
       <div class="hero__count"><span data-label>1/{{ section.blocks.size }}</span><span class="hero__bar"><i></i></span></div>
-      <button type="button" class="hero__arrow" data-prev aria-label="Previous slide">{% render 'icon', name: 'chev-left' %}</button>
-      <button type="button" class="hero__arrow" data-next aria-label="Next slide">{% render 'icon', name: 'chev-right' %}</button>
+      <button type="button" class="hero__arrow" data-prev aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="hero__arrow" data-next aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   {%- endif -%}
 </hero-slideshow>
@@ -57,8 +90,18 @@
 {"type":"checkbox","id":"autoplay","label":"Auto-rotate slides","default":true},
 {"type":"range","id":"speed","min":4,"max":12,"step":0.5,"unit":"s","label":"Time per slide","default":6.5}],
 "blocks":[{"type":"slide","name":"Slide","settings":[
-{"type":"image_picker","id":"image","label":"Image"},
-{"type":"image_picker","id":"image_2","label":"Second image (desktop split)","info":"Optional — shows the two images side by side on desktop"},
+{"type":"header","content":"Desktop media"},
+{"type":"select","id":"desktop_type","label":"Desktop media type","options":[{"value":"image","label":"Image"},{"value":"video","label":"Video"}],"default":"image"},
+{"type":"image_picker","id":"image","label":"Desktop image","info":"Also used as the video cover while it loads"},
+{"type":"image_picker","id":"image_2","label":"Second desktop image (split)","info":"Optional — shows two images side by side"},
+{"type":"video","id":"video","label":"Desktop video","info":"Upload to Shopify. Plays muted on loop."},
+{"type":"url","id":"video_url","label":"Or desktop video URL (.mp4)"},
+{"type":"header","content":"Mobile media"},
+{"type":"select","id":"mobile_type","label":"Mobile media type","options":[{"value":"same","label":"Same as desktop"},{"value":"image","label":"Image"},{"value":"video","label":"Video"}],"default":"same"},
+{"type":"image_picker","id":"mobile_image","label":"Mobile image","info":"Portrait works best. Also used as the mobile video cover."},
+{"type":"video","id":"mobile_video","label":"Mobile video"},
+{"type":"url","id":"mobile_video_url","label":"Or mobile video URL (.mp4)"},
+{"type":"header","content":"Content"},
 {"type":"text","id":"eyebrow","label":"Eyebrow"},
 {"type":"textarea","id":"heading","label":"Heading","default":"It’s not just a dog."},
 {"type":"text","id":"highlight","label":"Highlighted word","info":"Must match a word in the heading — gets the lilac marker"},

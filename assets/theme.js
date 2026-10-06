@@ -104,6 +104,16 @@
     });
   }
 
+  /* ---------- Videos ---------- */
+  const visible = el => !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  const playV = v => { if (reduce) return; v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  const vio = ('IntersectionObserver' in window) ? new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target; if (e.isIntersecting && visible(v)) playV(v); else v.pause();
+  }), { threshold: 0.2 }) : null;
+  function observeVideos(root) {
+    $('.jcard__video', root || document).forEach(v => { if (v._vo) return; v._vo = 1; v.muted = true; if (vio) vio.observe(v); else playV(v); });
+  }
+
   /* ---------- Hero slideshow ---------- */
   class HeroSlideshow extends HTMLElement {
     connectedCallback() {
@@ -122,9 +132,21 @@
       document.addEventListener('visibilitychange', this._vis);
       this.addEventListener('shopify:block:select', e => { const k = this.slides.indexOf(e.target); if (k > -1) { this.paused = true; this.go(k); } });
       this.addEventListener('shopify:block:deselect', () => { this.paused = false; this.go(this.i); });
+      $$('video', this).forEach(v => { v.muted = true; v.playsInline = true; });
+      this._mq = window.matchMedia('(max-width: 759px)');
+      this._mqf = () => this.syncVideos();
+      this._mq.addEventListener ? this._mq.addEventListener('change', this._mqf) : this._mq.addListener(this._mqf);
+      this._io = ('IntersectionObserver' in window) ? new IntersectionObserver(es => { this.onScreen = es[0].isIntersecting; this.syncVideos(); }) : null;
+      this.onScreen = true; this._io && this._io.observe(this);
       this.go(0);
     }
-    disconnectedCallback() { clearTimeout(this.t); document.removeEventListener('visibilitychange', this._vis); }
+    disconnectedCallback() { clearTimeout(this.t); document.removeEventListener('visibilitychange', this._vis); this._io && this._io.disconnect(); }
+    syncVideos() {
+      this.slides.forEach((s, k) => $$('video', s).forEach(v => {
+        if (k === this.i && this.onScreen && visible(v) && !document.hidden) { if (v.paused) playV(v); }
+        else if (!v.paused) v.pause();
+      }));
+    }
     go(n) {
       const N = this.slides.length; if (!N) return;
       n = ((n % N) + N) % N; clearTimeout(this.t);
@@ -137,6 +159,7 @@
       s.classList.remove('is-in'); void s.offsetWidth;
       requestAnimationFrame(() => requestAnimationFrame(() => s.classList.add('is-in')));
       this.i = n;
+      this.syncVideos();
       if (this.lbl) this.lbl.textContent = (n + 1) + '/' + N;
       const run = this.auto && N > 1 && !this.paused;
       if (this.bar) {
@@ -319,7 +342,7 @@
   });
 
   /* ---------- Init ---------- */
-  function init(root) { initHeader(); initSearch(); observe(root); }
+  function init(root) { initHeader(); initSearch(); observe(root); observeVideos(root); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init()); else init();
   document.addEventListener('shopify:section:load', e => init(e.target));
   window.Momemade = Object.assign(M, { openOverlay: openOv, closeOverlay: closeOv, toast, money });

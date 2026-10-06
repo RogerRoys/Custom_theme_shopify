@@ -40,10 +40,10 @@
           {%- if p != blank and p.has_only_default_variant and p.available -%}
             {%- form 'product', p, class: 'pcard__form' -%}
               <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
-              <button type="submit" class="btn {{ block.settings.btn_style }}">{{ block.settings.button_label | escape }}{% render 'icon', name: 'arrow-right' %}</button>
+              <button type="submit" class="btn {{ block.settings.btn_style }}">{{ block.settings.button_label | escape }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             {%- endform -%}
           {%- else -%}
-            <a class="btn {{ block.settings.btn_style }}" href="{{ url }}">{{ block.settings.button_label | escape }}{% render 'icon', name: 'arrow-right' %}</a>
+            <a class="btn {{ block.settings.btn_style }}" href="{{ url }}">{{ block.settings.button_label | escape }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           {%- endif -%}
         </div>
       </article>

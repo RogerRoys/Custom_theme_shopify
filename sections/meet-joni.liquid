@@ -4,7 +4,7 @@
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
       <h2 class="joni__title">{{ section.settings.heading | escape | newline_to_br }}</h2>
       <div class="joni__rte body rte">{{ section.settings.body }}</div>
-      {%- if section.settings.button_label != blank -%}<a class="btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}{% render 'icon', name: 'arrow-right' %}</a>{%- endif -%}
+      {%- if section.settings.button_label != blank -%}<a class="btn" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">{{ section.settings.button_label | escape }}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>{%- endif -%}
     </div>
     <div class="joni__media" data-reveal style="--d: 150ms">
       {%- if section.settings.image != blank -%}
@@ -20,7 +20,11 @@
         {%- assign n = forloop.index0 | modulo: 3 | plus: 1 -%}
         <div class="jcard" data-reveal style="--d: {{ forloop.index0 | times: 120 }}ms" {{ block.shopify_attributes }}>
           <div class="jcard__media">
-            {%- if block.settings.image != blank -%}
+            {%- if block.settings.media_type == 'video' and block.settings.video != blank -%}
+              {{ block.settings.video | video_tag: image_size: '1000x', loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', class: 'jcard__video' }}
+            {%- elsif block.settings.media_type == 'video' and block.settings.video_url != blank -%}
+              <video class="jcard__video" src="{{ block.settings.video_url }}" loop muted playsinline preload="metadata"{% if block.settings.image != blank %} poster="{{ block.settings.image | image_url: width: 1000 }}"{% endif %}></video>
+            {%- elsif block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,750,1000', sizes: '(min-width: 900px) 33vw, 100vw', alt: block.settings.image.alt }}
             {%- else -%}
               <img src="{{ 'joni-card-' | append: n | append: '.jpg' | asset_url }}" alt="" loading="lazy" width="1000" height="1300">
@@ -40,7 +44,7 @@
 {"type":"text","id":"button_label","label":"Button label","default":"Shop biscuits"},
 {"type":"url","id":"button_link","label":"Button link"},
 {"type":"image_picker","id":"image","label":"Image"}],
-"blocks":[{"type":"card","name":"Photo card","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"inline_richtext","id":"caption","label":"Caption","default":"It’s <b>love</b>"}]}],
+"blocks":[{"type":"card","name":"Photo / video card","settings":[{"type":"select","id":"media_type","label":"Media type","options":[{"value":"image","label":"Image"},{"value":"video","label":"Video"}],"default":"image"},{"type":"image_picker","id":"image","label":"Image","info":"Also used as the video cover while it loads"},{"type":"video","id":"video","label":"Video","info":"Upload to Shopify. Plays muted on loop when scrolled into view."},{"type":"url","id":"video_url","label":"Or video URL (.mp4)"},{"type":"inline_richtext","id":"caption","label":"Caption","default":"It’s <b>love</b>"}]}],
 "max_blocks":3,
 "presets":[{"name":"Meet Joni","blocks":[{"type":"card"},{"type":"card"},{"type":"card"}]}]}
 {% endschema %}

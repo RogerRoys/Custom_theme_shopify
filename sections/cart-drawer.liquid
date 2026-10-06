@@ -16,7 +16,7 @@
     <div class="cd" id="CartDrawerInner">
       <div class="cd__head">
         <span class="cd__title">Your bag ({{ cart.item_count }})</span>
-        <button type="button" class="icon-btn" data-close="cart" aria-label="Close bag">{% render 'icon', name: 'close' %}</button>
+        <button type="button" class="icon-btn" data-close="cart" aria-label="Close bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </div>
       {%- if threshold > 0 -%}
         <div class="cd__ship">

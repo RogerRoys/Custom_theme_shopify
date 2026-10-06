@@ -9,7 +9,27 @@
   {%- if settings.favicon != blank -%}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64, height: 64 }}">{%- endif -%}
   <title>{{ page_title }}{% if current_page != 1 %} – Page {{ current_page }}{% endif %}{% unless page_title contains shop.name %} – {{ shop.name }}{% endunless %}</title>
   {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
-  {% render 'meta-tags' %}
+  {%- liquid
+  assign og_title = page_title | default: shop.name
+  assign og_url = canonical_url | default: request.origin
+  assign og_type = 'website'
+  assign og_description = page_description | default: shop.description | default: shop.name
+  if request.page_type == 'product'
+    assign og_type = 'product'
+  endif
+-%}
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ og_url }}">
+<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:description" content="{{ og_description | escape }}">
+{%- if page_image -%}
+<meta property="og:image" content="http:{{ page_image | image_url: width: 1200 }}">
+<meta property="og:image:secure_url" content="https:{{ page_image | image_url: width: 1200 }}">
+{%- endif -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ og_description | escape }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&family=Questrial&display=swap" rel="stylesheet">

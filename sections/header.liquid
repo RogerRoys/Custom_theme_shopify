@@ -18,15 +18,15 @@
     {%- endfor -%}
   </nav>
   <div class="header__icons">
-    <a href="{{ routes.search_url }}" class="icon-btn" data-open="search" aria-label="Search">{% render 'icon', name: 'search' %}</a>
+    <a href="{{ routes.search_url }}" class="icon-btn" data-open="search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="8.5"/><path d="M17 17l5 5"/></svg></a>
     <a href="{{ routes.cart_url }}" class="icon-btn" data-cart-icon{% if settings.cart_type == 'drawer' %} data-open="cart"{% endif %} aria-label="Bag">
-      {% render 'icon', name: 'bag' %}
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.65 22c-2.16 0-3.24 0-3.84-.7-.6-.69-.44-1.76-.12-3.89l1.8-12c.25-1.63.37-2.44.93-2.92C5.98 2 6.8 2 8.44 2h7.12c1.64 0 2.46 0 3.02.49.56.48.68 1.29.93 2.92l1.8 12c.32 2.13.48 3.2-.12 3.89-.6.7-1.68.7-3.84.7H6.65z"/><path d="M8.5 7.5a3.5 3.5 0 007 0"/></svg>
       <span class="cart-count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
     </a>
     {%- if shop.customer_accounts_enabled -%}
-      <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="icon-btn header__account" aria-label="Account">{% render 'icon', name: 'user' %}</a>
+      <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="icon-btn header__account" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6.5" rx="4" ry="4.5"/><path d="M9.17 15h5.66c2.62 0 5.1 1.24 6.67 3.33l.05.07c.29.39.45.86.45 1.35 0 1.24-1.01 2.25-2.25 2.25H4.25C3.01 22 2 20.99 2 19.75c0-.49.16-.96.45-1.35l.05-.07A8.33 8.33 0 019.17 15z"/></svg></a>
     {%- endif -%}
-    <button type="button" class="icon-btn header__burger" data-open="menu" aria-label="Open menu">{% render 'icon', name: 'menu' %}</button>
+    <button type="button" class="icon-btn header__burger" data-open="menu" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
@@ -39,7 +39,7 @@
       {%- else -%}
         <img src="{{ 'momemade-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="160" height="34" loading="lazy">
       {%- endif -%}
-      <button type="button" class="icon-btn" data-close="menu" aria-label="Close menu">{% render 'icon', name: 'close' %}</button>
+      <button type="button" class="icon-btn" data-close="menu" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
     <nav aria-label="Mobile">
       {%- for link in section.settings.menu.links -%}<a href="{{ link.url }}" data-close="menu">{{ link.title }}</a>{%- endfor -%}
