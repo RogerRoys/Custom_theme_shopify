@@ -194,6 +194,7 @@
       this.vp.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - (this.x || 0); if (Math.abs(dx) > 40) this.go(this.p + (dx < 0 ? 1 : -1)); });
       this.track.addEventListener('transitionend', e => {
         if (e.target !== this.track || e.propertyName !== 'transform' || this.n < 2) return;
+        clearTimeout(this._st);
         if (this.p < this.n || this.p >= 2 * this.n) { this.p = this.n + ((this.p % this.n) + this.n) % this.n; this.place(false); }
       });
       this._rs = () => this.place(false);
@@ -202,16 +203,32 @@
       requestAnimationFrame(() => this.place(false));
     }
     disconnectedCallback() { window.removeEventListener('resize', this._rs); }
-    go(p) { this.p = p; this.place(true); }
+    go(p) {
+      const n = this.n;
+      if (n > 1 && (this.p < n || this.p >= 2 * n)) {
+        const norm = n + ((this.p % n) + n) % n, target = p + norm - this.p;
+        this.p = norm; this.place(false);
+        requestAnimationFrame(() => requestAnimationFrame(() => { this.p = target; this.place(true); this.arm(); }));
+        return;
+      }
+      this.p = p; this.place(true); this.arm();
+    }
+    arm() {
+      clearTimeout(this._st);
+      this._st = setTimeout(() => {
+        const n = this.n; if (n < 2) return;
+        if (this.p < n || this.p >= 2 * n) { this.p = n + ((this.p % n) + n) % n; this.place(false); }
+      }, 560);
+    }
     place(anim) {
       const c = this.cards[this.p]; if (!c) return;
       const x = this.vp.clientWidth / 2 - (c.offsetLeft + c.offsetWidth / 2);
       if (!anim) this.track.classList.add('is-snapping');
-      this.track.style.transform = 'translateX(' + x + 'px)';
+      this.track.style.transform = 'translate3d(' + x + 'px,0,0)';
       this.cards.forEach((k, j) => k.classList.toggle('is-active', j === this.p));
       const ri = ((this.p % this.n) + this.n) % this.n;
       this.dots.forEach((d, j) => { d.classList.toggle('is-active', j === ri); d.setAttribute('aria-current', j === ri ? 'true' : 'false'); });
-      if (!anim) { void this.track.offsetWidth; requestAnimationFrame(() => this.track.classList.remove('is-snapping')); }
+      if (!anim) { void this.track.offsetWidth; requestAnimationFrame(() => requestAnimationFrame(() => this.track.classList.remove('is-snapping'))); }
     }
   }
   if (!customElements.get('review-slider')) customElements.define('review-slider', ReviewSlider);
