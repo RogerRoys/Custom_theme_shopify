@@ -1,0 +1,35 @@
+<section class="section mission" id="mission">
+  <div class="mission__media" data-reveal>
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600,900,1200,1600', sizes: '(min-width: 900px) 50vw, 100vw', alt: section.settings.image.alt }}
+    {%- else -%}
+      <img src="{{ 'mission.jpg' | asset_url }}" alt="" loading="lazy" width="1800" height="1750">
+    {%- endif -%}
+    {%- if section.settings.stat != blank -%}
+      <div class="mission__card">
+        <span class="mission__num" data-count="{{ section.settings.stat }}">{{ section.settings.stat }}</span>
+        <span class="mission__label">{{ section.settings.stat_label | escape }}</span>
+      </div>
+    {%- endif -%}
+    {%- if section.settings.caption != blank -%}<div class="mission__foot">{{ section.settings.caption | escape }}</div>{%- endif -%}
+  </div>
+  <div class="mission__copy" data-reveal style="--d: 150ms">
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+    <h2 class="h2">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.text != blank -%}<p class="body">{{ section.settings.text | escape }}</p>{%- endif -%}
+    {%- if section.settings.button_label != blank -%}<a class="btn" href="{{ section.settings.button_link | default: '#story' }}">{{ section.settings.button_label | escape }}</a>{%- endif -%}
+  </div>
+</section>
+{% schema %}
+{"name":"Mission","settings":[
+{"type":"image_picker","id":"image","label":"Image"},
+{"type":"number","id":"stat","label":"Stat number","default":96},
+{"type":"text","id":"stat_label","label":"Stat label","default":"Bags donated · every one personally delivered by Michele"},
+{"type":"text","id":"caption","label":"Image caption","default":"@ulstercountycanines · Saugerties, NY"},
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Our mission"},
+{"type":"text","id":"heading","label":"Heading","default":"Rescue is at the heart of MOMEMADE."},
+{"type":"textarea","id":"text","label":"Text","default":"Rescue isn’t a campaign for us — it’s who we are."},
+{"type":"text","id":"button_label","label":"Button label","default":"Read our story"},
+{"type":"url","id":"button_link","label":"Button link"}],
+"presets":[{"name":"Mission"}]}
+{% endschema %}

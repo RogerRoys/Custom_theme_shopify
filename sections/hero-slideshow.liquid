@@ -1,0 +1,73 @@
+<hero-slideshow class="hero" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}" aria-roledescription="carousel">
+  {%- for block in section.blocks -%}
+    {%- liquid
+      if forloop.first
+        assign lz = 'eager'
+      else
+        assign lz = 'lazy'
+      endif
+      assign heading = block.settings.heading | escape | newline_to_br
+      if block.settings.highlight != blank
+        assign hw = block.settings.highlight | escape
+        assign hw_html = '<span class="hl"><i></i><span>' | append: hw | append: '</span></span>'
+        assign heading = heading | replace_first: hw, hw_html
+      endif
+      assign htag = 'h2'
+      if forloop.first and template.name == 'index'
+        assign htag = 'h1'
+      endif
+    -%}
+    <div class="hero__slide{% if forloop.first %} is-active{% endif %}" aria-roledescription="slide" {{ block.shopify_attributes }}>
+      <div class="hero__media">
+        {%- if block.settings.image != blank -%}
+          {{ block.settings.image | image_url: width: 2400 | image_tag: loading: lz, widths: '750,1100,1500,1900,2400', sizes: '100vw', alt: block.settings.image.alt }}
+          {%- if block.settings.image_2 != blank -%}
+            {{ block.settings.image_2 | image_url: width: 1600 | image_tag: loading: lz, widths: '750,1100,1600', sizes: '50vw', alt: block.settings.image_2.alt }}
+          {%- endif -%}
+        {%- elsif forloop.first -%}
+          <img src="{{ 'hero-1a.jpg' | asset_url }}" alt="" width="1435" height="1800"><img src="{{ 'hero-1b.jpg' | asset_url }}" alt="" width="1435" height="1800">
+        {%- else -%}
+          <img src="{{ 'hero-2.jpg' | asset_url }}" alt="" width="1800" height="1200" loading="lazy">
+        {%- endif -%}
+      </div>
+      <div class="hero__shade"></div>
+      <div class="hero__content">
+        {%- if block.settings.eyebrow != blank -%}<p class="hero__eyebrow">{{ block.settings.eyebrow | escape }}</p>{%- endif -%}
+        <{{ htag }} class="hero__title hero__title--{{ block.settings.size }}">{{ heading }}</{{ htag }}>
+        {%- if block.settings.text != blank -%}<p class="hero__text">{{ block.settings.text | escape }}</p>{%- endif -%}
+        {%- if block.settings.button_1_label != blank or block.settings.button_2_label != blank -%}
+          <div class="hero__btns">
+            {%- if block.settings.button_1_label != blank -%}<a class="btn" href="{{ block.settings.button_1_link | default: routes.all_products_collection_url }}">{{ block.settings.button_1_label | escape }}</a>{%- endif -%}
+            {%- if block.settings.button_2_label != blank -%}<a class="btn btn--mint" href="{{ block.settings.button_2_link | default: routes.all_products_collection_url }}">{{ block.settings.button_2_label | escape }}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  {%- endfor -%}
+  {%- if section.blocks.size > 1 -%}
+    <div class="hero__ctl">
+      <div class="hero__count"><span data-label>1/{{ section.blocks.size }}</span><span class="hero__bar"><i></i></span></div>
+      <button type="button" class="hero__arrow" data-prev aria-label="Previous slide">{% render 'icon', name: 'chev-left' %}</button>
+      <button type="button" class="hero__arrow" data-next aria-label="Next slide">{% render 'icon', name: 'chev-right' %}</button>
+    </div>
+  {%- endif -%}
+</hero-slideshow>
+{% schema %}
+{"name":"Hero slideshow","tag":"section","class":"section-hero","settings":[
+{"type":"checkbox","id":"autoplay","label":"Auto-rotate slides","default":true},
+{"type":"range","id":"speed","min":4,"max":12,"step":0.5,"unit":"s","label":"Time per slide","default":6.5}],
+"blocks":[{"type":"slide","name":"Slide","settings":[
+{"type":"image_picker","id":"image","label":"Image"},
+{"type":"image_picker","id":"image_2","label":"Second image (desktop split)","info":"Optional — shows the two images side by side on desktop"},
+{"type":"text","id":"eyebrow","label":"Eyebrow"},
+{"type":"textarea","id":"heading","label":"Heading","default":"It’s not just a dog."},
+{"type":"text","id":"highlight","label":"Highlighted word","info":"Must match a word in the heading — gets the lilac marker"},
+{"type":"select","id":"size","label":"Heading size","options":[{"value":"lg","label":"Large"},{"value":"md","label":"Medium"}],"default":"lg"},
+{"type":"textarea","id":"text","label":"Text"},
+{"type":"text","id":"button_1_label","label":"Button 1 label","default":"Shop biscuits"},
+{"type":"url","id":"button_1_link","label":"Button 1 link"},
+{"type":"text","id":"button_2_label","label":"Button 2 label","default":"Shop bandanas"},
+{"type":"url","id":"button_2_link","label":"Button 2 link"}]}],
+"max_blocks":5,
+"presets":[{"name":"Hero slideshow","blocks":[{"type":"slide"},{"type":"slide"}]}]}
+{% endschema %}

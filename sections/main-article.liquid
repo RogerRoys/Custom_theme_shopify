@@ -1,0 +1,12 @@
+<article class="section">
+  <div class="narrow" data-reveal>
+    <span class="eyebrow">{{ article.published_at | date: '%B %d, %Y' }}</span>
+    <h1 class="h2 page-title">{{ article.title }}</h1>
+    {%- if article.image -%}<div class="article__img">{{ article.image | image_url: width: 1600 | image_tag: widths: '750,1100,1600', sizes: '(min-width: 800px) 760px, 100vw', alt: article.title }}</div>{%- endif -%}
+    <div class="body rte">{{ article.content }}</div>
+    <p style="margin-top: 40px"><a class="btn" href="{{ blog.url }}">Back to {{ blog.title }}</a></p>
+  </div>
+</article>
+{% schema %}
+{"name":"Article","settings":[]}
+{% endschema %}

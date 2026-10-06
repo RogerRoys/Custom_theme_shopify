@@ -1,0 +1,21 @@
+{%- layout none -%}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Your {{ shop.name }} gift card</title>
+  {% render 'css-variables' %}
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+</head>
+<body>
+  <main class="password">
+    <img src="{{ 'momemade-logo-footer.svg' | asset_url }}" alt="{{ shop.name }}" width="356" height="77">
+    <h1 class="h2">{{ gift_card.balance | money }}</h1>
+    {%- if gift_card.enabled == false or gift_card.expired -%}<p class="body">This gift card is no longer active.</p>{%- endif -%}
+    <p class="body">Use this code at checkout</p>
+    <p class="h2" style="font-size: 28px; letter-spacing: 2px">{{ gift_card.code | format_code }}</p>
+    <a class="btn" href="{{ shop.url }}">Start shopping</a>
+  </main>
+</body>
+</html>

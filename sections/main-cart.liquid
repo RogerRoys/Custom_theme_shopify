@@ -1,0 +1,28 @@
+<section class="section">
+  <h1 class="h2 page-title" data-reveal>Your bag</h1>
+  {%- if cart.item_count == 0 -%}
+    <div class="cd__empty" data-reveal>
+      <span class="cd__empty-title">Your bag is empty</span>
+      <p>{{ settings.empty_cart_text }}</p>
+      <a class="btn" href="{{ settings.empty_cart_link | default: routes.all_products_collection_url }}">{{ settings.empty_cart_label | escape }}</a>
+    </div>
+  {%- else -%}
+    <form action="{{ routes.cart_url }}" method="post" class="cart-page" id="CartForm" data-reveal>
+      <div>{%- for item in cart.items -%}{% render 'cart-line', item: item, index: forloop.index %}{%- endfor -%}</div>
+      <aside class="cart-sum">
+        <div class="cd__total"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></div>
+        {%- for discount in cart.cart_level_discount_applications -%}<span class="cd__note">{{ discount.title }} (−{{ discount.total_allocated_amount | money }})</span>{%- endfor -%}
+        <p class="cd__note">Shipping and taxes calculated at checkout.</p>
+        {%- if settings.cart_notes -%}
+          <label class="eyebrow" for="CartNote">Order note</label>
+          <textarea id="CartNote" name="note" class="input textarea">{{ cart.note }}</textarea>
+        {%- endif -%}
+        <button type="submit" name="checkout" class="btn btn--ink">Checkout</button>
+        {%- if additional_checkout_buttons -%}<div>{{ content_for_additional_checkout_buttons }}</div>{%- endif -%}
+      </aside>
+    </form>
+  {%- endif -%}
+</section>
+{% schema %}
+{"name":"Cart","settings":[]}
+{% endschema %}

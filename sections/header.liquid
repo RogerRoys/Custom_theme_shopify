@@ -1,0 +1,58 @@
+{%- liquid
+  assign overlay = false
+  if template.name == 'index' and section.settings.transparent_home
+    assign overlay = true
+  endif
+-%}
+<header class="header{% if overlay %} header--overlay{% endif %}" style="--logo-h: {{ section.settings.logo_height }}px">
+  <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
+    {%- if section.settings.logo != blank -%}
+      {{ section.settings.logo | image_url: width: 600 | image_tag: alt: shop.name, loading: 'eager' }}
+    {%- else -%}
+      <img src="{{ 'momemade-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="206" height="44">
+    {%- endif -%}
+  </a>
+  <nav class="header__nav" aria-label="Main">
+    {%- for link in section.settings.menu.links -%}
+      <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+    {%- endfor -%}
+  </nav>
+  <div class="header__icons">
+    <a href="{{ routes.search_url }}" class="icon-btn" data-open="search" aria-label="Search">{% render 'icon', name: 'search' %}</a>
+    <a href="{{ routes.cart_url }}" class="icon-btn" data-cart-icon{% if settings.cart_type == 'drawer' %} data-open="cart"{% endif %} aria-label="Bag">
+      {% render 'icon', name: 'bag' %}
+      <span class="cart-count" data-cart-count{% if cart.item_count == 0 %} hidden{% endif %}>{{ cart.item_count }}</span>
+    </a>
+    {%- if shop.customer_accounts_enabled -%}
+      <a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" class="icon-btn header__account" aria-label="Account">{% render 'icon', name: 'user' %}</a>
+    {%- endif -%}
+    <button type="button" class="icon-btn header__burger" data-open="menu" aria-label="Open menu">{% render 'icon', name: 'menu' %}</button>
+  </div>
+</header>
+
+<div class="overlay" data-overlay="menu" aria-hidden="true">
+  <div class="overlay__scrim" data-close="menu"></div>
+  <div class="drawer drawer--left menu-drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="menu-drawer__head">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 400 | image_tag: alt: shop.name, loading: 'lazy' }}
+      {%- else -%}
+        <img src="{{ 'momemade-logo.svg' | asset_url }}" alt="{{ shop.name }}" width="160" height="34" loading="lazy">
+      {%- endif -%}
+      <button type="button" class="icon-btn" data-close="menu" aria-label="Close menu">{% render 'icon', name: 'close' %}</button>
+    </div>
+    <nav aria-label="Mobile">
+      {%- for link in section.settings.menu.links -%}<a href="{{ link.url }}" data-close="menu">{{ link.title }}</a>{%- endfor -%}
+    </nav>
+    {%- if shop.customer_accounts_enabled -%}
+      <div class="menu-drawer__foot"><a href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}">{% if customer %}My account{% else %}Log in{% endif %}</a></div>
+    {%- endif -%}
+  </div>
+</div>
+{% schema %}
+{"name":"Header","class":"section-header","enabled_on":{"groups":["header"]},"settings":[
+{"type":"image_picker","id":"logo","label":"Logo","info":"Leave empty to use the built-in MOMEMADE logo"},
+{"type":"range","id":"logo_height","min":24,"max":72,"step":2,"unit":"px","label":"Logo height","default":40},
+{"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},
+{"type":"checkbox","id":"transparent_home","label":"Transparent over the home hero","default":true}]}
+{% endschema %}

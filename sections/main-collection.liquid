@@ -1,0 +1,34 @@
+{%- paginate collection.products by section.settings.per_page -%}
+<section class="section">
+  <div class="coll-head" data-reveal>
+    <span class="eyebrow">Shop</span>
+    <h1 class="h2">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}<div class="body rte" style="max-width: 620px">{{ collection.description }}</div>{%- endif -%}
+  </div>
+  <div class="coll-bar">
+    <span>{{ collection.products_count }} {% if collection.products_count == 1 %}product{% else %}products{% endif %}</span>
+    {%- if section.settings.show_sort -%}
+      {%- assign sort = collection.sort_by | default: collection.default_sort_by -%}
+      <label>Sort
+        <select class="select select--sm" onchange="var u=new URL(location.href);u.searchParams.set('sort_by',this.value);u.searchParams.delete('page');location.href=u.toString();">
+          {%- for o in collection.sort_options -%}<option value="{{ o.value }}"{% if o.value == sort %} selected{% endif %}>{{ o.name }}</option>{%- endfor -%}
+        </select>
+      </label>
+    {%- endif -%}
+  </div>
+  <div class="grid" style="--cols: {{ section.settings.cols }}">
+    {%- for product in collection.products -%}
+      {% render 'product-card', product: product, i: forloop.index0 %}
+    {%- else -%}
+      <p class="body">No products here yet.</p>
+    {%- endfor -%}
+  </div>
+  {% render 'pagination', paginate: paginate %}
+</section>
+{%- endpaginate -%}
+{% schema %}
+{"name":"Collection","settings":[
+{"type":"range","id":"per_page","min":4,"max":24,"step":4,"label":"Products per page","default":12},
+{"type":"range","id":"cols","min":2,"max":4,"step":1,"label":"Columns on desktop","default":3},
+{"type":"checkbox","id":"show_sort","label":"Show sorting","default":true}]}
+{% endschema %}

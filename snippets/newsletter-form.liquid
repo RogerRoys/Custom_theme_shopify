@@ -1,0 +1,12 @@
+{%- form 'customer', id: form_id, class: 'nl-form' -%}
+  <input type="hidden" name="contact[tags]" value="newsletter">
+  <input type="email" name="contact[email]" required placeholder="your@email.com" aria-label="Email address" autocomplete="email">
+  <button type="submit" class="btn">{{ button | default: 'Join' }}</button>
+  {%- if form.posted_successfully? -%}
+    <p class="nl-note nl-note--ok" role="status">{{ success | default: 'You’re in! Welcome to the pack.' }}</p>
+  {%- elsif form.errors -%}
+    <p class="nl-note nl-note--err" role="alert">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+  {%- elsif note != blank -%}
+    <p class="nl-note">{{ note }}</p>
+  {%- endif -%}
+{%- endform -%}

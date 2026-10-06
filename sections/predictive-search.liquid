@@ -1,0 +1,42 @@
+<div id="PredictiveResults">
+  {%- if predictive_search.performed -%}
+    {%- liquid
+      assign r = predictive_search.resources
+      assign total = r.products.size | plus: r.collections.size | plus: r.pages.size | plus: r.articles.size
+    -%}
+    <div class="ps-block">
+      <span class="eyebrow ps-label">{{ total }} {% if total == 1 %}result{% else %}results{% endif %}</span>
+      {%- if total == 0 -%}
+        <p class="ps-empty">No results for “{{ predictive_search.terms | escape }}”. Try “biscuits” or “bandana”.</p>
+      {%- else -%}
+        <div class="ps-grid">
+          {%- for p in r.products -%}
+            <a class="ps-item" href="{{ p.url }}">
+              {%- if p.featured_image -%}{{ p.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: p.title }}{%- else -%}<span class="ps-ph"></span>{%- endif -%}
+              <span class="ps-info"><span class="ps-kind">Product · {{ p.price | money }}</span><span class="ps-title">{{ p.title }}</span><span class="ps-sub">{{ p.description | strip_html | truncate: 90 }}</span></span>
+            </a>
+          {%- endfor -%}
+          {%- for c in r.collections -%}
+            <a class="ps-item" href="{{ c.url }}">
+              {%- if c.featured_image -%}{{ c.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: c.title }}{%- else -%}<span class="ps-ph"></span>{%- endif -%}
+              <span class="ps-info"><span class="ps-kind">Collection</span><span class="ps-title">{{ c.title }}</span><span class="ps-sub">{{ c.products_count }} products</span></span>
+            </a>
+          {%- endfor -%}
+          {%- for pg in r.pages -%}
+            <a class="ps-item" href="{{ pg.url }}"><span class="ps-ph"></span><span class="ps-info"><span class="ps-kind">Page</span><span class="ps-title">{{ pg.title }}</span><span class="ps-sub">{{ pg.content | strip_html | truncate: 90 }}</span></span></a>
+          {%- endfor -%}
+          {%- for a in r.articles -%}
+            <a class="ps-item" href="{{ a.url }}">
+              {%- if a.image -%}{{ a.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: a.title }}{%- else -%}<span class="ps-ph"></span>{%- endif -%}
+              <span class="ps-info"><span class="ps-kind">Story</span><span class="ps-title">{{ a.title }}</span><span class="ps-sub">{{ a.excerpt_or_content | strip_html | truncate: 90 }}</span></span>
+            </a>
+          {%- endfor -%}
+        </div>
+        <a class="btn" href="{{ routes.search_url }}?q={{ predictive_search.terms | url_encode }}&options[prefix]=last">View all results</a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+{% schema %}
+{"name":"Predictive search","settings":[]}
+{% endschema %}

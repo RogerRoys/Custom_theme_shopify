@@ -1,0 +1,12 @@
+<section class="section">
+  <div class="narrow auth" data-reveal>
+    <h1 class="h2">Activate your account</h1>
+    {%- form 'activate_customer_password', class: 'auth__form' -%}
+      {{ form.errors | default_errors }}
+      <input class="input" type="password" name="customer[password]" placeholder="Password" autocomplete="new-password" aria-label="Password">
+      <input class="input" type="password" name="customer[password_confirmation]" placeholder="Confirm password" autocomplete="new-password" aria-label="Confirm password">
+      <button class="btn btn--ink" type="submit">Activate account</button>
+      <button class="link-btn" type="submit" name="decline">Decline invitation</button>
+    {%- endform -%}
+  </div>
+</section>

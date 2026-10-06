@@ -1,0 +1,73 @@
+{%- assign current = product.selected_or_first_available_variant -%}
+{%- assign fm = current.featured_media | default: product.featured_media -%}
+<section class="section" id="Product-{{ section.id }}">
+  <div class="product">
+    <div class="product__media" data-gallery data-reveal>
+      <div class="product__main">
+        {%- if fm -%}
+          {{ fm | image_url: width: 1600 | image_tag: widths: '600,900,1200,1600', sizes: '(min-width: 900px) 55vw, 100vw', alt: product.title, loading: 'eager' }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag }}
+        {%- endif -%}
+      </div>
+      {%- if product.media.size > 1 -%}
+        <div class="product__thumbs">
+          {%- for m in product.media -%}
+            {%- if m.media_type == 'image' -%}
+              <button type="button"{% if m.id == fm.id %} class="is-active"{% endif %} data-thumb="{{ m | image_url: width: 1600 }}" data-media-id="{{ m.id }}" aria-label="Show image {{ forloop.index }}">{{ m | image_url: width: 240 | image_tag: loading: 'lazy', alt: '' }}</button>
+            {%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+    <div class="product__info" data-reveal style="--d: 120ms">
+      {%- if section.settings.show_type and product.type != blank -%}<span class="eyebrow" style="color: {{ section.settings.eyebrow_color }}">{{ product.type }}</span>{%- endif -%}
+      <h1 class="product__title">{{ product.title }}</h1>
+      <div class="product__price" data-price>{{ current.price | money }}{% if current.compare_at_price > current.price %} <s>{{ current.compare_at_price | money }}</s>{% endif %}</div>
+      <product-form data-add-label="{{ section.settings.add_label | escape }}">
+        {%- form 'product', product, class: 'product__form' -%}
+          <input type="hidden" name="id" value="{{ current.id }}">
+          {%- unless product.has_only_default_variant -%}
+            {%- for option in product.options_with_values -%}
+              <div class="field">
+                <label for="Opt-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+                <select class="select" id="Opt-{{ section.id }}-{{ forloop.index0 }}" data-option>
+                  {%- for val in option.values -%}<option value="{{ val | escape }}"{% if option.selected_value == val %} selected{% endif %}>{{ val }}</option>{%- endfor -%}
+                </select>
+              </div>
+            {%- endfor -%}
+          {%- endunless -%}
+          <div class="product__buy">
+            <div class="qty qty--lg">
+              <button type="button" data-qty-step="-1" aria-label="Decrease quantity">−</button>
+              <input type="number" name="quantity" value="1" min="1" aria-label="Quantity">
+              <button type="button" data-qty-step="1" aria-label="Increase quantity">+</button>
+            </div>
+            <button type="submit" class="btn"{% unless current.available %} disabled{% endunless %}><span data-btn-label>{% if current.available %}{{ section.settings.add_label | escape }}{% else %}Sold out{% endif %}</span></button>
+          </div>
+          {%- if section.settings.dynamic_checkout -%}{{ form | payment_button }}{%- endif -%}
+        {%- endform -%}
+        <script type="application/json" data-product-json>{{ product | json }}</script>
+      </product-form>
+      {%- if product.description != blank -%}<div class="body rte">{{ product.description }}</div>{%- endif -%}
+      {%- if section.blocks.size > 0 -%}
+        <div>
+          {%- for block in section.blocks -%}
+            <details class="acc" {{ block.shopify_attributes }}>
+              <summary>{{ block.settings.heading | escape }}</summary>
+              <div class="acc__body body rte">{{ block.settings.content }}{%- if block.settings.page != blank -%}{{ block.settings.page.content }}{%- endif -%}</div>
+            </details>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Product","settings":[
+{"type":"checkbox","id":"show_type","label":"Show product type above title","default":true},
+{"type":"color","id":"eyebrow_color","label":"Type colour","default":"#D4A0C0"},
+{"type":"text","id":"add_label","label":"Add to bag label","default":"Add to bag"},
+{"type":"checkbox","id":"dynamic_checkout","label":"Show dynamic checkout buttons","default":false}],
+"blocks":[{"type":"collapsible","name":"Collapsible tab","settings":[{"type":"text","id":"heading","label":"Heading","default":"Ingredients"},{"type":"richtext","id":"content","label":"Content"},{"type":"page","id":"page","label":"Or show a page"}]}]}
+{% endschema %}

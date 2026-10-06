@@ -1,0 +1,26 @@
+<section class="section">
+  <div class="narrow auth" data-reveal>
+    <h1 class="h2">Addresses</h1>
+    <a class="link-btn" href="{{ routes.account_url }}">← Back to account</a>
+    {%- paginate customer.addresses by 10 -%}
+      {%- for address in customer.addresses -%}
+        <div class="addr">{% if address == customer.default_address %}<strong>Default</strong><br>{% endif %}{{ address | format_address }}</div>
+      {%- endfor -%}
+    {%- endpaginate -%}
+    {%- form 'customer_address', customer.new_address, class: 'auth__form' -%}
+      <h2 class="eyebrow">Add a new address</h2>
+      {{ form.errors | default_errors }}
+      <input class="input" name="address[first_name]" placeholder="First name" autocomplete="given-name" aria-label="First name">
+      <input class="input" name="address[last_name]" placeholder="Last name" autocomplete="family-name" aria-label="Last name">
+      <input class="input" name="address[address1]" placeholder="Address" autocomplete="address-line1" aria-label="Address">
+      <input class="input" name="address[address2]" placeholder="Apartment, suite, etc." autocomplete="address-line2" aria-label="Apartment">
+      <input class="input" name="address[city]" placeholder="City" autocomplete="address-level2" aria-label="City">
+      <select class="select" name="address[country]" aria-label="Country">{{ all_country_option_tags }}</select>
+      <input class="input" name="address[province]" placeholder="State / Province" autocomplete="address-level1" aria-label="State">
+      <input class="input" name="address[zip]" placeholder="ZIP / Postal code" autocomplete="postal-code" aria-label="ZIP">
+      <input class="input" name="address[phone]" placeholder="Phone" autocomplete="tel" aria-label="Phone">
+      <label class="auth__row" style="font-family: var(--f-ui); font-size: 14px">{{ form.set_as_default_checkbox }} Set as default address</label>
+      <button class="btn btn--ink" type="submit">Add address</button>
+    {%- endform -%}
+  </div>
+</section>

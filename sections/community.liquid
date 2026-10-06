@@ -1,0 +1,30 @@
+<section class="section community" id="community">
+  <div class="community__copy" data-reveal>
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+    <h2 class="h2">{{ section.settings.heading | escape }}</h2>
+    {%- if section.settings.text != blank -%}<p class="body">{{ section.settings.text | escape }}</p>{%- endif -%}
+    {%- assign fid = 'Community-' | append: section.id -%}
+    {% render 'newsletter-form', form_id: fid, note: section.settings.note, success: section.settings.success %}
+  </div>
+  {%- if section.blocks.size > 0 -%}
+    <div class="stats" data-reveal style="--d: 150ms">
+      {%- for block in section.blocks -%}
+        <div class="stat" {{ block.shopify_attributes }}>
+          <span class="stat__num" data-count="{{ block.settings.number }}">{{ block.settings.number }}</span>
+          <span class="stat__label">{{ block.settings.label | escape }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+{% schema %}
+{"name":"Community signup","settings":[
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Join the MOMEMADE community"},
+{"type":"text","id":"heading","label":"Heading","default":"Stay. Stay. Stay in touch."},
+{"type":"textarea","id":"text","label":"Text","default":"Every 20 email signups, we donate a bag of biscuits to Ulster County Canines. Join and make every signup count."},
+{"type":"text","id":"note","label":"Note under the form","default":"No spam. Just treats, bandanas, and the occasional shelter update."},
+{"type":"text","id":"success","label":"Success message","default":"Thank you! You just helped a shelter pup get closer to their next bag."}],
+"blocks":[{"type":"stat","name":"Stat","settings":[{"type":"number","id":"number","label":"Number","default":47},{"type":"text","id":"label","label":"Label","default":"Signups so far"}]}],
+"max_blocks":3,
+"presets":[{"name":"Community signup","blocks":[{"type":"stat"},{"type":"stat","settings":{"number":2,"label":"Bags donated"}},{"type":"stat","settings":{"number":13,"label":"Until next bag"}}]}]}
+{% endschema %}

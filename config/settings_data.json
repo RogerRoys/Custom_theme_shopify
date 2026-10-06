@@ -1,0 +1,14 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "color_ink": "#090B00",
+      "color_bg": "#F5DFE2",
+      "color_pink": "#F5DBDF",
+      "color_lilac": "#D49ED7",
+      "color_mint": "#84C99A",
+      "cart_type": "drawer",
+      "free_shipping_threshold": 50
+    }
+  }
+}

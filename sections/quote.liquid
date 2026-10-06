@@ -1,0 +1,15 @@
+<section class="quote" data-inview>
+  {%- if section.settings.eyebrow != blank -%}<span class="eyebrow" data-reveal>{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+  <h2 class="quote__text">
+    {%- assign words = section.settings.quote | split: ' ' -%}
+    {%- for w in words -%}<span style="--d: {{ forloop.index0 | times: 70 }}ms">{{ w | escape }}</span>{%- endfor -%}
+  </h2>
+  {%- if section.settings.by != blank -%}<span class="eyebrow" data-reveal style="--d: 500ms">{{ section.settings.by | escape }}</span>{%- endif -%}
+</section>
+{% schema %}
+{"name":"Quote","settings":[
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"The mom standard"},
+{"type":"textarea","id":"quote","label":"Quote","default":"“If I wouldn’t give it to my own dog, I don’t make it.”"},
+{"type":"text","id":"by","label":"Attribution","default":"— Michele, founder · MOMEMADE · Hudson Valley, NY"}],
+"presets":[{"name":"Quote"}]}
+{% endschema %}

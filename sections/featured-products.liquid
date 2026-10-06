@@ -1,0 +1,71 @@
+<section class="section products" id="products">
+  <div class="sec-head" data-reveal>
+    {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2 class="h2">{{ section.settings.heading | escape }}</h2>{%- endif -%}
+    {%- if section.settings.text != blank -%}<p class="body">{{ section.settings.text | escape }}</p>{%- endif -%}
+  </div>
+  <div class="products__grid">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign p = block.settings.product
+        assign url = block.settings.link | default: routes.all_products_collection_url
+        if p != blank
+          assign url = p.url
+        endif
+        assign title = block.settings.title
+        if title == blank and p != blank
+          assign title = p.title
+        endif
+        assign d = forloop.index0 | times: 150
+        if forloop.first
+          assign fb = 'product-biscuits.jpg'
+        else
+          assign fb = 'product-bandanas.jpg'
+        endif
+      -%}
+      <article class="pcard" data-reveal style="--d: {{ d }}ms" {{ block.shopify_attributes }}>
+        <a class="pcard__media" href="{{ url }}" tabindex="-1" aria-hidden="true">
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600,900,1200,1400', sizes: '(min-width: 760px) 50vw, 100vw', alt: title }}
+          {%- elsif p.featured_image -%}
+            {{ p.featured_image | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600,900,1200,1400', sizes: '(min-width: 760px) 50vw, 100vw', alt: title }}
+          {%- else -%}
+            <img src="{{ fb | asset_url }}" alt="{{ title | escape }}" loading="lazy" width="1200" height="800">
+          {%- endif -%}
+        </a>
+        <div class="pcard__body">
+          {%- if block.settings.tag != blank -%}<span class="pcard__tag" style="color: {{ block.settings.tag_color }}">{{ block.settings.tag | escape }}</span>{%- endif -%}
+          <h3 class="pcard__title"><a href="{{ url }}">{{ title | escape }}</a></h3>
+          <p class="body pcard__text">{%- if block.settings.lead != blank -%}<strong>{{ block.settings.lead | escape }}</strong> {% endif -%}{{ block.settings.text | escape }}</p>
+          {%- if p != blank and p.has_only_default_variant and p.available -%}
+            {%- form 'product', p, class: 'pcard__form' -%}
+              <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+              <button type="submit" class="btn {{ block.settings.btn_style }}">{{ block.settings.button_label | escape }}{% render 'icon', name: 'arrow-right' %}</button>
+            {%- endform -%}
+          {%- else -%}
+            <a class="btn {{ block.settings.btn_style }}" href="{{ url }}">{{ block.settings.button_label | escape }}{% render 'icon', name: 'arrow-right' %}</a>
+          {%- endif -%}
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+{"name":"Two products","settings":[
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"What we make"},
+{"type":"text","id":"heading","label":"Heading","default":"Two products. One standard"},
+{"type":"textarea","id":"text","label":"Text","default":"Simple ingredients for what goes in your dog. Thoughtful materials for what goes on your dog."}],
+"blocks":[{"type":"product","name":"Product card","settings":[
+{"type":"product","id":"product","label":"Product","info":"Single-variant products add straight to the bag"},
+{"type":"image_picker","id":"image","label":"Image override"},
+{"type":"text","id":"title","label":"Title override"},
+{"type":"text","id":"tag","label":"Tag line"},
+{"type":"color","id":"tag_color","label":"Tag colour","default":"#D4A0C0"},
+{"type":"text","id":"lead","label":"Bold lead sentence"},
+{"type":"textarea","id":"text","label":"Text"},
+{"type":"text","id":"button_label","label":"Button label","default":"Shop now"},
+{"type":"select","id":"btn_style","label":"Button colour","options":[{"value":"","label":"Lilac"},{"value":"btn--mint","label":"Mint"},{"value":"btn--ink","label":"Ink"}],"default":""},
+{"type":"url","id":"link","label":"Link (when no product is picked)"}]}],
+"max_blocks":4,
+"presets":[{"name":"Two products","blocks":[{"type":"product"},{"type":"product","settings":{"btn_style":"btn--mint","tag_color":"#84C99A"}}]}]}
+{% endschema %}

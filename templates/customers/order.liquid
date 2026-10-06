@@ -1,0 +1,20 @@
+<section class="section">
+  <div class="narrow auth" data-reveal>
+    <h1 class="h2">Order {{ order.name }}</h1>
+    <a class="link-btn" href="{{ routes.account_url }}">← Back to account</a>
+    <p class="body">Placed {{ order.created_at | date: '%B %d, %Y' }} · {{ order.financial_status_label }} · {{ order.fulfillment_status_label }}</p>
+    <table class="table">
+      <thead><tr><th>Product</th><th>Qty</th><th>Total</th></tr></thead>
+      <tbody>
+        {%- for li in order.line_items -%}<tr><td>{{ li.title }}</td><td>{{ li.quantity }}</td><td>{{ li.final_line_price | money }}</td></tr>{%- endfor -%}
+      </tbody>
+      <tfoot>
+        <tr><td colspan="2">Subtotal</td><td>{{ order.line_items_subtotal_price | money }}</td></tr>
+        {%- for s in order.shipping_methods -%}<tr><td colspan="2">Shipping ({{ s.title }})</td><td>{{ s.price | money }}</td></tr>{%- endfor -%}
+        {%- for t in order.tax_lines -%}<tr><td colspan="2">{{ t.title }}</td><td>{{ t.price | money }}</td></tr>{%- endfor -%}
+        <tr><td colspan="2"><strong>Total</strong></td><td><strong>{{ order.total_price | money }}</strong></td></tr>
+      </tfoot>
+    </table>
+    {%- if order.shipping_address -%}<h2 class="eyebrow">Shipping address</h2><div class="addr">{{ order.shipping_address | format_address }}</div>{%- endif -%}
+  </div>
+</section>

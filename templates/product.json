@@ -1,0 +1,131 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {},
+      "blocks": {
+        "ing": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Ingredients",
+            "content": "<p>Simple, limited ingredients — kitchen-baked in small batches in the Hudson Valley.</p>"
+          }
+        },
+        "ship": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Shipping & returns",
+            "content": "<p>Free shipping on U.S. orders over $50.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "ing",
+        "ship"
+      ]
+    },
+    "ticker": {
+      "type": "ticker",
+      "settings": {
+        "speed": 38
+      },
+      "blocks": {
+        "item_1": {
+          "type": "item",
+          "settings": {
+            "text": "No Preservatives"
+          }
+        },
+        "item_2": {
+          "type": "item",
+          "settings": {
+            "text": "Allergy & Sensitive Belly Friendly"
+          }
+        },
+        "item_3": {
+          "type": "item",
+          "settings": {
+            "text": "Handmade In Small Batches"
+          }
+        },
+        "item_4": {
+          "type": "item",
+          "settings": {
+            "text": "Kitchen-Baked In The Hudson Valley"
+          }
+        },
+        "item_5": {
+          "type": "item",
+          "settings": {
+            "text": "Compostable Packaging"
+          }
+        }
+      },
+      "block_order": [
+        "item_1",
+        "item_2",
+        "item_3",
+        "item_4",
+        "item_5"
+      ]
+    },
+    "reviews": {
+      "type": "testimonials",
+      "settings": {},
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "title": "Finally, a treat for a dog with severe allergies!",
+            "text": "My senior golden loved the treats we got from the fair!! He had colitis and MANY allergies. He’s been on a vet prescription diet for almost his whole life. And we could never find any treats that worked for him and his allergies. I just want to say thank you for what you do!! Because now we can give our special boy some treats!",
+            "name": "Jordan S. - Mom of Sampson, Senior Golden Retriever"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "title": "My senior dog just loves them.",
+            "text": "I cannot say enough great things about these treats. They are truly healthy and my senior dog just loves them. I also appreciate all of the support Michele gives to the local shelters so those pups feel special and loved, that what happens when you support local.",
+            "name": "Debbie B. - Mom of Roxy"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "title": "Worth every penny! He sits by the drawer begging",
+            "text": "We discovered Momemade during a trip to Accord over Thanksgiving. Charles is pretty finicky, but he absolutely loves these treats! I know he loves them because he sits by the kitchen drawer where we store them until we give in. They're worth the price, because they're made with quality ingredients and they made Charles happy.",
+            "name": "Anthony G. - Dad of Charles"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "title": "Did not upset his sensitive stomach!",
+            "text": "First, I would like to thank you for making these treats available! I was introduced to the Momemade cookies by a friend of mine who purchased a bag for my 23 month old pup. He has a very sensitive stomach, so it has been tricky for me to find healthy treats with limited ingredients that did not upset his GI. He loved it from the first bite!",
+            "name": "Yuri F. - Mom of Oliver, Cavapoo"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "title": "The ONLY treat my demanding Princess will eat!",
+            "text": "My Penelope (a very pretty but persnickety Pekingese) puts her nose up in the air with any food I give her. She refuses to eat anything canned or boxed including the normal dog treats... Hence, my surprise that she absolutely LOVES your treats. Whatever you are doing, it's magic",
+            "name": "Kim F. - Mom of Penelope, Pekingese"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "ticker",
+    "reviews"
+  ]
+}

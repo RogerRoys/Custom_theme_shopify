@@ -1,0 +1,30 @@
+{%- paginate search.results by 12 -%}
+<section class="section">
+  <div class="narrow center" data-reveal style="margin-bottom: 48px">
+    <h1 class="h2">{% if search.performed %}Results for “{{ search.terms | escape }}”{% else %}Search{% endif %}</h1>
+    <form action="{{ routes.search_url }}" method="get" class="nl-form nl-form--light" role="search">
+      <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ settings.search_placeholder | escape }}" aria-label="Search">
+      <input type="hidden" name="options[prefix]" value="last">
+      <button class="btn" type="submit">Search</button>
+    </form>
+    {%- if search.performed -%}<p class="body">{{ search.results_count }} {% if search.results_count == 1 %}result{% else %}results{% endif %}</p>{%- endif -%}
+  </div>
+  {%- if search.performed and search.results_count > 0 -%}
+    <div class="grid">
+      {%- for item in search.results -%}
+        {%- if item.object_type == 'product' -%}
+          {% render 'product-card', product: item, i: forloop.index0 %}
+        {%- else -%}
+          <article class="card" data-reveal>
+            <a class="card__body" href="{{ item.url }}"><span class="eyebrow">{{ item.object_type }}</span><span class="card__title">{{ item.title }}</span><span class="card__price">{{ item.content | strip_html | truncate: 120 }}</span></a>
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {% render 'pagination', paginate: paginate %}
+  {%- endif -%}
+</section>
+{%- endpaginate -%}
+{% schema %}
+{"name":"Search results","settings":[]}
+{% endschema %}

@@ -1,0 +1,25 @@
+<section class="section">
+  <div class="narrow auth" data-reveal>
+    <h1 class="h2">Hi {{ customer.first_name | default: "there" }}</h1>
+    <div class="auth__row">
+      <a class="link-btn" href="{{ routes.account_addresses_url }}">Addresses ({{ customer.addresses_count }})</a>
+      <a class="link-btn" href="{{ routes.account_logout_url }}">Log out</a>
+    </div>
+    <h2 class="eyebrow">Order history</h2>
+    {%- paginate customer.orders by 20 -%}
+      {%- if customer.orders.size > 0 -%}
+        <table class="table">
+          <thead><tr><th>Order</th><th>Date</th><th>Status</th><th>Total</th></tr></thead>
+          <tbody>
+            {%- for order in customer.orders -%}
+              <tr><td><a href="{{ order.customer_url }}">{{ order.name }}</a></td><td>{{ order.created_at | date: '%b %d, %Y' }}</td><td>{{ order.fulfillment_status_label }}</td><td>{{ order.total_price | money }}</td></tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+        {% render 'pagination', paginate: paginate %}
+      {%- else -%}
+        <p class="body">You haven’t placed any orders yet.</p>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>

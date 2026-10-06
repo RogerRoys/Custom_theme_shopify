@@ -1,0 +1,24 @@
+<section class="section">
+  <div class="narrow auth" data-reveal>
+    <h1 class="h2">Log in</h1>
+    {%- form 'customer_login', class: 'auth__form' -%}
+      {{ form.errors | default_errors }}
+      <input class="input" type="email" name="customer[email]" placeholder="Email" autocomplete="email" aria-label="Email" required>
+      {%- if form.password_needed -%}<input class="input" type="password" name="customer[password]" placeholder="Password" autocomplete="current-password" aria-label="Password">{%- endif -%}
+      <button class="btn btn--ink" type="submit">Sign in</button>
+      <div class="auth__row"><a class="link-btn" href="{{ routes.account_register_url }}">Create account</a></div>
+    {%- endform -%}
+    <details>
+      <summary class="link-btn">Forgot your password?</summary>
+      {%- form 'recover_customer_password', class: 'auth__form' -%}
+        {%- if form.posted_successfully? -%}<p class="body">We’ve sent you an email with a link to reset your password.</p>{%- endif -%}
+        {{ form.errors | default_errors }}
+        <input class="input" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email" required>
+        <button class="btn" type="submit">Reset password</button>
+      {%- endform -%}
+    </details>
+    {%- if shop.checkout.guest_login -%}
+      {%- form 'guest_login' -%}<button class="btn btn--mint" type="submit">Continue as guest</button>{%- endform -%}
+    {%- endif -%}
+  </div>
+</section>
