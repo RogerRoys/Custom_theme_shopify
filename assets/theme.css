@@ -537,3 +537,8 @@ review-slider{display:flex;flex-direction:column;align-items:center;gap:48px;wid
 @media (max-width:759px){.drawer--card{left:0;width:100%;box-shadow:none}}
 .drawer--card{width:400px}
 @media (max-width:759px){.drawer--card{width:100%}}
+.drawer--card .cd__head{align-items:stretch;justify-content:flex-start;text-align:left}
+.drawer--card .cd__head-row,.drawer--card .cd__ship-row{width:100%}
+.drawer--card .meter--round{width:100%;display:block}
+.drawer--card .cd__items{align-items:stretch}
+.drawer--card .line{width:100%;text-align:left}
