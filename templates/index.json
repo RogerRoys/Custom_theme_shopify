@@ -316,16 +316,18 @@
           "type": "card",
           "settings": {
             "media_type": "image",
+            "image": "shopify://shop_images/Frame_133.jpg",
             "video_url": "",
-            "caption": "At MOMEMADE, we know it's not <b>JUST</b> a dog"
+            "caption": "At MOMEMADE, we know it's not <strong>JUST</strong> a dog"
           }
         },
         "c2": {
           "type": "card",
           "settings": {
             "media_type": "image",
+            "image": "shopify://shop_images/MomeMade-170_1.jpg",
             "video_url": "",
-            "caption": "And this isn't <b>JUST</b> a treat."
+            "caption": "And this isn't <strong>JUST</strong> a treat."
           }
         },
         "c3": {
