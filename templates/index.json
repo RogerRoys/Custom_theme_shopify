@@ -298,6 +298,7 @@
     "mission": {
       "type": "mission",
       "settings": {
+        "image": "shopify://shop_images/image_1.jpg",
         "stat": 96,
         "stat_label": "Bags donated · every one personally delivered by Michele",
         "caption": "@ulstercountycanines · Saugerties, NY",
@@ -346,7 +347,8 @@
         "heading": "The dog who\nstarted it all.",
         "body": "<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p>Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p><p>So I made her a promise: “I'll help you figure it out.”</p><p>While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p>Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>",
         "button_label": "Shop biscuits",
-        "button_link": ""
+        "button_link": "",
+        "image": "shopify://shop_images/MomeMade-167_1.jpg"
       }
     }
   },
