@@ -23,7 +23,7 @@
               {%- if block.settings.image != blank -%}
                 {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '220px', alt: block.settings.name }}
               {%- else -%}
-                <img src="{{ 'review-' | append: n | append: '.jpg' | asset_url }}" alt="" loading="lazy" width="440" height="760">
+                <img src="{{ 'review-' | append: n | append: '-c.jpg' | asset_url }}" alt="" loading="lazy" width="440" height="760">
               {%- endif -%}
               {%- if block.settings.video != blank -%}<a class="rcard__play" href="{{ block.settings.video }}" target="_blank" rel="noopener" aria-label="Play video review"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></a>{%- endif -%}
             </div>

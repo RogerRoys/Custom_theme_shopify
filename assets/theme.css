@@ -535,3 +535,5 @@ review-slider{display:flex;flex-direction:column;align-items:center;gap:48px;wid
 .drawer--card .cd{max-width:none}
 @media (min-width:760px){.drawer--card .cd__head{margin-top:0}}
 @media (max-width:759px){.drawer--card{left:0;width:100%;box-shadow:none}}
+.drawer--card{width:400px}
+@media (max-width:759px){.drawer--card{width:100%}}

@@ -10,7 +10,7 @@
       {%- if section.settings.image != blank -%}
         {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600,900,1200,1600', sizes: '(min-width: 900px) 50vw, 100vw', alt: section.settings.image.alt }}
       {%- else -%}
-        <img src="{{ 'joni-main.jpg' | asset_url }}" alt="Joni" loading="lazy" width="1800" height="1324">
+        <img src="{{ 'joni-main-c.jpg' | asset_url }}" alt="Joni" loading="lazy" width="1800" height="1324">
       {%- endif -%}
     </div>
   </div>
@@ -27,7 +27,7 @@
             {%- elsif block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,750,1000', sizes: '(min-width: 900px) 33vw, 100vw', alt: block.settings.image.alt }}
             {%- else -%}
-              <img src="{{ 'joni-card-' | append: n | append: '.jpg' | asset_url }}" alt="" loading="lazy" width="1000" height="1300">
+              <img src="{{ 'joni-card-' | append: n | append: '-c.jpg' | asset_url }}" alt="" loading="lazy" width="1000" height="1300">
             {%- endif -%}
           </div>
           <div class="jcard__cap"><span>{{ block.settings.caption }}</span></div>

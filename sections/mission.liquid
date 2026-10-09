@@ -3,7 +3,7 @@
     {%- if section.settings.image != blank -%}
       {{ section.settings.image | image_url: width: 1600 | image_tag: loading: 'lazy', widths: '600,900,1200,1600', sizes: '(min-width: 900px) 50vw, 100vw', alt: section.settings.image.alt }}
     {%- else -%}
-      <img src="{{ 'mission.jpg' | asset_url }}" alt="" loading="lazy" width="1800" height="1750">
+      <img src="{{ 'mission-c.jpg' | asset_url }}" alt="" loading="lazy" width="1800" height="1750">
     {%- endif -%}
     {%- if section.settings.stat != blank -%}
       <div class="mission__card">

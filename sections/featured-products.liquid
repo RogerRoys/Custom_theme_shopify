@@ -18,9 +18,9 @@
         endif
         assign d = forloop.index0 | times: 150
         if forloop.first
-          assign fb = 'product-biscuits.jpg'
+          assign fb = 'product-biscuits-c.jpg'
         else
-          assign fb = 'product-bandanas.jpg'
+          assign fb = 'product-bandanas-c.jpg'
         endif
       -%}
       <article class="pcard" data-reveal style="--d: {{ d }}ms" {{ block.shopify_attributes }}>
