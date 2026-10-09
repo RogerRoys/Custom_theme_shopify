@@ -110,6 +110,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Copy_of_MomeMade-41_1.jpg",
             "title": "Dog Biscuits",
             "tag": "Kitchen-baked · Plant-based · Limited ingredient",
             "tag_color": "#d4a0c0",
@@ -124,6 +125,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/MomeMade-83_1.jpg",
             "title": "Dog Bandanas",
             "tag": "Low-impact fabrics · Reversible · No plastic",
             "tag_color": "#84c99a",
