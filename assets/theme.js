@@ -218,7 +218,7 @@
       this._st = setTimeout(() => {
         const n = this.n; if (n < 2) return;
         if (this.p < n || this.p >= 2 * n) { this.p = n + ((this.p % n) + n) % n; this.place(false); }
-      }, 560);
+      }, 1250);
     }
     place(anim) {
       const c = this.cards[this.p]; if (!c) return;
@@ -249,7 +249,9 @@
     const oldMeter = $('.meter i', cur), newMeter = $('.meter i', next);
     const from = oldMeter ? oldMeter.style.width : '0%', to = newMeter ? newMeter.style.width : '';
     if (newMeter) newMeter.style.width = from;
+    $(':scope > *', next).forEach(x => { x.style.transition = 'none'; });
     cur.replaceWith(next);
+    requestAnimationFrame(() => requestAnimationFrame(() => $(':scope > *', next).forEach(x => { x.style.transition = ''; })));
     if (newMeter) requestAnimationFrame(() => requestAnimationFrame(() => { newMeter.style.width = to; }));
   }
   async function addToCart(form) {
@@ -293,25 +295,44 @@
   /* ---------- Predictive search ---------- */
   function initSearch() {
     const el = ov('search'); if (!el || el._init) return; el._init = 1;
-    const input = $('input[name="q"]', el), out = $('[data-ps-results]', el), chips = $('[data-ps-chips]', el);
-    let t, ctl;
-    const run = async q => {
+    const input = $('input[name="q"]', el), out = $('[data-ps-results]', el), chips = $('[data-ps-chips]', el), count = $('[data-ps-count]', el);
+    let t, ctl, types = 'product,collection,page,article', act = -1;
+    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const rows = () => $$('.ps-row', out);
+    const setAct = i => { const r = rows(); act = r.length ? Math.max(0, Math.min(r.length - 1, i)) : -1; r.forEach((x, k) => { x.classList.toggle('is-active', k === act); x.setAttribute('aria-selected', k === act); }); const a = r[act]; if (a) { const top = a.offsetTop, bot = top + a.offsetHeight; if (top < out.scrollTop) out.scrollTop = top; else if (bot > out.scrollTop + out.clientHeight) out.scrollTop = bot - out.clientHeight; } };
+    const run = async () => {
+      const q = input.value.trim();
       if (ctl) ctl.abort();
-      if (!q.trim()) { out.innerHTML = ''; if (chips) chips.hidden = false; return; }
-      if (chips) chips.hidden = true;
-      ctl = new AbortController();
+      if (chips) chips.hidden = !!q;
+      if (!q) { out.innerHTML = ''; count.textContent = 'Suggested'; count.href = R.search_url || '/search'; act = -1; return; }
+      ctl = new AbortController(); out.classList.add('is-loading');
       try {
-        const url = R.predictive_search_url + '?q=' + encodeURIComponent(q) + '&resources[type]=product,collection,page,article&resources[limit]=6&resources[options][prefix]=last&section_id=predictive-search';
+        const url = R.predictive_search_url + '?q=' + encodeURIComponent(q) + '&resources[type]=' + types + '&resources[limit]=8&resources[options][prefix]=last&section_id=predictive-search';
         const html = await (await fetch(url, { signal: ctl.signal })).text();
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        const res = doc.querySelector('#PredictiveResults');
+        const res = new DOMParser().parseFromString(html, 'text/html').querySelector('#PredictiveResults');
         out.innerHTML = res ? res.innerHTML : '';
+        const n = res ? parseInt(res.dataset.count, 10) || 0 : 0;
+        const re = new RegExp('(' + esc(q) + ')', 'i');
+        $$('[data-hl]', out).forEach(s => { s.innerHTML = s.textContent.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])).replace(re, '<mark>$1</mark>'); });
+        count.textContent = n ? 'See all ' + n + (n === 1 ? ' result' : ' results') : '0 results';
+        count.href = (R.search_url || '/search') + '?q=' + encodeURIComponent(q) + '&options[prefix]=last';
+        setAct(0);
+        input.setAttribute('aria-expanded', n ? 'true' : 'false');
       } catch (err) { /* aborted */ }
+      finally { out.classList.remove('is-loading'); }
     };
-    input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(() => run(input.value), 220); });
+    input.addEventListener('input', () => { clearTimeout(t); t = setTimeout(run, 220); });
+    input.addEventListener('keydown', e => {
+      if (e.key === 'ArrowDown') { e.preventDefault(); setAct(act + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); setAct(act - 1); }
+      else if (e.key === 'Enter' && act > -1 && rows()[act]) { e.preventDefault(); window.location.href = rows()[act].href; }
+    });
+    out.addEventListener('mousemove', e => { const r = e.target.closest('.ps-row'); if (r) { const k = rows().indexOf(r); if (k !== act) setAct(k); } });
     el.addEventListener('click', e => {
-      const c = e.target.closest('[data-chip]'); if (!c) return;
-      e.preventDefault(); input.value = c.dataset.chip; run(input.value); input.focus();
+      const c = e.target.closest('[data-chip]');
+      if (c) { e.preventDefault(); input.value = c.dataset.chip; run(); input.focus(); return; }
+      const f = e.target.closest('[data-ps-filter]');
+      if (f) { $$('[data-ps-filter]', el).forEach(b => b.classList.toggle('is-active', b === f)); types = f.dataset.psFilter; run(); input.focus(); }
     });
   }
 

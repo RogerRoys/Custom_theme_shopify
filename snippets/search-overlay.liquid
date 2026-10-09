@@ -1,21 +1,28 @@
 <div class="overlay" data-overlay="search" aria-hidden="true">
   <div class="overlay__scrim" data-close="search"></div>
-  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search">
-    <form action="{{ routes.search_url }}" method="get" role="search" class="search-bar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="8.5"/><path d="M17 17l5 5"/></svg>
-      <input type="search" name="q" placeholder="{{ settings.search_placeholder | escape }}" autocomplete="off" data-autofocus aria-label="Search">
+  <div class="search-modal" role="dialog" aria-modal="true" aria-label="Search">
+    <form action="{{ routes.search_url }}" method="get" role="search" class="sm__bar">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="8.5"/><path d="M17 17l5 5"/></svg>
+      <input type="search" name="q" placeholder="{{ settings.search_placeholder | escape }}" autocomplete="off" data-autofocus aria-label="Search" role="combobox" aria-expanded="false" aria-controls="PsList">
       <input type="hidden" name="options[prefix]" value="last">
-      <button type="button" class="icon-btn" data-close="search" aria-label="Close search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button type="button" class="sm__esc" data-close="search"><span class="sm__esc-d">ESC</span><span class="sm__esc-m">Close</span></button>
     </form>
+    <div class="sm__filters" role="tablist">
+      <button type="button" class="sm__filter is-active" data-ps-filter="product,collection,page,article">All</button>
+      <button type="button" class="sm__filter" data-ps-filter="product,collection">Products</button>
+      <button type="button" class="sm__filter" data-ps-filter="article,page">Stories</button>
+    </div>
     {%- assign terms = settings.search_terms | split: ',' -%}
     {%- if terms.size > 0 -%}
-      <div class="ps-block" data-ps-chips>
-        <span class="eyebrow ps-label">Popular searches</span>
-        <div class="chips">
-          {%- for t in terms -%}{%- assign tt = t | strip -%}<a class="chip" href="{{ routes.search_url }}?q={{ tt | url_encode }}" data-chip="{{ tt | escape }}">{{ tt | escape }}</a>{%- endfor -%}
-        </div>
+      <div class="sm__popular" data-ps-chips>
+        <span>POPULAR</span>
+        {%- for t in terms -%}{%- assign tt = t | strip -%}<a href="{{ routes.search_url }}?q={{ tt | url_encode }}" data-chip="{{ tt | escape }}">{{ tt | escape }}</a>{%- endfor -%}
       </div>
     {%- endif -%}
-    <div data-ps-results></div>
+    <div class="sm__results" id="PsList" role="listbox" data-ps-results></div>
+    <div class="sm__foot">
+      <span class="sm__hint">↑↓ to navigate · ↵ to open</span>
+      <a class="sm__count" href="{{ routes.search_url }}" data-ps-count>Suggested</a>
+    </div>
   </div>
 </div>

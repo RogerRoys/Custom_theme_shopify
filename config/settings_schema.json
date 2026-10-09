@@ -90,6 +90,18 @@
         "type": "url",
         "id": "empty_cart_link",
         "label": "Empty bag button link"
+      },
+      {
+        "type": "product",
+        "id": "cart_upsell_product",
+        "label": "\"Pairs well with\" product",
+        "info": "Shown in the cart drawer when it is not already in the bag"
+      },
+      {
+        "type": "text",
+        "id": "cart_upsell_label",
+        "label": "Upsell label",
+        "default": "Pairs well with"
       }
     ]
   },

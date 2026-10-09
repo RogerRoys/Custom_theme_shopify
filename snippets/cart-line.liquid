@@ -3,7 +3,7 @@
     {%- if item.image -%}{{ item.image | image_url: width: 240 | image_tag: class: 'line__img', loading: 'lazy', alt: item.product.title }}{%- else -%}<span class="line__img"></span>{%- endif -%}
   </a>
   <div class="line__info">
-    <div class="line__row"><a href="{{ item.url }}">{{ item.product.title }}</a><span>{{ item.final_line_price | money }}</span></div>
+    <a href="{{ item.url }}" class="line__name">{{ item.product.title }}</a>
     {%- unless item.product.has_only_default_variant -%}<span class="line__sub">{{ item.variant.title }}</span>{%- endunless -%}
     {%- for prop in item.properties -%}
       {%- assign first_char = prop.first | slice: 0 -%}
@@ -11,12 +11,11 @@
     {%- endfor -%}
     {%- for discount in item.line_level_discount_allocations -%}<span class="line__sub">{{ discount.discount_application.title }} (−{{ discount.amount | money }})</span>{%- endfor -%}
     <div class="line__ctl">
-      <div class="qty">
-        <button type="button" data-line="{{ index }}" data-line-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease quantity">−</button>
-        <span aria-label="Quantity">{{ item.quantity }}</span>
-        <button type="button" data-line="{{ index }}" data-line-qty="{{ item.quantity | plus: 1 }}" aria-label="Increase quantity">+</button>
-      </div>
-      <button type="button" class="link-btn" data-line="{{ index }}" data-line-qty="0">Remove</button>
+      <button type="button" class="qty-dot" data-line="{{ index }}" data-line-qty="{{ item.quantity | minus: 1 }}" aria-label="Decrease quantity">−</button>
+      <span class="line__qty" aria-label="Quantity">{{ item.quantity }}</span>
+      <button type="button" class="qty-dot" data-line="{{ index }}" data-line-qty="{{ item.quantity | plus: 1 }}" aria-label="Increase quantity">+</button>
+      <button type="button" class="link-btn line__rm" data-line="{{ index }}" data-line-qty="0">Remove</button>
     </div>
   </div>
+  <span class="line__price">{{ item.final_line_price | money }}</span>
 </div>

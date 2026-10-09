@@ -1,7 +1,6 @@
 {%- liquid
   assign threshold = settings.free_shipping_threshold | times: 100
   assign total = cart.total_price
-  assign remaining = threshold | minus: total
   assign pct = 0
   if threshold > 0
     assign pct = total | times: 100 | divided_by: threshold
@@ -9,25 +8,34 @@
       assign pct = 100
     endif
   endif
+  assign up = settings.cart_upsell_product
+  assign show_up = false
+  if up != blank and up.available and cart.item_count > 0
+    assign show_up = true
+    for item in cart.items
+      if item.product_id == up.id
+        assign show_up = false
+      endif
+    endfor
+  endif
 -%}
 <div class="overlay" data-overlay="cart" id="CartDrawer" aria-hidden="true">
   <div class="overlay__scrim" data-close="cart"></div>
-  <div class="drawer drawer--right" role="dialog" aria-modal="true" aria-label="Your bag">
+  <div class="drawer drawer--card" role="dialog" aria-modal="true" aria-label="Your bag">
     <div class="cd" id="CartDrawerInner">
       <div class="cd__head">
-        <span class="cd__title">Your bag ({{ cart.item_count }})</span>
-        <button type="button" class="icon-btn" data-close="cart" aria-label="Close bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-      </div>
-      {%- if threshold > 0 -%}
-        <div class="cd__ship">
-          <span class="eyebrow">
-            {%- if total >= threshold -%}You’ve unlocked free shipping!
-            {%- elsif total > 0 -%}{{ remaining | money }} away from free shipping
-            {%- else -%}Free shipping on orders over {{ threshold | money_without_trailing_zeros }}{%- endif -%}
-          </span>
-          <div class="meter"><i style="width: {{ pct }}%"></i></div>
+        <div class="cd__head-row">
+          <span class="cd__title">Your bag ({{ cart.item_count }})</span>
+          <button type="button" class="round-btn" data-close="cart" aria-label="Close bag"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
         </div>
-      {%- endif -%}
+        {%- if threshold > 0 -%}
+          <div class="cd__ship-row">
+            <span>{% if total >= threshold %}FREE SHIPPING UNLOCKED{% else %}FREE SHIPPING{% endif %}</span>
+            <span>{% if total >= threshold %}{{ threshold | money_without_trailing_zeros }}{% else %}{{ total | money_without_trailing_zeros }}{% endif %} / {{ threshold | money_without_trailing_zeros }}</span>
+          </div>
+          <div class="meter meter--round"><i style="width: {{ pct }}%"></i></div>
+        {%- endif -%}
+      </div>
       <div class="cd__items">
         {%- if cart.item_count == 0 -%}
           <div class="cd__empty">
@@ -37,14 +45,20 @@
           </div>
         {%- else -%}
           {%- for item in cart.items -%}{% render 'cart-line', item: item, index: forloop.index %}{%- endfor -%}
+          {%- if show_up -%}
+            {%- form 'product', up, class: 'upsell' -%}
+              <input type="hidden" name="id" value="{{ up.selected_or_first_available_variant.id }}">
+              {%- if up.featured_image -%}{{ up.featured_image | image_url: width: 160 | image_tag: class: 'upsell__img', loading: 'lazy', alt: up.title }}{%- else -%}<span class="upsell__img"></span>{%- endif -%}
+              <span class="upsell__info"><span class="upsell__label">{{ settings.cart_upsell_label | default: 'PAIRS WELL WITH' | upcase }}</span><span class="upsell__name">{{ up.title }}</span></span>
+              <button type="submit" class="upsell__btn">+ {{ up.price | money_without_trailing_zeros }}</button>
+            {%- endform -%}
+          {%- endif -%}
         {%- endif -%}
       </div>
       {%- if cart.item_count > 0 -%}
         <form action="{{ routes.cart_url }}" method="post" class="cd__foot">
-          <div class="cd__total"><span>Subtotal</span><span>{{ cart.total_price | money }}</span></div>
-          <p class="cd__note">Shipping and taxes calculated at checkout.</p>
-          <button type="submit" name="checkout" class="btn btn--ink">Checkout · {{ cart.total_price | money }}</button>
-          <a href="{{ routes.cart_url }}" class="link-btn">View bag</a>
+          <button type="submit" name="checkout" class="checkout-btn"><span>CHECKOUT</span><span>{{ cart.total_price | money }} →</span></button>
+          <span class="cd__note">Taxes &amp; shipping calculated at checkout · <a href="{{ routes.cart_url }}">View bag</a></span>
         </form>
       {%- endif -%}
     </div>

@@ -1,40 +1,44 @@
-<div id="PredictiveResults">
+{%- liquid
+  assign total = 0
+  if predictive_search.performed
+    assign r = predictive_search.resources
+    assign total = r.products.size | plus: r.collections.size | plus: r.pages.size | plus: r.articles.size
+  endif
+-%}
+<div id="PredictiveResults" data-count="{{ total }}">
   {%- if predictive_search.performed -%}
-    {%- liquid
-      assign r = predictive_search.resources
-      assign total = r.products.size | plus: r.collections.size | plus: r.pages.size | plus: r.articles.size
-    -%}
-    <div class="ps-block">
-      <span class="eyebrow ps-label">{{ total }} {% if total == 1 %}result{% else %}results{% endif %}</span>
-      {%- if total == 0 -%}
-        <p class="ps-empty">No results for “{{ predictive_search.terms | escape }}”. Try “biscuits” or “bandana”.</p>
-      {%- else -%}
-        <div class="ps-grid">
-          {%- for p in r.products -%}
-            <a class="ps-item" href="{{ p.url }}">
-              {%- if p.featured_image -%}{{ p.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: p.title }}{%- else -%}<span class="ps-ph"></span>{%- endif -%}
-              <span class="ps-info"><span class="ps-kind">Product · {{ p.price | money }}</span><span class="ps-title">{{ p.title }}</span><span class="ps-sub">{{ p.description | strip_html | truncate: 90 }}</span></span>
-            </a>
-          {%- endfor -%}
-          {%- for c in r.collections -%}
-            <a class="ps-item" href="{{ c.url }}">
-              {%- if c.featured_image -%}{{ c.featured_image | image_url: width: 160 | image_tag: loading: 'lazy', alt: c.title }}{%- else -%}<span class="ps-ph"></span>{%- endif -%}
-              <span class="ps-info"><span class="ps-kind">Collection</span><span class="ps-title">{{ c.title }}</span><span class="ps-sub">{{ c.products_count }} products</span></span>
-            </a>
-          {%- endfor -%}
-          {%- for pg in r.pages -%}
-            <a class="ps-item" href="{{ pg.url }}"><span class="ps-ph"></span><span class="ps-info"><span class="ps-kind">Page</span><span class="ps-title">{{ pg.title }}</span><span class="ps-sub">{{ pg.content | strip_html | truncate: 90 }}</span></span></a>
-          {%- endfor -%}
-          {%- for a in r.articles -%}
-            <a class="ps-item" href="{{ a.url }}">
-              {%- if a.image -%}{{ a.image | image_url: width: 160 | image_tag: loading: 'lazy', alt: a.title }}{%- else -%}<span class="ps-ph"></span>{%- endif -%}
-              <span class="ps-info"><span class="ps-kind">Story</span><span class="ps-title">{{ a.title }}</span><span class="ps-sub">{{ a.excerpt_or_content | strip_html | truncate: 90 }}</span></span>
-            </a>
-          {%- endfor -%}
-        </div>
-        <a class="btn" href="{{ routes.search_url }}?q={{ predictive_search.terms | url_encode }}&options[prefix]=last">View all results</a>
-      {%- endif -%}
-    </div>
+    {%- if total == 0 -%}
+      <p class="sm__empty">No results for “{{ predictive_search.terms | escape }}”. Try “biscuits” or “bandana”.</p>
+    {%- else -%}
+      {%- for p in r.products -%}
+        <a class="ps-row" role="option" href="{{ p.url }}">
+          {%- if p.featured_image -%}{{ p.featured_image | image_url: width: 120 | image_tag: class: 'ps-row__img', loading: 'lazy', alt: '' }}{%- else -%}<span class="ps-row__img"></span>{%- endif -%}
+          <span class="ps-row__info"><span class="ps-row__title" data-hl>{{ p.title }}</span><span class="ps-row__sub">{{ p.description | strip_html | truncate: 80 }}</span></span>
+          <span class="ps-row__right">{{ p.price | money_without_trailing_zeros }}</span>
+        </a>
+      {%- endfor -%}
+      {%- for c in r.collections -%}
+        <a class="ps-row" role="option" href="{{ c.url }}">
+          {%- if c.featured_image -%}{{ c.featured_image | image_url: width: 120 | image_tag: class: 'ps-row__img', loading: 'lazy', alt: '' }}{%- else -%}<span class="ps-row__img"></span>{%- endif -%}
+          <span class="ps-row__info"><span class="ps-row__title" data-hl>{{ c.title }}</span><span class="ps-row__sub">Collection · {{ c.products_count }} products</span></span>
+          <span class="ps-row__right">→</span>
+        </a>
+      {%- endfor -%}
+      {%- for a in r.articles -%}
+        <a class="ps-row" role="option" href="{{ a.url }}">
+          {%- if a.image -%}{{ a.image | image_url: width: 120 | image_tag: class: 'ps-row__img', loading: 'lazy', alt: '' }}{%- else -%}<span class="ps-row__img"></span>{%- endif -%}
+          <span class="ps-row__info"><span class="ps-row__title" data-hl>{{ a.title }}</span><span class="ps-row__sub">Story · {{ a.excerpt_or_content | strip_html | truncate: 70 }}</span></span>
+          <span class="ps-row__right">→</span>
+        </a>
+      {%- endfor -%}
+      {%- for pg in r.pages -%}
+        <a class="ps-row" role="option" href="{{ pg.url }}">
+          <span class="ps-row__img"></span>
+          <span class="ps-row__info"><span class="ps-row__title" data-hl>{{ pg.title }}</span><span class="ps-row__sub">Page · {{ pg.content | strip_html | truncate: 70 }}</span></span>
+          <span class="ps-row__right">→</span>
+        </a>
+      {%- endfor -%}
+    {%- endif -%}
   {%- endif -%}
 </div>
 {% schema %}
