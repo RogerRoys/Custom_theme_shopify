@@ -111,7 +111,7 @@
     const v = e.target; if (e.isIntersecting && visible(v)) playV(v); else v.pause();
   }), { threshold: 0.2 }) : null;
   function observeVideos(root) {
-    $('.jcard__video', root || document).forEach(v => { if (v._vo) return; v._vo = 1; v.muted = true; if (vio) vio.observe(v); else playV(v); });
+    $$('.jcard__video', root || document).forEach(v => { if (v._vo) return; v._vo = 1; v.muted = true; if (vio) vio.observe(v); else playV(v); });
   }
 
   /* ---------- Hero slideshow ---------- */
@@ -249,9 +249,9 @@
     const oldMeter = $('.meter i', cur), newMeter = $('.meter i', next);
     const from = oldMeter ? oldMeter.style.width : '0%', to = newMeter ? newMeter.style.width : '';
     if (newMeter) newMeter.style.width = from;
-    $(':scope > *', next).forEach(x => { x.style.transition = 'none'; });
+    $$(':scope > *', next).forEach(x => { x.style.transition = 'none'; });
     cur.replaceWith(next);
-    requestAnimationFrame(() => requestAnimationFrame(() => $(':scope > *', next).forEach(x => { x.style.transition = ''; })));
+    requestAnimationFrame(() => requestAnimationFrame(() => $$(':scope > *', next).forEach(x => { x.style.transition = ''; })));
     if (newMeter) requestAnimationFrame(() => requestAnimationFrame(() => { newMeter.style.width = to; }));
   }
   async function addToCart(form) {

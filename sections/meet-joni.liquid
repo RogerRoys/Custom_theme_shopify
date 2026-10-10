@@ -21,9 +21,9 @@
         <div class="jcard" data-reveal style="--d: {{ forloop.index0 | times: 120 }}ms" {{ block.shopify_attributes }}>
           <div class="jcard__media">
             {%- if block.settings.media_type == 'video' and block.settings.video != blank -%}
-              {{ block.settings.video | video_tag: image_size: '1000x', loop: true, muted: true, controls: false, playsinline: true, preload: 'metadata', class: 'jcard__video' }}
+              {{ block.settings.video | video_tag: image_size: '1000x', autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'auto', class: 'jcard__video' }}
             {%- elsif block.settings.media_type == 'video' and block.settings.video_url != blank -%}
-              <video class="jcard__video" src="{{ block.settings.video_url }}" loop muted playsinline preload="metadata"{% if block.settings.image != blank %} poster="{{ block.settings.image | image_url: width: 1000 }}"{% endif %}></video>
+              <video class="jcard__video" src="{{ block.settings.video_url }}" autoplay loop muted playsinline preload="auto"{% if block.settings.image != blank %} poster="{{ block.settings.image | image_url: width: 1000 }}"{% endif %}></video>
             {%- elsif block.settings.image != blank -%}
               {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', widths: '500,750,1000', sizes: '(min-width: 900px) 33vw, 100vw', alt: block.settings.image.alt }}
             {%- else -%}
