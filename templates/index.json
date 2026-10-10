@@ -56,6 +56,7 @@
         "slide_2"
       ],
       "settings": {
+        "height": "adapt",
         "autoplay": true,
         "speed": 6.5
       }
@@ -112,6 +113,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/Copy_of_MomeMade-41_1.jpg",
             "title": "Dog Biscuits",
             "tag": "Kitchen-baked · Plant-based · Limited ingredient",
             "tag_color": "#d4a0c0",
@@ -126,6 +128,7 @@
           "type": "product",
           "settings": {
             "product": "",
+            "image": "shopify://shop_images/MomeMade-83_1.jpg",
             "title": "Dog Bandanas",
             "tag": "Low-impact fabrics · Reversible · No plastic",
             "tag_color": "#84c99a",
@@ -349,7 +352,11 @@
         "body": "<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p>Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p><p>So I made her a promise: “I'll help you figure it out.”</p><p>While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p>Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>",
         "button_label": "Shop biscuits",
         "button_link": "",
-        "image": "shopify://shop_images/MomeMade-167_1.jpg"
+        "image": "shopify://shop_images/MomeMade-167_1.jpg",
+        "cards_hide_desktop": false,
+        "cards_hide_mobile": false,
+        "hide_desktop": false,
+        "hide_mobile": false
       }
     }
   },
