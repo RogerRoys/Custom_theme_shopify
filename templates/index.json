@@ -317,15 +317,16 @@
           "settings": {
             "media_type": "image",
             "video_url": "",
-            "caption": "At MOMEMADE, we know it's not <b>JUST</b> a dog"
+            "caption": "At MOMEMADE, we know it's not <strong>JUST</strong> a dog"
           }
         },
         "c2": {
           "type": "card",
           "settings": {
             "media_type": "image",
+            "image": "shopify://shop_images/MomeMade-170_1.jpg",
             "video_url": "",
-            "caption": "And this isn't <b>JUST</b> a treat."
+            "caption": "And this isn't <strong>JUST</strong> a treat."
           }
         },
         "c3": {
@@ -347,7 +348,8 @@
         "heading": "The dog who\nstarted it all.",
         "body": "<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p>Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p><p>So I made her a promise: “I'll help you figure it out.”</p><p>While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p>Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>",
         "button_label": "Shop biscuits",
-        "button_link": ""
+        "button_link": "",
+        "image": "shopify://shop_images/MomeMade-167_1.jpg"
       }
     }
   },
