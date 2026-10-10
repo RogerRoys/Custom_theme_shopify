@@ -1,4 +1,4 @@
-<section class="section joni" id="story">
+<section class="section joni{% if section.settings.hide_mobile %} hide-m{% endif %}{% if section.settings.hide_desktop %} hide-d{% endif %}" id="story">
   <div class="joni__top">
     <div class="joni__copy" data-reveal>
       {%- if section.settings.eyebrow != blank -%}<span class="eyebrow">{{ section.settings.eyebrow | escape }}</span>{%- endif -%}
@@ -15,7 +15,7 @@
     </div>
   </div>
   {%- if section.blocks.size > 0 -%}
-    <div class="joni__cards">
+    <div class="joni__cards{% if section.settings.cards_hide_mobile %} hide-m{% endif %}{% if section.settings.cards_hide_desktop %} hide-d{% endif %}">
       {%- for block in section.blocks -%}
         {%- assign n = forloop.index0 | modulo: 3 | plus: 1 -%}
         <div class="jcard" data-reveal style="--d: {{ forloop.index0 | times: 120 }}ms" {{ block.shopify_attributes }}>
@@ -43,7 +43,12 @@
 {"type":"richtext","id":"body","label":"Story","default":"<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies.</p>"},
 {"type":"text","id":"button_label","label":"Button label","default":"Shop biscuits"},
 {"type":"url","id":"button_link","label":"Button link"},
-{"type":"image_picker","id":"image","label":"Image"}],
+{"type":"image_picker","id":"image","label":"Image"},
+{"type":"header","content":"Visibility"},
+{"type":"checkbox","id":"cards_hide_desktop","label":"Hide photo cards on desktop","default":false},
+{"type":"checkbox","id":"cards_hide_mobile","label":"Hide photo cards on mobile","default":false},
+{"type":"checkbox","id":"hide_desktop","label":"Hide whole section on desktop","default":false},
+{"type":"checkbox","id":"hide_mobile","label":"Hide whole section on mobile","default":false}],
 "blocks":[{"type":"card","name":"Photo / video card","settings":[{"type":"select","id":"media_type","label":"Media type","options":[{"value":"image","label":"Image"},{"value":"video","label":"Video"}],"default":"image"},{"type":"image_picker","id":"image","label":"Image","info":"Also used as the video cover while it loads"},{"type":"video","id":"video","label":"Video","info":"Upload to Shopify. Plays muted on loop when scrolled into view."},{"type":"url","id":"video_url","label":"Or video URL (.mp4)"},{"type":"inline_richtext","id":"caption","label":"Caption","default":"It’s <b>love</b>"}]}],
 "max_blocks":3,
 "presets":[{"name":"Meet Joni","blocks":[{"type":"card"},{"type":"card"},{"type":"card"}]}]}

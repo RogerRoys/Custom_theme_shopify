@@ -1,4 +1,30 @@
-<hero-slideshow class="hero" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}" aria-roledescription="carousel">
+{%- liquid
+  assign ar_d = ''
+  assign ar_m = ''
+  assign b0 = section.blocks.first
+  if b0 and section.settings.height == 'adapt'
+    if b0.settings.desktop_type == 'video' and b0.settings.video != blank
+      assign ar_d = b0.settings.video.aspect_ratio
+    elsif b0.settings.image != blank
+      assign ar_d = b0.settings.image.aspect_ratio
+      if b0.settings.image_2 != blank
+        assign ar_d = ar_d | plus: b0.settings.image_2.aspect_ratio
+      endif
+    endif
+    if b0.settings.mobile_type == 'video' and b0.settings.mobile_video != blank
+      assign ar_m = b0.settings.mobile_video.aspect_ratio
+    elsif b0.settings.mobile_type == 'image' and b0.settings.mobile_image != blank
+      assign ar_m = b0.settings.mobile_image.aspect_ratio
+    elsif b0.settings.mobile_type == 'same'
+      if b0.settings.desktop_type == 'video' and b0.settings.video != blank
+        assign ar_m = b0.settings.video.aspect_ratio
+      elsif b0.settings.image != blank
+        assign ar_m = b0.settings.image.aspect_ratio
+      endif
+    endif
+  endif
+-%}
+<hero-slideshow class="hero{% if ar_d != '' %} hero--adapt-d{% endif %}{% if ar_m != '' %} hero--adapt-m{% endif %}" style="{% if ar_d != '' %}--ar-d: {{ ar_d }};{% endif %}{% if ar_m != '' %}--ar-m: {{ ar_m }};{% endif %}" data-autoplay="{{ section.settings.autoplay }}" data-speed="{{ section.settings.speed }}" aria-roledescription="carousel">
   {%- for block in section.blocks -%}
     {%- liquid
       if forloop.first
@@ -87,6 +113,7 @@
 </hero-slideshow>
 {% schema %}
 {"name":"Hero slideshow","tag":"section","class":"section-hero","settings":[
+{"type":"select","id":"height","label":"Hero height","options":[{"value":"adapt","label":"Adapt to first slide's image / video"},{"value":"full","label":"Fill screen (may crop)"}],"default":"adapt","info":"Adapt shows your media at its uploaded size — no cropping. Use the same size for every slide."},
 {"type":"checkbox","id":"autoplay","label":"Auto-rotate slides","default":true},
 {"type":"range","id":"speed","min":4,"max":12,"step":0.5,"unit":"s","label":"Time per slide","default":6.5}],
 "blocks":[{"type":"slide","name":"Slide","settings":[

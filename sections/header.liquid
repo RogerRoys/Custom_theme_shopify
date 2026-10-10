@@ -4,7 +4,7 @@
     assign overlay = true
   endif
 -%}
-<header class="header{% if overlay %} header--overlay{% endif %}" style="--logo-h: {{ section.settings.logo_height }}px">
+<header class="header{% if overlay %} header--overlay{% endif %}" style="--logo-h: {{ section.settings.logo_height }}px; --logo-h-m: {{ section.settings.logo_height_mobile }}px">
   <a href="{{ routes.root_url }}" class="header__logo" aria-label="{{ shop.name }}">
     {%- if section.settings.logo != blank -%}
       {{ section.settings.logo | image_url: width: 600 | image_tag: alt: shop.name, loading: 'eager' }}
@@ -74,7 +74,8 @@
 {% schema %}
 {"name":"Header","class":"section-header","enabled_on":{"groups":["header"]},"settings":[
 {"type":"image_picker","id":"logo","label":"Logo","info":"Leave empty to use the built-in MOMEMADE logo"},
-{"type":"range","id":"logo_height","min":24,"max":72,"step":2,"unit":"px","label":"Logo height","default":40},
+{"type":"range","id":"logo_height","min":20,"max":80,"step":2,"unit":"px","label":"Logo height — desktop","default":40},
+{"type":"range","id":"logo_height_mobile","min":16,"max":60,"step":2,"unit":"px","label":"Logo height — mobile","default":30},
 {"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},
 {"type":"checkbox","id":"transparent_home","label":"Transparent over the home hero","default":true},
 {"type":"header","content":"Mobile menu"},

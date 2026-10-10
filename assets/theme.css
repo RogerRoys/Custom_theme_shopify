@@ -542,3 +542,20 @@ review-slider{display:flex;flex-direction:column;align-items:center;gap:48px;wid
 .drawer--card .meter--round{width:100%;display:block}
 .drawer--card .cd__items{align-items:stretch}
 .drawer--card .line{width:100%;text-align:left}
+
+/* Logo sizes + visibility */
+@media (max-width:959px){.header__logo img{height:var(--logo-h-m,30px)}}
+.footer__logo img{width:var(--flogo-w,356px)}
+@media (max-width:759px){.footer__logo img{width:var(--flogo-w-m,240px)}}
+@media (min-width:760px){.hide-d{display:none !important}}
+@media (max-width:759px){.hide-m{display:none !important}}
+
+/* Hero: adapt to media size (no crop) */
+.hero__media img,.hero__media video{object-position:50% 0}
+.hero.hero--adapt-d{height:auto;min-height:0;aspect-ratio:var(--ar-d)}
+@media (max-width:759px){
+  .hero.hero--adapt-d{height:720px;aspect-ratio:auto}
+  .hero.hero--adapt-m{height:auto;min-height:0;aspect-ratio:var(--ar-m)}
+}
+/* Theme editor: never hide content while editing */
+html.is-design-mode [data-reveal]{opacity:1;transform:none;transition:none}

@@ -97,8 +97,8 @@
   function observe(root) {
     $$('[data-reveal], [data-inview]', root || document).forEach(el => {
       if (el._obs) return; el._obs = 1;
-      if (io && !reduce) {
-        $$('[data-count]', el).forEach(c => { if (!c._done) c.textContent = '0'; });
+      if (io && !reduce && !designMode) {
+        $('[data-count]', el).forEach(c => { if (!c._done) c.textContent = '0'; });
         io.observe(el);
       } else reveal(el);
     });
@@ -382,7 +382,8 @@
   /* ---------- Init ---------- */
   function init(root) { initHeader(); initSearch(); observe(root); observeVideos(root); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => init()); else init();
-  document.addEventListener('shopify:section:load', e => init(e.target));
+  document.addEventListener('shopify:section:load', e => { init(e.target); $('[data-reveal], [data-inview]', e.target).forEach(reveal); });
+  ['shopify:section:select', 'shopify:section:reorder', 'shopify:block:select'].forEach(ev => document.addEventListener(ev, e => $('[data-reveal], [data-inview]', e.target).forEach(el => el.classList.contains('is-in') || reveal(el))));
   window.Momemade = Object.assign(M, { openOverlay: openOv, closeOverlay: closeOv, toast, money });
   if (designMode) document.documentElement.classList.add('is-design-mode');
 })();
