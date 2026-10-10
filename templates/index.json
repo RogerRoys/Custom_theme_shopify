@@ -332,9 +332,9 @@
         "c3": {
           "type": "card",
           "settings": {
-            "media_type": "image",
-            "video_url": "",
-            "caption": "<b>It's love</b>"
+            "media_type": "video",
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/dff2d4b3d8a74bf785ccf958d8dded2b.mov",
+            "caption": "<strong>It's love</strong>"
           }
         }
       },
