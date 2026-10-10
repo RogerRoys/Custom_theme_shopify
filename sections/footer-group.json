@@ -14,6 +14,7 @@
     "footer": {
       "type": "footer",
       "settings": {
+        "logo": "shopify://shop_images/MM_Logo.svg",
         "show_newsletter": true,
         "eyebrow": "Stay in touch",
         "heading": "Stay. Stay. Stay in touch.",
