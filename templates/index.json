@@ -357,7 +357,7 @@
         "cards_hide_desktop": false,
         "cards_hide_mobile": false,
         "hide_desktop": false,
-        "hide_mobile": false
+        "hide_mobile": true
       }
     }
   },
