@@ -298,6 +298,7 @@
     "mission": {
       "type": "mission",
       "settings": {
+        "image": "shopify://shop_images/image_1.jpg",
         "stat": 96,
         "stat_label": "Bags donated · every one personally delivered by Michele",
         "caption": "@ulstercountycanines · Saugerties, NY",
