@@ -1,5 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "current": "Default",
+  "current": {
+    "font_display_regular_url": "https://cdn.shopify.com/s/files/1/0799/4972/5732/files/Century_Gothic_Regular.ttf?v=1791719450",
+    "font_display_bold_url": "https://cdn.shopify.com/s/files/1/0799/4972/5732/files/Century_Gothic_Bold.ttf?v=1791719346",
+    "color_ink": "#090B00",
+    "color_bg": "#F5DFE2",
+    "color_pink": "#F5DBDF",
+    "color_lilac": "#D49ED7",
+    "color_mint": "#84C99A",
+    "cart_type": "drawer",
+    "free_shipping_threshold": 50,
+    "sections": {
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
     "Default": {
       "color_ink": "#090B00",
