@@ -570,3 +570,14 @@ html.is-design-mode [data-reveal]{opacity:1;transform:none;transition:none}
 .rcard__vid{cursor:pointer}
 @media (max-width:759px){.rcard{grid-template-columns:minmax(0,1fr)}.rcard__media{height:200px;max-width:100%;justify-self:center}}
 @media (min-width:900px){.joni__cards{display:flex}.joni__cards > .jcard{flex:1 1 0;min-width:0}}
+/* Testimonials v1.9: no grey fill, mobile full-width */
+.rcard__media{background:transparent}
+.rcard__media::after{display:none}
+.rcard__play{box-shadow:0 6px 18px rgba(0,0,0,.25)}
+@media (max-width:759px){
+  .rslider{height:auto}
+  .rslider__track{position:relative;align-items:stretch}
+  .rcard{height:auto;flex-basis:calc(100vw - 40px);grid-template-rows:auto auto;gap:18px}
+  .rcard__media{width:100%;height:auto;max-width:none;justify-self:stretch;aspect-ratio:var(--ar,.58)}
+  .rcard__media img,.rcard__media video{object-fit:cover}
+}
