@@ -25,9 +25,9 @@
             "size": "lg",
             "text": "",
             "button_1_label": "Shop biscuits",
-            "button_1_link": "",
+            "button_1_link": "#",
             "button_2_label": "Shop bandanas",
-            "button_2_link": ""
+            "button_2_link": "#"
           }
         },
         "slide_2": {
@@ -45,9 +45,9 @@
             "size": "md",
             "text": "Kitchen-baked, plant-based, limited ingredient biscuits. Reversible bandanas hand-sewn from surplus, thrifted, and upcycled fabrics.",
             "button_1_label": "Shop biscuits",
-            "button_1_link": "",
+            "button_1_link": "#",
             "button_2_label": "Shop bandanas",
-            "button_2_link": ""
+            "button_2_link": "#"
           }
         }
       },
@@ -121,7 +121,7 @@
             "text": "Kitchen-baked, limited ingredient biscuits for dogs with allergies and sensitive stomachs — made in a kitchen, not a factory. You could make these yourself — we just did it for you.",
             "button_label": "Shop biscuits",
             "btn_style": "",
-            "link": ""
+            "link": "#"
           }
         },
         "bandanas": {
@@ -136,7 +136,7 @@
             "text": "Handmade from surplus, thrifted, and upcycled fabrics. Reversible — two looks, one bandana. Each design made once. When they’re gone, they’re gone.",
             "button_label": "Shop bandanas",
             "btn_style": "btn--mint",
-            "link": ""
+            "link": "#"
           }
         }
       },
@@ -318,7 +318,7 @@
         "heading": "Rescue is at the heart of MOMEMADE.",
         "text": "Rescue isn’t a campaign for us — it’s who we are. We choose to support Ulster County Canines because they’re small and mighty, just like us. They operate on donations alone and frequently run out of treats.",
         "button_label": "Read our story",
-        "button_link": "#story"
+        "button_link": "#"
       }
     },
     "joni": {
@@ -368,7 +368,7 @@
         "heading": "The dog who\nstarted it all.",
         "body": "<p>When my daughter Alana adopted Joni, the rescue suspected she had allergies. Poor Joni's incessant scratching quickly led to bleeding and concern. Weeks later, having run through all the typical treatments for skin allergies, the vet recommended a specialist.</p><p>Alana called me sobbing as she sensed that Joni's needs were beyond her scope.</p><p>So I made her a promise: “I'll help you figure it out.”</p><p>While Alana took Joni to a veterinary dermatologist, I went into my kitchen and made a simple cookie I hoped Joni could enjoy safely.</p><p>Today, Joni gets weekly allergy shots and medicated baths, both of which she hates. But she tolerates them, because she always gets a MOMEMADE afterwards.</p>",
         "button_label": "Shop biscuits",
-        "button_link": "",
+        "button_link": "#",
         "image": "shopify://shop_images/MomeMade-167_1.jpg",
         "cards_hide_desktop": false,
         "cards_hide_mobile": false,
