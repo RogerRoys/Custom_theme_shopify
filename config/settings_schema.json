@@ -1,11 +1,30 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "Momemade v1.9",
-    "theme_version": "1.9.0",
+    "theme_name": "Momemade v1.11",
+    "theme_version": "1.11.0",
     "theme_author": "Roys Studio",
     "theme_documentation_url": "https://roys.studio",
     "theme_support_url": "https://roys.studio"
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Phones don't have Century Gothic installed, so mobile shows a fallback font. Upload your Century Gothic font files (.woff2 or .ttf) in Content → Files, copy each file's URL and paste it below — then every device shows the same font."
+      },
+      {
+        "type": "text",
+        "id": "font_display_regular_url",
+        "label": "Century Gothic Regular — file URL"
+      },
+      {
+        "type": "text",
+        "id": "font_display_bold_url",
+        "label": "Century Gothic Bold — file URL"
+      }
+    ]
   },
   {
     "name": "Colors",

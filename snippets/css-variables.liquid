@@ -1,3 +1,15 @@
+{%- liquid
+  assign f_reg = settings.font_display_regular_url
+  assign f_bold = settings.font_display_bold_url
+-%}
+<style>
+  @font-face{font-family:"Momemade Display";font-weight:400;font-style:normal;font-display:swap;
+    src:local("Century Gothic"),local("CenturyGothic")
+    {%- if f_reg != blank -%},url("{{ f_reg }}"){%- endif -%};}
+  @font-face{font-family:"Momemade Display";font-weight:700;font-style:normal;font-display:swap;
+    src:local("Century Gothic Bold"),local("CenturyGothic-Bold")
+    {%- if f_bold != blank -%},url("{{ f_bold }}"){%- elsif f_reg != blank -%},url("{{ f_reg }}"){%- endif -%};}
+</style>
 <style>
   :root{
     --ink: {{ settings.color_ink }};
