@@ -583,9 +583,8 @@ html.is-design-mode [data-reveal]{opacity:1;transform:none;transition:none}
 }
 @media (max-width:759px){.footer__links{justify-content:center;gap:28px 24px}.footer__links a{font-size:13px;letter-spacing:.04em}.footer__copy{text-align:center}}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
-/* Testimonials v1.12: full text, smaller media (no crop) */
+/* Testimonials v1.13: full text, design image size */
 .rcard__text{display:block;-webkit-line-clamp:unset;overflow:visible}
 .rcard__copy{overflow-y:auto;scrollbar-width:thin}
-.rcard__media img,.rcard__media video{object-fit:contain}
-@media (min-width:760px){.rslider{height:480px}.rcard__media{width:180px;max-width:180px;height:auto;aspect-ratio:var(--ar,.58);align-self:center}}
-@media (max-width:759px){.rcard__media{width:auto;height:220px;max-width:100%;aspect-ratio:var(--ar,.58);justify-self:start}}
+@media (min-width:760px){.rslider{height:480px}.rcard{grid-template-columns:minmax(0,1fr) 220px}.rcard__media{width:220px;max-width:220px;height:100%;aspect-ratio:auto;align-self:stretch}.rcard__media img,.rcard__media video{object-fit:cover}}
+@media (max-width:759px){.rcard{grid-template-rows:minmax(0,1fr) 220px}.rcard__media{width:100%;height:220px;max-width:100%;aspect-ratio:auto;justify-self:stretch}.rcard__media img,.rcard__media video{object-fit:cover}}
