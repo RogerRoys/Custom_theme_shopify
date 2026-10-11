@@ -559,3 +559,13 @@ review-slider{display:flex;flex-direction:column;align-items:center;gap:48px;wid
 }
 /* Theme editor: never hide content while editing */
 html.is-design-mode [data-reveal]{opacity:1;transform:none;transition:none}
+
+/* Testimonials: media at its own size (no crop) + inline video */
+.rcard{grid-template-columns:minmax(0,1fr) auto}
+.rcard__media{height:100%;aspect-ratio:var(--ar,.58);max-width:360px;justify-self:end}
+.rcard__media img,.rcard__media video{width:100%;height:100%;object-fit:contain;display:block}
+.rcard__media::after{transition:opacity var(--t-micro) var(--ease)}
+.rcard__media.is-playing::after,.rcard__media.is-playing .rcard__play{opacity:0;pointer-events:none}
+.rcard__play{transition:transform var(--t-micro) var(--ease),opacity var(--t-micro) var(--ease)}
+.rcard__vid{cursor:pointer}
+@media (max-width:759px){.rcard{grid-template-columns:minmax(0,1fr)}.rcard__media{height:200px;max-width:100%;justify-self:center}}

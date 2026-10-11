@@ -19,13 +19,32 @@
               <p class="rcard__text">{{ block.settings.text | escape }}</p>
               <span class="rcard__name">{{ block.settings.name | escape }}</span>
             </div>
-            <div class="rcard__media">
-              {%- if block.settings.image != blank -%}
-                {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', widths: '300,450,600', sizes: '220px', alt: block.settings.name }}
+{%- liquid
+              assign ar = 0.58
+              if block.settings.video_file != blank
+                assign ar = block.settings.video_file.aspect_ratio
+              elsif block.settings.image != blank
+                assign ar = block.settings.image.aspect_ratio
+              endif
+            -%}
+            <div class="rcard__media" style="--ar: {{ ar }}">
+              {%- if block.settings.video_file != blank -%}
+                {%- liquid
+                  assign poster = block.settings.video_file.preview_image
+                  if block.settings.image != blank
+                    assign poster = block.settings.image
+                  endif
+                -%}
+                {{ block.settings.video_file | video_tag: class: 'rcard__vid', playsinline: true, loop: true, preload: 'none', image_size: '800x', poster: poster }}
+                <button type="button" class="rcard__play" data-rplay aria-label="Play video review"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></button>
               {%- else -%}
-                <img src="{{ 'review-' | append: n | append: '-c.jpg' | asset_url }}" alt="" loading="lazy" width="440" height="760">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', widths: '400,600,800', sizes: '360px', alt: block.settings.name }}
+                {%- else -%}
+                  <img src="{{ 'review-' | append: n | append: '-c.jpg' | asset_url }}" alt="" loading="lazy" width="440" height="760">
+                {%- endif -%}
+                {%- if block.settings.video != blank -%}<a class="rcard__play" href="{{ block.settings.video }}" target="_blank" rel="noopener" aria-label="Play video review"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></a>{%- endif -%}
               {%- endif -%}
-              {%- if block.settings.video != blank -%}<a class="rcard__play" href="{{ block.settings.video }}" target="_blank" rel="noopener" aria-label="Play video review"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5v14l11-7z"/></svg></a>{%- endif -%}
             </div>
           </article>
         {%- endfor -%}
@@ -51,6 +70,7 @@
 {"type":"textarea","id":"text","label":"Review"},
 {"type":"text","id":"name","label":"Name","default":"Debbie B. - Mom of Roxy"},
 {"type":"image_picker","id":"image","label":"Photo"},
-{"type":"url","id":"video","label":"Video link","info":"Optional — shows a play button"}]}],
+{"type":"video","id":"video_file","label":"Video","info":"Upload a video — plays right in the card. The photo above is used as the cover."},
+{"type":"url","id":"video","label":"Or video link (YouTube etc.)","info":"Opens in a new tab. Ignored if a video is uploaded."}]}],
 "presets":[{"name":"Testimonials","blocks":[{"type":"review"},{"type":"review"},{"type":"review"}]}]}
 {% endschema %}

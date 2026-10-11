@@ -232,6 +232,16 @@
     }
   }
   if (!customElements.get('review-slider')) customElements.define('review-slider', ReviewSlider);
+  const stopReviewVideos = except => $('.rcard__vid').forEach(v => { if (v !== except && !v.paused) { v.pause(); v.closest('.rcard__media').classList.remove('is-playing'); } });
+  document.addEventListener('click', e => {
+    const media = e.target.closest && e.target.closest('.rcard__media'); if (!media) return;
+    const v = $('.rcard__vid', media); if (!v) return;
+    const card = media.closest('.rcard'); if (card && !card.classList.contains('is-active')) return;
+    e.preventDefault(); e.stopPropagation();
+    if (v.paused) { stopReviewVideos(v); v.muted = false; const p = v.play(); if (p && p.catch) p.catch(() => { v.muted = true; v.play().catch(() => {}); }); media.classList.add('is-playing'); }
+    else { v.pause(); media.classList.remove('is-playing'); }
+  }, true);
+  new MutationObserver(ms => ms.forEach(m => { const k = m.target; if (k.classList && k.classList.contains('rcard') && !k.classList.contains('is-active')) { const v = $('.rcard__vid', k); if (v && !v.paused) { v.pause(); $('.rcard__media', k).classList.remove('is-playing'); } } })).observe(document.documentElement, { subtree: true, attributes: true, attributeFilter: ['class'] });
 
   /* ---------- Cart ---------- */
   const isCartPage = () => document.body.classList.contains('template-cart');
