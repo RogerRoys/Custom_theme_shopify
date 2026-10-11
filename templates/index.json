@@ -282,7 +282,7 @@
             "title": "He has his own stash with the NYC doorman!",
             "text": "We live in Woodstock and NYC… he loves these treats. We leave them with the doorman and when he gets back from his walk he stops and has to eat one before he goes upstairs. It’s the cutest ever! We all laugh because the other dogs in the building get the generic stuff—Jax has his own stash of your treats haha.",
             "name": "Jennifer T. - Mom of Jax",
-            "image": "shopify://shop_images/faeca223d427b1925c39b38cec23333a4642b517.jpg",
+            "image": "shopify://shop_images/Promotion_Banner_27.jpg",
             "video": ""
           }
         }
@@ -325,8 +325,11 @@
           "type": "card",
           "settings": {
             "media_type": "image",
+            "image": "shopify://shop_images/Frame_133_1.jpg",
             "video_url": "",
-            "caption": "At MOMEMADE, we know it's not <strong>JUST</strong> a dog"
+            "caption": "At MOMEMADE, we know it's not <strong>JUST</strong> a dog",
+            "hide_desktop": false,
+            "hide_mobile": true
           }
         },
         "c2": {
@@ -335,7 +338,9 @@
             "media_type": "image",
             "image": "shopify://shop_images/MomeMade-170_1.jpg",
             "video_url": "",
-            "caption": "And this isn't <strong>JUST</strong> a treat."
+            "caption": "And this isn't <strong>JUST</strong> a treat.",
+            "hide_desktop": false,
+            "hide_mobile": true
           }
         },
         "c3": {
@@ -344,7 +349,9 @@
             "media_type": "video",
             "video": "shopify://files/videos/IMG_4835.MOV",
             "video_url": "",
-            "caption": "<strong>It's love</strong>"
+            "caption": "<strong>It's love</strong>",
+            "hide_desktop": false,
+            "hide_mobile": true
           }
         }
       },
