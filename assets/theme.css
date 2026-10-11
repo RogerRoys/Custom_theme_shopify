@@ -569,3 +569,4 @@ html.is-design-mode [data-reveal]{opacity:1;transform:none;transition:none}
 .rcard__play{transition:transform var(--t-micro) var(--ease),opacity var(--t-micro) var(--ease)}
 .rcard__vid{cursor:pointer}
 @media (max-width:759px){.rcard{grid-template-columns:minmax(0,1fr)}.rcard__media{height:200px;max-width:100%;justify-self:center}}
+@media (min-width:900px){.joni__cards{display:flex}.joni__cards > .jcard{flex:1 1 0;min-width:0}}
