@@ -18,6 +18,7 @@
     "color_mint": "#84C99A",
     "cart_type": "drawer",
     "free_shipping_threshold": 50,
+    "favicon": "shopify://shop_images/MM_FAV-01.svg",
     "sections": {
       "cart-drawer": {
         "type": "cart-drawer",
